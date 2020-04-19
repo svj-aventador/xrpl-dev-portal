@@ -5803,34 +5803,6 @@ pages:
         targets:
             - ja
 
-    -   md: use-cases/run-a-rippled-validator.md
-        html: run-a-rippled-validator.html
-        funnel: Use Cases
-        template: template-use-case.html
-        useful_background:
-            - amendments.html
-            - the-rippled-server.html
-            - fee-voting.html
-            - consensus-principles-and-rules.html
-        filters:
-            - use_case
-        targets:
-            - en
-
-    -   md: use-cases/run-a-rippled-validator.ja.md
-        html: run-a-rippled-validator.html
-        funnel: Use Cases
-        template: template-use-case.html
-        useful_background:
-            - amendments.html
-            - the-rippled-server.html
-            - fee-voting.html
-            - consensus-principles-and-rules.html
-        filters:
-            - use_case
-        targets:
-            - ja
-
     -   md: use-cases/list-xrp-in-your-exchange.md
         html: list-xrp-in-your-exchange.html
         funnel: Use Cases
