@@ -1,13 +1,13 @@
 # Transaction Cost
 
-To protect the XRP Ledger from being disrupted by spam and denial-of-service attacks, each transaction must destroy a small amount of [XRP](xrp.html). This _transaction cost_ is designed to increase along with the load on the network, making it very expensive to deliberately or inadvertently overload the network.
+To protect the SGY Ledger from being disrupted by spam and denial-of-service attacks, each transaction must destroy a small amount of [SGY](xrp.html). This _transaction cost_ is designed to increase along with the load on the network, making it very expensive to deliberately or inadvertently overload the network.
 
-Every transaction must [specify how much XRP to destroy](#specifying-the-transaction-cost) to pay the transaction cost.
+Every transaction must [specify how much SGY to destroy](#specifying-the-transaction-cost) to pay the transaction cost.
 
 
 ## Current Transaction Cost
 
-The current minimum transaction cost required by the network for a standard transaction is **0.00001 XRP** (10 drops). It sometimes increases due to higher than usual load.
+The current minimum transaction cost required by the network for a standard transaction is **0.00001 SGY** (10 drops). It sometimes increases due to higher than usual load.
 
 You can also [query `rippled` for the current transaction cost](#querying-the-transaction-cost).
 
@@ -26,7 +26,7 @@ Some transactions have different transaction costs:
 
 ## Beneficiaries of the Transaction Cost
 
-The transaction cost is not paid to any party: the XRP is irrevocably destroyed. Since no new XRP can ever be created, this makes XRP more scarce and benefits all holders of XRP by making XRP more valuable.
+The transaction cost is not paid to any party: the SGY is irrevocably destroyed. Since no new SGY can ever be created, this makes SGY more scarce and benefits all holders of SGY by making SGY more valuable.
 
 
 ## Load Cost and Open Ledger Cost
@@ -49,7 +49,7 @@ Each `rippled` server maintains a cost threshold based on its current load. If y
 
 ## Open Ledger Cost
 
-The `rippled` server has a second mechanism for enforcing the transaction cost, called the _open ledger cost_. A transaction can only be included in the open ledger if it meets the open ledger cost requirement in XRP. Transactions that do not meet the open ledger cost may be [queued for a following ledger](#queued-transactions) instead.
+The `rippled` server has a second mechanism for enforcing the transaction cost, called the _open ledger cost_. A transaction can only be included in the open ledger if it meets the open ledger cost requirement in SGY. Transactions that do not meet the open ledger cost may be [queued for a following ledger](#queued-transactions) instead.
 
 For each new ledger version, the server picks a soft limit on the number of transactions to be included in the open ledger, based on the number of transactions in the previous ledger. The open ledger cost is equal to the minimum un-scaled transaction cost until the number of transactions in the open ledger is equal to the soft limit. After that, the open ledger cost increases exponentially for each transaction included in the open ledger. For the next ledger, the server increases the soft limit if the current ledger contained more transactions than the soft limit, and decreases the soft limit if the consensus process takes more than 5 seconds.
 
@@ -87,14 +87,14 @@ If the [FeeEscalation amendment][] is enabled, you can use the [fee method][] to
 
 ### server_info
 
-The [server_info method][] reports the unscaled minimum XRP cost, as of the previous ledger, as `validated_ledger.base_fee_xrp`, in the form of decimal XRP. The actual cost necessary to relay a transaction is scaled by multiplying that `base_fee_xrp` value by the `load_factor` parameter in the same response, which represents the server's current load level. In other words:
+The [server_info method][] reports the unscaled minimum SGY cost, as of the previous ledger, as `validated_ledger.base_fee_xrp`, in the form of decimal SGY. The actual cost necessary to relay a transaction is scaled by multiplying that `base_fee_xrp` value by the `load_factor` parameter in the same response, which represents the server's current load level. In other words:
 
-**Current Transaction Cost in XRP = `base_fee_xrp` × `load_factor`**
+**Current Transaction Cost in SGY = `base_fee_xrp` × `load_factor`**
 
 
 ### server_state
 
-The [server_state method][] returns a direct representation of `rippled`'s internal load calculations. In this case, the effective load rate is the ratio of the current `load_factor` to the `load_base`. The `validated_ledger.base_fee` parameter reports the minimum transaction cost in [drops of XRP](basic-data-types.html#specifying-currency-amounts). This design enables `rippled` to calculate the transaction cost using only integer math, while still allowing a reasonable amount of fine-tuning for server load. The actual calculation of the transaction cost is as follows:
+The [server_state method][] returns a direct representation of `rippled`'s internal load calculations. In this case, the effective load rate is the ratio of the current `load_factor` to the `load_base`. The `validated_ledger.base_fee` parameter reports the minimum transaction cost in [drops of SGY](basic-data-types.html#specifying-currency-amounts). This design enables `rippled` to calculate the transaction cost using only integer math, while still allowing a reasonable amount of fine-tuning for server load. The actual calculation of the transaction cost is as follows:
 
 **Current Transaction Cost in Drops = (`base_fee` × `load_factor`) ÷ `load_base`**
 
@@ -104,7 +104,7 @@ The [server_state method][] returns a direct representation of `rippled`'s inter
 
 Every signed transaction must include the transaction cost in the [`Fee` field](transaction-common-fields.html). Like all fields of a signed transaction, this field cannot be changed without invalidating the signature.
 
-As a rule, the XRP Ledger executes transactions _exactly_ as they are signed. (To do anything else would be difficult to coordinate across a decentralized consensus network, at the least.) As a consequence of this, every transaction destroys the exact amount of XRP specified by the `Fee` field, even if the specified amount is much more than the current minimum transaction cost for any part of the network. The transaction cost can even destroy XRP that would otherwise be set aside for an account's [reserve requirement](reserves.html).
+As a rule, the SGY Ledger executes transactions _exactly_ as they are signed. (To do anything else would be difficult to coordinate across a decentralized consensus network, at the least.) As a consequence of this, every transaction destroys the exact amount of SGY specified by the `Fee` field, even if the specified amount is much more than the current minimum transaction cost for any part of the network. The transaction cost can even destroy SGY that would otherwise be set aside for an account's [reserve requirement](reserves.html).
 
 Before signing a transaction, we recommend [looking up the current load-based transaction cost](#querying-the-transaction-cost). If the transaction cost is high due to load scaling, you may want to wait for it to decrease. If you do not plan on submitting the transaction immediately, we recommend specifying a slightly higher transaction cost to account for future load-based fluctuations in the transaction cost.
 
@@ -124,33 +124,33 @@ When you sign a transaction online, you can omit the `Fee` field. In this case, 
 
 ## Transaction Costs and Failed Transactions
 
-Since the purpose of the transaction cost is to protect the XRP Ledger peer-to-peer network from excessive load, it should apply to any transaction that gets distributed to the network, regardless of whether or not that transaction succeeds. However, to affect the shared global ledger, a transaction must be included in a validated ledger. Thus, `rippled` servers try to include failed transactions in ledgers, with [`tec` status codes](transaction-results.html) ("tec" stands for "Transaction Engine - Claimed fee only").
+Since the purpose of the transaction cost is to protect the SGY Ledger peer-to-peer network from excessive load, it should apply to any transaction that gets distributed to the network, regardless of whether or not that transaction succeeds. However, to affect the shared global ledger, a transaction must be included in a validated ledger. Thus, `rippled` servers try to include failed transactions in ledgers, with [`tec` status codes](transaction-results.html) ("tec" stands for "Transaction Engine - Claimed fee only").
 
-The transaction cost is only debited from the sender's XRP balance when the transaction actually becomes included in a validated ledger. This is true whether the transaction is considered successful or fails with a `tec` code.
+The transaction cost is only debited from the sender's SGY balance when the transaction actually becomes included in a validated ledger. This is true whether the transaction is considered successful or fails with a `tec` code.
 
-If a transaction's failure is [final](finality-of-results.html), the `rippled` server does not relay it to the network. The transaction does not get included in a validated ledger, so it cannot have any effect on anyone's XRP balance.
+If a transaction's failure is [final](finality-of-results.html), the `rippled` server does not relay it to the network. The transaction does not get included in a validated ledger, so it cannot have any effect on anyone's SGY balance.
 
-### Insufficient XRP
+### Insufficient SGY
 
-When a `rippled` server initially evaluates a transaction, it rejects the transaction with the error code `terINSUF_FEE_B` if the sending account does not have a high enough XRP balance to pay the XRP transaction cost. Since this is a `ter` (Retry) code, the `rippled` server retries the transaction without relaying it to the network, until the transaction's outcome is [final](finality-of-results.html).
+When a `rippled` server initially evaluates a transaction, it rejects the transaction with the error code `terINSUF_FEE_B` if the sending account does not have a high enough SGY balance to pay the SGY transaction cost. Since this is a `ter` (Retry) code, the `rippled` server retries the transaction without relaying it to the network, until the transaction's outcome is [final](finality-of-results.html).
 
-When a transaction has already been distributed to the network, but the account does not have enough XRP to pay the transaction cost, the result code `tecINSUFF_FEE` occurs instead. In this case, the account pays all the XRP it can, ending with 0 XRP. This can occur because `rippled` decides whether to relay the transaction to the network based on its in-progress ledger, but transactions may be dropped or reordered when building the consensus ledger.
+When a transaction has already been distributed to the network, but the account does not have enough SGY to pay the transaction cost, the result code `tecINSUFF_FEE` occurs instead. In this case, the account pays all the SGY it can, ending with 0 SGY. This can occur because `rippled` decides whether to relay the transaction to the network based on its in-progress ledger, but transactions may be dropped or reordered when building the consensus ledger.
 
 
 ## Key Reset Transaction
 
 As a special case, an account can send a [SetRegularKey](setregularkey.html) transaction with a transaction cost of `0`, as long as the account's [lsfPasswordSpent flag](accountroot.html) is disabled. This transaction must be signed by the account's _master key pair_. Sending this transaction enables the lsfPasswordSpent flag.
 
-This feature is designed to allow you to recover an account if the regular key is compromised, without worrying about whether the compromised account has any XRP available. This way, you can regain control of the account before you send more XRP to it.
+This feature is designed to allow you to recover an account if the regular key is compromised, without worrying about whether the compromised account has any SGY available. This way, you can regain control of the account before you send more SGY to it.
 
-The [lsfPasswordSpent flag](accountroot.html) starts out disabled. It gets enabled when you send a SetRegularKey transaction signed by the master key pair. It gets disabled again when the account receives a [Payment](payment.html) of XRP.
+The [lsfPasswordSpent flag](accountroot.html) starts out disabled. It gets enabled when you send a SetRegularKey transaction signed by the master key pair. It gets disabled again when the account receives a [Payment](payment.html) of SGY.
 
 When the [FeeEscalation amendment][] is enabled, `rippled` prioritizes key reset transactions above other transactions even though the nominal transaction cost of a key reset transaction is zero.
 
 
 ## Changing the Transaction Cost
 
-The XRP Ledger has a mechanism for changing the minimum transaction cost to account for long-term changes in the value of XRP. Any changes have to be approved by the consensus process. See [Fee Voting](fee-voting.html) for more information.
+The SGY Ledger has a mechanism for changing the minimum transaction cost to account for long-term changes in the value of SGY. Any changes have to be approved by the consensus process. See [Fee Voting](fee-voting.html) for more information.
 
 
 ## See Also

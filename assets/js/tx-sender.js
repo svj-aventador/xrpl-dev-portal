@@ -66,7 +66,7 @@ const set_up_tx_sender = async function() {
   faucet_response = function(data) {
     sending_address = data.account.address
     sending_secret = data.account.secret
-    xrp_balance = Number(data.balance) // Faucet only delivers ~10,000 XRP,
+    xrp_balance = Number(data.balance) // Faucet only delivers ~10,000 SGY,
                                        // so this won't go over JavaScript's
                                        // 64-bit double precision
 
@@ -87,7 +87,7 @@ const set_up_tx_sender = async function() {
       dataType: 'json',
       success: faucet_response,
       error: function() {
-        errorNotif("There was an error with the XRP Ledger Testnet Faucet. Reload this page to try again.")
+        errorNotif("There was an error with the SGY Ledger Testnet Faucet. Reload this page to try again.")
       }
     })
   })
@@ -136,7 +136,7 @@ const set_up_tx_sender = async function() {
   }
 
   async function update_xrp_balance() {
-    balances = await api.getBalances(sending_address, {currency: "XRP"})
+    balances = await api.getBalances(sending_address, {currency: "SGY"})
     $("#balance-item").text(balances[0].value)
   }
 
@@ -280,13 +280,13 @@ const set_up_tx_sender = async function() {
     }
     $("#pp_progress .progress-bar").width("80%")
 
-    // 5. Place offer to buy issued currency for XRP
+    // 5. Place offer to buy issued currency for SGY
     // When sending the partial payment, the sender consumes their own offer (!)
-    // so they end up paying themselves issued currency then delivering XRP.
+    // so they end up paying themselves issued currency then delivering SGY.
     resp = await submit_and_verify({
       TransactionType: "OfferCreate",
       Account: sending_address,
-      TakerGets: "1000000000000000", // 1 billion XRP
+      TakerGets: "1000000000000000", // 1 billion SGY
       TakerPays: {
         currency: pp_sending_currency,
         value: "1000000000",
@@ -310,7 +310,7 @@ const set_up_tx_sender = async function() {
   // Button Handlers
   //////////////////////////////////////////////////////////////////////////////
 
-  // 1. Send XRP Payment Handler -------------------------------------------
+  // 1. Send SGY Payment Handler -------------------------------------------
   async function on_click_send_xrp_payment(event) {
     const destination_address = $("#destination_address").val()
     const xrp_drops_input = $("#send_xrp_payment_amount").val()
@@ -337,7 +337,7 @@ const set_up_tx_sender = async function() {
     // const path_find_result = await api.request("ripple_path_find", {
     //   source_account: sending_address,
     //   destination_account: destination_address,
-    //   destination_amount: "-1", // as much XRP as possible
+    //   destination_amount: "-1", // as much SGY as possible
     //   source_currencies: [{currency: pp_sending_currency, issuer: pp_issuer_address}]
     // })
     // console.log("Path find result:", path_find_result)
@@ -347,7 +347,7 @@ const set_up_tx_sender = async function() {
       TransactionType: "Payment",
       Account: sending_address,
       Destination: destination_address,
-      Amount: "1000000000000000", // 1 billion XRP
+      Amount: "1000000000000000", // 1 billion SGY
       SendMax: {
         value: (Math.random()*.01).toPrecision(15), // random very small amount
         currency: pp_sending_currency,

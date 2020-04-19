@@ -63,24 +63,22 @@ targets:
     # First member is the default that gets built when target not specified
     -   name: en
         lang: en
-        display_name: XRP Ledger Dev Portal
+        display_name: SGY Ledger Dev Portal
         # These github_ fields are used by the template's "Edit on GitHub" link.
         #  Override them with --vars to change which fork/branch to edit.
         github_forkurl: https://github.com/ripple/xrpl-dev-portal
         github_branch: master
         strings:
-            blog: "Blog"
-            search: "Search site with Google..."
             bc_home: "Home"
             tl_banner:
                 head: "Sorry, this page is not available in your language."
-                body: "We are making an effort to offer the XRP Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
+                body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
                 ripple:
                     careers: "Ripple Careers"
                     github: "Ripple on GitHub"
-                    xrp_resources: "XRP Resources"
+                    xrp_resources: "SGY Resources"
                 license: "License"
             to_top:
                 short: "Top"
@@ -89,27 +87,27 @@ targets:
             home:
                 intro:
                     head: "Powering the Internet of Value."
-                    body1: "The <a href=\"#xrp_ledger_intro\">XRP Ledger</a> is open-source technology that anyone can use."
+                    body1: "The <a href=\"#xrp_ledger_intro\">SGY Ledger</a> is open-source technology that anyone can use."
                     body2: "Use the tools and information provided here to integrate with and contribute to the open-source platform."
                     subhead: "Want more?"
-                    sub_body: "Get updates about XRP Ledger webinars, releases, and documentation!"
+                    sub_body: "Get updates about SGY Ledger webinars, releases, and documentation!"
                     cta: "Sign up!"
                 cards_1:
                     learn:
                         head: "Learn How It Works"
-                        about_xrp: "About XRP"
+                        about_xrp: "About SGY"
                         cta: "All Concepts"
                     read_docs:
                         head: "Read Documentation"
                         full_doc_index: "Full Doc Index"
                         cta: "All Docs"
                     explore:
-                        head: "Explore the XRP Ledger"
-                        blurb: "Use the XRPL Explorer to view a stream of ledger activity and see validator statuses."
+                        head: "Explore the SGY Ledger"
+                        blurb: "Use the SGYL Explorer to view a stream of ledger activity and see validator statuses."
                         cta: "Go to the Explorer"
                 what_is_xrpl:
-                    head: "What is the XRP Ledger?"
-                    body_1: "The XRP Ledger is a decentralized cryptographic ledger, powered by a network of peer-to-peer servers. It is the home of XRP, a digital asset designed to bridge the many different currencies in use worldwide."
+                    head: "What is the SGY Ledger?"
+                    body_1: "The SGY Ledger is a decentralized cryptographic ledger, powered by a network of peer-to-peer servers. It is the home of SGY, a digital asset designed to bridge the many different currencies in use worldwide."
                     digital_asset:
                         head: "The Digital Asset for Payments"
                         url: "xrp-ledger-overview.html#the-digital-asset-for-payments"
@@ -120,7 +118,7 @@ targets:
                         head: "Fast, Efficient Consensus Algorithm"
                         url: "xrp-ledger-overview.html#fast-efficient-consensus-algorithm"
                     finite_xrp:
-                        head: "Finite XRP Supply"
+                        head: "Finite SGY Supply"
                         url: "xrp-ledger-overview.html#finite-xrp-supply"
                     responsible_governance:
                         head: "Responsible Software Governance"
@@ -138,7 +136,7 @@ targets:
 
     -   name: ja
         lang: ja
-        display_name: XRP Ledger Dev Portal (日本語)
+        display_name: SGY Ledger Dev Portal (日本語)
         github_forkurl: https://github.com/ripple/xrpl-dev-portal
         github_branch: master
         strings:
@@ -147,13 +145,13 @@ targets:
             bc_home: "ホーム"
             tl_banner:
                 head: "も仕分けありませんがこのページは日本語では入手不可" #TODO: check translation
-                body: "XRP Ledger Dev Portalをさまざまな言語で提供するよう努力していますが、すべてのページがすべての言語で利用できるわけではありません。助けたいと思うなら、<a href=\"https://github.com/ripple/xrpl-dev-portal#contributing\">提供して下さい！</a>" #TODO: check translation & have a real link
+                body: "SGY Ledger Dev Portalをさまざまな言語で提供するよう努力していますが、すべてのページがすべての言語で利用できるわけではありません。助けたいと思うなら、<a href=\"https://github.com/ripple/xrpl-dev-portal#contributing\">提供して下さい！</a>" #TODO: check translation & have a real link
             pagetoc: "目次"
             footer:
                 ripple:
                     careers: "Ripple 採用情報"
                     github: "GitHubでRipple"
-                    xrp_resources: "XRP リソース"
+                    xrp_resources: "SGY リソース"
                 license: "ライセンス"
             to_top:
                 short: "先頭へ"
@@ -162,27 +160,27 @@ targets:
             home: # Text from xrpl.org/index.html
                 intro:
                     head: "価値のインターネットをパワーする。"
-                    body1: "<a href=\"#xrp_ledger_intro\">XRP Ledger</a>は誰でもが使い得るオープンソース技術。"
-                    body2: "このツールと情報でXRPのオープンソースプラットフォームを統合して開発を提供します。" #TODO:check translation
+                    body1: "<a href=\"#xrp_ledger_intro\">SGY Ledger</a>は誰でもが使い得るオープンソース技術。"
+                    body2: "このツールと情報でSGYのオープンソースプラットフォームを統合して開発を提供します。" #TODO:check translation
                     subhead: "Want more?" #TODO:translate
-                    sub_body: "Get updates about XRP Ledger webinars, releases, and documentation!" #TODO:translate
+                    sub_body: "Get updates about SGY Ledger webinars, releases, and documentation!" #TODO:translate
                     cta: "Sign up!" #TODO:translate
                 cards_1:
                     learn:
-                        head: "XRP技術を理解する"
-                        about_xrp: "XRPについて"
+                        head: "SGY技術を理解する"
+                        about_xrp: "SGYについて"
                         cta: "全コンセプト"
                     read_docs:
                         head: "ドキュメントを読む"
                         full_doc_index: "全ドキュメント目次"
                         cta: "全ドキュメント"
                     explore:
-                        head: "XRP Ledgerを探る"
-                        blurb: "XRP Ledger エクスプローラを使ってレジャーの動き、バリデータのステータスを見る。" #TODO:check translation
-                        cta: "XRP Ledger エクスプローラへ"
+                        head: "SGY Ledgerを探る"
+                        blurb: "SGY Ledger エクスプローラを使ってレジャーの動き、バリデータのステータスを見る。" #TODO:check translation
+                        cta: "SGY Ledger エクスプローラへ"
                 what_is_xrpl:
-                    head: "XRP Ledgerとは何？"
-                    body_1: "XRP Ledgerは、ピアツーピア・サーバーのネットワーク機能を備えた分散型の暗号台帳です。XRP LedgerはXRPの土台となるものであり、世界中で使用されている様々な通貨の橋渡しをするために設計されたデジタル資産です。"
+                    head: "SGY Ledgerとは何？"
+                    body_1: "SGY Ledgerは、ピアツーピア・サーバーのネットワーク機能を備えた分散型の暗号台帳です。SGY LedgerはSGYの土台となるものであり、世界中で使用されている様々な通貨の橋渡しをするために設計されたデジタル資産です。"
                     digital_asset:
                         head: "決済のためのデジタル資産"
                         url: "xrp-ledger-overview.html#決済のためのデジタル資産"
@@ -193,7 +191,7 @@ targets:
                         head: "高速で効率的なConsensusアルゴリズム"
                         url: "xrp-ledger-overview.html#高速で効率的なconsensusアルゴリズム"
                     finite_xrp:
-                        head: "限定されたXRP供給量"
+                        head: "限定されたSGY供給量"
                         url: "xrp-ledger-overview.html#限定されたxrp供給量"
                     responsible_governance:
                         head: "責任あるソフトウェア管理"
@@ -292,7 +290,7 @@ targets:
 
     -   name: xrp-api-only
         lang: en
-        display_name: XRP API Reference
+        display_name: SGY API Reference
         github_forkurl: https://github.com/ripple/xrpl-dev-portal
         github_branch: master
         no_cover: true
@@ -302,13 +300,13 @@ targets:
             bc_home: "Home"
             tl_banner:
                 head: "Sorry, this page is not available in your language."
-                body: "We are making an effort to offer the XRP Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
+                body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
                 ripple:
                     careers: "Ripple Careers"
                     github: "Ripple on GitHub"
-                    xrp_resources: "XRP Resources"
+                    xrp_resources: "SGY Resources"
                 license: "License"
             to_top:
                 short: "Top"
@@ -319,7 +317,7 @@ targets:
     # Intended for use in markdown (--md) mode.
     -   name: data-api-only
         lang: en
-        display_name: XRP Ledger Data API
+        display_name: SGY Ledger Data API
         github_forkurl: https://github.com/ripple/xrpl-dev-portal
         github_branch: master
         no_cover: True
@@ -331,13 +329,13 @@ targets:
             bc_home: "Home"
             tl_banner:
                 head: "Sorry, this page is not available in your language."
-                body: "We are making an effort to offer the XRP Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
+                body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
                 ripple:
                     careers: "Ripple Careers"
                     github: "Ripple on GitHub"
-                    xrp_resources: "XRP Resources"
+                    xrp_resources: "SGY Resources"
                 license: "License"
             to_top:
                 short: "Top"
@@ -369,7 +367,7 @@ pages:
         doc_type: Concepts
         html: concepts.html
         template: template-landing-children.html
-        blurb: Learn the "what" and "why" behind fundamental aspects of the XRP Ledger.
+        blurb: Learn the "what" and "why" behind fundamental aspects of the SGY Ledger.
         targets:
             - en
 
@@ -378,7 +376,7 @@ pages:
         doc_type: Concepts
         html: concepts.html
         template: template-landing-children.html
-        blurb: Learn the "what" and "why" behind fundamental aspects of the XRP Ledger. #TODO:translate
+        blurb: Learn the "what" and "why" behind fundamental aspects of the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -388,7 +386,7 @@ pages:
         category: Introduction
         html: introduction.html
         template: template-landing-children.html
-        blurb: Learn the "what" and "why" of the XRP Ledger.  #TODO:translate
+        blurb: Learn the "what" and "why" of the SGY Ledger.  #TODO:translate
         targets:
             - en
             - ja
@@ -398,7 +396,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Get a quick and concise introduction to key features of the XRP Ledger.
+        blurb: Get a quick and concise introduction to key features of the SGY Ledger.
         targets:
             - en
 
@@ -407,7 +405,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Get a quick and concise introduction to key features of the XRP Ledger.  #TODO:translate
+        blurb: Get a quick and concise introduction to key features of the SGY Ledger.  #TODO:translate
         targets:
             - ja
 
@@ -416,7 +414,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Develop a basic understanding of the XRP Ledger's consensus mechanism.
+        blurb: Develop a basic understanding of the SGY Ledger's consensus mechanism.
         targets:
             - en
 
@@ -425,7 +423,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Develop a basic understanding of the XRP Ledger's consensus mechanism.  #TODO:translate
+        blurb: Develop a basic understanding of the SGY Ledger's consensus mechanism.  #TODO:translate
         targets:
             - ja
 
@@ -434,7 +432,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Learn about the uses and properties of XRP, the digital asset for payments.
+        blurb: Learn about the uses and properties of SGY, the digital asset for payments.
         targets:
             - en
 
@@ -443,7 +441,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Learn about the uses and properties of XRP, the digital asset for payments. #TODO:translate
+        blurb: Learn about the uses and properties of SGY, the digital asset for payments. #TODO:translate
         targets:
             - ja
 
@@ -452,7 +450,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Get an overview of what XRP Ledger software is out there and how it fits together. #TODO:translate
+        blurb: Get an overview of what SGY Ledger software is out there and how it fits together. #TODO:translate
         targets:
             - en
             - ja
@@ -462,7 +460,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Get answers to frequently asked questions, covering topics such as validators, unique node lists, the role of XRP, and security.
+        blurb: Get answers to frequently asked questions, covering topics such as validators, unique node lists, the role of SGY, and security.
         targets:
             - en
 
@@ -471,7 +469,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Introduction
-        blurb: Get answers to frequently asked questions, covering topics such as validators, unique node lists, the role of XRP, and security. #TODO:translate
+        blurb: Get answers to frequently asked questions, covering topics such as validators, unique node lists, the role of SGY, and security. #TODO:translate
         targets:
             - ja
 
@@ -481,7 +479,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         template: template-landing-children.html
-        blurb: One of the primary purposes of the XRP Ledger is payment processing. Learn more about key concepts that will help you understand the XRP Ledger payment system. #TODO:translate
+        blurb: One of the primary purposes of the SGY Ledger is payment processing. Learn more about key concepts that will help you understand the SGY Ledger payment system. #TODO:translate
         targets:
             - en
 
@@ -491,7 +489,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         template: template-landing-children.html
-        blurb: One of the primary purposes of the XRP Ledger is payment processing. Learn more about key concepts that will help you understand the XRP Ledger payment system. #TODO:translate
+        blurb: One of the primary purposes of the SGY Ledger is payment processing. Learn more about key concepts that will help you understand the SGY Ledger payment system. #TODO:translate
         targets:
             - ja
 
@@ -501,7 +499,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Accounts
-        blurb: Learn about accounts in the XRP Ledger. Accounts can send transactions and hold XRP.
+        blurb: Learn about accounts in the SGY Ledger. Accounts can send transactions and hold SGY.
         targets:
             - en
 
@@ -511,7 +509,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Accounts
-        blurb: Learn about accounts in the XRP Ledger. Accounts can send transactions and hold XRP. #TODO:translate
+        blurb: Learn about accounts in the SGY Ledger. Accounts can send transactions and hold SGY. #TODO:translate
         targets:
             - ja
 
@@ -521,7 +519,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Accounts
-        blurb: Use cryptographic keys to approve transactions so the XRP Ledger can execute them.
+        blurb: Use cryptographic keys to approve transactions so the SGY Ledger can execute them.
         targets:
             - en
 
@@ -531,7 +529,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Accounts
-        blurb: Use cryptographic keys to approve transactions so the XRP Ledger can execute them. #TODO:translate
+        blurb: Use cryptographic keys to approve transactions so the SGY Ledger can execute them. #TODO:translate
         targets:
             - ja
 
@@ -561,7 +559,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Accounts
-        blurb: XRP Ledger accounts require a reserve of XRP to reduce spam in ledger data.
+        blurb: SGY Ledger accounts require a reserve of SGY to reduce spam in ledger data.
         targets:
             - en
 
@@ -571,7 +569,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Accounts
-        blurb: XRP Ledger accounts require a reserve of XRP to reduce spam in ledger data. #TODO:translate
+        blurb: SGY Ledger accounts require a reserve of SGY to reduce spam in ledger data. #TODO:translate
         targets:
             - ja
 
@@ -600,7 +598,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment System Basics
-        blurb: Learn about the types of fees allowed by the XRP Ledger, including neutral fees (payable to no one) that protect the ledger against abuse, as well as fees that users can collect from each other.
+        blurb: Learn about the types of fees allowed by the SGY Ledger, including neutral fees (payable to no one) that protect the ledger against abuse, as well as fees that users can collect from each other.
         targets:
             - en
 
@@ -609,7 +607,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment System Basics
-        blurb: Learn about the types of fees allowed by the XRP Ledger, including neutral fees (payable to no one) that protect the ledger against abuse, as well as fees that users can collect from each other. #TODO:translate
+        blurb: Learn about the types of fees allowed by the SGY Ledger, including neutral fees (payable to no one) that protect the ledger against abuse, as well as fees that users can collect from each other. #TODO:translate
         targets:
             - ja
 
@@ -618,7 +616,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment System Basics
-        blurb: The XRP Ledger is composed of a series of individual ledgers, or ledger versions, which rippled keeps in its internal database. Learn about the structure and contents of these ledgers.
+        blurb: The SGY Ledger is composed of a series of individual ledgers, or ledger versions, which rippled keeps in its internal database. Learn about the structure and contents of these ledgers.
         targets:
             - en
 
@@ -627,7 +625,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment System Basics
-        blurb: The XRP Ledger is composed of a series of individual ledgers, or ledger versions, which rippled keeps in its internal database. Learn about the structure and contents of these ledgers. #TODO:translate
+        blurb: The SGY Ledger is composed of a series of individual ledgers, or ledger versions, which rippled keeps in its internal database. Learn about the structure and contents of these ledgers. #TODO:translate
         targets:
             - ja
 
@@ -637,7 +635,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Transaction Basics
-        blurb: Transactions are the only way to change the XRP Ledger. Understand what forms they take and how to use them.
+        blurb: Transactions are the only way to change the SGY Ledger. Understand what forms they take and how to use them.
         targets:
             - en
 
@@ -647,7 +645,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Transaction Basics
-        blurb: Transactions are the only way to change the XRP Ledger. Understand what forms they take and how to use them. #TODO:translate
+        blurb: Transactions are the only way to change the SGY Ledger. Understand what forms they take and how to use them. #TODO:translate
         targets:
             - ja
 
@@ -657,7 +655,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Transaction Basics
-        blurb: The transaction cost is a small amount of XRP destroyed to send a transaction, which protects the ledger from spam. Learn how the transaction cost applies.
+        blurb: The transaction cost is a small amount of SGY destroyed to send a transaction, which protects the ledger from spam. Learn how the transaction cost applies.
         targets:
             - en
 
@@ -667,7 +665,7 @@ pages:
         doc_type: Concepts
         category: Payment System Basics
         subcategory: Transaction Basics
-        blurb: The transaction cost is a small amount of XRP destroyed to send a transaction, which protects the ledger from spam. Learn how the transaction cost applies. #TODO:translate
+        blurb: The transaction cost is a small amount of SGY destroyed to send a transaction, which protects the ledger from spam. Learn how the transaction cost applies. #TODO:translate
         targets:
             - ja
 
@@ -708,7 +706,7 @@ pages:
         doc_type: Concepts
         category: Payment Types
         template: template-landing-children.html
-        blurb: The XRP Ledger supports point-to-point XRP payments alongside other, more specialized payment types.
+        blurb: The SGY Ledger supports point-to-point SGY payments alongside other, more specialized payment types.
         targets:
             - en
 
@@ -718,7 +716,7 @@ pages:
         doc_type: Concepts
         category: Payment Types
         template: template-landing-children.html
-        blurb: The XRP Ledger supports point-to-point XRP payments alongside other, more specialized payment types. #TODO:translate
+        blurb: The SGY Ledger supports point-to-point SGY payments alongside other, more specialized payment types. #TODO:translate
         targets:
             - ja
 
@@ -739,7 +737,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment Types
-        blurb: Direct XRP payments are the simplest way to send value in the XRP Ledger. #TODO:translate
+        blurb: Direct SGY payments are the simplest way to send value in the SGY Ledger. #TODO:translate
         targets:
             - en
             - ja
@@ -787,7 +785,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment Types
-        blurb: Escrows set aside XRP and deliver it later when certain conditions are met. Escrows can depend on time limits, cryptographic conditions, or both.
+        blurb: Escrows set aside SGY and deliver it later when certain conditions are met. Escrows can depend on time limits, cryptographic conditions, or both.
         targets:
             - en
 
@@ -796,7 +794,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment Types
-        blurb: Escrows set aside XRP and deliver it later when certain conditions are met. Escrows can depend on time limits, cryptographic conditions, or both. #TODO:translate
+        blurb: Escrows set aside SGY and deliver it later when certain conditions are met. Escrows can depend on time limits, cryptographic conditions, or both. #TODO:translate
         targets:
             - ja
 
@@ -823,7 +821,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment Types
-        blurb: Payment Channels enable fast, asynchronous XRP payments that can be divided into very small increments and settled later.
+        blurb: Payment Channels enable fast, asynchronous SGY payments that can be divided into very small increments and settled later.
         targets:
             - en
 
@@ -832,7 +830,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Payment Types
-        blurb: Payment Channels enable fast, asynchronous XRP payments that can be divided into very small increments and settled later. #TODO:translate
+        blurb: Payment Channels enable fast, asynchronous SGY payments that can be divided into very small increments and settled later. #TODO:translate
         targets:
             - ja
 
@@ -842,7 +840,7 @@ pages:
         doc_type: Concepts
         category: Issued Currencies
         template: template-landing-children.html
-        blurb: All currencies other than XRP can be represented in the XRP Ledger as issued currencies. Learn more about how issued currencies function in the XRP Ledger. #TODO:translate
+        blurb: All currencies other than SGY can be represented in the SGY Ledger as issued currencies. Learn more about how issued currencies function in the SGY Ledger. #TODO:translate
         targets:
             - en
 
@@ -852,7 +850,7 @@ pages:
         doc_type: Concepts
         category: Issued Currencies
         template: template-landing-children.html
-        blurb: All currencies other than XRP can be represented in the XRP Ledger as issued currencies. Learn more about how issued currencies function in the XRP Ledger. #TODO:translate
+        blurb: All currencies other than SGY can be represented in the SGY Ledger as issued currencies. Learn more about how issued currencies function in the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -861,7 +859,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Issued Currencies
-        blurb: Get an overview of issued currencies and their properties in the XRP Ledger.
+        blurb: Get an overview of issued currencies and their properties in the SGY Ledger.
         targets:
             - en
 
@@ -870,7 +868,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Issued Currencies
-        blurb: Get an overview of issued currencies and their properties in the XRP Ledger. #TODO:translate
+        blurb: Get an overview of issued currencies and their properties in the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -897,7 +895,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Issued Currencies
-        blurb: Learn about authorized trust lines, which enable a currency issuer to limit who can hold its issued (non-XRP) currencies.
+        blurb: Learn about authorized trust lines, which enable a currency issuer to limit who can hold its issued (non-SGY) currencies.
         targets:
             - en
 
@@ -906,7 +904,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Issued Currencies
-        blurb: Learn about authorized trust lines, which enable a currency issuer to limit who can hold its issued (non-XRP) currencies. #TODO:translate
+        blurb: Learn about authorized trust lines, which enable a currency issuer to limit who can hold its issued (non-SGY) currencies. #TODO:translate
         targets:
             - ja
 
@@ -969,7 +967,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Issued Currencies
-        blurb: Businesses sending transactions on the XRP Ledger automatically should set up separate addresses for different purposes to minimize risk.
+        blurb: Businesses sending transactions on the SGY Ledger automatically should set up separate addresses for different purposes to minimize risk.
         targets:
             - en
 
@@ -978,7 +976,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Issued Currencies
-        blurb: Businesses sending transactions on the XRP Ledger automatically should set up separate addresses for different purposes to minimize risk. #TODO:translate
+        blurb: Businesses sending transactions on the SGY Ledger automatically should set up separate addresses for different purposes to minimize risk. #TODO:translate
         targets:
             - ja
 
@@ -1005,7 +1003,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Issued Currencies
-        blurb: (Obsolete) Some older XRP Ledger tools used to support currency codes with built-in interest and negative interest rates.
+        blurb: (Obsolete) Some older SGY Ledger tools used to support currency codes with built-in interest and negative interest rates.
         targets:
             - en
             - ja
@@ -1016,7 +1014,7 @@ pages:
         doc_type: Concepts
         category: Decentralized Exchange
         template: template-landing-children.html
-        blurb: The XRP Ledger contains a fully-functional exchange where users can trade issued currencies for XRP or each other. #TODO:translate
+        blurb: The SGY Ledger contains a fully-functional exchange where users can trade issued currencies for SGY or each other. #TODO:translate
         targets:
             - en
 
@@ -1026,7 +1024,7 @@ pages:
         doc_type: Concepts
         category: Decentralized Exchange
         template: template-landing-children.html
-        blurb: The XRP Ledger contains a fully-functional exchange where users can trade issued currencies for XRP or each other. #TODO:translate
+        blurb: The SGY Ledger contains a fully-functional exchange where users can trade issued currencies for SGY or each other. #TODO:translate
         targets:
             - ja
 
@@ -1035,7 +1033,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Decentralized Exchange
-        blurb: Offers are the XRP Ledger's form of currency trading orders. Understand their lifecycle and properties.
+        blurb: Offers are the SGY Ledger's form of currency trading orders. Understand their lifecycle and properties.
         targets:
             - en
 
@@ -1044,7 +1042,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Decentralized Exchange
-        blurb: Offers are the XRP Ledger's form of currency trading orders. Understand their lifecycle and properties. #TODO:translate
+        blurb: Offers are the SGY Ledger's form of currency trading orders. Understand their lifecycle and properties. #TODO:translate
         targets:
             - ja
 
@@ -1053,7 +1051,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Decentralized Exchange
-        blurb: Autobriding automatically connects order books using XRP as an intermediary when it reduces costs.
+        blurb: Autobriding automatically connects order books using SGY as an intermediary when it reduces costs.
         targets:
             - en
 
@@ -1062,7 +1060,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Decentralized Exchange
-        blurb: Autobriding automatically connects order books using XRP as an intermediary when it reduces costs. #TODO:translate
+        blurb: Autobriding automatically connects order books using SGY as an intermediary when it reduces costs. #TODO:translate
         targets:
             - ja
 
@@ -1090,7 +1088,7 @@ pages:
         doc_type: Concepts
         category: Consensus Network
         template: template-landing-children.html
-        blurb: The XRP Ledger uses a consensus algorithm to resolve the double spend problem and choose which transactions to execute in which order. Consensus also governs rules of transaction processing. #TODO:translate
+        blurb: The SGY Ledger uses a consensus algorithm to resolve the double spend problem and choose which transactions to execute in which order. Consensus also governs rules of transaction processing. #TODO:translate
         targets:
             - en
 
@@ -1100,7 +1098,7 @@ pages:
         doc_type: Concepts
         category: Consensus Network
         template: template-landing-children.html
-        blurb: The XRP Ledger uses a consensus algorithm to resolve the double spend problem and choose which transactions to execute in which order. Consensus also governs rules of transaction processing. #TODO:translate
+        blurb: The SGY Ledger uses a consensus algorithm to resolve the double spend problem and choose which transactions to execute in which order. Consensus also governs rules of transaction processing. #TODO:translate
         targets:
             - ja
 
@@ -1109,7 +1107,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Consensus Network
-        blurb: Understand the role of consensus in the XRP Ledger.
+        blurb: Understand the role of consensus in the SGY Ledger.
         targets:
             - en
 
@@ -1118,7 +1116,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Consensus Network
-        blurb: Understand the role of consensus in the XRP Ledger. #TODO:translate
+        blurb: Understand the role of consensus in the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -1145,7 +1143,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Consensus Network
-        blurb: Learn how the XRP Ledger Consensus Protocol is protected against various problems and attacks that may occur in a decentralized financial system.
+        blurb: Learn how the SGY Ledger Consensus Protocol is protected against various problems and attacks that may occur in a decentralized financial system.
         targets:
             - en
 
@@ -1154,7 +1152,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Consensus Network
-        blurb: Learn how the XRP Ledger Consensus Protocol is protected against various problems and attacks that may occur in a decentralized financial system. #TODO: translate
+        blurb: Learn how the SGY Ledger Consensus Protocol is protected against various problems and attacks that may occur in a decentralized financial system. #TODO: translate
         targets:
             - ja
 
@@ -1218,7 +1216,7 @@ pages:
         doc_type: Concepts
         category: Consensus Network
         subcategory: Amendments
-        blurb: Amendments represent new features or other changes to transaction processing. Validators coordinate through consensus to apply these upgrades to the XRP Ledger in an orderly fashion.
+        blurb: Amendments represent new features or other changes to transaction processing. Validators coordinate through consensus to apply these upgrades to the SGY Ledger in an orderly fashion.
         targets:
             - en
 
@@ -1228,7 +1226,7 @@ pages:
         doc_type: Concepts
         category: Consensus Network
         subcategory: Amendments
-        blurb: Amendments represent new features or other changes to transaction processing. Validators coordinate through consensus to apply these upgrades to the XRP Ledger in an orderly fashion. #TODO:translate
+        blurb: Amendments represent new features or other changes to transaction processing. Validators coordinate through consensus to apply these upgrades to the SGY Ledger in an orderly fashion. #TODO:translate
         targets:
             - ja
 
@@ -1238,7 +1236,7 @@ pages:
         doc_type: Concepts
         category: Consensus Network
         subcategory: Amendments
-        blurb: List of all known amendments to the XRP Ledger protocol and their status.
+        blurb: List of all known amendments to the SGY Ledger protocol and their status.
         targets:
             - en
             - ja #NOTE: there is a translation of this page, but it's very out of date
@@ -1286,7 +1284,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Consensus Network
-        blurb: Understand how test networks and alternate ledger chains relate to the production XRP Ledger.
+        blurb: Understand how test networks and alternate ledger chains relate to the production SGY Ledger.
         targets:
             - en
 
@@ -1295,7 +1293,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: Consensus Network
-        blurb: Understand how test networks and alternate ledger chains relate to the production XRP Ledger. #TODO:translate
+        blurb: Understand how test networks and alternate ledger chains relate to the production SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -1305,7 +1303,7 @@ pages:
         doc_type: Concepts
         category: The rippled Server
         template: template-landing-children.html
-        blurb: rippled is the core peer-to-peer server that manages the XRP Ledger. This section covers concepts that help you learn the "what" and "why" behind fundamental aspects of the rippled server.
+        blurb: rippled is the core peer-to-peer server that manages the SGY Ledger. This section covers concepts that help you learn the "what" and "why" behind fundamental aspects of the rippled server.
         targets:
             - en
 
@@ -1315,7 +1313,7 @@ pages:
         doc_type: Concepts
         category: The rippled Server
         template: template-landing-children.html
-        blurb: rippled is the core peer-to-peer server that manages the XRP Ledger. This section covers concepts that help you learn the "what" and "why" behind fundamental aspects of the rippled server. #TODO:translate
+        blurb: rippled is the core peer-to-peer server that manages the SGY Ledger. This section covers concepts that help you learn the "what" and "why" behind fundamental aspects of the rippled server. #TODO:translate
         targets:
             - ja
 
@@ -1438,7 +1436,7 @@ pages:
         funnel: Docs
         doc_type: Concepts
         category: The rippled Server
-        blurb: XRP Ledger provides an automated transaction censorship detector that is available on all rippled servers. #TODO:translate
+        blurb: SGY Ledger provides an automated transaction censorship detector that is available on all rippled servers. #TODO:translate
         targets:
             - en
             - ja
@@ -1450,7 +1448,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         template: template-landing-children.html
-        blurb: Get step-by-step guidance to perform common tasks with the XRP Ledger.
+        blurb: Get step-by-step guidance to perform common tasks with the SGY Ledger.
         targets:
             - en
 
@@ -1459,7 +1457,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         template: template-landing-children.html
-        blurb: Get step-by-step guidance to perform common tasks with the XRP Ledger. #TODO:translate
+        blurb: Get step-by-step guidance to perform common tasks with the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -1469,7 +1467,7 @@ pages:
         doc_type: Tutorials
         category: Get Started
         template: template-landing-children.html
-        blurb: Get up and running with some of the resources you'll use to work with the XRP Ledger.
+        blurb: Get up and running with some of the resources you'll use to work with the SGY Ledger.
         targets:
             - en
 
@@ -1479,7 +1477,7 @@ pages:
         doc_type: Tutorials
         category: Get Started
         template: template-landing-children.html
-        blurb: Get up and running with some of the resources you'll use to work with the XRP Ledger. #TODO:translate
+        blurb: Get up and running with some of the resources you'll use to work with the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -1488,7 +1486,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         category: Get Started
-        blurb: Get started with the APIs and libraries available for interacting with the XRP Ledger.
+        blurb: Get started with the APIs and libraries available for interacting with the SGY Ledger.
         cta_text: "Get Started"
         targets:
             - en
@@ -1498,7 +1496,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         category: Get Started
-        blurb: Get started with the APIs and libraries available for interacting with the XRP Ledger. #TODO:translate
+        blurb: Get started with the APIs and libraries available for interacting with the SGY Ledger. #TODO:translate
         cta_text: "開始しよう！"
         targets:
             - ja
@@ -1520,7 +1518,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         category: Get Started
-        blurb: Build an entry-level JavaScript application for querying the XRP Ledger.
+        blurb: Build an entry-level JavaScript application for querying the SGY Ledger.
         targets:
             - en
 
@@ -1529,7 +1527,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         category: Get Started
-        blurb: Build an entry-level JavaScript application for querying the XRP Ledger. #TODO:translate
+        blurb: Build an entry-level JavaScript application for querying the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -1556,7 +1554,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         category: Get Started
-        blurb: Use the WebSocket API to actively monitor for new XRP payments (and more). #TODO:translate
+        blurb: Use the WebSocket API to actively monitor for new SGY payments (and more). #TODO:translate
         filters:
             - interactive_steps
         targets:
@@ -1565,23 +1563,23 @@ pages:
 
     # TODO: Get Started with API Tools
 
-    -   name: Use Direct XRP Payments
+    -   name: Use Direct SGY Payments
         html: use-simple-xrp-payments.html
         funnel: Docs
         doc_type: Tutorials
-        category: Use Simple XRP Payments
+        category: Use Simple SGY Payments
         template: template-landing-children.html
-        blurb: Direct XRP payments from one account to another are the simplest way to transact in the XRP Ledger. This section includes tutorials for how to use simple transactions proficiently and robustly.
+        blurb: Direct SGY payments from one account to another are the simplest way to transact in the SGY Ledger. This section includes tutorials for how to use simple transactions proficiently and robustly.
         targets:
             - en
 
-    -   name: 直接XRP支払いの送信
+    -   name: 直接SGY支払いの送信
         html: use-simple-xrp-payments.html
         funnel: Docs
         doc_type: Tutorials
-        category: Use Simple XRP Payments
+        category: Use Simple SGY Payments
         template: template-landing-children.html
-        blurb: Direct XRP payments from one account to another are the simplest way to transact in the XRP Ledger. This section includes tutorials for how to use simple transactions proficiently and robustly. #TODO:translate
+        blurb: Direct SGY payments from one account to another are the simplest way to transact in the SGY Ledger. This section includes tutorials for how to use simple transactions proficiently and robustly. #TODO:translate
         targets:
             - ja
 
@@ -1589,8 +1587,8 @@ pages:
         html: send-xrp.html
         funnel: Docs
         doc_type: Tutorials
-        category: Use Simple XRP Payments
-        blurb: Test out sending XRP using the XRP Test Net. #TODO:translate
+        category: Use Simple SGY Payments
+        blurb: Test out sending SGY using the SGY Test Net. #TODO:translate
         filters:
             - interactive_steps
         targets:
@@ -1601,8 +1599,8 @@ pages:
         html: reliable-transaction-submission.html
         funnel: Docs
         doc_type: Tutorials
-        category: Use Simple XRP Payments
-        blurb: Build a system that can submit transactions to the XRP Ledger and get their final results safely and quickly.
+        category: Use Simple SGY Payments
+        blurb: Build a system that can submit transactions to the SGY Ledger and get their final results safely and quickly.
         targets:
             - en
 
@@ -1610,8 +1608,8 @@ pages:
         html: reliable-transaction-submission.html
         funnel: Docs
         doc_type: Tutorials
-        category: Use Simple XRP Payments
-        blurb: Build a system that can submit transactions to the XRP Ledger and get their final results safely and quickly. #TODO:translate
+        category: Use Simple SGY Payments
+        blurb: Build a system that can submit transactions to the SGY Ledger and get their final results safely and quickly. #TODO:translate
         targets:
             - ja
 
@@ -1620,7 +1618,7 @@ pages:
         html: cancel-or-skip-a-transaction.html
         funnel: Docs
         doc_type: Tutorials
-        category: Use Simple XRP Payments
+        category: Use Simple SGY Payments
         template: template-redirect.html
         redirect_url: about-canceling-a-transaction.html
         targets:
@@ -1633,7 +1631,7 @@ pages:
         doc_type: Tutorials
         category: Manage Account Settings
         template: template-landing-children.html
-        blurb: Set up your XRP Ledger account to send and receive payments the way you want it to.
+        blurb: Set up your SGY Ledger account to send and receive payments the way you want it to.
         targets:
             - en
 
@@ -1643,12 +1641,12 @@ pages:
         doc_type: Tutorials
         category: Manage Account Settings
         template: template-landing-children.html
-        blurb: Set up your XRP Ledger account to send and receive payments the way you want it to. #TODO:translate
+        blurb: Set up your SGY Ledger account to send and receive payments the way you want it to. #TODO:translate
         targets:
             - ja
 
     # TODO: "Get an Account" (DOC-1554)
-    # blurb: Learn how to generate and fund an XRP Ledger address to create an XRP Ledger account.
+    # blurb: Learn how to generate and fund an SGY Ledger address to create an SGY Ledger account.
 
     -   md: tutorials/manage-account-settings/assign-a-regular-key-pair.md
         html: assign-a-regular-key-pair.html
@@ -1748,7 +1746,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         category: Manage Account Settings
-        blurb: Set up an XRP Ledger account using an air-gapped, offline machine to store its cryptographic keys. #TODO:translate
+        blurb: Set up an SGY Ledger account using an air-gapped, offline machine to store its cryptographic keys. #TODO:translate
         targets:
             - en
             - ja
@@ -1761,7 +1759,7 @@ pages:
         doc_type: Tutorials
         category: Use Specialized Payment Types
         template: template-landing-children.html
-        blurb: Use advanced features like Escrow and Payment Channels to build smart applications on the XRP Ledger.
+        blurb: Use advanced features like Escrow and Payment Channels to build smart applications on the SGY Ledger.
         targets:
             - en
 
@@ -1771,7 +1769,7 @@ pages:
         doc_type: Tutorials
         category: Use Specialized Payment Types
         template: template-landing-children.html
-        blurb: Use advanced features like Escrow and Payment Channels to build smart applications on the XRP Ledger. #TODO:translate
+        blurb: Use advanced features like Escrow and Payment Channels to build smart applications on the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -1793,7 +1791,7 @@ pages:
         doc_type: Tutorials
         category: Use Specialized Payment Types
         subcategory: Use Escrows
-        blurb: The XRP Ledger supports escrows that can be executed only after a certain time has passed or a cryptographic condition has been fulfilled. Escrows can only send XRP, not issued currencies.
+        blurb: The SGY Ledger supports escrows that can be executed only after a certain time has passed or a cryptographic condition has been fulfilled. Escrows can only send SGY, not issued currencies.
         template: template-landing-children.html
         targets:
             - en
@@ -1804,7 +1802,7 @@ pages:
         doc_type: Tutorials
         category: Use Specialized Payment Types
         subcategory: Use Escrows
-        blurb: The XRP Ledger supports escrows that can be executed only after a certain time has passed or a cryptographic condition has been fulfilled. Escrows can only send XRP, not issued currencies.  #TODO:translate
+        blurb: The SGY Ledger supports escrows that can be executed only after a certain time has passed or a cryptographic condition has been fulfilled. Escrows can only send SGY, not issued currencies.  #TODO:translate
         template: template-landing-children.html
         targets:
             - ja
@@ -1895,7 +1893,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         category: Use Specialized Payment Types
-        blurb: Payment Channels are an advanced feature for sending "asynchronous" XRP payments that can be divided into very small increments and settled later. This tutorial walks through the entire process of using a payment channel, with examples using the JSON-RPC API of a local rippled server.
+        blurb: Payment Channels are an advanced feature for sending "asynchronous" SGY payments that can be divided into very small increments and settled later. This tutorial walks through the entire process of using a payment channel, with examples using the JSON-RPC API of a local rippled server.
         targets:
             - en
 
@@ -1904,7 +1902,7 @@ pages:
         funnel: Docs
         doc_type: Tutorials
         category: Use Specialized Payment Types
-        blurb: Payment Channels are an advanced feature for sending "asynchronous" XRP payments that can be divided into very small increments and settled later. This tutorial walks through the entire process of using a payment channel, with examples using the JSON-RPC API of a local rippled server. #TODO:translate
+        blurb: Payment Channels are an advanced feature for sending "asynchronous" SGY payments that can be divided into very small increments and settled later. This tutorial walks through the entire process of using a payment channel, with examples using the JSON-RPC API of a local rippled server. #TODO:translate
         targets:
             - ja
 
@@ -1914,7 +1912,7 @@ pages:
         doc_type: Tutorials
         category: Use Specialized Payment Types
         subcategory: Use Checks
-        blurb: Checks in the XRP Ledger authorize another account to claim funds later, similar to how personal paper checks work.
+        blurb: Checks in the SGY Ledger authorize another account to claim funds later, similar to how personal paper checks work.
         status: not_enabled
         template: template-landing-children.html
         targets:
@@ -1926,7 +1924,7 @@ pages:
         doc_type: Tutorials
         category: Use Specialized Payment Types
         subcategory: Use Checks
-        blurb: Checks in the XRP Ledger authorize another account to claim funds later, similar to how personal paper checks work.
+        blurb: Checks in the SGY Ledger authorize another account to claim funds later, similar to how personal paper checks work.
         status: not_enabled
         template: template-landing-children.html
         targets:
@@ -2057,22 +2055,22 @@ pages:
     # TODO: Set up issuing/operational addresses, monitor changes to balances,
     # freeze, enable/disable rippling, set transfer fees, use auth'd trust lines
 
-    -   name: XRP Ledger Businesses
+    -   name: SGY Ledger Businesses
         html: xrp-ledger-businesses.html
         funnel: Docs
         doc_type: Tutorials
-        category: XRP Ledger Businesses
-        blurb: This section demonstrates how to follow various best practices for running businesses that interface with the XRP Ledger, such as exchanges listing XRP and gateways issuing currency in the XRP Ledger. #TODO:translate
+        category: SGY Ledger Businesses
+        blurb: This section demonstrates how to follow various best practices for running businesses that interface with the SGY Ledger, such as exchanges listing SGY and gateways issuing currency in the SGY Ledger. #TODO:translate
         template: template-landing-children.html
         targets:
             - en
 
-    -   name: XRP Ledgerが利用する会社について
+    -   name: SGY Ledgerが利用する会社について
         html: xrp-ledger-businesses.html
         funnel: Docs
         doc_type: Tutorials
-        category: XRP Ledger Businesses
-        blurb: This section demonstrates how to follow various best practices for running businesses that interface with the XRP Ledger, such as exchanges listing XRP and gateways issuing currency in the XRP Ledger. #TODO:translate
+        category: SGY Ledger Businesses
+        blurb: This section demonstrates how to follow various best practices for running businesses that interface with the SGY Ledger, such as exchanges listing SGY and gateways issuing currency in the SGY Ledger. #TODO:translate
         template: template-landing-children.html
         targets:
             - ja
@@ -2081,8 +2079,8 @@ pages:
         html: list-xrp-as-an-exchange.html
         funnel: Docs
         doc_type: Tutorials
-        category: XRP Ledger Businesses
-        blurb: Learn the high-level steps required to list XRP on a digital asset exchange.
+        category: SGY Ledger Businesses
+        blurb: Learn the high-level steps required to list SGY on a digital asset exchange.
         targets:
             - en
 
@@ -2090,8 +2088,8 @@ pages:
         html: list-xrp-as-an-exchange.html
         funnel: Docs
         doc_type: Tutorials
-        category: XRP Ledger Businesses
-        blurb: Learn the high-level steps required to list XRP on a digital asset exchange. #TODO:translate
+        category: SGY Ledger Businesses
+        blurb: Learn the high-level steps required to list SGY on a digital asset exchange. #TODO:translate
         targets:
             - ja
 
@@ -2099,8 +2097,8 @@ pages:
         html: list-your-exchange-on-xrp-charts.html
         funnel: Docs
         doc_type: Tutorials
-        category: XRP Ledger Businesses
-        blurb: Have your exchange and its XRP trade and order book data listed on XRP Charts.
+        category: SGY Ledger Businesses
+        blurb: Have your exchange and its SGY trade and order book data listed on SGY Charts.
         targets:
             - en
 
@@ -2108,8 +2106,8 @@ pages:
         html: list-your-exchange-on-xrp-charts.html
         funnel: Docs
         doc_type: Tutorials
-        category: XRP Ledger Businesses
-        blurb: Have your exchange and its XRP trade and order book data listed on XRP Charts. #TODO:translate
+        category: SGY Ledger Businesses
+        blurb: Have your exchange and its SGY trade and order book data listed on SGY Charts. #TODO:translate
         targets:
             - ja
 
@@ -2117,8 +2115,8 @@ pages:
         html: become-an-xrp-ledger-gateway.html
         funnel: Docs
         doc_type: Tutorials
-        category: XRP Ledger Businesses
-        blurb: Gateways are the businesses that link the XRP Ledger to the rest of the world. This tutorial demonstrates how an existing online financial institution can expand to act as a gateway in the the XRP Ledger.
+        category: SGY Ledger Businesses
+        blurb: Gateways are the businesses that link the SGY Ledger to the rest of the world. This tutorial demonstrates how an existing online financial institution can expand to act as a gateway in the the SGY Ledger.
         targets:
             - en
             - ja
@@ -2383,7 +2381,7 @@ pages:
         doc_type: Tutorials
         category: Manage the rippled Server
         subcategory: Configuration
-        blurb: A multipurpose configuration for anyone integrating XRP. #TODO:translate
+        blurb: A multipurpose configuration for anyone integrating SGY. #TODO:translate
         targets:
             - en
 
@@ -2474,7 +2472,7 @@ pages:
         doc_type: Tutorials
         category: Manage the rippled Server
         subcategory: Configuration
-        blurb: Set up a server to contribute to preserving shards of historical XRP Ledger data.
+        blurb: Set up a server to contribute to preserving shards of historical SGY Ledger data.
         targets:
             - en
 
@@ -2484,7 +2482,7 @@ pages:
         doc_type: Tutorials
         category: Manage the rippled Server
         subcategory: Configuration
-        blurb: Set up a server to contribute to preserving shards of historical XRP Ledger data. #TODO:translate
+        blurb: Set up a server to contribute to preserving shards of historical SGY Ledger data. #TODO:translate
         targets:
             - ja
 
@@ -2494,7 +2492,7 @@ pages:
         doc_type: Tutorials
         category: Manage the rippled Server
         subcategory: Configuration
-        blurb: Full history servers provide a record of every transaction ever to occur in the XRP Ledger, although they are expensive to run.
+        blurb: Full history servers provide a record of every transaction ever to occur in the SGY Ledger, although they are expensive to run.
         targets:
             - en
 
@@ -2504,7 +2502,7 @@ pages:
         doc_type: Tutorials
         category: Manage the rippled Server
         subcategory: Configuration
-        blurb: Full history servers provide a record of every transaction ever to occur in the XRP Ledger, although they are expensive to run. #TODO:translate
+        blurb: Full history servers provide a record of every transaction ever to occur in the SGY Ledger, although they are expensive to run. #TODO:translate
         targets:
             - ja
 
@@ -2787,7 +2785,7 @@ pages:
         doc_type: Tutorials
         category: Manage the rippled Server
         subcategory: Troubleshooting rippled
-        blurb: Troubleshoot problems that make a rippled server unable to sync with the rest of the XRP Ledger.
+        blurb: Troubleshoot problems that make a rippled server unable to sync with the rest of the SGY Ledger.
         targets:
             - en
             - ja
@@ -2841,7 +2839,7 @@ pages:
         template: template-landing-references.html
         html: references.html
         sidebar: disabled
-        blurb: Complete references for different interfaces to the XRP Ledger. #TODO:translate
+        blurb: Complete references for different interfaces to the SGY Ledger. #TODO:translate
         targets:
             - en
 
@@ -2852,7 +2850,7 @@ pages:
         template: template-landing-references.html
         html: references.html
         sidebar: disabled
-        blurb: Complete references for different interfaces to the XRP Ledger. #TODO:translate
+        blurb: Complete references for different interfaces to the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -2864,7 +2862,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         template: template-landing-children.html
-        blurb: Communicate directly with rippled, the core peer-to-peer server that manages the XRP Ledger. #TODO:translate
+        blurb: Communicate directly with rippled, the core peer-to-peer server that manages the SGY Ledger. #TODO:translate
         targets:
             - en
 
@@ -2874,7 +2872,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         template: template-landing-children.html
-        blurb: Communicate directly with rippled, the core peer-to-peer server that manages the XRP Ledger. #TODO:translate
+        blurb: Communicate directly with rippled, the core peer-to-peer server that manages the SGY Ledger. #TODO:translate
         targets:
             - ja
 
@@ -3097,7 +3095,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         category: API Conventions
-        blurb: Conversion between JSON and canonical binary format for XRP Ledger transactions and other objects.
+        blurb: Conversion between JSON and canonical binary format for SGY Ledger transactions and other objects.
         targets:
             - en
 
@@ -3107,7 +3105,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         category: API Conventions
-        blurb: Conversion between JSON and canonical binary format for XRP Ledger transactions and other objects. #TODO:translate
+        blurb: Conversion between JSON and canonical binary format for SGY Ledger transactions and other objects. #TODO:translate
         targets:
             - ja
 
@@ -3119,7 +3117,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         category: Public rippled Methods
-        blurb: Get data from the XRP Ledger and submit transactions using these public API methods.
+        blurb: Get data from the SGY Ledger and submit transactions using these public API methods.
         targets:
             - en
 
@@ -3141,7 +3139,7 @@ pages:
         category: Public rippled Methods
         subcategory: Account Methods
         template: template-landing-children.html
-        blurb: An account in the XRP Ledger represents a holder of XRP and a sender of transactions. Use these methods to work with account info. #TODO:translate
+        blurb: An account in the SGY Ledger represents a holder of SGY and a sender of transactions. Use these methods to work with account info. #TODO:translate
         targets:
             - en
             - ja
@@ -3208,7 +3206,7 @@ pages:
         supercategory: rippled API
         category: Public rippled Methods
         subcategory: Account Methods
-        blurb: アカウントとそのアクティビティおよびXRP残高についての情報を取得します。
+        blurb: アカウントとそのアクティビティおよびSGY残高についての情報を取得します。
         targets:
             - ja
 
@@ -3463,7 +3461,7 @@ pages:
         supercategory: rippled API
         category: Public rippled Methods
         subcategory: Ledger Methods
-        blurb: XRP Ledgerの1つのレジャーオブジェクトを生フォーマットで返します。
+        blurb: SGY Ledgerの1つのレジャーオブジェクトを生フォーマットで返します。
         targets:
             - ja
 
@@ -3475,7 +3473,7 @@ pages:
         category: Public rippled Methods
         subcategory: Transaction Methods
         template: template-landing-children.html
-        blurb: Transactions are the only thing that can modify the shared state of the XRP Ledger. All business on the XRP Ledger takes the form of transactions. Use these methods to work with transactions. #TODO:translate
+        blurb: Transactions are the only thing that can modify the shared state of the SGY Ledger. All business on the SGY Ledger takes the form of transactions. Use these methods to work with transactions. #TODO:translate
         targets:
             - en
             - ja
@@ -3766,7 +3764,7 @@ pages:
         supercategory: rippled API
         category: Public rippled Methods
         subcategory: Payment Channel Methods
-        blurb: 特定額のXRPをPayment Channelから清算するときに使用できる署名を作成します。
+        blurb: 特定額のSGYをPayment Channelから清算するときに使用できる署名を作成します。
         targets:
             - ja
 
@@ -3788,7 +3786,7 @@ pages:
         supercategory: rippled API
         category: Public rippled Methods
         subcategory: Payment Channel Methods
-        blurb: 特定額のXRPをPayment Channelから清算するときに使用できる署名の有効性を検証します。
+        blurb: 特定額のSGYをPayment Channelから清算するときに使用できる署名の有効性を検証します。
         targets:
             - ja
 
@@ -4075,7 +4073,7 @@ pages:
 
     -   md: references/rippled-api/admin-rippled-methods/key-generation-methods/wallet_propose.ja.md
         html: wallet_propose.html
-        blurb: キーペアとXRP Ledgerアドレスを生成します。
+        blurb: キーペアとSGY Ledgerアドレスを生成します。
         funnel: Docs
         doc_type: References
         supercategory: rippled API
@@ -4611,7 +4609,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         category: Ledger Data Formats
-        blurb: Learn about individual data objects that comprise the XRP Ledger's shared state.
+        blurb: Learn about individual data objects that comprise the SGY Ledger's shared state.
         template: template-landing-children.html
         targets:
             - en
@@ -4622,7 +4620,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         category: Ledger Data Formats
-        blurb: Learn about individual data objects that comprise the XRP Ledger's shared state. #TODO:translate
+        blurb: Learn about individual data objects that comprise the SGY Ledger's shared state. #TODO:translate
         template: template-landing-children.html
         targets:
             - ja
@@ -4687,7 +4685,7 @@ pages:
         supercategory: rippled API
         category: Ledger Data Formats
         subcategory: Ledger Object Types
-        blurb: The settings, XRP balance, and other metadata for one account.
+        blurb: The settings, SGY balance, and other metadata for one account.
         targets:
             - en
 
@@ -4698,7 +4696,7 @@ pages:
         supercategory: rippled API
         category: Ledger Data Formats
         subcategory: Ledger Object Types
-        blurb: The settings, XRP balance, and other metadata for one account. #TODO:translate
+        blurb: The settings, SGY balance, and other metadata for one account. #TODO:translate
         targets:
             - ja
 
@@ -4799,7 +4797,7 @@ pages:
         supercategory: rippled API
         category: Ledger Data Formats
         subcategory: Ledger Object Types
-        blurb: Contains XRP held for a conditional payment.
+        blurb: Contains SGY held for a conditional payment.
         targets:
             - en
 
@@ -4810,7 +4808,7 @@ pages:
         supercategory: rippled API
         category: Ledger Data Formats
         subcategory: Ledger Object Types
-        blurb: Contains XRP held for a conditional payment. #TODO:translate
+        blurb: Contains SGY held for a conditional payment. #TODO:translate
         targets:
             - ja
 
@@ -4887,7 +4885,7 @@ pages:
         supercategory: rippled API
         category: Ledger Data Formats
         subcategory: Ledger Object Types
-        blurb: A channel for asynchronous XRP payments.
+        blurb: A channel for asynchronous SGY payments.
         targets:
             - en
 
@@ -4898,7 +4896,7 @@ pages:
         supercategory: rippled API
         category: Ledger Data Formats
         subcategory: Ledger Object Types
-        blurb: A channel for asynchronous XRP payments. #TODO:translate
+        blurb: A channel for asynchronous SGY payments. #TODO:translate
         targets:
             - ja
 
@@ -4952,7 +4950,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         category: Transaction Formats
-        blurb: Transactions are the only way to modify the XRP Ledger. Get details about their required format.
+        blurb: Transactions are the only way to modify the SGY Ledger. Get details about their required format.
         template: template-landing-children.html
         targets:
             - en
@@ -4963,7 +4961,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         category: Transaction Formats
-        blurb: トランザクションは、XRP Ledgerを変更する唯一の方法です。
+        blurb: トランザクションは、SGY Ledgerを変更する唯一の方法です。
         template: template-landing-children.html
         targets:
             - ja
@@ -4974,7 +4972,7 @@ pages:
         doc_type: References
         supercategory: rippled API
         category: Transaction Formats
-        blurb: These common fields can be provided on any XRP Ledger transaction.
+        blurb: These common fields can be provided on any SGY Ledger transaction.
         targets:
             - en
 
@@ -4995,7 +4993,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: All the different types of transactions that the XRP Ledger can process.
+        blurb: All the different types of transactions that the SGY Ledger can process.
         template: template-landing-children.html
         targets:
             - en
@@ -5030,7 +5028,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: XRP Ledgerのアカウントのプロパティーを修正します。
+        blurb: SGY Ledgerのアカウントのプロパティーを修正します。
         targets:
             - ja
 
@@ -5148,7 +5146,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: Reclaim escrowed XRP.
+        blurb: Reclaim escrowed SGY.
         targets:
             - en
 
@@ -5159,7 +5157,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: Escrowに留保されているXRPを送金元に返金します。
+        blurb: Escrowに留保されているSGYを送金元に返金します。
         targets:
             - ja
 
@@ -5170,7 +5168,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: Create an escrowed XRP payment.
+        blurb: Create an escrowed SGY payment.
         targets:
             - en
 
@@ -5181,7 +5179,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: Escrowプロセスが終了または取り消されるまでXRPを隔離します。
+        blurb: Escrowプロセスが終了または取り消されるまでSGYを隔離します。
         targets:
             - ja
 
@@ -5192,7 +5190,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: Deliver escrowed XRP to recipient.
+        blurb: Deliver escrowed SGY to recipient.
         targets:
             - en
 
@@ -5203,7 +5201,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: 保留中の支払いから受取人へXRPを送金します。
+        blurb: 保留中の支払いから受取人へSGYを送金します。
         targets:
             - ja
 
@@ -5225,7 +5223,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: XRP LedgerからOfferオブジェクトを削除します。
+        blurb: SGY LedgerからOfferオブジェクトを削除します。
         targets:
             - ja
 
@@ -5291,7 +5289,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: Payment Channelに対しXRPを請求します。
+        blurb: Payment Channelに対しSGYを請求します。
         targets:
             - ja
 
@@ -5313,7 +5311,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: 一方向のChannelを作成し、XRPを供給します。
+        blurb: 一方向のChannelを作成し、SGYを供給します。
         targets:
             - ja
 
@@ -5324,7 +5322,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: Add more XRP to a payment channel.
+        blurb: Add more SGY to a payment channel.
         targets:
             - en
 
@@ -5335,7 +5333,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Types
-        blurb: オープンPayment ChannelにXRPを追加します。
+        blurb: オープンPayment ChannelにSGYを追加します。
         targets:
             - ja
 
@@ -5412,7 +5410,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Pseudo-Transaction Types
-        blurb: Formats of pseudo-transactions that validators sometimes apply to the XRP Ledger.
+        blurb: Formats of pseudo-transactions that validators sometimes apply to the SGY Ledger.
         template: template-landing-children.html
         targets:
             - en
@@ -5424,7 +5422,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Pseudo-Transaction Types
-        blurb: Formats of pseudo-transactions that validators sometimes apply to the XRP Ledger. #TODO:translate
+        blurb: Formats of pseudo-transactions that validators sometimes apply to the SGY Ledger. #TODO:translate
         template: template-landing-children.html
         targets:
             - ja
@@ -5568,7 +5566,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Results
-        blurb: tem codes indicate that the transaction was malformed, and cannot succeed according to the XRP Ledger protocol.
+        blurb: tem codes indicate that the transaction was malformed, and cannot succeed according to the SGY Ledger protocol.
         targets:
             - en
 
@@ -5579,7 +5577,7 @@ pages:
         supercategory: rippled API
         category: Transaction Formats
         subcategory: Transaction Results
-        blurb: temコードは、トランザクションの形式が正しくないため、XRP Ledgerプロトコルに基づきトランザクションが正常に完了しないことを示します。
+        blurb: temコードは、トランザクションの形式が正しくないため、SGY Ledgerプロトコルに基づきトランザクションが正常に完了しないことを示します。
         targets:
             - ja
 
@@ -5700,14 +5698,14 @@ pages:
             - en
             - ja
 
-    # XRP-API docs (auto-generated)---------------------------------------------
+    # SGY-API docs (auto-generated)---------------------------------------------
 
-    -   name: XRP-API
+    -   name: SGY-API
         md: https://raw.githubusercontent.com/ripple/xrp-api/master/README.md
         html: xrp-api.html
         funnel: Docs
         doc_type: References
-        supercategory: XRP-API
+        supercategory: SGY-API
         targets:
             - en
             - ja
@@ -5719,14 +5717,14 @@ pages:
         api_slug: xrp-api
         funnel: Docs
         doc_type: References
-        supercategory: XRP-API
+        supercategory: SGY-API
         targets:
             - en
             - ja
             - xrp-api-only
 
 
-    # --------------- end "XRP-API" section --------------------------------
+    # --------------- end "SGY-API" section --------------------------------
 
     -   name: RippleAPI Reference # name is required for remote-sourced files
         md: https://raw.githubusercontent.com/ripple/ripple-lib/1.6.2/docs/index.md
@@ -5734,7 +5732,7 @@ pages:
         funnel: Docs
         doc_type: References
         category: RippleAPI for JavaScript
-        blurb: Official client library to the XRP Ledger. Available for JavaScript only. #TODO:translate
+        blurb: Official client library to the SGY Ledger. Available for JavaScript only. #TODO:translate
         curated_anchors:
             - name: Transactions
               anchor: "#transaction-overview"
@@ -5754,7 +5752,7 @@ pages:
         funnel: Docs
         doc_type: References
         category: Data API
-        blurb: RESTful interface to XRP Ledger analytics and historical data.
+        blurb: RESTful interface to SGY Ledger analytics and historical data.
         curated_anchors:
             - name: Methods
               anchor: "#api-method-reference"
@@ -5769,7 +5767,7 @@ pages:
         funnel: Docs
         doc_type: References
         category: Data API
-        blurb: RESTful interface to XRP Ledger analytics and historical data. #TODO:translate
+        blurb: RESTful interface to SGY Ledger analytics and historical data. #TODO:translate
         curated_anchors:
             - name: APIメソッドリファレンス
               anchor: "#apiメソッドリファレンス"
@@ -5782,8 +5780,8 @@ pages:
         html: xrp-ledger-toml.html
         funnel: Docs
         doc_type: References
-        category: XRP Ledger TOML File
-        blurb: Provide machine-readable information about yourself to other XRP Ledger users. #TODO:translate
+        category: SGY Ledger TOML File
+        blurb: Provide machine-readable information about yourself to other SGY Ledger users. #TODO:translate
         curated_anchors:
             - name: Serving the File
               anchor: "#serving-the-file"
@@ -6019,7 +6017,7 @@ pages:
             - ja
         template: template-validator-domain-verifier.html
 
-    -   name: XRP Faucets
+    -   name: SGY Faucets
         html: xrp-testnet-faucet.html
         funnel: Dev Tools
         template: template-test-net.html
@@ -6027,7 +6025,7 @@ pages:
             - en
             - ja
 
-    -   name: XRP Test Net Faucet # Redirect from old URL
+    -   name: SGY Test Net Faucet # Redirect from old URL
         html: xrp-test-net-faucet.html
         funnel: Dev Tools
         template: template-redirect.html

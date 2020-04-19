@@ -3,7 +3,7 @@
 
 _Requires the [PayChan amendment][]._
 
-Create a unidirectional channel and fund it with XRP. The address sending this transaction becomes the "source address" of the payment channel.
+Create a unidirectional channel and fund it with SGY. The address sending this transaction becomes the "source address" of the payment channel.
 
 ## Example {{currentpage.name}} JSON
 
@@ -27,9 +27,9 @@ Create a unidirectional channel and fund it with XRP. The address sending this t
 
 | Field            | JSON Type | [Internal Type][] | Description               |
 |:-----------------|:----------|:------------------|:--------------------------|
-| `Amount`         | String    | Amount            | Amount of [XRP, in drops][Currency Amount], to deduct from the sender's balance and set aside in this channel. While the channel is open, the XRP can only go to the `Destination` address. When the channel closes, any unclaimed XRP is returned to the source address's balance. |
-| `Destination`    | String    | AccountID         | Address to receive XRP claims against this channel. This is also known as the "destination address" for the channel. Cannot be the same as the sender (`Account`). |
-| `SettleDelay`    | Number    | UInt32            | Amount of time the source address must wait before closing the channel if it has unclaimed XRP. |
+| `Amount`         | String    | Amount            | Amount of [SGY, in drops][Currency Amount], to deduct from the sender's balance and set aside in this channel. While the channel is open, the SGY can only go to the `Destination` address. When the channel closes, any unclaimed SGY is returned to the source address's balance. |
+| `Destination`    | String    | AccountID         | Address to receive SGY claims against this channel. This is also known as the "destination address" for the channel. Cannot be the same as the sender (`Account`). |
+| `SettleDelay`    | Number    | UInt32            | Amount of time the source address must wait before closing the channel if it has unclaimed SGY. |
 | `PublicKey`      | String    | Blob              | The public key of the key pair the source will use to sign claims against this channel, in hexadecimal. This can be any secp256k1 or Ed25519 public key. <!-- STYLE_OVERRIDE: will --> |
 | `CancelAfter`    | Number    | UInt32            | _(Optional)_ The time, in [seconds since the Ripple Epoch][], when this channel expires. Any transaction that would modify the channel after this time closes the channel without otherwise affecting it. This value is immutable; the channel can be closed earlier than this time but cannot remain open after this time. |
 | `DestinationTag` | Number    | UInt32            | _(Optional)_ Arbitrary tag to further specify the destination for this payment channel, such as a hosted recipient at the destination address. |

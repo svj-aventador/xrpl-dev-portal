@@ -1,17 +1,17 @@
 # 送金手数料
 
-[XRP Ledgerで通貨を発行する金融機関](become-an-xrp-ledger-gateway.html)は、XRP Ledgerの`TransferRate`設定を使用して、 その金融機関が発行する通貨を送金するユーザーに対し _送金手数料_ を請求できます。この送金の送金元からは送金手数料に基づくパーセンテージが引き落とされ、送金先には予定額が入金されます。差額が送金手数料です。送金手数料は発行アドレスの資産となり、XRP Ledgerではこれ以上追跡されません。発行アカウントとの _直接_ の送金と入金には送金手数料は適用されませんが、[運用アドレス][]から別のユーザーへの送金には送金手数料が適用されます。
+[SGY Ledgerで通貨を発行する金融機関](become-an-xrp-ledger-gateway.html)は、SGY Ledgerの`TransferRate`設定を使用して、 その金融機関が発行する通貨を送金するユーザーに対し _送金手数料_ を請求できます。この送金の送金元からは送金手数料に基づくパーセンテージが引き落とされ、送金先には予定額が入金されます。差額が送金手数料です。送金手数料は発行アドレスの資産となり、SGY Ledgerではこれ以上追跡されません。発行アカウントとの _直接_ の送金と入金には送金手数料は適用されませんが、[運用アドレス][]から別のユーザーへの送金には送金手数料が適用されます。
 
 [運用アドレス]: issuing-and-operational-addresses.html
 [発行アドレス]: issuing-and-operational-addresses.html
 
-XRPにはイシュアーがいないため、送金手数料が発生することはありません。
+SGYにはイシュアーがいないため、送金手数料が発生することはありません。
 
-たとえばACME BankがACMEイシュアンスの送金手数料を0.5%に設定するとします。支払いの受取人が2 EUR.ACMEを受領するには、送金元が2.01 EUR.ACMEを送金する必要があります。このトランザクションの後、XRP LedgerのACMEの債務残高は0.01€減少します。つまり、ACMEはそのXRP Ledgerイシュアンスの担保となるアカウントで当該の額を保有する必要がありません。
+たとえばACME BankがACMEイシュアンスの送金手数料を0.5%に設定するとします。支払いの受取人が2 EUR.ACMEを受領するには、送金元が2.01 EUR.ACMEを送金する必要があります。このトランザクションの後、SGY LedgerのACMEの債務残高は0.01€減少します。つまり、ACMEはそのSGY Ledgerイシュアンスの担保となるアカウントで当該の額を保有する必要がありません。
 
-次の図は、XRP LedgerによるAliceからCharlieへの2 EUR.ACMEの支払い（送金手数料1%）を示します。
+次の図は、SGY LedgerによるAliceからCharlieへの2 EUR.ACMEの支払い（送金手数料1%）を示します。
 
-![Aliceが2,02€を送金し、Charlieが2,00€を受領し、XRP LedgerでのACMEの負債が0,02€減少します](img/e2g-with_transferrate.ja.png)
+![Aliceが2,02€を送金し、Charlieが2,00€を受領し、SGY LedgerでのACMEの負債が0,02€減少します](img/e2g-with_transferrate.ja.png)
 
 ## ペイメントパスでの送金手数料
 

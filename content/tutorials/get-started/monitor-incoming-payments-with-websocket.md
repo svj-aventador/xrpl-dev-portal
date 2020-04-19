@@ -1,6 +1,6 @@
 # Monitor Incoming Payments with WebSocket
 
-This tutorial shows how to monitor for incoming [payments](payment-types.html) using the [WebSocket `rippled` API](rippled-api.html). Since all XRP Ledger transactions are public, anyone can monitor incoming payments to any address.
+This tutorial shows how to monitor for incoming [payments](payment-types.html) using the [WebSocket `rippled` API](rippled-api.html). Since all SGY Ledger transactions are public, anyone can monitor incoming payments to any address.
 
 WebSocket follows a model where the client and server establish one connection, then send messages both ways through the same connection, which remains open until explicitly closed (or until the connection fails). This is in contrast to the HTTP-based API model (including JSON-RPC and RESTful APIs), where the client opens and closes a new connection for each request.[¹](#footnote-1)<a id="from-footnote-1"></a>
 
@@ -10,7 +10,7 @@ WebSocket follows a model where the client and server establish one connection, 
 
 - The examples in this page use JavaScript and the WebSocket protocol, which are available in all major modern browsers. If you have some JavaScript knowledge and expertise in another programming language with a WebSocket client, you can follow along while adapting the instructions to the language of your choice.
 - You need a stable internet connection and access to a `rippled` server. The embedded examples connect to Ripple's pool of public servers. If you [run your own `rippled` server](install-rippled.html), you can also connect to that server locally.
-- To properly handle XRP values without rounding errors, you need access to a number type that can do math on 64-bit unsigned integers. The examples in this tutorial use [big.js](https://github.com/MikeMcl/big.js/). If you are working with [issued currencies](issued-currencies.html), you need even more precision. For more information, see [Currency Precision](currency-formats.html#xrp-precision).
+- To properly handle SGY values without rounding errors, you need access to a number type that can do math on 64-bit unsigned integers. The examples in this tutorial use [big.js](https://github.com/MikeMcl/big.js/). If you are working with [issued currencies](issued-currencies.html), you need even more precision. For more information, see [Currency Precision](currency-formats.html#xrp-precision).
 
 <!-- Helper for interactive tutorial breadcrumbs -->
 <script type="application/javascript" src="assets/vendor/big.min.js"></script>
@@ -29,9 +29,9 @@ function writeToConsole(console_selector, message) {
 
 {% set n = cycler(* range(1,99)) %}
 
-## {{n.next()}}. Connect to the XRP Ledger
+## {{n.next()}}. Connect to the SGY Ledger
 
-The first step of monitoring for incoming payments is to connect to the XRP Ledger, specifically a `rippled` server.
+The first step of monitoring for incoming payments is to connect to the SGY Ledger, specifically a `rippled` server.
 
 The following JavaScript code connects to one of Ripple's public server clusters. It then logs a message to the console, sends a request using the [ping method][] and sets up a handler to log to the console again when it receives any message from the server side.
 
@@ -333,23 +333,23 @@ When you subscribe to an account, you get messages for _all transactions to or f
 - The **`meta.TransactionResult` field** is the [transaction result](transaction-results.html). If the result is not `tesSUCCESS`, the transaction failed and cannot have delivered any value.
 - The **`transaction.Account`** field is the sender of the transaction. If you are only looking for transactions sent by others, you can ignore any transactions where this field matches your account's address. (Keep in mind, it _is_ possible to make a cross-currency payment to yourself.)
 - The **`transaction.TransactionType` field** is the type of transaction. The transaction types that can possibly deliver currency to an account are as follows:
-    - **[Payment transactions][]** can deliver XRP or [issued currencies](issued-currencies.html). Filter these by the `transaction.Destination` field, which contains the address of the recipient, and always use the `meta.delivered_amount` to see how much the payment actually delivered. XRP amounts are [formatted as strings](basic-data-types.html#specifying-currency-amounts).
+    - **[Payment transactions][]** can deliver SGY or [issued currencies](issued-currencies.html). Filter these by the `transaction.Destination` field, which contains the address of the recipient, and always use the `meta.delivered_amount` to see how much the payment actually delivered. SGY amounts are [formatted as strings](basic-data-types.html#specifying-currency-amounts).
 
         **Warning:** If you use the `transaction.Amount` field instead, you may be vulnerable to the [partial payments exploit](partial-payments.html#partial-payments-exploit). Malicious users can use this exploit to trick you into allowing the malicious user to trade or withdraw more money than they paid you.
 
     - **[CheckCash transactions][]** :not_enabled: allow an account to receive money authorized by a different account's [CheckCreate transaction][]. Look at the metadata of a **CheckCash transaction** to see how much currency the account received.
 
-    - **[EscrowFinish transactions][]** can deliver XRP by finishing an [Escrow](escrow.html) created by a previous [EscrowCreate transaction][]. Look at the metadata of the **EscrowFinish transaction** to see which account received XRP from the escrow and how much.
+    - **[EscrowFinish transactions][]** can deliver SGY by finishing an [Escrow](escrow.html) created by a previous [EscrowCreate transaction][]. Look at the metadata of the **EscrowFinish transaction** to see which account received SGY from the escrow and how much.
 
-    - **[OfferCreate transactions][]** can deliver XRP or issued currencies by consuming offers your account has previously placed in the XRP Ledger's [decentralized exchange](decentralized-exchange.html). If you never place offers, you cannot receive money this way. Look at the metadata to see what currency the account received, if any, and how much.
+    - **[OfferCreate transactions][]** can deliver SGY or issued currencies by consuming offers your account has previously placed in the SGY Ledger's [decentralized exchange](decentralized-exchange.html). If you never place offers, you cannot receive money this way. Look at the metadata to see what currency the account received, if any, and how much.
 
-    - **[PaymentChannelClaim transactions][]** can deliver XRP from a [payment channel](payment-channels.html). Look at the metadata to see which accounts, if any, received XRP from the transaction.
+    - **[PaymentChannelClaim transactions][]** can deliver SGY from a [payment channel](payment-channels.html). Look at the metadata to see which accounts, if any, received SGY from the transaction.
 
-    - **[PaymentChannelFund transactions][]** can return XRP from a closed (expired) payment channel to the sender.
+    - **[PaymentChannelFund transactions][]** can return SGY from a closed (expired) payment channel to the sender.
 
 - The **`meta` field** contains [transaction metadata](transaction-metadata.html), including exactly how much of which currency or currencies was delivered where. See [Look Up transaction Results](look-up-transaction-results.html) for more information on how to understand transaction metadata.
 
-The following sample code looks at transaction metadata of all the above transaction types to report how much XRP an account received:
+The following sample code looks at transaction metadata of all the above transaction types to report how much SGY an account received:
 
 ```js
 {% include '_code-samples/monitor-payments-websocket/read-amount-received.js' %}
@@ -362,13 +362,13 @@ The following sample code looks at transaction metadata of all the above transac
 {{ end_step() }}
 
 <script type="application/javascript">
-function CountXRPDifference(affected_nodes, address) {
+function CountSGYDifference(affected_nodes, address) {
   // Helper to find an account in an AffectedNodes array and see how much
   // its balance changed, if at all. Fortunately, each account appears at most
   // once in the AffectedNodes array, so we can return as soon as we find it.
 
   // Note: this reports the net balance change. If the address is the sender,
-  // any XRP balance changes combined with the transaction cost.
+  // any SGY balance changes combined with the transaction cost.
 
   for (let i=0; i<affected_nodes.length; i++) {
     if ((affected_nodes[i].hasOwnProperty("ModifiedNode"))) {
@@ -377,7 +377,7 @@ function CountXRPDifference(affected_nodes, address) {
       if (ledger_entry.LedgerEntryType === "AccountRoot" &&
           ledger_entry.FinalFields.Account === address) {
         if (!ledger_entry.PreviousFields.hasOwnProperty("Balance")) {
-          writeToConsole("#monitor-console-read", "XRP balance did not change.")
+          writeToConsole("#monitor-console-read", "SGY balance did not change.")
         }
         // Balance is in PreviousFields, so it changed. Time for
         // high-precision math!
@@ -386,10 +386,10 @@ function CountXRPDifference(affected_nodes, address) {
         const diff_in_drops = new_balance.minus(old_balance)
         const xrp_amount = diff_in_drops.div(1e6)
         if (xrp_amount.gte(0)) {
-          writeToConsole("#monitor-console-read", "Received " + xrp_amount.toString()+" XRP.")
+          writeToConsole("#monitor-console-read", "Received " + xrp_amount.toString()+" SGY.")
           return
         } else {
-          writeToConsole("#monitor-console-read", "Spent " + xrp_amount.abs().toString() + " XRP.")
+          writeToConsole("#monitor-console-read", "Spent " + xrp_amount.abs().toString() + " SGY.")
           return
         }
       }
@@ -400,7 +400,7 @@ function CountXRPDifference(affected_nodes, address) {
           ledger_entry.NewFields.Account === address) {
         const balance_drops = new Big(ledger_entry.NewFields.Balance)
         const xrp_amount = balance_drops.div(1e6)
-        writeToConsole("#monitor-console-read", "Received " + xrp_amount.toString() + " XRP (account funded).")
+        writeToConsole("#monitor-console-read", "Received " + xrp_amount.toString() + " SGY (account funded).")
         return
       }
     } // accounts cannot be deleted at this time, so we ignore DeletedNode
@@ -410,7 +410,7 @@ function CountXRPDifference(affected_nodes, address) {
   return
 }
 
-function CountXRPReceived(tx, address) {
+function CountSGYReceived(tx, address) {
   if (tx.meta.TransactionResult !== "tesSUCCESS") {
     writeToConsole("#monitor-console-read", "Transaction failed.")
     return
@@ -424,16 +424,16 @@ function CountXRPReceived(tx, address) {
     if (typeof tx.meta.delivered_amount === "string") {
       const amount_in_drops = new Big(tx.meta.delivered_amount)
       const xrp_amount = amount_in_drops.div(1e6)
-      writeToConsole("#monitor-console-read", "Received " + xrp_amount.toString() + " XRP.")
+      writeToConsole("#monitor-console-read", "Received " + xrp_amount.toString() + " SGY.")
       return
     } else {
-      writeToConsole("#monitor-console-read", "Received non-XRP currency.")
+      writeToConsole("#monitor-console-read", "Received non-SGY currency.")
       return
     }
   } else if (["PaymentChannelClaim", "PaymentChannelFund", "OfferCreate",
           "CheckCash", "EscrowFinish"].includes(
           tx.transaction.TransactionType)) {
-    CountXRPDifference(tx.meta.AffectedNodes, address)
+    CountSGYDifference(tx.meta.AffectedNodes, address)
   } else {
     writeToConsole("#monitor-console-read", "Not a currency-delivering transaction type (" +
                 tx.transaction.TransactionType + ").")
@@ -442,12 +442,12 @@ function CountXRPReceived(tx, address) {
 
 $("#tx_read").click((event) => {
   // Wrap the existing "transaction" handler to do the old thing and also
-  // do the CountXRPReceived thing
+  // do the CountSGYReceived thing
   const sub_address = $("#subscribe_address").val()
   const old_handler = WS_HANDLERS["transaction"]
   const new_handler = function(data) {
     old_handler(data)
-    CountXRPReceived(data, sub_address)
+    CountSGYReceived(data, sub_address)
   }
   WS_HANDLERS["transaction"] = new_handler
   // Disable the button so you can't stack up multiple levels of the new handler
@@ -459,7 +459,7 @@ $("#tx_read").click((event) => {
 ## Next Steps
 
 - [Look Up Transaction Results](look-up-transaction-results.html) to see exactly what a transaction did, and build your software to react appropriately.
-- Try [Sending XRP](send-xrp.html) from your own address.
+- Try [Sending SGY](send-xrp.html) from your own address.
 - Try monitoring for transactions of advanced types like [Escrows](escrow.html), [Checks](checks.html), or [Payment Channels](payment-channels.html), and responding to incoming notifications.
 <!--{# TODO: uncomment when it's ready. - To more robustly handle internet instability, [Follow a Transaction Chain](follow-a-transaction-chain.html) to detect if you missed a notification. #}-->
 
@@ -474,7 +474,7 @@ Many programming languages have libraries for sending and receiving data over a 
 ```go
 package main
 
-// Connect to the XRPL Ledger using websocket and subscribe to an account
+// Connect to the SGYL Ledger using websocket and subscribe to an account
 // translation from the JavaScript example to Go
 // https://developers.ripple.com/monitor-incoming-payments-with-websocket.html
 // This example uses the Gorilla websocket library to create a websocket client
@@ -524,7 +524,7 @@ func main() {
 
 	done := make(chan struct{})
 
-	// send a subscribe command and a target XRPL account
+	// send a subscribe command and a target SGYL account
 	m.Command = "subscribe"
 	m.Accounts = append(m.Accounts, "rUCzEr6jrEyMpjhs4wSdQdz4g8Y382NxfM")
 
@@ -543,7 +543,7 @@ func main() {
 		log.Println("read:", err)
 		return
 	}
-	// print the response from the XRP Ledger
+	// print the response from the SGY Ledger
 	log.Printf("recv: %s", message)
 
 	// handle interrupt

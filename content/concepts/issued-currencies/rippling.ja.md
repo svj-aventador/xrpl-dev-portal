@@ -1,6 +1,6 @@
 # Rippling
 
-XRP Ledgerでは、「Rippling」とは同一通貨の[トラストライン](trust-lines-and-issuing.html)を有する複数の接続当事者間での非可分なネット決済のプロセスを指しています。Ripplingは発行済み通貨の基幹的なプロセスです。Ripplingを利用すれば、同一イシュアーを信頼するユーザーは、そのイシュアーを受動的な仲介機関として発行済み残高を相互に送金できるようになります。Ripplingは、受動的かつ双方向の[通貨取引オーダー](offers.html)のようなもので、制限がなく、通貨コードが同一でイシュアーが異なる2つの通貨間の為替レートは1:1です。
+SGY Ledgerでは、「Rippling」とは同一通貨の[トラストライン](trust-lines-and-issuing.html)を有する複数の接続当事者間での非可分なネット決済のプロセスを指しています。Ripplingは発行済み通貨の基幹的なプロセスです。Ripplingを利用すれば、同一イシュアーを信頼するユーザーは、そのイシュアーを受動的な仲介機関として発行済み残高を相互に送金できるようになります。Ripplingは、受動的かつ双方向の[通貨取引オーダー](offers.html)のようなもので、制限がなく、通貨コードが同一でイシュアーが異なる2つの通貨間の為替レートは1:1です。
 
 Ripplingは、支払[パス](paths.html)でのみ発生します。
 
@@ -10,7 +10,7 @@ Ripplingは、支払[パス](paths.html)でのみ発生します。
 
 ## Ripplingの例
 
-「Rippling」は、支払いを行うために複数のトラストラインが調整されたときに発生します。たとえば、AliceがCharlieにお金を借りており、さらにAliceはBobからもお金を借りている場合、XRP Ledgerではトラストラインは次のようになります:
+「Rippling」は、支払いを行うために複数のトラストラインが調整されたときに発生します。たとえば、AliceがCharlieにお金を借りており、さらにAliceはBobからもお金を借りている場合、SGY Ledgerではトラストラインは次のようになります:
 
 ![Charlie --（$10）-- Alice --（$20）-- Bob](img/noripple-01.ja.png)
 
@@ -18,7 +18,7 @@ BobがCharlieに$3を支払いたい場合、BobはAliceに対して「Alice、�
 
 ![Charlie --（$13）-- Alice --（$17）-- Bob](img/noripple-02.ja.png)
 
-2つのアドレスが、アドレス間のトラストライン上の残高を調整することで相互に支払うこのプロセスを「Rippling」と呼びます。これはXRP Ledgerの有用で重要な機能です。Ripplingは、同一の[通貨コード][]を使用するトラストラインによってアドレスがリンクされている場合に起こります。イシュアーが同一でなくてもかまいません。実際、大規模なチェーンでは常にイシュアーが変更されます。
+2つのアドレスが、アドレス間のトラストライン上の残高を調整することで相互に支払うこのプロセスを「Rippling」と呼びます。これはSGY Ledgerの有用で重要な機能です。Ripplingは、同一の[通貨コード][]を使用するトラストラインによってアドレスがリンクされている場合に起こります。イシュアーが同一でなくてもかまいません。実際、大規模なチェーンでは常にイシュアーが変更されます。
 
 ## NoRippleフラグ
 
@@ -57,7 +57,7 @@ DefaultRippleフラグは、デフォルトで着信トラストラインでのR
 
 アカウントのDefaultRipple設定は、他者があなたに対してオープンしたトラストラインにのみ影響し、あなたが作成するトラストラインには影響しません。アカウントのDefaultRipple設定を変更する場合、変更前に作成したトラストラインでは既存のNoRipple設定が維持されます。アドレスの新しいデフォルトに合わせてトラストラインのNoRipple設定を変更するには、[TrustSetトランザクション][]を使用します。
 
-詳細は、[「XRP Ledgerゲートウェイの開設」のDefaultRipple](become-an-xrp-ledger-gateway.html#defaultripple)を参照してください。
+詳細は、[「SGY Ledgerゲートウェイの開設」のDefaultRipple](become-an-xrp-ledger-gateway.html#defaultripple)を参照してください。
 
 
 ## NoRippleを使用する

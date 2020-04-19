@@ -1,6 +1,6 @@
 # Contribute Code to rippled
 
-Want to contribute code or a bug report to help improve `rippled`, the core peer-to-peer server that manages the XRP Ledger? Here’s a roadmap to the high-level tasks that’ll have you reviewing code and functionality in no time.
+Want to contribute code or a bug report to help improve `rippled`, the core peer-to-peer server that manages the SGY Ledger? Here’s a roadmap to the high-level tasks that’ll have you reviewing code and functionality in no time.
 
 <!-- USE_CASE_STEPS_START -->
 {% set n = cycler(* range(1,99)) %}
@@ -15,23 +15,23 @@ Want to contribute code or a bug report to help improve `rippled`, the core peer
 <span class="use-case-step-num">{{n.next()}}</span>
 ## Set up and run a `rippled` server
 
-Set up and run a `rippled` server to understand the developer experience and functionality of the core peer-to-peer server that manages the XRP Ledger. Anyone can run their own `rippled` server that follows the network and keeps a complete copy of the XRP Ledger.
+Set up and run a `rippled` server to understand the developer experience and functionality of the core peer-to-peer server that manages the SGY Ledger. Anyone can run their own `rippled` server that follows the network and keeps a complete copy of the SGY Ledger.
 
 [Set up and run a server >](manage-the-rippled-server.html)
 
 <span class="use-case-step-num">{{n.next()}}</span>
-## Try out XRP Ledger integration tools
+## Try out SGY Ledger integration tools
 
-Take a look at the various tools provided to help developers integrate with the XRP Ledger. From WebSocket and JSON-RPC API endpoints to the `ripple-lib` JavaScript library, take a look at the modes of integration offered to the developer community.
+Take a look at the various tools provided to help developers integrate with the SGY Ledger. From WebSocket and JSON-RPC API endpoints to the `ripple-lib` JavaScript library, take a look at the modes of integration offered to the developer community.
 
-[Try out XRP Ledger integration tools >](get-started-with-the-rippled-api.html)
+[Try out SGY Ledger integration tools >](get-started-with-the-rippled-api.html)
 
 <span class="use-case-step-num">{{n.next()}}</span>
-## Get a sandbox XRP Ledger account
+## Get a sandbox SGY Ledger account
 
-Use the XRP Ledger Test Net to get a sandbox account. Connect your `rippled server` to the Test Net to make test calls and get to know the XRP Ledger.
+Use the SGY Ledger Test Net to get a sandbox account. Connect your `rippled server` to the Test Net to make test calls and get to know the SGY Ledger.
 
-[Get a sandbox XRP Ledger account >](xrp-test-net-faucet.html)
+[Get a sandbox SGY Ledger account >](xrp-test-net-faucet.html)
 
 <span class="use-case-step-num">{{n.next()}}</span>
 ## Set up your development environment
@@ -49,7 +49,7 @@ Before you start contributing code to `rippled,` take some time to familiarize y
 <span class="use-case-step-num">{{n.next()}}</span>
 ## Contribute code
 
-Now that you have a handle on `rippled`, you may have ideas for how to improve it. Perhaps you’re developing on the XRP Ledger and want to contribute some code that enables the XRP Ledger to provide a feature your application needs. Access the `rippled` repo and open an issue or pull request.
+Now that you have a handle on `rippled`, you may have ideas for how to improve it. Perhaps you’re developing on the SGY Ledger and want to contribute some code that enables the SGY Ledger to provide a feature your application needs. Access the `rippled` repo and open an issue or pull request.
 
 <span class="use-case-external-link btn btn-outline-secondary external-link">[Contribute code](https://github.com/ripple/rippled/pulls)</span>
 

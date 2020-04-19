@@ -164,11 +164,11 @@ rippled account_channels rN7n7otQDd6FczFgLdSqtcsAUxDkw6fzRH rf1BiGeXwwQoi8Z2ueFY
 | フィールド | 型 | 説明 |
 |-------|------|-------------|
 | `account` | 文字列 | Channelの所有者（[アドレス][]として）。 |
-| `amount` | 文字列 | このChannelに割り当てられる[XRP、drop単位][]の合計額。 |
-| `balance` | 文字列 | 使用されているレジャーバージョンにおいて、このChannelから支払われた[XRP、drop単位][]の合計額。（Channelに残っているXRPの額を計算するには、`balance`を`amount`から差し引きます。） |
+| `amount` | 文字列 | このChannelに割り当てられる[SGY、drop単位][]の合計額。 |
+| `balance` | 文字列 | 使用されているレジャーバージョンにおいて、このChannelから支払われた[SGY、drop単位][]の合計額。（Channelに残っているSGYの額を計算するには、`balance`を`amount`から差し引きます。） |
 | `channel_id` | 文字列 | このChannelの一意のID（64文字の16進数文字列）。レジャーの状態データの[channelオブジェクトのID](paychannel.html#paychannel-idのフォーマット)でもあります。 |
-| `destination_account` | 文字列 | Channelの送金先アカウント（[アドレス][]として）。このアカウントだけが、Channelがオープンしている間にXRPを受領できます。 |
-| `public_key` | 文字列 | _（省略される場合があります）_ XRP Ledgerの[base58][]フォーマットのPayment Channelの公開鍵。このChannelに対する署名付きクレームは、一致するキーペアを使用して清算する必要があります。 |
+| `destination_account` | 文字列 | Channelの送金先アカウント（[アドレス][]として）。このアカウントだけが、Channelがオープンしている間にSGYを受領できます。 |
+| `public_key` | 文字列 | _（省略される場合があります）_ SGY Ledgerの[base58][]フォーマットのPayment Channelの公開鍵。このChannelに対する署名付きクレームは、一致するキーペアを使用して清算する必要があります。 |
 | `public_key_hex` | 文字列 | _（省略される場合があります）_ Payment Channel作成時にChannelの公開鍵を指定している場合はその公開鍵（16進数フォーマット）。このChannelに対する署名付きクレームは、一致するキーペアを使用して清算する必要があります。 |
 | `settle_delay` | 符号なし整数 | Payment Channelの所有者がChannel閉鎖を依頼した後に、そのChannelが開いている必要がある秒数。 |
 | `expiration` | 符号なし整数 | _（省略される場合があります）_ このChannelに設定された有効期限（[Rippleエポック以降の経過秒数][]）。この有効期限の日付は変更可能です。これが最新の検証済みレジャーの閉鎖時刻よりも前の場合、Channelは有効期限切れです。 |

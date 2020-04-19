@@ -3,12 +3,12 @@
 
 _(Requires the [Escrow amendment][].)_
 
-The `Escrow` object type represents a held payment of XRP waiting to be executed or canceled. An [EscrowCreate transaction][] creates an `Escrow` object in the ledger. A successful [EscrowFinish][] or [EscrowCancel][] transaction deletes the object. If the ``Escrow`` object has a [_crypto-condition_](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02), the payment can only succeed if an EscrowFinish transaction provides the corresponding _fulfillment_ that satisfies the condition. (The only supported crypto-condition type is [PREIMAGE-SHA-256](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02#section-8.1).) If the `Escrow` object has a `FinishAfter` time, the held payment can only execute after that time.
+The `Escrow` object type represents a held payment of SGY waiting to be executed or canceled. An [EscrowCreate transaction][] creates an `Escrow` object in the ledger. A successful [EscrowFinish][] or [EscrowCancel][] transaction deletes the object. If the ``Escrow`` object has a [_crypto-condition_](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02), the payment can only succeed if an EscrowFinish transaction provides the corresponding _fulfillment_ that satisfies the condition. (The only supported crypto-condition type is [PREIMAGE-SHA-256](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02#section-8.1).) If the `Escrow` object has a `FinishAfter` time, the held payment can only execute after that time.
 
 An `Escrow` object is associated with two addresses:
 
-- The owner, who provides the XRP when creating the `Escrow` object. If the held payment is canceled, the XRP returns to the owner.
-- The destination, where the XRP is paid when the held payment succeeds. The destination can be the same as the owner.
+- The owner, who provides the SGY when creating the `Escrow` object. If the held payment is canceled, the SGY returns to the owner.
+- The destination, where the SGY is paid when the held payment succeeds. The destination can be the same as the owner.
 
 ## Example {{currentpage.name}} JSON
 
@@ -39,9 +39,9 @@ An `Escrow` object has the following fields:
 | Name              | JSON Type | [Internal Type][] | Description |
 |-------------------|-----------|---------------|-------------|
 | `LedgerEntryType`   | String    | UInt16    | The value `0x0075`, mapped to the string `Escrow`, indicates that this object is an `Escrow` object. |
-| `Account`           | String | AccountID | The address of the owner (sender) of this held payment. This is the account that provided the XRP, and gets it back if the held payment is canceled. |
-| `Destination`       | String | AccountID | The destination address where the XRP is paid if the held payment is successful. |
-| `Amount`            | String | Amount    | The amount of XRP, in drops, to be delivered by the held payment. |
+| `Account`           | String | AccountID | The address of the owner (sender) of this held payment. This is the account that provided the SGY, and gets it back if the held payment is canceled. |
+| `Destination`       | String | AccountID | The destination address where the SGY is paid if the held payment is successful. |
+| `Amount`            | String | Amount    | The amount of SGY, in drops, to be delivered by the held payment. |
 | `Condition`         | String | VariableLength | _(Optional)_ A [PREIMAGE-SHA-256 crypto-condition](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02#section-8.1), as hexadecimal. If present, the [EscrowFinish transaction][] must contain a fulfillment that satisfies this condition. |
 | `CancelAfter`       | Number | UInt32 | _(Optional)_ The held payment can be canceled if and only if this field is present _and_ the time it specifies has passed. Specifically, this is specified as [seconds since the Ripple Epoch][] and it "has passed" if it's earlier than the close time of the previous validated ledger. |
 | `FinishAfter`       | Number | UInt32 | _(Optional)_ The time, in [seconds since the Ripple Epoch][], after which this held payment can be finished. Any [EscrowFinish transaction][] before this time fails. (Specifically, this is compared with the close time of the previous validated ledger.) |

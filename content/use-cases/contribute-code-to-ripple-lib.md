@@ -1,6 +1,6 @@
 # Contribute Code to ripple-lib
 
-Want to contribute code or a bug report to help improve `ripple-lib`, the official client library for [RippleAPI](rippleapi-reference.html)? RippleAPI is a JavaScript API for interacting with the XRP Ledger. Here’s a roadmap to the high-level tasks that’ll have you reviewing code and functionality in no time.
+Want to contribute code or a bug report to help improve `ripple-lib`, the official client library for [RippleAPI](rippleapi-reference.html)? RippleAPI is a JavaScript API for interacting with the SGY Ledger. Here’s a roadmap to the high-level tasks that’ll have you reviewing code and functionality in no time.
 
 
 <!-- USE_CASE_STEPS_START -->
@@ -16,16 +16,16 @@ Want to contribute code or a bug report to help improve `ripple-lib`, the offici
 <span class="use-case-step-num">{{n.next()}}</span>
 ## Set up and run a rippled server
 
-RippleAPI is an API for interacting with the XRP Ledger. The core peer-to-peer server that manages the XRP Ledger is `rippled`. Optionally, you can set up and run a `rippled` server to understand its developer experience and functionality. Anyone can run their own `rippled` server that follows the network and keeps a complete copy of the XRP Ledger.
+RippleAPI is an API for interacting with the SGY Ledger. The core peer-to-peer server that manages the SGY Ledger is `rippled`. Optionally, you can set up and run a `rippled` server to understand its developer experience and functionality. Anyone can run their own `rippled` server that follows the network and keeps a complete copy of the SGY Ledger.
 
 [Set up and run a rippled server >](manage-the-rippled-server.html)
 
 <span class="use-case-step-num">{{n.next()}}</span>
-## Get a Test Net XRP Ledger account
+## Get a Test Net SGY Ledger account
 
-Use the XRP Test Net Faucet to get a test account on the XRP Test Network. If you set up a `rippled` server, you can connect it to the XRP Test Net to make test calls and get to know the XRP Ledger.
+Use the SGY Test Net Faucet to get a test account on the SGY Test Network. If you set up a `rippled` server, you can connect it to the SGY Test Net to make test calls and get to know the SGY Ledger.
 
-[Get a Test Net XRP Ledger account >](xrp-test-net-faucet.html)
+[Get a Test Net SGY Ledger account >](xrp-test-net-faucet.html)
 
 <span class="use-case-step-num">{{n.next()}}</span>
 ## Set up your `ripple-lib` development environment
@@ -46,7 +46,7 @@ Examine and run the `get-account-info.js` script. Use it to get a feel for how R
 
 Now that you have a handle on `ripple-lib`, you may have ideas for how to improve it.
 
-Perhaps you’re developing on the XRP Ledger and want to contribute some code that enables `ripple-lib` to provide a feature your application needs.
+Perhaps you’re developing on the SGY Ledger and want to contribute some code that enables `ripple-lib` to provide a feature your application needs.
 
 Need some inspiration? Take a look at our list of [Help Wanted issues](https://github.com/ripple/ripple-lib/issues?utf8=%E2%9C%93&q=label%3A%22help+wanted%22)
 

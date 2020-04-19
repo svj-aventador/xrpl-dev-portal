@@ -28,7 +28,7 @@ Ripple's official RPM repository and instructions for using it have changed. If 
 
         $ cat << REPOFILE | sudo tee /etc/yum.repos.d/ripple.repo
         [ripple-stable]
-        name=XRP Ledger Packages
+        name=SGY Ledger Packages
         baseurl=https://repos.ripple.com/repos/rippled-rpm/stable/
         enabled=1
         gpgcheck=0

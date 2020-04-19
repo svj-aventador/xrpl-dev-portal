@@ -1,23 +1,23 @@
 # Set Up Multi-Signing
 
-[Multi-signing](multi-signing.html) is one of three ways to authorize [transactions](transaction-basics.html) for the XRP Ledger, alongside signing with [regular keys and master keys](cryptographic-keys.html). You can configure your [address](accounts.html) to allow any combination of the three methods to authorize transactions.
+[Multi-signing](multi-signing.html) is one of three ways to authorize [transactions](transaction-basics.html) for the SGY Ledger, alongside signing with [regular keys and master keys](cryptographic-keys.html). You can configure your [address](accounts.html) to allow any combination of the three methods to authorize transactions.
 
 This tutorial demonstrates how to enable multi-signing for an address.
 
 
 ## Prerequisites
 
-- You must have a funded XRP Ledger [address](accounts.html) with enough spare XRP to send transactions and meet the [reserve requirement](reserves.html) of a new signer list.
+- You must have a funded SGY Ledger [address](accounts.html) with enough spare SGY to send transactions and meet the [reserve requirement](reserves.html) of a new signer list.
 
-    - With the [MultiSignReserve amendment][] enabled, multi-signing requires 5 XRP for the account reserve, regardless of the number of signers and signatures you use. (The MultiSignReserve amendment has been enabled in the production XRP Ledger since **2019-04-07**.)
+    - With the [MultiSignReserve amendment][] enabled, multi-signing requires 5 SGY for the account reserve, regardless of the number of signers and signatures you use. (The MultiSignReserve amendment has been enabled in the production SGY Ledger since **2019-04-07**.)
 
-    - If you are on a test network that does not have the [MultiSignReserve amendment][] enabled, multi-signing requires more than the usual amount of XRP for the [account reserve](reserves.html), increasing with the number of signers in the list.
+    - If you are on a test network that does not have the [MultiSignReserve amendment][] enabled, multi-signing requires more than the usual amount of SGY for the [account reserve](reserves.html), increasing with the number of signers in the list.
 
-- You must have access to a tool that can generate key pairs in the XRP Ledger format. If you are using a `rippled` server for this, you must have admin access because the [wallet_propose method][] is admin-only.
+- You must have access to a tool that can generate key pairs in the SGY Ledger format. If you are using a `rippled` server for this, you must have admin access because the [wallet_propose method][] is admin-only.
 
-    - Alternatively, if you are authorizing others who already have XRP Ledger addresses to be signers for your address, you only need to know the account addresses of those people or entities.
+    - Alternatively, if you are authorizing others who already have SGY Ledger addresses to be signers for your address, you only need to know the account addresses of those people or entities.
 
-- Multi-signing must be available. (The MultiSign amendment has been enabled in the production XRP Ledger since **2016-06-27**.)
+- Multi-signing must be available. (The MultiSign amendment has been enabled in the production SGY Ledger since **2016-06-27**.)
 
 ## 1. Design Your Configuration
 
@@ -26,7 +26,7 @@ Decide how many signers you want to include (up to 8). Choose a quorum number fo
 
 ## 2. Prepare member keys
 
-You need one or more validly-formed XRP Ledger addresses to include as members of  your signer list. You or your chosen signers must know the secret keys associated with these addresses. The addresses can be funded accounts that exist in the ledger, but they do not need to be.
+You need one or more validly-formed SGY Ledger addresses to include as members of  your signer list. You or your chosen signers must know the secret keys associated with these addresses. The addresses can be funded accounts that exist in the ledger, but they do not need to be.
 
 You can generate new addresses using the [wallet_propose method][]. For example:
 
@@ -46,12 +46,12 @@ You can generate new addresses using the [wallet_propose method][]. For example:
         }
     }
 
-Take note of the `account_id` (XRP Ledger Address) and `master_seed` (secret key) for each one you generate.
+Take note of the `account_id` (SGY Ledger Address) and `master_seed` (secret key) for each one you generate.
 
 
 ## 3. Send SignerListSet transaction
 
-[Sign and submit](transaction-basics.html#signing-and-submitting-transactions) a [SignerListSet transaction][] in the normal (single-signature) way. This associates a SignerList with your XRP Ledger address, so that a combination of signatures from the members of that SignerList can multi-sign later transactions on your behalf.
+[Sign and submit](transaction-basics.html#signing-and-submitting-transactions) a [SignerListSet transaction][] in the normal (single-signature) way. This associates a SignerList with your SGY Ledger address, so that a combination of signatures from the members of that SignerList can multi-sign later transactions on your behalf.
 
 In this example, the SignerList has 3 members, with the weights and quorum set up such that multi-signed transactions need a signature from rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW plus at least one signature from the other two members of the list.
 
@@ -130,7 +130,7 @@ In this example, the SignerList has 3 members, with the weights and quorum set u
 
 Make sure that the [Transaction Result](transaction-results.html) is [**tesSUCCESS**](tes-success.html). Otherwise, the transaction failed. If you have a problem in stand-alone mode or a non-production network, check that [multi-sign is enabled](start-a-new-genesis-ledger-in-stand-alone-mode.html#settings-in-new-genesis-ledgers).
 
-**Note:** Without the [MultiSignReserve amendment][], the more members in the SignerList, the more XRP your address must have for purposes of the [owner reserve](reserves.html#owner-reserves). If your address does not have enough XRP, the transaction fails with [tecINSUFFICIENT_RESERVE](tec-codes.html). With the [MultiSignReserve amendment][] enabled, the XRP your address must have for purposes of the [owner reserve](reserves.html#owner-reserves) is 5 XRP, regardless of the number of members in the SignerList. See also: [SignerLists and Reserves](signerlist.html#signerlists-and-reserves).
+**Note:** Without the [MultiSignReserve amendment][], the more members in the SignerList, the more SGY your address must have for purposes of the [owner reserve](reserves.html#owner-reserves). If your address does not have enough SGY, the transaction fails with [tecINSUFFICIENT_RESERVE](tec-codes.html). With the [MultiSignReserve amendment][] enabled, the SGY your address must have for purposes of the [owner reserve](reserves.html#owner-reserves) is 5 SGY, regardless of the number of members in the SignerList. See also: [SignerLists and Reserves](signerlist.html#signerlists-and-reserves).
 
 
 ## 4. Wait for validation

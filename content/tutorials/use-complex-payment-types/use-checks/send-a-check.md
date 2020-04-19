@@ -6,9 +6,9 @@ Sending a Check is like writing permission for an intended recipient to pull a p
 
 In many cases, you want to send a [Payment][] instead of a Check, since that delivers the money directly to the recipient in one step. However, if your intended recipient uses [DepositAuth](depositauth.html), you cannot send them Payments directly, so a Check is a good alternative.
 
-This tutorial uses the example of a fictitious company, BoxSend SG (whose XRP Ledger address is rBXsgNkPcDN2runsvWmwxk3Lh97zdgo9za) paying a fictitious cryptocurrency consulting company named Grand Payments (with XRP Ledger address rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis) for some consulting work. Grand Payments prefers be paid in XRP, but to simplify their taxes and regulation, only accepts payments they've explicitly approved.
+This tutorial uses the example of a fictitious company, BoxSend SG (whose SGY Ledger address is rBXsgNkPcDN2runsvWmwxk3Lh97zdgo9za) paying a fictitious cryptocurrency consulting company named Grand Payments (with SGY Ledger address rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis) for some consulting work. Grand Payments prefers be paid in SGY, but to simplify their taxes and regulation, only accepts payments they've explicitly approved.
 
-Outside of the XRP Ledger, Grand Payments sends an invoice to BoxSend SG with the ID `46060241FABCF692D4D934BA2A6C4427CD4279083E38C77CBE642243E43BE291`, and requests a Check for 100 XRP be sent to Grand Payments' XRP Ledger address of rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis.
+Outside of the SGY Ledger, Grand Payments sends an invoice to BoxSend SG with the ID `46060241FABCF692D4D934BA2A6C4427CD4279083E38C77CBE642243E43BE291`, and requests a Check for 100 SGY be sent to Grand Payments' SGY Ledger address of rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis.
 
 {% set send_n = cycler(* range(1,99)) %}
 
@@ -17,7 +17,7 @@ Outside of the XRP Ledger, Grand Payments sends an invoice to BoxSend SG with th
 To send a Check with this tutorial, you need the following:
 
 - The **address** and **secret key** of a funded account to send the Check from.
-    - You can use the [XRP Ledger Test Net Faucet](xrp-test-net-faucet.html) to get a funded address and secret with 10,000 Test Net XRP.
+    - You can use the [SGY Ledger Test Net Faucet](xrp-test-net-faucet.html) to get a funded address and secret with 10,000 Test Net SGY.
 - The **address** of a funded account to receive the Check.
 - A secure way to sign transactions, such as [RippleAPI][] or your own [`rippled` server](install-rippled.html).
 - A client library that can connect to a `rippled` server, such as [RippleAPI][] or any HTTP or WebSocket library.
@@ -32,7 +32,7 @@ Decide how much money the Check is for and who can cash it. Figure out the value
 | `TransactionType` | String                    | Use the string `CheckCreate` here. |
 | `Account`         | String (Address)          | The address of the sender who is creating the Check. (In other words, your address.) |
 | `Destination`     | String (Address)          | The address of the intended recipient who can cash the Check. |
-| `SendMax`         | String or Object (Amount) | The maximum amount the sender can be debited when this Check gets cashed. For XRP, use a string representing drops of XRP. For issued currencies, use an object with `currency`, `issuer`, and `value` fields. See [Specifying Currency Amounts][] for details. If you want the recipient to be able to cash the Check for an exact amount of a non-XRP currency with a [transfer fee](transfer-fees.html), remember to include an extra percentage to pay for the transfer fee. (For example, for the recipient to cash a Check for 100 CAD from an issuer with a 2% transfer fee, you must set the `SendMax` to 102 CAD from that issuer.) |
+| `SendMax`         | String or Object (Amount) | The maximum amount the sender can be debited when this Check gets cashed. For SGY, use a string representing drops of SGY. For issued currencies, use an object with `currency`, `issuer`, and `value` fields. See [Specifying Currency Amounts][] for details. If you want the recipient to be able to cash the Check for an exact amount of a non-SGY currency with a [transfer fee](transfer-fees.html), remember to include an extra percentage to pay for the transfer fee. (For example, for the recipient to cash a Check for 100 CAD from an issuer with a 2% transfer fee, you must set the `SendMax` to 102 CAD from that issuer.) |
 
 If you are using [RippleAPI](rippleapi-reference.html), you can use the `prepareCheckCreate()` helper method.
 
@@ -40,7 +40,7 @@ If you are using [RippleAPI](rippleapi-reference.html), you can use the `prepare
 
 ### Example CheckCreate Preparation
 
-The following example shows a prepared Check from BoxSend SG (rBXsgNkPcDN2runsvWmwxk3Lh97zdgo9za) to Grand Payments (rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis) for 100 XRP. As additional (optional) metadata, BoxSend SG adds the ID of the invoice from Grand Payments so Grand Payments knows which invoice this Check is intended to pay.
+The following example shows a prepared Check from BoxSend SG (rBXsgNkPcDN2runsvWmwxk3Lh97zdgo9za) to Grand Payments (rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis) for 100 SGY. As additional (optional) metadata, BoxSend SG adds the ID of the invoice from Grand Payments so Grand Payments knows which invoice this Check is intended to pay.
 
 <!-- MULTICODE_BLOCK_START -->
 

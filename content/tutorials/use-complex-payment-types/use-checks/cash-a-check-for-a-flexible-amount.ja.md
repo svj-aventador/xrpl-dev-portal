@@ -24,7 +24,7 @@ Checkから可能な限りの額を受領したい場合には、変動金額で
 | `TransactionType` | 文字列                    | 値が`CheckCash`の場合、これはCheckCashトランザクションです。 |
 | `Account`         | 文字列（アドレス）          | Checkを換金する送信者のアドレス。（あなたのアドレスです。） |
 | `CheckID`         | 文字列                    | レジャーで換金するCheckオブジェクトのID。この情報を確認するには、[txメソッド][]を使用してCheckCreateトランザクションのメタデータを調べるか、または[account_objectsメソッド][]を使用してCheckを探します。 |
-| `DeliverMin`      | 文字列またはオブジェクト（額） | Checkから受領する最小額。この額を受領できない場合はCheckの換金が失敗し、Checkがレジャーに残るので、後で換金を再試行できます。XRPの場合、XRPのdrop数を示す文字列でなければなりません。発行済み通貨の場合、これは`currency`、`issuer`、および`value` フィールドを持つオブジェクトです。`currency`フィールドと`issuer`フィールドは、Checkオブジェクトの対応するフィールドに一致しており、`value`はCheckオブジェクトの額以下でなければなりません。詳細は、[通貨額の指定][]を参照してください。 |
+| `DeliverMin`      | 文字列またはオブジェクト（額） | Checkから受領する最小額。この額を受領できない場合はCheckの換金が失敗し、Checkがレジャーに残るので、後で換金を再試行できます。SGYの場合、SGYのdrop数を示す文字列でなければなりません。発行済み通貨の場合、これは`currency`、`issuer`、および`value` フィールドを持つオブジェクトです。`currency`フィールドと`issuer`フィールドは、Checkオブジェクトの対応するフィールドに一致しており、`value`はCheckオブジェクトの額以下でなければなりません。詳細は、[通貨額の指定][]を参照してください。 |
 
 ### 変動金額で換金するCheckCashトランザクションの準備の例
 
@@ -156,15 +156,15 @@ Checkを変動金額で換金するためのトランザクションを準備す
 | `tecNO_PERMISSION` | CheckCashトランザクションの送信者はCheckの`Destination`ではありません。 | Checkの`Destination`を再度確認します。 |
 | `tecNO_AUTH` | このCheckの通貨のイシュアーは[Authorized Trust Line](authorized-trust-lines.html)を使用していますが、受取人からイシュアーへのトラストラインが承認されていません。 | このトラストラインを承認するようイシュアーに依頼し、承認されたらCheckの換金を再試行します。 |
 | `tecPATH_PARTIAL` | トラストラインの限度額、または送金元に送金通貨の残高（イシュアーの[送金手数料](transfer-fees.html)がある場合はこの手数料を含む）が十分になかったことが原因で、Checkでは十分な発行済み通貨を送金できませんでした。 | 原因がトラストラインの限度額である場合は、（希望する場合には）限度額を引き上げる[TrustSetトランザクション][]を送信するか、または通貨の一部を消費して残高を減らしてから、Checkの換金を再試行します。原因が送金元の残高である場合は、送金元にCheckの通貨が積み増しされるまで待つか、または以前よりも低い額でCheckの換金を再試行します。 |
-| `tecUNFUNDED_PAYMENT` | Checkで十分なXRPを送金できませんでした。 | 送金元にXRPが積み増しされるまで待つか、または以前よりも低い額でCheckの換金を再試行します。 |
+| `tecUNFUNDED_PAYMENT` | Checkで十分なSGYを送金できませんでした。 | 送金元にSGYが積み増しされるまで待つか、または以前よりも低い額でCheckの換金を再試行します。 |
 
 ## {{cash_flex_n.next()}}.送金された額の確認
 
 Checkが変動する`DeliverMin`の額で換金された場合は、Checkは少なくとも`DeliverMin`の額で換金されたと想定できます。送金された額を正確に得るには、トランザクションメタデータを調べます。<!--{# TODO: Update if RIPD-1623 adds a delivered_amount field. #}-->メタデータの`AffectedNodes`配列には、通貨のタイプに応じて、Checkの換金による残高の変更を反映した1～2つのオブジェクトが含まれています。
 
-- XRPの場合、Checkの送金元の`AccountRoot`オブジェクトのXRP `Balance` フィールドから引き落しが行われます。Checkの受取人（CheckCashトランザクションを送信したユーザー）の`AccountRoot`オブジェクトでは、最低でもCheckCashトランザクションの`DeliverMin`から、トランザクションの送信にかかる[トランザクションコスト](transaction-cost.html)を差し引いた額が、XRP `Balance`に入金されます。
+- SGYの場合、Checkの送金元の`AccountRoot`オブジェクトのSGY `Balance` フィールドから引き落しが行われます。Checkの受取人（CheckCashトランザクションを送信したユーザー）の`AccountRoot`オブジェクトでは、最低でもCheckCashトランザクションの`DeliverMin`から、トランザクションの送信にかかる[トランザクションコスト](transaction-cost.html)を差し引いた額が、SGY `Balance`に入金されます。
 
-    たとえば以下の`ModifiedNode`は、アカウントrGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis（Checkの受取人でありこのCheckCashトランザクションの送信者）のXRP残高が`9999999970` dropから`10099999960` dropに変更されています。つまり、このトランザクションを処理した結果として、受取人に対し _正味_ 99.99999 XRPが入金されています。
+    たとえば以下の`ModifiedNode`は、アカウントrGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis（Checkの受取人でありこのCheckCashトランザクションの送信者）のSGY残高が`9999999970` dropから`10099999960` dropに変更されています。つまり、このトランザクションを処理した結果として、受取人に対し _正味_ 99.99999 SGYが入金されています。
 
           {
             "ModifiedNode": {
@@ -186,7 +186,7 @@ Checkが変動する`DeliverMin`の額で換金された場合は、Checkは少�
             }
           }
 
-    正味金額99.99999 XRPは、このCheckCashトランザクションを送信するにあたり、トランザクションコストを支払うために消却された額を差し引いた後の金額です。以下のトランザクション指示（抜粋）は、トランザクションコスト（`Fee`フィールド）がXRPの10 dropであることを示しています。これを正味残高の変更に追加することで、このCheckの換金のために受取人rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAisに _総額_ 100 XRPが入金されます。
+    正味金額99.99999 SGYは、このCheckCashトランザクションを送信するにあたり、トランザクションコストを支払うために消却された額を差し引いた後の金額です。以下のトランザクション指示（抜粋）は、トランザクションコスト（`Fee`フィールド）がSGYの10 dropであることを示しています。これを正味残高の変更に追加することで、このCheckの換金のために受取人rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAisに _総額_ 100 SGYが入金されます。
 
         "Account" : "rGPnRH1EBpHeTF2QG8DCAgM7z5pb75LAis",
         "TransactionType" : "CheckCash",

@@ -131,7 +131,7 @@ Or, if you are sure you don't need the databases:
 rm -r /var/lib/rippled/db
 ```
 
-**Tip:** It is generally safe to delete the `rippled` databases, because any individual server can re-download ledger history from other servers in the XRP Ledger network.
+**Tip:** It is generally safe to delete the `rippled` databases, because any individual server can re-download ledger history from other servers in the SGY Ledger network.
 
 Alternatively, you can change the paths to the databases in the config file. For example:
 

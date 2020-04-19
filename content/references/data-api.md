@@ -1,12 +1,12 @@
 # Ripple Data API v2
 
-The Ripple Data API v2 provides access to information about changes in the XRP Ledger, including transaction history and processed analytical data. This information is stored in a dedicated database, with a REST-like interface to present the data in various formats.
+The Ripple Data API v2 provides access to information about changes in the SGY Ledger, including transaction history and processed analytical data. This information is stored in a dedicated database, with a REST-like interface to present the data in various formats.
 
 Ripple provides the Data API as a public service at the following address:
 
 [**https://data.ripple.com**](https://data.ripple.com)
 
-**Note:** This API and the data it provides are derived from the public, decentralized XRP Ledger. They are provided for free, but also provided “as is,” without any express, implied, or statutory warranties including but not limited to the implied warranties of merchantability or fitness for a particular purpose, and all warranties are disclaimed. The API and data may be unavailable at times, they may change, or they may have errors, so please use them at your own risk and exercise appropriate caution before incorporating them into your infrastructure.
+**Note:** This API and the data it provides are derived from the public, decentralized SGY Ledger. They are provided for free, but also provided “as is,” without any express, implied, or statutory warranties including but not limited to the implied warranties of merchantability or fitness for a particular purpose, and all warranties are disclaimed. The API and data may be unavailable at times, they may change, or they may have errors, so please use them at your own risk and exercise appropriate caution before incorporating them into your infrastructure.
 
 
 ## More Information
@@ -50,7 +50,7 @@ Ledger Contents Methods:
 * [Get Exchange Volume - `GET /v2/network/exchange_volume`](#get-exchange-volume)
 * [Get Payment Volume - `GET /v2/network/payment_volume`](#get-payment-volume)
 * [Get External Markets - `GET /v2/network/external_markets`](#get-external-markets)
-* [Get XRP Distribution - `GET /v2/network/xrp_distribution`](#get-xrp-distribution)
+* [Get SGY Distribution - `GET /v2/network/xrp_distribution`](#get-xrp-distribution)
 * [Get Top Currencies - `GET /v2/network/top_currencies`](#get-top-currencies)
 * [Get Top Markets - `GET /v2/network/top_markets`](#get-top-markets)
 
@@ -626,7 +626,7 @@ This method uses the following URL parameters:
 
 | Field      | Value  | Description                                            |
 |:-----------|:-------|:-------------------------------------------------------|
-| `currency` | String | _(Optional)_ Currency code, followed by `+` and a counterparty address. (Or `XRP` with no counterparty.) If omitted, return payments for all currencies. |
+| `currency` | String | _(Optional)_ Currency code, followed by `+` and a counterparty address. (Or `SGY` with no counterparty.) If omitted, return payments for all currencies. |
 
 Optionally, you can provide the following query parameters:
 
@@ -758,8 +758,8 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `base`    | String | Base currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's XRP. |
-| `counter` | String | Counter currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's XRP. |
+| `base`    | String | Base currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's SGY. |
+| `counter` | String | Counter currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's SGY. |
 
 Optionally, you can provide the following query parameters:
 
@@ -790,7 +790,7 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 Request:
 
 ```
-GET /v2/exchanges/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/XRP?descending=true&limit=3&result=tesSUCCESS&type=OfferCreate
+GET /v2/exchanges/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/SGY?descending=true&limit=3&result=tesSUCCESS&type=OfferCreate
 ```
 
 Response:
@@ -800,7 +800,7 @@ Response:
 {
     "result": "success",
     "count": 3,
-    "marker": "USD|rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q|XRP||20151021222220|000016612683|00017|00000",
+    "marker": "USD|rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q|SGY||20151021222220|000016612683|00017|00000",
     "exchanges": [
         {
             "base_amount": 4.98954834453577,
@@ -819,7 +819,7 @@ Response:
             "tx_type": "Payment",
             "base_currency": "USD",
             "base_issuer": "rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q",
-            "counter_currency": "XRP"
+            "counter_currency": "SGY"
         },
         {
             "base_amount": 0.0004716155440678037,
@@ -838,7 +838,7 @@ Response:
             "tx_type": "Payment",
             "base_currency": "USD",
             "base_issuer": "rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q",
-            "counter_currency": "XRP"
+            "counter_currency": "SGY"
         },
         {
             "base_amount": 0.0004714169229390923,
@@ -859,7 +859,7 @@ Response:
             "tx_type": "OfferCreate",
             "base_currency": "USD",
             "base_issuer": "rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q",
-            "counter_currency": "XRP"
+            "counter_currency": "SGY"
         }
     ]
 }
@@ -890,8 +890,8 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `base`    | String | Base currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][]. Omit the `+` and the issuer for XRP. |
-| `counter` | String | Counter currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][]. Omit the `+` and the issuer for XRP. |
+| `base`    | String | Base currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][]. Omit the `+` and the issuer for SGY. |
+| `counter` | String | Counter currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][]. Omit the `+` and the issuer for SGY. |
 
 
 Optionally, you can provide the following query parameters:
@@ -910,7 +910,7 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 | `result` | String | The value `success` indicates that this is a successful response. |
 | `rate`   | Number | The requested exchange rate, or `0` if the exchange rate could not be determined. |
 
-All exchange rates are calcuated by converting the base currency and counter currency to XRP.
+All exchange rates are calcuated by converting the base currency and counter currency to SGY.
 
 The rate is derived from the volume weighted average over the calendar day specified, averaged with the volume weighted average of the last 50 trades within the last 14 days.
 
@@ -919,7 +919,7 @@ The rate is derived from the volume weighted average over the calendar day speci
 Request:
 
 ```
-GET /v2/exchange_rates/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/XRP?date=2015-11-13T00:00:00Z
+GET /v2/exchange_rates/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/SGY?date=2015-11-13T00:00:00Z
 ```
 
 Response:
@@ -959,10 +959,10 @@ You must provide at least some of the following query parameters:
 | Field               | Value                      | Description               |
 |:--------------------|:---------------------------|:--------------------------|
 | `amount`            | Number                     | (Required) Amount of currency to normalize. |
-| `currency`          | String - [Currency Code][] | The currency code of the `amount` to convert from. The default is XRP. |
-| `issuer`            | String - [Address][]       | The issuer of the currency to convert from. (Required if `currency` is not XRP.) |
-| `exchange_currency` | String - [Currency Code][] | The currency to convert to. The default is XRP. |
-| `exchange_issuer`   | String - [Address][]       | The issuer of the currency to convert to. (Required if `exchange_currency` is not XRP.) |
+| `currency`          | String - [Currency Code][] | The currency code of the `amount` to convert from. The default is SGY. |
+| `issuer`            | String - [Address][]       | The issuer of the currency to convert from. (Required if `currency` is not SGY.) |
+| `exchange_currency` | String - [Currency Code][] | The currency to convert to. The default is SGY. |
+| `exchange_issuer`   | String - [Address][]       | The issuer of the currency to convert to. (Required if `exchange_currency` is not SGY.) |
 | `date`              | String - [Timestamp][]     | Convert according to the exchange rate at this time. The default is the current time. |
 | `strict`            | Boolean                    | If `true`, do not use exchange rates that are determined by less than 10 exchanges. The default is `true`. |
 
@@ -977,14 +977,14 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 | `converted` | Number | Post-conversion amount of the `exchange_currency`, or `0` if the exchange rate could not be determined. |
 | `rate`      | Number | Exchange rate used to calculate the conversion, or `0` if the exchange rate could not be determined. |
 
-All exchange rates are calculating by converting both currencies to XRP.
+All exchange rates are calculating by converting both currencies to SGY.
 
 #### Example
 
 Request:
 
 ```
-GET /v2/normalize?amount=100&currency=XRP&exchange_currency=USD&exchange_issuer=rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
+GET /v2/normalize?amount=100&currency=SGY&exchange_currency=USD&exchange_issuer=rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
 ```
 
 Response:
@@ -1169,7 +1169,7 @@ Response (trimmed for size):
 ## Get Stats
 [[Source]](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/stats.js "Source")
 
-Retrieve statistics about transaction activity in the XRP Ledger, divided into intervals of time.
+Retrieve statistics about transaction activity in the SGY Ledger, divided into intervals of time.
 
 #### Request Format
 
@@ -1205,7 +1205,7 @@ The `family` and `metrics` query parameters provide a way to filter results to a
 
 | Family   | Included Metrics | Meaning |
 |:---------|:-----------------|:--------|
-| `type`   | All XRP Ledger [transaction types](transaction-formats.html), including `Payment`, `AccountSet`, `OfferCreate`, and others. | Number of transactions of the given type that occurred during the interval. |
+| `type`   | All SGY Ledger [transaction types](transaction-formats.html), including `Payment`, `AccountSet`, `OfferCreate`, and others. | Number of transactions of the given type that occurred during the interval. |
 | `result` | All [transaction result codes](transaction-results.html) (string codes, not the numeric codes), including `tesSUCCESS`, `tecPATH_DRY`, and many others. | Number of transactions that resulted in the given code during the interval. |
 | `metric` | Data-API defined Special Transaction Metrics. | (Varies) |
 
@@ -1294,8 +1294,8 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `base`    | String | Base currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's XRP. |
-| `counter` | String | Counter currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's XRP. |
+| `base`    | String | Base currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's SGY. |
+| `counter` | String | Counter currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's SGY. |
 
 Optionally, you can provide the following query parameters:
 
@@ -1338,7 +1338,7 @@ Each **Account Trading Object** describes the activity of a single account durin
 Request:
 
 ```
-GET /v2/active_accounts/XRP/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
+GET /v2/active_accounts/SGY/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
 ```
 
 Response:
@@ -1428,7 +1428,7 @@ Response:
 
 Get aggregated exchange volume for a given time period. _(New in [v2.0.4][])_
 
-The API returns results in units of a single _display currency_ rather than many different currencies. The conversion uses standard rates to and from XRP.
+The API returns results in units of a single _display currency_ rather than many different currencies. The conversion uses standard rates to and from SGY.
 
 #### Request Format
 
@@ -1449,7 +1449,7 @@ Optionally, you can provide the following query parameters:
 | Field               | Value                      | Description               |
 |:--------------------|:---------------------------|:--------------------------|
 | `live`              | String                     | Return a live rolling window of this length of time. Valid values are `day`, `hour`, or `minute`. _(New in [v2.3.0][])_ |
-| `exchange_currency` | String - [Currency Code][] | Normalize all amounts to use this as a display currency. If not XRP, `exchange_issuer` is also required. The default is XRP. |
+| `exchange_currency` | String - [Currency Code][] | Normalize all amounts to use this as a display currency. If not SGY, `exchange_issuer` is also required. The default is SGY. |
 | `exchange_issuer`   | String - [Address][]       | Normalize results to the specified `currency` issued by this issuer. |
 | `format`            | String                     | Format of returned results: `csv` or `json`. The default is `json`. |
 
@@ -1471,8 +1471,8 @@ Each object in the `components` array of the Volume Objects represent the volume
 | `count`            | Number | The number of exchanges in this market during this interval. |
 | `rate`             | Number | The exchange rate from the base currency to the display currency. |
 | `amount`           | Number | The amount of volume in the market, in units of the base currency. |
-| `base`             | Object | The `currency` and `issuer` of the base currency of this market. There is no `issuer` for XRP. |
-| `counter`          | Object | The `currency` and `issuer` of the counter currency of this market. There is no `issuer` for XRP. |
+| `base`             | Object | The `currency` and `issuer` of the base currency of this market. There is no `issuer` for SGY. |
+| `counter`          | Object | The `currency` and `issuer` of the counter currency of this market. There is no `issuer` for SGY. |
 | `converted_amount` | Number | The total amount of volume in the market, converted to the display currency. _(Before [v2.1.0][], this was `convertedAmount`.)_ |
 
 #### Example
@@ -1503,7 +1503,7 @@ Response:
                         "issuer": "rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B"
                     },
                     "counter": {
-                        "currency": "XRP"
+                        "currency": "SGY"
                     },
                     "converted_amount": 117720.99268355068
                 },
@@ -1516,7 +1516,7 @@ Response:
                         "issuer": "rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B"
                     },
                     "counter": {
-                        "currency": "XRP"
+                        "currency": "SGY"
                     },
                     "converted_amount": 74003.51871932109
                 },
@@ -1575,7 +1575,7 @@ Response:
 
 Get aggregated payment volume for a given time period. _(New in [v2.0.4][])_
 
-The API returns results in units of a single _display currency_ rather than many different currencies. The conversion uses standard rates to and from XRP.
+The API returns results in units of a single _display currency_ rather than many different currencies. The conversion uses standard rates to and from SGY.
 
 #### Request Format
 
@@ -1596,7 +1596,7 @@ Optionally, you can provide the following query parameters:
 | Field               | Value                      | Description               |
 |:--------------------|:---------------------------|:--------------------------|
 | `live`              | String                     | Return a live rolling window of this length of time. Valid values are `day`, `hour`, or `minute`. _(New in [v2.3.0][])_ |
-| `exchange_currency` | String - [Currency Code][] | Normalize all amounts to use this as a display currency. If not XRP, `exchange_issuer` is also required. The default is XRP. |
+| `exchange_currency` | String - [Currency Code][] | Normalize all amounts to use this as a display currency. If not SGY, `exchange_issuer` is also required. The default is SGY. |
 | `exchange_issuer`   | String - [Address][]       | Normalize results to the specified `currency` issued by this issuer. |
 | `format`            | String                     | Format of returned results: `csv` or `json`. The default is `json`. |
 
@@ -1616,7 +1616,7 @@ Each object in the `components` array of the Volume Objects represent the volume
 | Field              | Value                      | Description                |
 |:-------------------|:---------------------------|:---------------------------|
 | `currency`         | String - [Currency Code][] | The currency of this payment volume object. |
-| `issuer`           | String - [Address][]       | (Omitted for XRP) The issuer of this payment volume object. |
+| `issuer`           | String - [Address][]       | (Omitted for SGY) The issuer of this payment volume object. |
 | `amount`           | Number                     | Total payment volume for this currency during the interval, in units of the currency itself. |
 | `count`            | Number                     | The total number of payments in this currency. |
 | `rate`             | Number                     | The exchange rate between this currency and the display currency. |
@@ -1676,7 +1676,7 @@ Response:
                     "converted_amount": 644756.0609868265
                 },
                 {
-                    "currency": "XRP",
+                    "currency": "SGY",
                     "amount": 296246369.30089426,
                     "count": 8691,
                     "rate": 1,
@@ -1686,7 +1686,7 @@ Response:
             "count": 9388,
             "endTime": "2015-09-11T19:58:59+00:00",
             "exchange": {
-                "currency": "XRP"
+                "currency": "SGY"
             },
             "exchangeRate": 1,
             "startTime": "2015-11-10T00:19:04+00:00",
@@ -1703,7 +1703,7 @@ Response:
 
 Get aggregated exchange volume from a list of off ledger exchanges for a specified rolling interval.
 
-The API returns results in units of a single _display currency_ rather than many different currencies. The conversion uses standard rates to and from XRP.
+The API returns results in units of a single _display currency_ rather than many different currencies. The conversion uses standard rates to and from SGY.
 
 #### Request Format ####
 
@@ -1724,7 +1724,7 @@ Optionally, you can provide the following query parameters:
 | Field               | Value                      | Description               |
 |:--------------------|:---------------------------|:--------------------------|
 | `period`            | String                     | Aggregation Period - valid intervals are `1hour`, `1day`, `3day`, `7day`, or `30day`. The default is `1day`. |
-| `exchange_currency` | String - [Currency Code][] | Normalize all amounts to use this as a display currency. If not XRP, `exchange_issuer` is also required. The default is XRP. |
+| `exchange_currency` | String - [Currency Code][] | Normalize all amounts to use this as a display currency. If not SGY, `exchange_issuer` is also required. The default is SGY. |
 | `exchange_issuer`   | String - [Address][]       | Normalize results to the specified `currency` issued by this issuer. |
 
 
@@ -1736,7 +1736,7 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 | `result`      | String | The value `success` indicates that this is a successful response. |
 | `data`        | Object | Contains data for the specified period.             |
 | `data.date`   | String | Date at which this period was calculated.           |
-| `data.total`  | Number | Total XRP volume exchanged during the period.       |
+| `data.total`  | Number | Total SGY volume exchanged during the period.       |
 | `data.period` | String | Name of the period queried.                         |
 
 Each object in the `components` array of the Volume Objects represent the volume of a single external market.  Not all fields will be present for each market, depending on availability.
@@ -1744,7 +1744,7 @@ Each object in the `components` array of the Volume Objects represent the volume
 | Field              | Value  | Description                                    |
 |:-------------------|:-------|:-----------------------------------------------|
 | `source`           | String | Domain name of the specific external market.   |
-| `base_volume`      | Number | Exchange volume in terms of the base currency (XRP). |
+| `base_volume`      | Number | Exchange volume in terms of the base currency (SGY). |
 | `counter_volume`   | Number | Exchange volume in terms of the counter currency. |
 | `base_currecy`     | String | Base currency of the market pair.              |
 | `counter_currency` | String | Counter currency of the market pair.           |
@@ -1772,7 +1772,7 @@ Response:
         "base_volume": "52847221.256202064",
         "counter_volume": "619.8111371100003",
         "source": "poloniex.com",
-        "base_currency": "XRP",
+        "base_currency": "SGY",
         "counter_currency": "BTC",
         "rate": "0.0000117284"
       },
@@ -1780,7 +1780,7 @@ Response:
         "base_volume": "389955.29648717004",
         "counter_volume": "3212.07137265",
         "source": "poloniex.com",
-        "base_currency": "XRP",
+        "base_currency": "SGY",
         "counter_currency": "USD",
         "rate": "0.00823702"
       },
@@ -1789,26 +1789,26 @@ Response:
         "counter_volume": "70.57870572291264",
         "count": 250,
         "source": "kraken.com",
-        "base_currency": "XRP",
+        "base_currency": "SGY",
         "counter_currency": "BTC",
         "rate": "0.0000117138"
       },
       {
         "base_volume": "4141962.161763998",
         "source": "btc38.com",
-        "base_currency": "XRP",
+        "base_currency": "SGY",
         "counter_currency": "CNY"
       },
       {
         "base_volume": "303505",
         "source": "btc38.com",
-        "base_currency": "XRP",
+        "base_currency": "SGY",
         "counter_currency": "BTC"
       },
       {
         "base_volume": "1275008.2922999999",
         "source": "jubi.com",
-        "base_currency": "XRP",
+        "base_currency": "SGY",
         "counter_currency": "CNY"
       }
     ],
@@ -1821,10 +1821,10 @@ Response:
 
 
 
-## Get XRP Distribution
+## Get SGY Distribution
 [[Source]](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/network/xrpDistribution.js "Source")
 
-Get information on the total amount of XRP in existence and in circulation, by weekly intervals. _(New in [v2.2.0][])_
+Get information on the total amount of SGY in existence and in circulation, by weekly intervals. _(New in [v2.2.0][])_
 
 #### Request Format
 
@@ -1859,16 +1859,16 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 |:---------|:------------------------------|:----------------------------------|
 | `result` | String                        | The value `success` indicates that the body represents a successful response. |
 | `count`  | Integer                       | Number of rows returned.          |
-| `rows`   | Array of Distribution Objects | Weekly snapshots of the XRP distribution. |
+| `rows`   | Array of Distribution Objects | Weekly snapshots of the SGY distribution. |
 
 Each Distribution Object has the following fields:
 
 | Field           | Value                  | Description                       |
 |:----------------|:-----------------------|:----------------------------------|
 | `date`          | String - [Timestamp][] | The time of this snapshot.        |
-| `total`         | String                 | Total XRP in existence.           |
-| `undistributed` | String                 | Aggregate amount of XRP held by Ripple (the company). |
-| `distributed`   | String                 | Aggregate amount of XRP held by others. |
+| `total`         | String                 | Total SGY in existence.           |
+| `undistributed` | String                 | Aggregate amount of SGY held by Ripple (the company). |
+| `distributed`   | String                 | Aggregate amount of SGY held by others. |
 
 #### Example
 
@@ -1902,7 +1902,7 @@ Response:
 ## Get Top Currencies
 [[Source]](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/network/topCurrencies.js "Source")
 
-Returns the top currencies on the XRP Ledger, ordered from highest rank to lowest. The ranking is determined by the volume and count of transactions and the number of unique counterparties. By default, returns results for the 30-day rolling window ending on the current date. You can specify a date to get results for the 30-day window ending on that date. _(New in [v2.1.0][])_
+Returns the top currencies on the SGY Ledger, ordered from highest rank to lowest. The ranking is determined by the volume and count of transactions and the number of unique counterparties. By default, returns results for the 30-day rolling window ending on the current date. You can specify a date to get results for the 30-day window ending on that date. _(New in [v2.1.0][])_
 
 
 #### Request Format
@@ -1954,12 +1954,12 @@ Each Top Currency Object has the following fields:
 | Field                 | Value                      | Description             |
 |:----------------------|:---------------------------|:------------------------|
 | `currency`            | String - [Currency Code][] | The currency this object describes. |
-| `issuer`              | String - [Address][]       | The XRP Ledger address that issues this currency. |
+| `issuer`              | String - [Address][]       | The SGY Ledger address that issues this currency. |
 | `avg_exchange_count`  | [String - Number][]        | Daily average number of [exchanges](#exchange-objects). |
-| `avg_exchange_volume` | [String - Number][]        | Daily average volume of exchanges, normalized to XRP. |
+| `avg_exchange_volume` | [String - Number][]        | Daily average volume of exchanges, normalized to SGY. |
 | `avg_payment_count`   | [String - Number][]        | Daily average number of [payments](#payment-objects). |
-| `avg_payment_volume`  | [String - Number][]        | Daily average volume of payments, normalized to XRP. |
-| `issued_value`        | [String - Number][]        | Total amount of this currency issued by this issuer, normalized to XRP. |
+| `avg_payment_volume`  | [String - Number][]        | Daily average volume of payments, normalized to SGY. |
+| `issued_value`        | [String - Number][]        | Total amount of this currency issued by this issuer, normalized to SGY. |
 
 #### Example
 
@@ -2005,7 +2005,7 @@ Response:
 ## Get Top Markets
 [[Source]](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/network/topMarkets.js "Source")
 
-Returns the top exchange markets on the XRP Ledger, ordered from highest rank to lowest. The rank is determined by the number and volume of exchanges and the number of counterparties participating. By default, returns top markets for the 30-day rolling window ending on the current date. You can specify a date to get results for the 30-day window ending on that date. _(New in [v2.1.0][])_
+Returns the top exchange markets on the SGY Ledger, ordered from highest rank to lowest. The rank is determined by the number and volume of exchanges and the number of counterparties participating. By default, returns top markets for the 30-day rolling window ending on the current date. You can specify a date to get results for the 30-day window ending on that date. _(New in [v2.1.0][])_
 
 #### Request Format
 
@@ -2056,13 +2056,13 @@ Each Top Market object has the following fields:
 | Field                | Value                      | Description              |
 |:---------------------|:---------------------------|:-------------------------|
 | `base_currency`      | String - [Currency Code][] | The base currency for this market. |
-| `base_issuer`        | String - [Address][]       | (Omitted if `base_currency` is XRP) The XRP Ledger address that issues the base currency. |
+| `base_issuer`        | String - [Address][]       | (Omitted if `base_currency` is SGY) The SGY Ledger address that issues the base currency. |
 | `counter_currency`   | String - [Currency Code][] | The counter currency for this market. |
-| `counter_issuer`     | String - [Address][]       | (Omitted if `counter_currency` is XRP) The XRP Ledger address that issues the counter currency. |
+| `counter_issuer`     | String - [Address][]       | (Omitted if `counter_currency` is SGY) The SGY Ledger address that issues the counter currency. |
 | `avg_base_volume`    | String                     | Daily average volume in terms of the base currency. |
 | `avg_counter_volume` | String                     | Daily average volume in terms of the counter currency. |
 | `avg_exchange_count` | String                     | Daily average number of [exchanges](#exchange-objects). |
-| `avg_volume`         | String                     | Daily average volume, normalized to XRP. |
+| `avg_volume`         | String                     | Daily average volume, normalized to SGY. |
 
 #### Example
 
@@ -2088,7 +2088,7 @@ Response:
       "avg_volume": "1.6657039295476614E7",
       "base_currency": "USD",
       "base_issuer": "rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B",
-      "counter_currency": "XRP"
+      "counter_currency": "SGY"
     },
     {
       "avg_base_volume": "410510.0286920887",
@@ -2097,7 +2097,7 @@ Response:
       "avg_volume": "9117398.719214212",
       "base_currency": "CNY",
       "base_issuer": "rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y",
-      "counter_currency": "XRP"
+      "counter_currency": "SGY"
     },
     ...
   ]
@@ -2155,7 +2155,7 @@ Each Fee Summary object has the following fields:
 | `avg`          | Number                     | Average transaction cost paid in this interval. |
 | `min`          | Number                     | Minimum  transaction cost paid in this interval. |
 | `max`          | Number                     | Maximum  transaction cost paid in this interval. |
-| `total`        | Number                     | Total XRP destroyed by transaction costs. |
+| `total`        | Number                     | Total SGY destroyed by transaction costs. |
 | `tx_count`     | Number                     | Number of transactions in this interval. |
 | `date`         | String - [Timestamp][]     | The start time of this interval (time intervals), or the close time of this ledger (`ledger` interval). |
 | `ledger_index` | Integer - [Ledger Index][] | (Only present in `ledger` interval) The ledger this object describes. |
@@ -2682,7 +2682,7 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 | `result`                | String                          | The value `success` indicates that the body represents a successful response. |
 | `validation_public_key` | String - Base-58 [Public Key][] | This validator's validator public key. |
 | `domain`                | String                          | (May be omitted) The DNS domain associated with this validator. |
-| `chain`                 | String                          | Ledger hash chain which this validator is currently following. The value `main` indicates the main network and `altnet` indicates the XRP Test Network. Other forks are named `chain.{NUMBER}`, where `{NUMBER}` is a unique number for each fork. |
+| `chain`                 | String                          | Ledger hash chain which this validator is currently following. The value `main` indicates the main network and `altnet` indicates the SGY Test Network. Other forks are named `chain.{NUMBER}`, where `{NUMBER}` is a unique number for each fork. |
 | `unl`                   | Bool                            | True if the validator is part of the ledger chain's recommended UNL. |
 | `current_index`         | Number                          | Ledger index of most recently validated ledger. |
 | `partial`               | Bool                            | True if the most recent validation was a partial one. |
@@ -2778,7 +2778,7 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 |:------------------------|:--------------------------------|:-----------------|
 | `validation_public_key` | String - Base-58 [Public Key][] | This validator's validator public key. |
 | `domain`                | String                          | (May be omitted) The DNS domain associated with this validator. |
-| `chain`                 | String                          | Ledger hash chain which this validator is currently following. The value `main` indicates the main network and `altnet` indicates the XRP Test Network. Other forks are named `chain.{NUMBER}`, where `{NUMBER}` is a unique number for each fork. |
+| `chain`                 | String                          | Ledger hash chain which this validator is currently following. The value `main` indicates the main network and `altnet` indicates the SGY Test Network. Other forks are named `chain.{NUMBER}`, where `{NUMBER}` is a unique number for each fork. |
 | `unl`                   | Bool                            | True if the validator is part of the ledger chain's recommended UNL. |
 | `current_index`         | Number                          | Ledger index of most recently validated ledger. |
 | `partial`               | Bool                            | True if the most recent validation was a partial one. |
@@ -3018,7 +3018,7 @@ Each Single Validator Report Object describes a validator's performance on a giv
 |:---------------------|:--------------------------------|:-----------------------------|
 | `validation_public_key` | String - Base-58 [Public Key][] | Validator public key. |
 | `date`               | String - [Timestamp][]          | The start time of the date this object describes. |
-| `chain`              | String                          | Ledger hash chain which this validator is currently following. The value `main` indicates the main network and `altnet` indicates the XRP Test Network. Other forks are named `chain.{NUMBER}`, where `{NUMBER}` is a unique number for each fork. |
+| `chain`              | String                          | Ledger hash chain which this validator is currently following. The value `main` indicates the main network and `altnet` indicates the SGY Test Network. Other forks are named `chain.{NUMBER}`, where `{NUMBER}` is a unique number for each fork. |
 | `score`              | String                          | Score of agreement with the ledger chain being followed. |
 | `missed`             | Integer                         | Number of ledgers not validated during the time period. |
 | `total`              | Integer                         | Number of ledgers that could have been validated during the time period. |
@@ -3110,7 +3110,7 @@ Each member in the `reports` array describes one validator's performance on that
 |:---------------------|:--------------------------------|:-----------------------------|
 | `validation_public_key` | String - Base-58 [Public Key][] | Validator public key. |
 | `date`               | String - [Timestamp][]          | The start time of the date this object describes. |
-| `chain`              | String                          | Ledger hash chain which this validator is currently following. The value `main` indicates the main network and `altnet` indicates the XRP Test Network. Other forks are named `chain.{NUMBER}`, where `{NUMBER}` is a unique number for each fork. |
+| `chain`              | String                          | Ledger hash chain which this validator is currently following. The value `main` indicates the main network and `altnet` indicates the SGY Test Network. Other forks are named `chain.{NUMBER}`, where `{NUMBER}` is a unique number for each fork. |
 | `score`              | String                          | Score of agreement with the ledger chain being followed. |
 | `missed`             | Integer                         | Number of ledgers not validated during the time period. |
 | `total`              | Integer                         | Number of ledgers that could have been validated during the time period. |
@@ -3253,7 +3253,7 @@ Each field in the top level JSON object is a [Currency Code][]. The content of e
 | `account`  | String - [Address][] | The [issuing address](issuing-and-operational-addresses.html) of this currency. |
 | `featured` | Boolean              | Whether this gateway is considered a "featured" issuer of the currency. Ripple decides which gateways to feature based on responsible business practices, volume, and other measures. |
 | `label`    | String               | (May be omitted) Only provided when the [Currency Code][] is a 40-character hexadecimal value. This is an alternate human-readable name for the currency issued by this gateway. |
-| `assets`   | Array of Strings     | Graphics filenames available for this gateway, if any. (Mostly, these are logos used by XRP Charts.) |
+| `assets`   | Array of Strings     | Graphics filenames available for this gateway, if any. (Mostly, these are logos used by SGY Charts.) |
 
 #### Example
 
@@ -3299,7 +3299,7 @@ Response:
     ],
     "KRW": [
         {
-            "name": "EXRP",
+            "name": "ESGY",
             "account": "rPxU6acYni7FcXzPCMeaPSwKcuS2GTtNVN",
             "featured": true,
             "assets": []
@@ -3356,7 +3356,7 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 | `hotwallets` | Array of [Address][]es | This gateway's [operational addresses](issuing-and-operational-addresses.html). |
 | `domain`     | String                 | The domain name where this gateway does business. |
 | `normalized` | String                 | A normalized version of the `name` field suitable for including in URLs. |
-| `assets`     | Array of Strings       | Graphics filenames available for this gateway, if any. (Mostly, these are logos used by XRP Charts.) |
+| `assets`     | Array of Strings       | Graphics filenames available for this gateway, if any. (Mostly, these are logos used by SGY Charts.) |
 
 Each object in the `accounts` field array has the following fields:
 
@@ -3473,7 +3473,7 @@ Content-Type: image/svg+xml
 ## Get Accounts
 [[Source]](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/accounts.js "Source")
 
-Retrieve information about the creation of new accounts in the XRP Ledger.
+Retrieve information about the creation of new accounts in the SGY Ledger.
 
 #### Request Format
 
@@ -3582,7 +3582,7 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                  |
 |:----------|:-------|:-----------------------------|
-| `address` | String | XRP Ledger address to query. |
+| `address` | String | SGY Ledger address to query. |
 
 #### Response Format
 
@@ -3623,7 +3623,7 @@ Response:
 ## Get Account Balances
 [[Source]](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/accountBalances.js "Source")
 
-Get all balances held or owed by a specific XRP Ledger account.
+Get all balances held or owed by a specific SGY Ledger account.
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -3641,7 +3641,7 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                  |
 |:----------|:-------|:-----------------------------|
-| `address` | String | XRP Ledger address to query. |
+| `address` | String | SGY Ledger address to query. |
 
 Optionally, you can provide the following query parameters:
 
@@ -3728,7 +3728,7 @@ This method requires the following URL parameters:
 
 | Field     | Value                | Description                  |
 |:----------|:---------------------|:-----------------------------|
-| `address` | String - [Address][] | XRP Ledger address to query. |
+| `address` | String - [Address][] | SGY Ledger address to query. |
 
 Optionally, you can provide the following query parameters:
 
@@ -3762,7 +3762,7 @@ Each order object has the following fields:
 | `specification.quantity`       | [Balance Object][]   | The maximum amount of the base currency this order would buy or sell (depending on the direction). This value decreases as the order gets partially filled. |
 | `specification.totalPrice`     | [Balance Object][]   | The maximum amount of the counter currency the order can spend or gain to buy or sell the base currency. This value decreases as the order gets partially filled. |
 | `properties`                   | Object               | Details of how the order was placed. |
-| `properties.maker`             | String - [Address][] | The XRP Ledger account that placed the order. |
+| `properties.maker`             | String - [Address][] | The SGY Ledger account that placed the order. |
 | `properties.sequence`          | Number               | The sequence number of the transaction that placed this order. |
 | `properties.makerExchangeRate` | [String - Number][]  | The exchange rate from the point of view of the account that submitted the order. |
 
@@ -3854,7 +3854,7 @@ This method requires the following URL parameters:
 
 | Field     | Value                | Description                  |
 |:----------|:---------------------|:-----------------------------|
-| `address` | String - [Address][] | XRP Ledger address to query. |
+| `address` | String - [Address][] | SGY Ledger address to query. |
 
 
 Optionally, you can provide the following query parameters:
@@ -3872,7 +3872,7 @@ Optionally, you can provide the following query parameters:
 | `limit`        | Integer                | Maximum results per page. The default is 20. Cannot be more than 1,000. |
 | `marker`       | String                 | [Pagination](#pagination) key from previously returned response. |
 
-**Note:** This method cannot return CSV format; only JSON results are supported for raw XRP Ledger transactions.
+**Note:** This method cannot return CSV format; only JSON results are supported for raw SGY Ledger transactions.
 
 
 #### Response Format
@@ -3986,7 +3986,7 @@ This method requires the following URL parameters:
 
 | Field      | Value   | Description                  |
 |:-----------|:--------|:-----------------------------|
-| `address`  | String  | XRP Ledger address to query. |
+| `address`  | String  | SGY Ledger address to query. |
 | `sequence` | Integer | Transaction sequence number. |
 
 
@@ -4055,7 +4055,7 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                  |
 |:----------|:-------|:-----------------------------|
-| `address` | String | XRP Ledger address to query. |
+| `address` | String | SGY Ledger address to query. |
 
 
 Optionally, you can provide the following query parameters:
@@ -4168,9 +4168,9 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `address` | String | XRP Ledger address to query.                            |
-| `base`    | String | Base currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's XRP. |
-| `counter` | String | Counter currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's XRP. |
+| `address` | String | SGY Ledger address to query.                            |
+| `base`    | String | Base currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's SGY. |
+| `counter` | String | Counter currency of the pair, as a [Currency Code][], followed by `+` and the issuer [Address][] unless it's SGY. |
 
 
 Optionally, you can provide the following query parameters:
@@ -4200,7 +4200,7 @@ A successful response uses the HTTP code **200 OK** and has a JSON body with the
 Request:
 
 ```
-GET /v2/accounts/rsyDrDi9Emy6vPU78qdxovmNpmj5Qh4NKw/exchanges/KRW+rUkMKjQitpgAM5WTGk79xpjT38DEJY283d/XRP?start=2015-08-08T00:00:00Z&end=2015-08-31T00:00:00Z&limit=2
+GET /v2/accounts/rsyDrDi9Emy6vPU78qdxovmNpmj5Qh4NKw/exchanges/KRW+rUkMKjQitpgAM5WTGk79xpjT38DEJY283d/SGY?start=2015-08-08T00:00:00Z&end=2015-08-31T00:00:00Z&limit=2
 
 ```
 
@@ -4222,7 +4222,7 @@ Response:
             "base_currency": "KRW",
             "base_issuer": "rUkMKjQitpgAM5WTGk79xpjT38DEJY283d",
             "buyer": "rnAqwsu2BEbCjacoZmsXrpViqd3miZhHbT",
-            "counter_currency": "XRP",
+            "counter_currency": "SGY",
             "executed_time": "2015-08-08T02:57:40",
             "ledger_index": 15122851,
             "offer_sequence": "1738",
@@ -4240,7 +4240,7 @@ Response:
             "base_issuer": "rUkMKjQitpgAM5WTGk79xpjT38DEJY283d",
             "buyer": "r9xQi5YT8jqVM3wZhbiV94ZKKvGHaVeSDj",
             "client": "rt1.1-26-gbeb68ab",
-            "counter_currency": "XRP",
+            "counter_currency": "SGY",
             "executed_time": "2015-08-08T07:15:00",
             "ledger_index": 15126536,
             "offer_sequence": "1738",
@@ -4280,7 +4280,7 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                  |
 |:----------|:-------|:-----------------------------|
-| `address` | String | XRP Ledger address to query. |
+| `address` | String | SGY Ledger address to query. |
 
 
 Optionally, you can provide the following query parameters:
@@ -4329,7 +4329,7 @@ Response:
       "final_balance": "75.169663",
       "tx_index": 7,
       "change_type": "transaction_cost",
-      "currency": "XRP",
+      "currency": "SGY",
       "executed_time": "2016-01-29T22:57:20Z",
       "ledger_index": 18555460,
       "tx_hash": "2B44EBE00728D04658E597A85EC4F71D20503B31ABBF556764AD8F7A80BA72F6"
@@ -4340,7 +4340,7 @@ Response:
       "node_index": 1,
       "tx_index": 4,
       "change_type": "payment_source",
-      "currency": "XRP",
+      "currency": "SGY",
       "executed_time": "2016-01-26T08:32:20Z",
       "ledger_index": 18489336,
       "tx_hash": "E5C6DD25B2DCF534056D98A2EFE3B7CFAE4EBC624854DE3FA436F733A56D8BD9"
@@ -4350,7 +4350,7 @@ Response:
       "final_balance": "100.181663",
       "tx_index": 4,
       "change_type": "transaction_cost",
-      "currency": "XRP",
+      "currency": "SGY",
       "executed_time": "2016-01-26T08:32:20Z",
       "ledger_index": 18489336,
       "tx_hash": "E5C6DD25B2DCF534056D98A2EFE3B7CFAE4EBC624854DE3FA436F733A56D8BD9"
@@ -4389,7 +4389,7 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `address` | String | XRP Ledger address to query.                            |
+| `address` | String | SGY Ledger address to query.                            |
 | `date`    | String | _(Optional)_ UTC date for single report. If omitted, use the `start` and `end` query parameters. |
 
 
@@ -4496,7 +4496,7 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                  |
 |:----------|:-------|:-----------------------------|
-| `address` | String | XRP Ledger address to query. |
+| `address` | String | SGY Ledger address to query. |
 
 
 Optionally, you can provide the following query parameters:
@@ -4595,7 +4595,7 @@ This method requires the following URL parameters:
 
 | Field     | Value  | Description                  |
 |:----------|:-------|:-----------------------------|
-| `address` | String | XRP Ledger address to query. |
+| `address` | String | SGY Ledger address to query. |
 
 
 Optionally, you can provide the following query parameters:
@@ -4624,7 +4624,7 @@ Each Value Stats Object has the following fields:
 | Field                  | Value                  | Description                |
 |:-----------------------|:-----------------------|:---------------------------|
 | `date`                 | String - [Timestamp][] | This object describes activity on this date. |
-| `value`                | [String - Number][]    | The total of all currency held by this account, normalized to XRP. |
+| `value`                | [String - Number][]    | The total of all currency held by this account, normalized to SGY. |
 | `balance_change_count` | Number                 | The number of times the account's balance changed on this date. |
 
 #### Example
@@ -4939,20 +4939,20 @@ As a REST API, the Data API v2 uses [JSON](http://json.org/)'s native datatypes 
 
 {% include '_snippets/string-number-formatting.md' %}
 
-The precision for amounts of **non-XRP currency** in the XRP Ledger is as follows:
+The precision for amounts of **non-SGY currency** in the SGY Ledger is as follows:
 
 * Minimum nonzero absolute value: `1000000000000000e-96`
 * Maximum value: `9999999999999999e80`
 * Minimum value: `-9999999999999999e80`
 * 15 decimal digits of precision
 
-**XRP** has a different internal representation, and its precision is different:
+**SGY** has a different internal representation, and its precision is different:
 
 * Minimum value: `0`
 * Maximum value: `100000000000` (`1e11`)
 * Precise to the nearest `0.000001` (`1e-6`)
 
-In other words, XRP has the same precision as a 64-bit unsigned integer where each unit is equivalent to 0.000001 XRP.
+In other words, SGY has the same precision as a 64-bit unsigned integer where each unit is equivalent to 0.000001 SGY.
 
 ### Addresses
 [Address]: #addresses
@@ -5047,7 +5047,7 @@ A "ledger" is one version of the shared global ledger. Each ledger object has th
 | `ledger_hash`       | String - [Hash][]         | An identifying hash unique to this ledger, as a hex string. |
 | `ledger_index`      | Number - [Ledger Index][] | The ledger index of the ledger. Each new ledger has a ledger index 1 higher than the ledger that came before it. |
 | `parent_hash`       | String - [Hash][]         | The identifying hash of the previous ledger. |
-| `total_coins`       | [String - Number][]       | The total number of "drops" of XRP still in existence at the time of the ledger. (Each XRP is 1,000,000 drops.) |
+| `total_coins`       | [String - Number][]       | The total number of "drops" of SGY still in existence at the time of the ledger. (Each SGY is 1,000,000 drops.) |
 | `close_time_res`    | Number                    | The ledger close time is rounded to this many seconds. |
 | `accounts_hash`     | String - [Hash][]         | Hash of the account information contained in this ledger, as hex. |
 | `transaction_hash` | String - [Hash][]         | Hash of the transaction information contained in this ledger, as hex. |
@@ -5058,28 +5058,28 @@ A "ledger" is one version of the shared global ledger. Each ledger object has th
 
 ### Genesis Ledger
 
-Due to a mishap early in the XRP Ledger's history, ledgers 1 through 32569 were lost. Thus, ledger #32570 is the earliest ledger available anywhere. For purposes of the Data API v2, ledger #32570 is considered the _genesis ledger_.
+Due to a mishap early in the SGY Ledger's history, ledgers 1 through 32569 were lost. Thus, ledger #32570 is the earliest ledger available anywhere. For purposes of the Data API v2, ledger #32570 is considered the _genesis ledger_.
 
 ## Account Creation Objects
 
-An account creation object represents the action of creating an account in the XRP Ledger. There are two variations, depending on whether the account was already present in ledger 32570, the earliest ledger available. Accounts that were already present in ledger 32570 are termed _genesis accounts_.
+An account creation object represents the action of creating an account in the SGY Ledger. There are two variations, depending on whether the account was already present in ledger 32570, the earliest ledger available. Accounts that were already present in ledger 32570 are termed _genesis accounts_.
 
 | Field             | Value                        | Description               |
 |:------------------|:-----------------------------|:--------------------------|
 | `address`         | String - [Address][]         | The identifying address of this account, in base-58. |
 | `inception`       | String - [Timestamp][]       | The UTC timestamp when the address was funded. For genesis accounts, this is the timestamp of ledger 32570. |
 | `ledger_index`    | Number - [Ledger Index][]    | The ledger index of the ledger when the account was created, or 32570 for genesis accounts. |
-| `parent`          | String - [Address][]         | (Omitted for genesis accounts) The address that provided the XRP to fund this address. |
+| `parent`          | String - [Address][]         | (Omitted for genesis accounts) The address that provided the SGY to fund this address. |
 | `tx_hash`         | String - [Hash][]            | (Omitted for genesis accounts) The identifying hash of the transaction that funded this account. |
-| `initial_balance` | [String - Number][]          | (Omitted for genesis accounts) The amount of XRP that funded this account. |
-| `genesis_balance` | [String - Number][]          | (Genesis accounts only) The amount of XRP this account held as of ledger #32570. |
+| `initial_balance` | [String - Number][]          | (Omitted for genesis accounts) The amount of SGY that funded this account. |
+| `genesis_balance` | [String - Number][]          | (Genesis accounts only) The amount of SGY this account held as of ledger #32570. |
 | `genesis_index`   | Number - [Sequence Number][] | (Genesis accounts only) The transaction sequence number of the account as of ledger #32570. |
 
 
 ## Exchange Objects
 [Exchange Objects]: #exchange-objects
 
-An exchange object represents an actual exchange of currency, which can occur in the XRP Ledger as the result of executing either an OfferCreate transaction or a Payment transaction. In order for currency to actually change hands, there must be a previously-unfilled Offer previously placed in the ledger with an OfferCreate transaction.
+An exchange object represents an actual exchange of currency, which can occur in the SGY Ledger as the result of executing either an OfferCreate transaction or a Payment transaction. In order for currency to actually change hands, there must be a previously-unfilled Offer previously placed in the ledger with an OfferCreate transaction.
 
 A single transaction can cause several exchanges to occur. In this case, the sender of the transaction is the taker for all the exchanges, but each exchange has a different provider, currency pair, or both.
 
@@ -5088,14 +5088,14 @@ A single transaction can cause several exchanges to occur. In this case, the sen
 | `base_amount`          | Number                       | The amount of the base currency that was traded. |
 | `counter_amount`       | Number                       | The amount of the counter currency that was traded. |
 | `rate`                 | Number                       | The amount of the counter currency acquired per 1 unit of the base currency. |
-| `autobridged_currency` | String - [Currency Code][]   | (May be omitted) If the offer was autobridged (XRP order books were used to bridge two non-XRP currencies), this is the other currency from the offer that executed this exchange. |
-| `autobridged_issuer`   | String - [Address][]         | (May be omitted) If the offer was autobridged (XRP order books were used to bridge two non-XRP currencies), this is the other currency from the offer that executed this exchange. |
+| `autobridged_currency` | String - [Currency Code][]   | (May be omitted) If the offer was autobridged (SGY order books were used to bridge two non-SGY currencies), this is the other currency from the offer that executed this exchange. |
+| `autobridged_issuer`   | String - [Address][]         | (May be omitted) If the offer was autobridged (SGY order books were used to bridge two non-SGY currencies), this is the other currency from the offer that executed this exchange. |
 | `base_currency`        | String - [Currency Code][]   | The base currency.   |
-| `base_issuer`          | String - [Address][]         | (Omitted for XRP) The account that issued the base currency. |
+| `base_issuer`          | String - [Address][]         | (Omitted for SGY) The account that issued the base currency. |
 | `buyer`                | String - [Address][]         | The account that acquired the base currency. |
 | `client`               | String                       | (May be omitted) If the transaction contains a memo indicating what client application sent it, this is the contents of the memo. |
 | `counter_currency`     | String - [Currency Code][]   | The counter currency. |
-| `counter_issuer`       | String - [Address][]         | (Omitted for XRP) The account that issued the counter currency. |
+| `counter_issuer`       | String - [Address][]         | (Omitted for SGY) The account that issued the counter currency. |
 | `executed_time`        | String - [Timestamp][]       | The time the exchange occurred. |
 | `ledger_index`         | Number - [Ledger Index][]    | The ledger index of the ledger that included this transaction. |
 | `offer_sequence`       | Number - [Sequence Number][] | The sequence number of the `provider`'s existing offer in the ledger. |
@@ -5115,16 +5115,16 @@ Reports objects show the activity of a given account over a specific interval of
 |:---------------------------|:-------------------------------------|:---------|
 | `account`                  | String - [Address][]                 | The address of the account to which this report pertains. |
 | `date`                     | String - [Timestamp][]               | The start of the interval to which this report pertains. |
-| `high_value_received`      | [String - Number][]                  | Largest amount received in a single transaction, normalized to XRP (as closely as possible). This includes payments and exchanges. |
-| `high_value_sent`          | [String - Number][]                  | The largest amount sent in a single transaction, normalized to XRP (as closely as possible). |
+| `high_value_received`      | [String - Number][]                  | Largest amount received in a single transaction, normalized to SGY (as closely as possible). This includes payments and exchanges. |
+| `high_value_sent`          | [String - Number][]                  | The largest amount sent in a single transaction, normalized to SGY (as closely as possible). |
 | `payments`                 | Array of [Payment Summary Objects][] | (May be omitted) Array with information on each payment sent or received by the account during this interval. |
 | `payments_received`        | Number                               | The number of payments sent to this account. (This only includes payments for which this account was the destination, not payments that only rippled through the account or consumed the account's offers.) |
 | `payments_sent`            | Number                               | The number of payments sent by this account. |
 | `receiving_counterparties` | Array or Number                      | If account lists requested, an array of addresses that received payments from this account. Otherwise, the number of different accounts that received payments from this account. |
 | `sending_counterparties`   | Array or Number                      | If account lists requested, an array of addresses that sent payments to this account. Otherwise, the number of different accounts that sent payments to this account. |
-| `total_value`              | [String - Number][]                  | Sum of total value received and sent in payments, normalized to XRP (as closely as possible). |
-| `total_value_received`     | [String - Number][]                  | Sum value of all payments to this account, normalized to XRP (as closely as possible). |
-| `total_value_sent`         | [String - Number][]                  | Sum value of all payments from this account, normalized to XRP (as closely as possible). |
+| `total_value`              | [String - Number][]                  | Sum of total value received and sent in payments, normalized to SGY (as closely as possible). |
+| `total_value_received`     | [String - Number][]                  | Sum value of all payments to this account, normalized to SGY (as closely as possible). |
+| `total_value_sent`         | [String - Number][]                  | Sum value of all payments from this account, normalized to SGY (as closely as possible). |
 
 ## Payment Summary Objects
 [Payment Summary Objects]: #payment-summary-objects
@@ -5136,14 +5136,14 @@ A Payment Summary Object contains a reduced amount of information about a single
 | `tx_hash`          | String - [Hash][]          | The identifying hash of the transaction that caused the payment. |
 | `delivered_amount` | [String - Number][]        | The amount of the destination `currency` actually received by the destination account. |
 | `currency`         | String - [Currency Code][] | The currency delivered to the recipient of the transaction. |
-| `issuer`           | String - [Address][]       | The gateway issuing the currency, or an empty string for XRP. |
+| `issuer`           | String - [Address][]       | The gateway issuing the currency, or an empty string for SGY. |
 | `type`             | String                     | Either `sent` or `received`, indicating whether the perspective account is sender or receiver of this transaction. |
 
 
 ## Payment Objects
 [Payment Objects]: #payment-objects
 
-In the Data API, a Payment Object represents an event where one account sent value to another account. This mostly lines up with XRP Ledger transactions of the `Payment` [transaction type](transaction-types.html), except that the Data API does not consider a transaction to be a payment if the sending `Account` and the `Destination` account are the same, or if the transaction failed.
+In the Data API, a Payment Object represents an event where one account sent value to another account. This mostly lines up with SGY Ledger transactions of the `Payment` [transaction type](transaction-types.html), except that the Data API does not consider a transaction to be a payment if the sending `Account` and the `Destination` account are the same, or if the transaction failed.
 
 Payment objects have the following fields:
 
@@ -5152,8 +5152,8 @@ Payment objects have the following fields:
 | `amount`                      | [String - Number][]        | The amount of the destination `currency` that the transaction was instructed to send. In the case of Partial Payments, this is a "maximum" amount. |
 | `delivered_amount`            | [String - Number][]        | The amount of the destination `currency` actually received by the destination account. |
 | `destination_balance_changes` | Array                      | Array of [balance change objects][], indicating all changes made to the `destination` account's balances. |
-| `source_balance_changes`      | Array                      | Array of [balance change objects][], indicating all changes to the `source` account's balances (except the XRP transaction cost). |
-| `transaction_cost`            | [String - Number][]        | The amount of XRP spent by the `source` account on the transaction cost. (Prior to [v2.0.4][], this parameter was called `fee`.) |
+| `source_balance_changes`      | Array                      | Array of [balance change objects][], indicating all changes to the `source` account's balances (except the SGY transaction cost). |
+| `transaction_cost`            | [String - Number][]        | The amount of SGY spent by the `source` account on the transaction cost. (Prior to [v2.0.4][], this parameter was called `fee`.) |
 | `destination_tag`             | Integer                    | (May be omitted) A [destination tag](become-an-xrp-ledger-gateway.html#source-and-destination-tags) specified in this payment. |
 | `source_tag`                  | Integer                    | (May be omitted) A [source tag](become-an-xrp-ledger-gateway.html#source-and-destination-tags) specified in this payment. |
 | `currency`                    | String - [Currency Code][] | The currency that the `destination` account received. |
@@ -5169,15 +5169,15 @@ Payment objects have the following fields:
 [balance change objects]: #balance-objects-and-balance-change-objects
 [Balance Object]: #balance-objects-and-balance-change-objects
 
-Balance objects represent an XRP Ledger account's balance in a specific currency with a specific counterparty at a single point in time. Balance change objects represent a change to such balances that occurs in transaction execution.
+Balance objects represent an SGY Ledger account's balance in a specific currency with a specific counterparty at a single point in time. Balance change objects represent a change to such balances that occurs in transaction execution.
 
-A single XRP Ledger transaction may cause changes to balances with several counterparties, as well as changes to XRP.
+A single SGY Ledger transaction may cause changes to balances with several counterparties, as well as changes to SGY.
 
 Balance objects and Balance Change objects have the same format, with the following fields:
 
 | Field          | Value                      | Description                    |
 |:---------------|:---------------------------|:-------------------------------|
-| `counterparty` | String - [Address][]       | The counterparty, or issuer, of the `currency`. In the case of XRP, this is an empty string. |
+| `counterparty` | String - [Address][]       | The counterparty, or issuer, of the `currency`. In the case of SGY, this is an empty string. |
 | `currency`     | String - [Currency Code][] | The currency for which this balance changed. |
 | `value`        | [String - Number][]        | The amount of the `currency` that the associated account gained or lost. In balance change objects, this value can be positive (for amounts gained) or negative (for amounts lost). In balance objects, this value can be positive (for amounts the counterparty owes the account) or negative (for amounts owed to the counterparty). |
 
@@ -5193,12 +5193,12 @@ Balance Change Descriptors have the following fields:
 |:----------------|:---------------------------|:------------------------------|
 | `amount_change` | [String - Number][]        | The difference in the amount of currency held before and after this change. _(Prior to [v2.0.6][], this field was called `change`.)_ |
 | `final_balance` | [String - Number][]        | The balance after the change occurred. |
-| `node_index`    | Number (or `null`)         | This balance change is represented by the entry at this index of the ModifiedNodes array within the metadata section of the transaction that executed this balance change. **Note:** When the transaction cost is combined with other changes to XRP balance, the transaction cost has a `node_index` of **null** instead. |
+| `node_index`    | Number (or `null`)         | This balance change is represented by the entry at this index of the ModifiedNodes array within the metadata section of the transaction that executed this balance change. **Note:** When the transaction cost is combined with other changes to SGY balance, the transaction cost has a `node_index` of **null** instead. |
 | `tx_index`      | Number                     | The transaction that executed this balance change is at this index in the array of transactions for the ledger that included it. |
 | `change_type`   | String                     | One of several [](#change-types) describing what caused this balance change to occur. |
 | `currency`      | String - [Currency Code][] | The change affected this currency. |
 | `executed_time` | String - [Timestamp][]     | The time the change occurred. (This is based on the close time of the ledger that included the transaction that executed the change. |
-| `counterparty`  | String - [Address][]       | (Omitted for XRP) The `currency` is held in a trust line to or from this account. _(Prior to [v2.0.6][], this field was called `issuer`.)_ |
+| `counterparty`  | String - [Address][]       | (Omitted for SGY) The `currency` is held in a trust line to or from this account. _(Prior to [v2.0.6][], this field was called `issuer`.)_ |
 | `ledger_index`  | Number - [Ledger Index][]  | The ledger index of the ledger that included the transaction that executed this balance change. |
 | `tx_hash`       | String - [Hash][]          | The identifying hash of the transaction that executed this balance change. |
 
@@ -5208,7 +5208,7 @@ The following values are valid for the `change_type` field of a Balance Change D
 
 | Value                 | Meaning                                              |
 |:----------------------|:-----------------------------------------------------|
-| `transaction_cost`    | This balance change reflects XRP that was destroyed to relay a transaction. _(Prior to [v2.0.4][], this was `network fee` instead.)_ |
+| `transaction_cost`    | This balance change reflects SGY that was destroyed to relay a transaction. _(Prior to [v2.0.4][], this was `network fee` instead.)_ |
 | `payment_destination` | This balance change reflects currency that was received from a payment. |
 | `payment_source`      | This balance change reflects currency that was spent in a payment. |
 | `exchange`            | This balance change reflects currency that was traded for other currency, or the same currency from a different issuer. This can occur in the middle of payment execution as well as from offers. |
@@ -5223,8 +5223,8 @@ Volume objects represent the total volumes of money moved, in either payments or
 | `components`    | Array of Objects       | The data that was used to assemble this total. For payment volume, each object represents payments in a particular currency and issuer. For exchange volume, each object represents a market between two currencies. |
 | `count`         | Number                 | The total number of exchanges in this period. |
 | `end_time`      | String - [Timestamp][] | The end time of this interval.    |
-| `exchange`      | Object                 | Indicates the display currency used, as with fields `currency` and (except for XRP) `issuer`. All amounts are normalized by first converting to XRP, and then to the display currency specified in the request. |
-| `exchange_rate` | Number                 | The exchange rate to the displayed currency from XRP. |
+| `exchange`      | Object                 | Indicates the display currency used, as with fields `currency` and (except for SGY) `issuer`. All amounts are normalized by first converting to SGY, and then to the display currency specified in the request. |
+| `exchange_rate` | Number                 | The exchange rate to the displayed currency from SGY. |
 | `start_time`    | String - [Timestamp][] | The start of this period.         |
 | `total`         | Number                 | Total volume of all recorded exchanges in the period. |
 
@@ -5233,7 +5233,7 @@ Volume objects represent the total volumes of money moved, in either payments or
 [Server Object]: #server-objects
 [Server Objects]: #server-objects
 
-A "Server Object" describes one `rippled` server in the XRP Ledger peer-to-peer network. Server objects are returned by the [Get Topology](#get-topology), [Get Toplogy Nodes](#get-topology-nodes), and [Get Topology Node](#get-topology-node) methods. The Data API collects reported network topology approximately every 30 seconds using the [peer crawler](peer-crawler.html).
+A "Server Object" describes one `rippled` server in the SGY Ledger peer-to-peer network. Server objects are returned by the [Get Topology](#get-topology), [Get Toplogy Nodes](#get-topology-nodes), and [Get Topology Node](#get-topology-node) methods. The Data API collects reported network topology approximately every 30 seconds using the [peer crawler](peer-crawler.html).
 
 Server objects have the following fields, with some only appearing if the request specified a verbose response:
 

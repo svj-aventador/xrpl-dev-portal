@@ -1,6 +1,6 @@
 # Require Destination Tags
 
-The `RequireDest` setting (`requireDestinationTag` in RippleAPI) is designed to prevent customers from sending [payments](payment-types.html) to your address if they forgot the [destination tag](source-and-destination-tags.html) that identifies whom to credit for the payment. When enabled, the XRP Ledger rejects any payment to your address if it does not specify a destination tag.
+The `RequireDest` setting (`requireDestinationTag` in RippleAPI) is designed to prevent customers from sending [payments](payment-types.html) to your address if they forgot the [destination tag](source-and-destination-tags.html) that identifies whom to credit for the payment. When enabled, the SGY Ledger rejects any payment to your address if it does not specify a destination tag.
 
 The following is an example of using a locally-hosted `rippled`'s [submit method][] to send an [AccountSet transaction][] to enable the `RequireDest` flag:
 
@@ -79,7 +79,7 @@ Response:
     - [Transaction Cost](transaction-cost.html)
     - [Payment Types](payment-types.html)
 - **Tutorials:**
-    - [XRP Ledger Businesses](xrp-ledger-businesses.html)
+    - [SGY Ledger Businesses](xrp-ledger-businesses.html)
 - **References:**
     - [account_info method][]
     - [AccountSet transaction][]

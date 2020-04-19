@@ -322,7 +322,7 @@ rippled tx_history 0
              "type_hex": "0000000000000001"
            },
            {
-             "currency": "XRP",
+             "currency": "SGY",
              "type": 16,
              "type_hex": "0000000000000010"
            },
@@ -363,7 +363,7 @@ rippled tx_history 0
              "type_hex": "0000000000000001"
            },
            {
-             "currency": "XRP",
+             "currency": "SGY",
              "type": 16,
              "type_hex": "0000000000000010"
            },
@@ -391,7 +391,7 @@ rippled tx_history 0
              "type_hex": "0000000000000001"
            },
            {
-             "currency": "XRP",
+             "currency": "SGY",
              "type": 16,
              "type_hex": "0000000000000010"
            },

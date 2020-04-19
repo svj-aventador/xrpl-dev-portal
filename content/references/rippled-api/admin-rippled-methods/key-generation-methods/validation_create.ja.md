@@ -1,7 +1,7 @@
 # validation_create
 [[ソース]<br>](https://github.com/ripple/rippled/blob/315a8b6b602798a4cff4d8e1911936011e12abdb/src/ripple/rpc/handlers/ValidationCreate.cpp "Source")
 
-`validation_create`コマンドキーを使用して、[`rippled`サーバーがネットワークに対して自身の身元を識別させるのに使用できる暗号鍵](peer-protocol.html#ノードキーペア)を生成します。[wallet_proposeメソッド][]と同様に、このメソッドでは適切なフォーマットで一連のキーが単に生成されるだけです。XRP Ledgerのデータやサーバー構成は変更されません。
+`validation_create`コマンドキーを使用して、[`rippled`サーバーがネットワークに対して自身の身元を識別させるのに使用できる暗号鍵](peer-protocol.html#ノードキーペア)を生成します。[wallet_proposeメソッド][]と同様に、このメソッドでは適切なフォーマットで一連のキーが単に生成されるだけです。SGY Ledgerのデータやサーバー構成は変更されません。
 
 _`validation_create`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-rippled-methods.html)です。_
 
@@ -51,7 +51,7 @@ rippled validation_create "BAWL MAN JADE MOON DOVE GEM SON NOW HAD ADEN GLOW TIR
 
 | `Field`  | 型   | 説明                                              |
 |:---------|:-------|:---------------------------------------------------------|
-| `secret` | 文字列 | _（省略可）_ クレデンシャルを生成するときにこの値をシードとして使用します。同じシークレットを使用すると常に同じクレデンシャルが生成されます。シードは[RFC-1751](https://tools.ietf.org/html/rfc1751)フォーマットまたはXRP Ledgerの[base58][]フォーマットで指定できます。省略すると、ランダムシードが生成されます。 |
+| `secret` | 文字列 | _（省略可）_ クレデンシャルを生成するときにこの値をシードとして使用します。同じシークレットを使用すると常に同じクレデンシャルが生成されます。シードは[RFC-1751](https://tools.ietf.org/html/rfc1751)フォーマットまたはSGY Ledgerの[base58][]フォーマットで指定できます。省略すると、ランダムシードが生成されます。 |
 
 **注記:** バリデータのセキュリティは、シードのエントロピーに応じて異なります。シークレット値が強力なランダム性のソースを使用して生成されている場合を除き、実際の事業目的のためにシークレット値を使用しないでください。新しいクレデンシャルを初めて生成するときには`secret`を省略することが推奨されます。
 
@@ -96,8 +96,8 @@ Connecting to 127.0.0.1:5005
 | `Field`                 | 型   | 説明                               |
 |:------------------------|:-------|:------------------------------------------|
 | `validation_key`        | 文字列 | これらの検証クレデンシャルのシークレットキー（[RFC-1751](https://tools.ietf.org/html/rfc1751)フォーマット）。 |
-| `validation_public_key` | 文字列 | これらの検証クレデンシャルの公開鍵（XRP Ledgerの[base58][]エンコード文字列フォーマット）。 |
-| `validation_seed`       | 文字列 | これらの検証クレデンシャルのシークレットキー（XRP Ledgerの[base58][]エンコード文字列フォーマット）。 |
+| `validation_public_key` | 文字列 | これらの検証クレデンシャルの公開鍵（SGY Ledgerの[base58][]エンコード文字列フォーマット）。 |
+| `validation_seed`       | 文字列 | これらの検証クレデンシャルのシークレットキー（SGY Ledgerの[base58][]エンコード文字列フォーマット）。 |
 
 ### 考えられるエラー
 

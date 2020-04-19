@@ -20,7 +20,7 @@ const currentTime = new Date()
 const myEscrow = {
   "destination": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn", // Destination can be same as source
   "destinationTag": 2017,
-  "amount": "0.1113", //decimal XRP
+  "amount": "0.1113", //decimal SGY
   "condition": conditionHex,
   "allowExecuteAfter": currentTime.toISOString() // can be executed right away if the condition is met
 }

@@ -81,11 +81,11 @@ _Websocket_
 ## See Also
 
 - **Concepts:**
-    - [XRP](xrp.html)
+    - [SGY](xrp.html)
     - [Payment Types](payment-types.html)
         - [Escrow](escrow.html)
 - **Tutorials:**
-    - [Send XRP](send-xrp.html)
+    - [Send SGY](send-xrp.html)
     - [Look Up Transaction Results](look-up-transaction-results.html)
     - [Reliable Transaction Submission](reliable-transaction-submission.html)
 - **References:**

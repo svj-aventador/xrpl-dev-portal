@@ -1,13 +1,13 @@
 # Serialization Format
 [[Source]](https://github.com/ripple/rippled/blob/develop/src/ripple/protocol/impl/STObject.cpp#L696-L718 "Source")
 
-This page describes the XRP Ledger's canonical binary format for transactions and other data. This binary format is necessary to create and verify digital signatures of those transactions' contents, and is also used in other places including in the [peer-to-peer communications between servers](peer-protocol.html). The [`rippled` APIs](rippled-api.html) typically use JSON to communicate with client applications. However, JSON is unsuitable as a format for serializing transactions for being digitally signed, because JSON can represent the same data in many different but equivalent ways.
+This page describes the SGY Ledger's canonical binary format for transactions and other data. This binary format is necessary to create and verify digital signatures of those transactions' contents, and is also used in other places including in the [peer-to-peer communications between servers](peer-protocol.html). The [`rippled` APIs](rippled-api.html) typically use JSON to communicate with client applications. However, JSON is unsuitable as a format for serializing transactions for being digitally signed, because JSON can represent the same data in many different but equivalent ways.
 
 The process of serializing a transaction from JSON or any other representation into their canonical binary format can be summarized with these steps:
 
 1. Make sure all required fields are provided, including any required but ["auto-fillable" fields](transaction-common-fields.html#auto-fillable-fields).
 
-    The [Transaction Formats Reference](transaction-formats.html) defines the required and optional fields for XRP Ledger transactions.
+    The [Transaction Formats Reference](transaction-formats.html) defines the required and optional fields for SGY Ledger transactions.
 
     **Note:** The `SigningPubKey` must also be provided at this step. When signing, you can [derive this key](cryptographic-keys.html#key-derivation) from the secret key that is provided for signing.
 
@@ -19,9 +19,9 @@ The process of serializing a transaction from JSON or any other representation i
 
 5. Concatenate the fields (including prefixes) in their sorted order.
 
-The result is a single binary blob that can be signed using well-known signature algorithms such as ECDSA (with the secp256k1 elliptic curve) and Ed25519. For purposes of the XRP Ledger, you must also [hash][Hash] the data with the appropriate prefix (`0x53545800` if single-signing, or `0x534D5400` if multi-signing). After signing, you must re-serialize the transaction with the `TxnSignature` field included. <!--{# TODO: link docs on how to compute a transaction signature. #}-->
+The result is a single binary blob that can be signed using well-known signature algorithms such as ECDSA (with the secp256k1 elliptic curve) and Ed25519. For purposes of the SGY Ledger, you must also [hash][Hash] the data with the appropriate prefix (`0x53545800` if single-signing, or `0x534D5400` if multi-signing). After signing, you must re-serialize the transaction with the `TxnSignature` field included. <!--{# TODO: link docs on how to compute a transaction signature. #}-->
 
-**Note:** The XRP Ledger uses the same serialization format to represent other types of data, such as [ledger objects](ledger-object-types.html) and processed transactions. However, only certain fields are appropriate for including in a transaction that gets signed. (For example, the `TxnSignature` field, containing the signature itself, should not be present in the binary blob that you sign.) Thus, some fields are designated as "Signing" fields, which are included in objects when those objects are signed, and "non-signing" fields, which are not.
+**Note:** The SGY Ledger uses the same serialization format to represent other types of data, such as [ledger objects](ledger-object-types.html) and processed transactions. However, only certain fields are appropriate for including in a transaction that gets signed. (For example, the `TxnSignature` field, containing the signature itself, should not be present in the binary blob that you sign.) Thus, some fields are designated as "Signing" fields, which are included in objects when those objects are signed, and "non-signing" fields, which are not.
 
 ### Examples
 
@@ -59,7 +59,7 @@ For example, the `Flags` [common transaction field](transaction-common-fields.ht
 
 ### Definitions File
 
-The following JSON file defines the important constants you need for serializing XRP Ledger data to its binary format and deserializing it from binary:
+The following JSON file defines the important constants you need for serializing SGY Ledger data to its binary format and deserializing it from binary:
 
 **<https://github.com/ripple/ripple-binary-codec/blob/master/src/enums/definitions.json>**
 
@@ -162,7 +162,7 @@ Transaction instructions may contain fields of any of the following types:
 | Type Name     | Type Code | Bit Length | [Length-prefixed]? | Description    |
 |:--------------|:----------|:-----------|:-------------------|----------------|
 | [AccountID][] | 8         | 160        | Yes             | The unique identifier for an [account](accounts.html). |
-| [Amount][]    | 6         | 64 or 384  | No               | An amount of XRP or issued currency. The length of the field is 64 bits for XRP or 384 bits (64+160+160) for issued currencies. |
+| [Amount][]    | 6         | 64 or 384  | No               | An amount of SGY or issued currency. The length of the field is 64 bits for SGY or 384 bits (64+160+160) for issued currencies. |
 | [Blob][]      | 7         | Variable   | Yes                                 | Arbitrary binary data. One important such field is `TxnSignature`, the signature that authorizes a transaction. |
 | [Hash128][]   | 4         | 128        | No                                  | A 128-bit arbitrary binary value. The only such field is `EmailHash`, which is intended to store the MD-5 hash of an account owner's email for purposes of fetching a [Gravatar](https://www.gravatar.com/). |
 | [Hash160][]   | 17        | 160        | No                                  | A 160-bit arbitrary binary value. This may define a currency code or issuer. |
@@ -191,7 +191,7 @@ In addition to all of the above field types, the following types may appear in o
 ### AccountID Fields
 [AccountID]: #accountid-fields
 
-Fields of this type contain the 160-bit identifier for an XRP Ledger [account](accounts.html). In JSON, these fields are represented as [base58][] XRP Ledger "addresses", with additional checksum data so that typos are unlikely to result in valid addresses. (This encoding, sometimes called "Base58Check", prevents accidentally sending money to the wrong address.) The binary format for these fields does not contain any checksum data nor does it include the `0x00` "type prefix" used in [address base58 encoding](accounts.html#address-encoding). (However, since the binary format is used mostly for signed transactions, a typo or other error in transcribing a signed transaction would invalidate the signature, preventing it from sending money.)
+Fields of this type contain the 160-bit identifier for an SGY Ledger [account](accounts.html). In JSON, these fields are represented as [base58][] SGY Ledger "addresses", with additional checksum data so that typos are unlikely to result in valid addresses. (This encoding, sometimes called "Base58Check", prevents accidentally sending money to the wrong address.) The binary format for these fields does not contain any checksum data nor does it include the `0x00` "type prefix" used in [address base58 encoding](accounts.html#address-encoding). (However, since the binary format is used mostly for signed transactions, a typo or other error in transcribing a signed transaction would invalidate the signature, preventing it from sending money.)
 
 AccountIDs that appear as stand-alone fields (such as `Account` and `Destination`) are [length-prefixed](#length-prefixing) despite being a fixed 160 bits in length. As a result, the length indicator for these fields is always the byte `0x14`. AccountIDs that appear as children of special fields ([Amount `issuer`][Amount] and [PathSet `account`][PathSet]) are _not_ length-prefixed.
 
@@ -199,35 +199,35 @@ AccountIDs that appear as stand-alone fields (such as `Account` and `Destination
 ### Amount Fields
 [Amount]: #amount-fields
 
-The "Amount" type is a special field type that represents an amount of currency, either XRP or an issued currency. This type consists of two sub-types:
+The "Amount" type is a special field type that represents an amount of currency, either SGY or an issued currency. This type consists of two sub-types:
 
-- **XRP**
+- **SGY**
 
-    XRP is serialized as a 64-bit unsigned integer (big-endian order), except that the most significant bit is always 0 to indicate that it's XRP, and the second-most-significant bit is `1` to indicate that it is positive. Since the maximum amount of XRP (10<sup>17</sup> drops) only requires 57 bits, you can calculate XRP serialized format by taking standard 64-bit unsigned integer and performing a bitwise-OR with `0x4000000000000000`.
+    SGY is serialized as a 64-bit unsigned integer (big-endian order), except that the most significant bit is always 0 to indicate that it's SGY, and the second-most-significant bit is `1` to indicate that it is positive. Since the maximum amount of SGY (10<sup>17</sup> drops) only requires 57 bits, you can calculate SGY serialized format by taking standard 64-bit unsigned integer and performing a bitwise-OR with `0x4000000000000000`.
 
 - **Issued Currencies**
 
     Issued currencies consist of three segments in order:
 
-    1. 64 bits indicating the amount in the [internal currency amount format](#issued-currency-amount-format). The first bit is `1` to indicate that this is not XRP.
+    1. 64 bits indicating the amount in the [internal currency amount format](#issued-currency-amount-format). The first bit is `1` to indicate that this is not SGY.
     2. 160 bits indicating the [currency code](currency-formats.html#currency-codes). The standard API converts 3-character codes such as "USD" into 160-bit codes using the [standard currency code format](currency-formats.html#standard-currency-codes), but custom 160-bit codes are also possible.
     3. 160 bits indicating the issuer's Account ID. (See also: [Account Address Encoding](accounts.html#address-encoding))
 
-You can tell which of the two sub-types it is based on the first bit: `0` for XRP; `1` for issued currency.
+You can tell which of the two sub-types it is based on the first bit: `0` for SGY; `1` for issued currency.
 
-The following diagram shows the serialization formats for both XRP amounts and issued currency amounts:
+The following diagram shows the serialization formats for both SGY amounts and issued currency amounts:
 
-![XRP amounts have a "not XRP" bit, a sign bit, and 62 bits of precision. Issued currency amounts consist of a "not XRP" bit, a sign bit, an exponent (8 bits), mantissa (54 bits), currency code (160 bits), and issuer (160 bits).](img/serialization-amount.png)
+![SGY amounts have a "not SGY" bit, a sign bit, and 62 bits of precision. Issued currency amounts consist of a "not SGY" bit, a sign bit, an exponent (8 bits), mantissa (54 bits), currency code (160 bits), and issuer (160 bits).](img/serialization-amount.png)
 
 #### Issued Currency Amount Format
 [[Source]](https://github.com/ripple/rippled/blob/35fa20a110e3d43ffc1e9e664fc9017b6f2747ae/src/ripple/protocol/impl/STAmount.cpp "Source")
 
 ![Issued Currency Amount Format diagram](img/currency-number-format.png)
 
-The XRP Ledger uses 64 bits to serialize the numeric amount of an issued currency. (In JSON format, the numeric amount is the `value` field of a currency amount object.) In binary format, the numeric amount consists of a "not XRP" bit, a sign bit, significant digits, and an exponent, in order:
+The SGY Ledger uses 64 bits to serialize the numeric amount of an issued currency. (In JSON format, the numeric amount is the `value` field of a currency amount object.) In binary format, the numeric amount consists of a "not SGY" bit, a sign bit, significant digits, and an exponent, in order:
 
-1. The first (most significant) bit for an issued currency amount is `1` to indicate that it is not an XRP amount. (XRP amounts always have the most significant bit set to `0` to distinguish them from this format.)
-2. The sign bit indicates whether the amount is positive or negative. Unlike standard [two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) integers, `1` indicates **positive** in the XRP Ledger format, and `0` indicates negative.
+1. The first (most significant) bit for an issued currency amount is `1` to indicate that it is not an SGY amount. (SGY amounts always have the most significant bit set to `0` to distinguish them from this format.)
+2. The sign bit indicates whether the amount is positive or negative. Unlike standard [two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) integers, `1` indicates **positive** in the SGY Ledger format, and `0` indicates negative.
 3. The next 8 bits represent the exponent as an unsigned integer. The exponent indicates the scale (what power of 10 the significant digits should be multiplied by) in the range -96 to +80 (inclusive). However, when serializing, we add 97 to the exponent to make it possible to serialize as an unsigned integer. Thus, a serialized value of `1` indicates an exponent of `-96`, a serialized value of `177` indicates an exponent of 80, and so on.
 4. The remaining 54 bits represent the significant digits as an unsigned integer. When serializing, this value is normalized to the range 10<sup>15</sup> (`1000000000000000`) to 10<sup>16</sup>-1 (`9999999999999999`) inclusive, except for the special case of the value 0. In the special case for 0, the sign bit, exponent, and mantissa are all zeroes, so the 64-bit value is serialized as `0x8000000000000000000000000000000000000000`.
 
@@ -235,10 +235,10 @@ The numeric amount is serialized alongside the [currency code][] and issuer to f
 
 #### Currency Codes
 
-At a protocol level, currency codes in the XRP Ledger are arbitrary 160-bit values, except the following values have special meaning:
+At a protocol level, currency codes in the SGY Ledger are arbitrary 160-bit values, except the following values have special meaning:
 
-- The currency code `0x0000000000000000000000005852500000000000` is **always disallowed**. (This is the "standard format" for an issued currency with code "XRP".)
-- The currency code `0x0000000000000000000000000000000000000000` (all zeroes) is **generally disallowed**. Usually, XRP amounts are not specified with currency codes. However, this code is used to indicate XRP in rare cases where a field must specify a currency code for XRP.
+- The currency code `0x0000000000000000000000005852500000000000` is **always disallowed**. (This is the "standard format" for an issued currency with code "SGY".)
+- The currency code `0x0000000000000000000000000000000000000000` (all zeroes) is **generally disallowed**. Usually, SGY amounts are not specified with currency codes. However, this code is used to indicate SGY in rare cases where a field must specify a currency code for SGY.
 
 The [`rippled` APIs](rippled-api.html) support a **standard format** for translating three-character ASCII codes to 160-bit hex values as follows:
 
@@ -247,7 +247,7 @@ The [`rippled` APIs](rippled-api.html) support a **standard format** for transla
 1. The first 8 bits must be `0x00`.
 2. The next 88 bits are reserved, and should be all `0`'s.
 3. The next 24 bits represent 3 characters of ASCII.
-    Ripple recommends using [ISO 4217](http://www.xe.com/iso4217.php) codes, or popular pseudo-ISO 4217 codes such as "BTC". However, any combination of the following characters is permitted: all uppercase and lowercase letters, digits, as well as the symbols `?`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `<`, `>`, `(`, `)`, `{`, `}`, `[`, `]`, and <code>&#124;</code>. The currency code `XRP` (all-uppercase) is reserved for XRP and cannot be used by issued currencies.
+    Ripple recommends using [ISO 4217](http://www.xe.com/iso4217.php) codes, or popular pseudo-ISO 4217 codes such as "BTC". However, any combination of the following characters is permitted: all uppercase and lowercase letters, digits, as well as the symbols `?`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `<`, `>`, `(`, `)`, `{`, `}`, `[`, `]`, and <code>&#124;</code>. The currency code `SGY` (all-uppercase) is reserved for SGY and cannot be used by issued currencies.
 4. The next 40 bits are reserved and should be all `0`'s.
 
 The **nonstandard format** is any 160 bits of data as long as the first 8 bits are not `0x00`.
@@ -280,7 +280,7 @@ Blob fields have no further structure to their contents, so they consist of exac
 [Hash160]: #hash-fields
 [Hash256]: #hash-fields
 
-The XRP Ledger has several "hash" types: Hash128, Hash160, and Hash256. These fields contain arbitrary binary data of the given number of bits, which may or may not represent the result of a hash operation.
+The SGY Ledger has several "hash" types: Hash128, Hash160, and Hash256. These fields contain arbitrary binary data of the given number of bits, which may or may not represent the result of a hash operation.
 
 All such fields are serialized as the specific number of bits, with no length indicator, in big-endian byte order.
 
@@ -321,7 +321,7 @@ The following table describes the possible fields and the bitwise flags to set i
 
 Some combinations are invalid; see [Path Specifications](paths.html#path-specifications) for details.
 
-The AccountIDs in the `account` and `issuer` fields are presented _without_ a length prefix. When the `currency` is XRP, the currency code is represented as 160 bits of zeroes.
+The AccountIDs in the `account` and `issuer` fields are presented _without_ a length prefix. When the `currency` is SGY, the currency code is represented as 160 bits of zeroes.
 
 Each step is followed directly by the next step of the path. As described above, last step of a path is followed by either `0xff` (if another path follows) or `0x00` (if this ends the last path).
 
@@ -336,7 +336,7 @@ The following example shows the serialization format for a PathSet:
 [UInt32]: #uint-fields
 [UInt64]: #uint-fields
 
-The XRP Ledger has several unsigned integer types: UInt8, UInt16, UInt32, and UInt64. All of these are standard big-endian binary unsigned integers with the specified number of bits.
+The SGY Ledger has several unsigned integer types: UInt8, UInt16, UInt32, and UInt64. All of these are standard big-endian binary unsigned integers with the specified number of bits.
 
 When representing these fields in JSON objects, most are represented as JSON numbers by default. One exception is UInt64, which is represented as a string because some JSON decoders may try to represent these integers as 64-bit "double precision" floating point numbers, which cannot represent all distinct UInt64 values with full precision.
 

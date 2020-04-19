@@ -1,18 +1,18 @@
 # Reserves
 
-The XRP Ledger applies _reserve requirements_, in XRP, to protect the shared global ledger from growing excessively large as the result of spam or malicious usage. The goal is to constrain the growth of the ledger to match improvements in technology so that a current commodity-level machine can always fit the current ledger in RAM and the full ledger history on disk.
+The SGY Ledger applies _reserve requirements_, in SGY, to protect the shared global ledger from growing excessively large as the result of spam or malicious usage. The goal is to constrain the growth of the ledger to match improvements in technology so that a current commodity-level machine can always fit the current ledger in RAM and the full ledger history on disk.
 
-To submit transactions, an address must hold a minimum amount of XRP in the shared global ledger. You cannot send this XRP to other addresses. To fund a new address, you must send enough XRP to meet the reserve requirement.
+To submit transactions, an address must hold a minimum amount of SGY in the shared global ledger. You cannot send this SGY to other addresses. To fund a new address, you must send enough SGY to meet the reserve requirement.
 
-The current minimum reserve requirement is **20 XRP**. (This is the cost of an address that owns no other objects in the ledger.) Each new [account](accounts.html) must set aside this much XRP, which cannot be recovered or sent to others.
+The current minimum reserve requirement is **20 SGY**. (This is the cost of an address that owns no other objects in the ledger.) Each new [account](accounts.html) must set aside this much SGY, which cannot be recovered or sent to others.
 
 
 ## Base Reserve and Owner Reserve
 
 The reserve requirement is divided into two parts:
 
-* The **Base Reserve** is a minimum amount of XRP that is required for every address in the ledger. Currently, this is 20 XRP (`20000000` drops).
-* The **Owner Reserve** is an increase to the reserve requirement for each object that the address owns in the ledger. Currently, this is 5 XRP (`5000000` drops) per item.
+* The **Base Reserve** is a minimum amount of SGY that is required for every address in the ledger. Currently, this is 20 SGY (`20000000` drops).
+* The **Owner Reserve** is an increase to the reserve requirement for each object that the address owns in the ledger. Currently, this is 5 SGY (`5000000` drops) per item.
 
 
 ### Owner Reserves
@@ -30,21 +30,21 @@ Many objects in the ledger are owned by a particular address, and count toward t
 
 #### Owner Reserve Edge Cases
 
-The XRP Ledger considers an [OfferCreate transaction][] to be an explicit statement of willingness to hold an asset. Consuming the offer automatically creates a trust line (with limit 0, and a balance above that limit) for the `taker_pays` currency if such a trust line does not exist. However, if the offer's owner does not hold enough XRP to also meet the owner reserve requirement of the new trust line, the offer is considered unfunded. See also: [Lifecycle of an Offer](offers.html#lifecycle-of-an-offer).
+The SGY Ledger considers an [OfferCreate transaction][] to be an explicit statement of willingness to hold an asset. Consuming the offer automatically creates a trust line (with limit 0, and a balance above that limit) for the `taker_pays` currency if such a trust line does not exist. However, if the offer's owner does not hold enough SGY to also meet the owner reserve requirement of the new trust line, the offer is considered unfunded. See also: [Lifecycle of an Offer](offers.html#lifecycle-of-an-offer).
 
 
 ## Going Below the Reserve Requirement
 
-During transaction processing, the [transaction cost](transaction-cost.html) destroys some of the sending address's XRP balance. This can cause an address's XRP to go below the reserve requirement.
+During transaction processing, the [transaction cost](transaction-cost.html) destroys some of the sending address's SGY balance. This can cause an address's SGY to go below the reserve requirement.
 
-When an address holds less XRP than its current reserve requirement, it cannot send new transactions that would transfer XRP to others, or increase its own reserve. Even so, the address continues to exist in the ledger and can send other transactions as long as it has enough XRP to pay the transaction cost. The address can become able to send all types of transactions again if it receives enough XRP to meet its reserve requirement again, or if the [reserve requirement decreases](#changing-the-reserve-requirements) to less than the address's XRP holdings.
+When an address holds less SGY than its current reserve requirement, it cannot send new transactions that would transfer SGY to others, or increase its own reserve. Even so, the address continues to exist in the ledger and can send other transactions as long as it has enough SGY to pay the transaction cost. The address can become able to send all types of transactions again if it receives enough SGY to meet its reserve requirement again, or if the [reserve requirement decreases](#changing-the-reserve-requirements) to less than the address's SGY holdings.
 
-**Tip:** When an address is below the reserve requirement, it can send new [OfferCreate transactions][] to acquire more XRP, or other currencies on its existing trust lines. These transactions cannot create new [trust lines](ripplestate.html), or [Offer nodes in the ledger](offer.html), so they can only execute trades that consume Offers that are already in the order books.
+**Tip:** When an address is below the reserve requirement, it can send new [OfferCreate transactions][] to acquire more SGY, or other currencies on its existing trust lines. These transactions cannot create new [trust lines](ripplestate.html), or [Offer nodes in the ledger](offer.html), so they can only execute trades that consume Offers that are already in the order books.
 
 
 ## Changing the Reserve Requirements
 
-The XRP Ledger has a mechanism to adjust the reserve requirements for long-term changes in the value of XRP. Any changes have to be approved by the consensus process. See [Fee Voting](fee-voting.html) for more information.
+The SGY Ledger has a mechanism to adjust the reserve requirements for long-term changes in the value of SGY. Any changes have to be approved by the consensus process. See [Fee Voting](fee-voting.html) for more information.
 
 ## See Also
 

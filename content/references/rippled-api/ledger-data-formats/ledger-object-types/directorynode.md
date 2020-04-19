@@ -87,7 +87,7 @@ There are three different formulas for creating the ID of a DirectoryNode, depen
 * The AccountID from the `TakerPaysIssuer`
 * The AccountID from the `TakerGetsIssuer`
 
-The lower 64 bits of an Offer Directory's ID represent the TakerPays amount divided by TakerGets amount from the offer(s) in that directory as a 64-bit number in the XRP Ledger's internal amount format.
+The lower 64 bits of an Offer Directory's ID represent the TakerPays amount divided by TakerGets amount from the offer(s) in that directory as a 64-bit number in the SGY Ledger's internal amount format.
 
 **If the DirectoryNode is not the first page in the Directory** (regardless of whether it is an Owner Directory or an Offer Directory), then it has an ID that is the [SHA-512Half][] of the following values, concatenated in order:
 

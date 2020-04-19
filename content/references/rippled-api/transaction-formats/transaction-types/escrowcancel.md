@@ -4,7 +4,7 @@
 
 _Requires the [Escrow amendment][]._
 
-Return escrowed XRP to the sender.
+Return escrowed SGY to the sender.
 
 ## Example {{currentpage.name}} JSON
 

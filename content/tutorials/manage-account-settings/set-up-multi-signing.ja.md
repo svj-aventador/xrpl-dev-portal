@@ -1,37 +1,37 @@
 # マルチ署名の設定
 
-マルチ署名は、XRP Ledgerのトランザクションを承認する3種類の方法の1つです。マルチ署名の他に[レギュラーキーとマスターキー](cryptographic-keys.html)で署名する方法があります。3種類のトランザクション承認方法を自由に組み合わせて使用できるようにアドレスを設定できます。
+マルチ署名は、SGY Ledgerのトランザクションを承認する3種類の方法の1つです。マルチ署名の他に[レギュラーキーとマスターキー](cryptographic-keys.html)で署名する方法があります。3種類のトランザクション承認方法を自由に組み合わせて使用できるようにアドレスを設定できます。
 
 このチュートリアルでは、アドレスのマルチ署名を有効にする方法を説明します。
 
 
 ## 前提条件
 
-- 資金供給のあるXRP Ledgerアドレスが必要です。
+- 資金供給のあるSGY Ledgerアドレスが必要です。
 
-- XRP Ledgerフォーマットでキーペアを生成するツールを利用できる必要があります。この処理に`rippled`サーバーを使用する場合は、[wallet_proposeメソッド][]が管理者専用であるため、管理者アクセス権限が必要です。
+- SGY Ledgerフォーマットでキーペアを生成するツールを利用できる必要があります。この処理に`rippled`サーバーを使用する場合は、[wallet_proposeメソッド][]が管理者専用であるため、管理者アクセス権限が必要です。
 
-- マルチ署名は使用可能である必要があります。マルチ署名は、2016年6月27日以降、XRP Ledger Consensusプロトコルに対する[**Amendment**](amendments.html)により利用できるようになりました。
+- マルチ署名は使用可能である必要があります。マルチ署名は、2016年6月27日以降、SGY Ledger Consensusプロトコルに対する[**Amendment**](amendments.html)により利用できるようになりました。
 
 
 ## 1. 資金供給のあるアドレスの準備
 
-トランザクションを送信でき、利用可能なXRPを十分に保有するXRP Ledgerアドレスが必要です。
+トランザクションを送信でき、利用可能なSGYを十分に保有するSGY Ledgerアドレスが必要です。
 
-[MultiSignReserve Amendment][]が有効ではない場合、マルチ署名を使用するには[アカウント準備金](reserves.html)および[トランザクションコスト](transaction-cost.html)に通常よりも多くのXRPが必要となります。必要額は、使用する署名および署名者の数に応じて増加します。
+[MultiSignReserve Amendment][]が有効ではない場合、マルチ署名を使用するには[アカウント準備金](reserves.html)および[トランザクションコスト](transaction-cost.html)に通常よりも多くのSGYが必要となります。必要額は、使用する署名および署名者の数に応じて増加します。
 
-[MultiSignReserve Amendment][]が有効な場合、マルチ署名を使用するには、使用する署名と署名者の数に関わらず、アカウントの準備金として5 XRPが必要です。マルチ署名済みトランザクションの[トランザクションコスト](transaction-cost.html)は、このAmendmentの影響を受けず、使用する署名と署名者の数に応じて増加します。
+[MultiSignReserve Amendment][]が有効な場合、マルチ署名を使用するには、使用する署名と署名者の数に関わらず、アカウントの準備金として5 SGYが必要です。マルチ署名済みトランザクションの[トランザクションコスト](transaction-cost.html)は、このAmendmentの影響を受けず、使用する署名と署名者の数に応じて増加します。
 
 `rippled`を[スタンドアロンモード](rippled-server-modes.html#rippledサーバーをスタンドアロンモードで実行する理由)で新しいジェネシスレジャーで開始した場合は、以下の操作を行う必要があります:
 
 1. 新しいアドレスのキーを生成するか、またはすでに所有するキーを再利用します。
-2. ジェネシスアカウントから新しいアドレスに資金を供給するため、Paymentトランザクションを送信します。（[XRPのdrop数][]で100,000,000以上を送信してください。）
+2. ジェネシスアカウントから新しいアドレスに資金を供給するため、Paymentトランザクションを送信します。（[SGYのdrop数][]で100,000,000以上を送信してください。）
 3. 手動でレジャーを閉鎖します。
 
 
 ## 2. メンバーキーの準備
 
-複数のXRP Ledgerキーセット（アドレスとシークレット）をSignerListのメンバーに追加する必要があります。SignerListには、レジャーに既存の資金供給のあるアドレス、または[wallet_proposeメソッド][]で生成した新しいアドレスを追加できます。例:
+複数のSGY Ledgerキーセット（アドレスとシークレット）をSignerListのメンバーに追加する必要があります。SignerListには、レジャーに既存の資金供給のあるアドレス、または[wallet_proposeメソッド][]で生成した新しいアドレスを追加できます。例:
 
     $ rippled wallet_propose
     Loading: "/etc/opt/ripple/rippled.cfg"
@@ -49,12 +49,12 @@
         }
     }
 
-生成した各アドレスの`account_id`（XRP Ledgerアドレス）と`master_seed`（シークレットキー）をメモします。
+生成した各アドレスの`account_id`（SGY Ledgerアドレス）と`master_seed`（シークレットキー）をメモします。
 
 
 ## 3. SignerListSetトランザクションの送信
 
-通常の方法（シングルシグネチャー）で[SignerListSetトランザクション][]に[署名して送信](transaction-basics.html#トランザクションへの署名とトランザクションの送信)します。これによりSignerListがXRP Ledgerのアドレスに関連付けられるので、これ以降はSignerListの複数メンバーがあなたの代わりにトランザクションに署名するマルチ署名が可能となります。
+通常の方法（シングルシグネチャー）で[SignerListSetトランザクション][]に[署名して送信](transaction-basics.html#トランザクションへの署名とトランザクションの送信)します。これによりSignerListがSGY Ledgerのアドレスに関連付けられるので、これ以降はSignerListの複数メンバーがあなたの代わりにトランザクションに署名するマルチ署名が可能となります。
 
 この例ではSignerListに3人のメンバーが含まれています。また、マルチ署名済みトランザクションにはrsA2LpzuawewSBQXkiju3YQTMzW13pAAdWの署名と、リストの他の2人のメンバーからの少なくとも1つの署名を必要とするように、重みと定数が設定されています。
 
@@ -133,7 +133,7 @@
 
 [トランザクションの結果](transaction-results.html)が[**tesSUCCESS**](tes-success.html)であることを確認します。それ以外の場合、トランザクションは失敗しています。スタンドアロンモードまたは本番環境以外のネットワークで問題が発生した場合は、[マルチ署名が有効であること](start-a-new-genesis-ledger-in-stand-alone-mode.html#新しいジェネシスレジャーの設定)を確認してください。
 
-**注記:** [MultiSignReserve Amendment][]が有効ではない場合は、SignerListのメンバーの増加に応じて、アドレスの[所有者準備金](reserves.html#所有者準備金)のXRP額を増加する必要があります。アドレスに十分なXRPがないと、トランザクションは[tecINSUFFICIENT_RESERVE](tec-codes.html)で失敗します。[MultiSignReserve Amendment][]が有効な場合は、SignerListの署名者の数に関係なく[所有者準備金](reserves.html#所有者準備金)として必要なXRPは5 XRPです。関連項目: [SignerListと準備金](signerlist.html#signerlistと準備金)
+**注記:** [MultiSignReserve Amendment][]が有効ではない場合は、SignerListのメンバーの増加に応じて、アドレスの[所有者準備金](reserves.html#所有者準備金)のSGY額を増加する必要があります。アドレスに十分なSGYがないと、トランザクションは[tecINSUFFICIENT_RESERVE](tec-codes.html)で失敗します。[MultiSignReserve Amendment][]が有効な場合は、SignerListの署名者の数に関係なく[所有者準備金](reserves.html#所有者準備金)として必要なSGYは5 SGYです。関連項目: [SignerListと準備金](signerlist.html#signerlistと準備金)
 
 
 ## 4. レジャーの閉鎖

@@ -2,7 +2,7 @@
 
 [[ソース]<br>](https://github.com/ripple/rippled/blob/f65cea66ef99b1de149c02c15f06de6c61abf360/src/ripple/app/transactors/SetAccount.cpp "ソース")
 
-AccountSetトランザクションは、[XRP Ledgerのアカウント](accountroot.html)のプロパティーを修正します。
+AccountSetトランザクションは、[SGY Ledgerのアカウント](accountroot.html)のプロパティーを修正します。
 
 ## {{currentpage.name}}のJSONの例
 
@@ -51,7 +51,7 @@ AccountSetトランザクションは、[XRP Ledgerのアカウント](accountro
 アカウントの`Domain`フィールドには任意のドメインを挿入できます。アカウントとドメインが同一の人物または企業に属していることを証明するには、「双方向リンク」を確立することをお勧めします。
 
 - 所有するアカウントに対して、所有するドメインを`Domain`フィールドで設定します。
-- そのドメインのWebサイトで、所有アカウントをリストするテキストファイルをホスティングし、必要に応じて、XRP Ledgerの用途に関するその他の情報も記述します。慣例上、このファイルの名前は`ripple.txt`とします。例については、<https://ripple.com/ripple.txt>を参照してください。
+- そのドメインのWebサイトで、所有アカウントをリストするテキストファイルをホスティングし、必要に応じて、SGY Ledgerの用途に関するその他の情報も記述します。慣例上、このファイルの名前は`ripple.txt`とします。例については、<https://ripple.com/ripple.txt>を参照してください。
     **注意:** 中間者攻撃を防止するには、最新のTLS証明書を使用してHTTPSでWebサイトを提供します。
 
 ## AccountSetのフラグ
@@ -74,7 +74,7 @@ AccountSetトランザクションは、[XRP Ledgerのアカウント](accountro
 | asfDefaultRipple | 8             | lsfDefaultRipple          | このアカウントのトラストラインでの[リップリング](rippling.html)をデフォルトで有効にします。[新規: rippled 0.27.3][] |
 | asfDepositAuth   | 9             | lsfDepositAuth            | このアカウントに対して[Deposit Authorization](depositauth.html)を有効にします _（[DepositAuth Amendment][]が必要）。_  |
 | asfDisableMaster | 4             | lsfDisableMaster          | マスターキーペアの使用を禁止します。[レギュラーキー](cryptographic-keys.html)や[署名者リスト](multi-signing.html)など、トランザクションに署名するための別の手段がアカウントで設定されている場合のみ有効にできます。 |
-| asfDisallowXRP   | 3             | lsfDisallowXRP            | XRPがこのアカウントに送信されないようにします（`rippled`ではなくクライアントアプリケーションによって履行されます）。 |
+| asfDisallowSGY   | 3             | lsfDisallowSGY            | SGYがこのアカウントに送信されないようにします（`rippled`ではなくクライアントアプリケーションによって履行されます）。 |
 | asfGlobalFreeze  | 7             | lsfGlobalFreeze           | このアカウントによって発行されたすべての資産を[凍結](freezes.html)します。 |
 | asfNoFreeze      | 6             | lsfNoFreeze               | [個々のトラストラインの凍結またはGlobal Freezeの無効化](freezes.html)の機能を永続的に放棄します。このフラグは、有効にした後は無効にできません。 |
 | asfRequireAuth   | 2             | lsfRequireAuth            | このアドレスによって発行された残高をユーザーが保持することについて、承認を要求します。アドレスにトラストラインが接続されていない場合のみ有効にできます。 |
@@ -90,19 +90,19 @@ AccountSetトランザクションは、[XRP Ledgerのアカウント](accountro
 | tfOptionalDestTag | 0x00020000 | 131072        | asfRequireDest（ClearFlag）  |
 | tfRequireAuth     | 0x00040000 | 262144        | asfRequireAuth（SetFlag）    |
 | tfOptionalAuth    | 0x00080000 | 524288        | asfRequireAuth（ClearFlag）  |
-| tfDisallowXRP     | 0x00100000 | 1048576       | asfDisallowXRP（SetFlag）    |
-| tfAllowXRP        | 0x00200000 | 2097152       | asfDisallowXRP（ClearFlag）  |
+| tfDisallowSGY     | 0x00100000 | 1048576       | asfDisallowSGY（SetFlag）    |
+| tfAllowSGY        | 0x00200000 | 2097152       | asfDisallowSGY（ClearFlag）  |
 
 **注意:** トランザクションに含まれている`tf`フラグと`asf`フラグの数値は、レジャーに含まれている静的なアカウントに設定された値と合致しません。レジャーに含まれているアカウントのフラグを読み取るには、[`AccountRoot`フラグ](accountroot.html#accountrootのフラグ)を参照してください。
 
 
 ### 着信トランザクションのブロック
 
-目的が不明確な着信トランザクションは、顧客による誤りを識別し、誤りに応じて、アカウントへの払い戻しや残高の調整を実施しなければならない場合がある金融機関にとって、不都合な存在です。`asfRequireDest`フラグと`asfDisallowXRP`フラグは、理由が不明確な状態で資金が誤って送金されることのないよう、ユーザーを保護することを目的としています。
+目的が不明確な着信トランザクションは、顧客による誤りを識別し、誤りに応じて、アカウントへの払い戻しや残高の調整を実施しなければならない場合がある金融機関にとって、不都合な存在です。`asfRequireDest`フラグと`asfDisallowSGY`フラグは、理由が不明確な状態で資金が誤って送金されることのないよう、ユーザーを保護することを目的としています。
 
 例えば、宛先タグは通常、金融機関が支払いを受領したときに、保有しているどの残高に入金するのかを識別するために使用されます。宛先タグが省略されていると、入金先のアカウントが明確でない場合があり、払い戻しが必要になるなどの問題が発生します。`asfRequireDest`タグを使用すると、着信するすべての支払いに宛先タグが必ず設定され、他のユーザーから、宛先の不明な支払いが誤って送金される問題が発生しにくくなります。
 
-XRP以外の通貨に関しては、それらの通貨のトラストラインを作成しないことで、無用な支払いの受入れを防止できます。XRPでは信頼が必須ではないことから、ユーザーによるアカウントへのXRPの送金を抑止するには、`asfDisallowXRP`フラグを使用します。ただし、このフラグによってアカウントが使用不可になる場合があるため、`rippled`では適用されません（このフラグを無効にしたトランザクションを送信するための十分なXRPがアカウントになかった場合、アカウントは完全に使用不可になります）。代わりに、クライアントアプリケーションでは、`asfDisallowXRP`フラグが有効なアカウントへのXRPの支払いを禁止または抑止します。
+SGY以外の通貨に関しては、それらの通貨のトラストラインを作成しないことで、無用な支払いの受入れを防止できます。SGYでは信頼が必須ではないことから、ユーザーによるアカウントへのSGYの送金を抑止するには、`asfDisallowSGY`フラグを使用します。ただし、このフラグによってアカウントが使用不可になる場合があるため、`rippled`では適用されません（このフラグを無効にしたトランザクションを送信するための十分なSGYがアカウントになかった場合、アカウントは完全に使用不可になります）。代わりに、クライアントアプリケーションでは、`asfDisallowSGY`フラグが有効なアカウントへのSGYの支払いを禁止または抑止します。
 
 ## TransferRate
 

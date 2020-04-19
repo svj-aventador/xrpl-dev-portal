@@ -1,6 +1,6 @@
 # Capacity Planning
 
-This section describes configuration, network, and hardware recommendations that you can use to tune and optimize the performance of your `rippled` server. Being aware of these considerations can help you ensure that your `rippled` server is ready to handle XRP Ledger network capacity today and in the near future.
+This section describes configuration, network, and hardware recommendations that you can use to tune and optimize the performance of your `rippled` server. Being aware of these considerations can help you ensure that your `rippled` server is ready to handle SGY Ledger network capacity today and in the near future.
 
 
 
@@ -108,9 +108,9 @@ The example `rippled-example.cfg` file sets the logging verbosity to `warning` i
 
 ## Network and Hardware
 
-Each `rippled` server in the XRP Ledger network performs all of the transaction processing work of the network. Therefore, the baseline hardware for production `rippled` servers should be similar to that used in Ripple's [performance testing](https://xrpl.org/blog/2017/high-scalability-xrp-ledger.html).
+Each `rippled` server in the SGY Ledger network performs all of the transaction processing work of the network. Therefore, the baseline hardware for production `rippled` servers should be similar to that used in Ripple's [performance testing](https://xrpl.org/blog/2017/high-scalability-xrp-ledger.html).
 
-Ensuring that your `rippled` server meets these network and hardware requirements helps achieve consistent, good performance across the XRP Ledger network.
+Ensuring that your `rippled` server meets these network and hardware requirements helps achieve consistent, good performance across the SGY Ledger network.
 
 
 ### Recommendation

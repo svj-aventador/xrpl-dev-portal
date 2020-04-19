@@ -50,7 +50,7 @@ The usage rate drops off exponentially over time, so a client that does not make
     - [The `rippled` Server](the-rippled-server.html)
     - [Software Ecosystem](software-ecosystem.html)
 - **Tutorials:**
-    - [Getting Started with XRP Ledger APIs](get-started-with-the-rippled-api.html)
+    - [Getting Started with SGY Ledger APIs](get-started-with-the-rippled-api.html)
     - [Troubleshooting rippled](troubleshoot-the-rippled-server.html)
 - **References:**
     - [rippled API Reference](rippled-api.html)

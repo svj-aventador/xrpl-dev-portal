@@ -2,12 +2,12 @@
 
 These codes indicate that the transaction failed, but it could apply successfully in the future, usually if some other hypothetical transaction applies first. They have numerical values in the range -99 to -1. The exact code for any given error is subject to change, so don't rely on it.
 
-**Caution:** Transactions with `ter` codes are not applied the current ledger and cannot cause any changes to the XRP Ledger state. However, a transaction that provisionally failed may still succeed or fail with a different code after being automatically reapplied. For more information, see [Finality of Results](finality-of-results.html) and [Reliable Transaction Submission](reliable-transaction-submission.html).
+**Caution:** Transactions with `ter` codes are not applied the current ledger and cannot cause any changes to the SGY Ledger state. However, a transaction that provisionally failed may still succeed or fail with a different code after being automatically reapplied. For more information, see [Finality of Results](finality-of-results.html) and [Reliable Transaction Submission](reliable-transaction-submission.html).
 
 | Code             | Explanation                                               |
 |:-----------------|:----------------------------------------------------------|
 | `terFUNDS_SPENT`  | **DEPRECATED.**                                           |
-| `terINSUF_FEE_B` | The account sending the transaction does not have enough XRP to pay the `Fee` specified in the transaction. |
+| `terINSUF_FEE_B` | The account sending the transaction does not have enough SGY to pay the `Fee` specified in the transaction. |
 | `terLAST`          | Used internally only. This code should never be returned. |
 | `terNO_ACCOUNT`   | The address sending the transaction is not funded in the ledger (yet). |
 | `terNO_AUTH`      | The transaction would involve adding currency issued by an account with `lsfRequireAuth` enabled to a trust line that is not authorized. For example, you placed an offer to buy a currency you aren't authorized to hold. |

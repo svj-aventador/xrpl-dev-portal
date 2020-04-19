@@ -1,16 +1,16 @@
 # Parallel Networks
 
-There is one production XRP Ledger peer-to-peer network, and all business that takes place on the XRP Ledger occurs within the production network—the Mainnet.
+There is one production SGY Ledger peer-to-peer network, and all business that takes place on the SGY Ledger occurs within the production network—the Mainnet.
 
-To help members of the XRPL community interact with XRPL technology without affecting anything on the Mainnet, Ripple hosts two alternative networks, or altnets: the Testnet and the Devnet. Here's a breakdown of all three networks:
+To help members of the SGYL community interact with SGYL technology without affecting anything on the Mainnet, Ripple hosts two alternative networks, or altnets: the Testnet and the Devnet. Here's a breakdown of all three networks:
 
 | Network | Upgrade Cadence | Description                                      |
 |:--------|:----------------|:-------------------------------------------------|
-| Mainnet | Stable releases | _The_ [XRP Ledger](xrp-ledger-overview.html), a  decentralized cryptographic ledger powered by a network of peer-to-peer servers and the home of [XRP](xrp.html). |
-| Testnet | Stable releases | An "alternate universe" network that acts as a testing ground for software built on the XRP Ledger, without impacting production XRP Ledger users and without risking real money. The [amendment status](known-amendments.html) of the Testnet is intended to closely mirror the Mainnet, although slight variations in timing may occur due to the unpredictable nature of decentralized systems. |
-| Devnet  | Beta releases   | A preview of coming attractions, where unstable changes to the core XRP Ledger software may be tested out. Developers can use this altnet to interact with and learn about planned new XRPL features and amendments that are not yet enabled on the Mainnet. |
+| Mainnet | Stable releases | _The_ [SGY Ledger](xrp-ledger-overview.html), a  decentralized cryptographic ledger powered by a network of peer-to-peer servers and the home of [SGY](xrp.html). |
+| Testnet | Stable releases | An "alternate universe" network that acts as a testing ground for software built on the SGY Ledger, without impacting production SGY Ledger users and without risking real money. The [amendment status](known-amendments.html) of the Testnet is intended to closely mirror the Mainnet, although slight variations in timing may occur due to the unpredictable nature of decentralized systems. |
+| Devnet  | Beta releases   | A preview of coming attractions, where unstable changes to the core SGY Ledger software may be tested out. Developers can use this altnet to interact with and learn about planned new SGYL features and amendments that are not yet enabled on the Mainnet. |
 
-Testnet and Devnet each have their own separate supply of test XRP, which Ripple [gives away for free](xrp-testnet-faucet.html) to parties interested in experimenting with the XRP Ledger and developing applications and integrations. Test XRP does not have real-world value and is lost when the network is reset.
+Testnet and Devnet each have their own separate supply of test SGY, which Ripple [gives away for free](xrp-testnet-faucet.html) to parties interested in experimenting with the SGY Ledger and developing applications and integrations. Test SGY does not have real-world value and is lost when the network is reset.
 
 **Caution:** Ripple makes no guarantees about the stability of altnets. These networks have been and continue to be used to test various properties of server configuration, network topology, and network performance.
 
@@ -25,12 +25,12 @@ Ripple operates the main servers in the Testnet and Devnet; you can also [connec
 ## See Also
 
 - **Tools:**
-    - [XRP Testnet Faucet](xrp-test-net-faucet.html)
+    - [SGY Testnet Faucet](xrp-test-net-faucet.html)
 - **Concepts:**
     - [Introduction to Consensus](intro-to-consensus.html)
     - [Amendments](amendments.html)
 - **Tutorials:**
-    - [Connect Your `rippled` to the XRP Testnet](connect-your-rippled-to-the-xrp-test-net.html)
+    - [Connect Your `rippled` to the SGY Testnet](connect-your-rippled-to-the-xrp-test-net.html)
     - [Use rippled in Stand-Alone Mode](use-stand-alone-mode.html)
 - **References:**
     - [server_info method][]

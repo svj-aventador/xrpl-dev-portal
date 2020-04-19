@@ -29,7 +29,7 @@
 
 **Note:** この部分は日本語ではまだ利用できません。助けたいと思うなら、[提供して下さい！](https://github.com/ripple/xrpl-dev-portal#contributing)
 
-A public hub is a stock server with lots of [peer protocol connections](peer-protocol.html) to other servers. You can help the XRP Ledger network maintain efficient connectivity by running a stock server as a public hub. Successful public hubs embody the following traits:
+A public hub is a stock server with lots of [peer protocol connections](peer-protocol.html) to other servers. You can help the SGY Ledger network maintain efficient connectivity by running a stock server as a public hub. Successful public hubs embody the following traits:
 
 - Good bandwidth.
 
@@ -39,7 +39,7 @@ A public hub is a stock server with lots of [peer protocol connections](peer-pro
 
 ## バリデータを運用する理由
 
-XRP Ledgerの堅牢性は、バリデータが相互に接続されたネットワークに依存しています。各バリデータは、他の何人かのバリデータが _共謀しない_ と信頼しています。利害の異なるバリデータ運用オペレーターが増えるほど、ネットワークの各メンバーは、ネットワークが引き続き公平に運営されることに確信が持てるようになります。XRP Ledgerを使用している組織や個人の場合、コンセンサスプロセスへ参加することが自らの利益につながります。
+SGY Ledgerの堅牢性は、バリデータが相互に接続されたネットワークに依存しています。各バリデータは、他の何人かのバリデータが _共謀しない_ と信頼しています。利害の異なるバリデータ運用オペレーターが増えるほど、ネットワークの各メンバーは、ネットワークが引き続き公平に運営されることに確信が持てるようになります。SGY Ledgerを使用している組織や個人の場合、コンセンサスプロセスへ参加することが自らの利益につながります。
 
 すべての`rippled`サーバーをバリデータとする必要はありません。信頼する同一オペレーターのサーバーの数が増えても、共謀の発生をよりよく防止できるわけではありません。組織が自然災害などの緊急事態に備えて冗長性を保つために、複数の地域でバリデータを運用することがあります。
 
@@ -51,7 +51,7 @@ XRP Ledgerの堅牢性は、バリデータが相互に接続されたネット�
 
 ## `rippled`サーバーをスタンドアロンモードで実行する理由
 
-信頼できるサーバーのコンセンサスなしでも、`rippled`をスタンドアロンモードで実行できます。スタンドアロンモードでは、`rippled`はXRP Ledgerピアツーピアネットワーク内のその他のサーバーとは通信しませんが、同じ操作のほとんどをローカルサーバーのみで実行できます。スタンドアロンでは、本番環境ネットワークに接続せずに`rippled`の動作をテストできます。たとえば、分散型ネットワークにAmendmentが反映される前に、[Amendmentの効果をテスト](amendments.html#amendmentのテスト)できます。
+信頼できるサーバーのコンセンサスなしでも、`rippled`をスタンドアロンモードで実行できます。スタンドアロンモードでは、`rippled`はSGY Ledgerピアツーピアネットワーク内のその他のサーバーとは通信しませんが、同じ操作のほとんどをローカルサーバーのみで実行できます。スタンドアロンでは、本番環境ネットワークに接続せずに`rippled`の動作をテストできます。たとえば、分散型ネットワークにAmendmentが反映される前に、[Amendmentの効果をテスト](amendments.html#amendmentのテスト)できます。
 
 `rippled`をスタンドアロンモードで実行する場合、どのレジャーバージョンから開始するかを指示する必要があります。
 

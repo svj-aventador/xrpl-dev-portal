@@ -1,6 +1,6 @@
 # Offline Account Setup Tutorial
 
-A highly secure [signing configuration](set-up-secure-signing.html) involves keeping an XRP Ledger [account](accounts.html)'s [cryptographic keys](cryptographic-keys.html) securely on an offline, air-gapped machine. After setting up this configuration, you can sign a variety of transactions, transfer only the signed transactions to an online computer, and submit them to the XRP Ledger network without ever exposing your secret key to malicious actors online.
+A highly secure [signing configuration](set-up-secure-signing.html) involves keeping an SGY Ledger [account](accounts.html)'s [cryptographic keys](cryptographic-keys.html) securely on an offline, air-gapped machine. After setting up this configuration, you can sign a variety of transactions, transfer only the signed transactions to an online computer, and submit them to the SGY Ledger network without ever exposing your secret key to malicious actors online.
 
 **Caution:** Proper operational security is necessary to protect your offline machine. For example, the offline machine must be physically located where untrusted people cannot get access to it, and trusted operators must be careful not to transfer compromised software onto the machine. (For example, do not use a USB drive that was previously attached to a network-connected computer.)
 
@@ -9,7 +9,7 @@ A highly secure [signing configuration](set-up-secure-signing.html) involves kee
 To use offline signing, you must meet the following prerequisites:
 
 - You must have one computer to use as an offline machine. This machine must be set up with a [supported operating system](system-requirements.html). See your operating system's support for offline setup instructions. (For example, [Red Hat Enterprise Linux DVD ISO installation instructions](https://access.redhat.com/solutions/7227).) Be sure that the software and physical media you use are not infected with malware.
-- You must have a separate computer to use as an online machine. This machine does not need to run `rippled` but it must be able to connect to the XRP Ledger network and receive accurate information about the state of the shared ledger. For example, you can use a [WebSocket connection to a public server](get-started-with-the-rippled-api.html).
+- You must have a separate computer to use as an online machine. This machine does not need to run `rippled` but it must be able to connect to the SGY Ledger network and receive accurate information about the state of the shared ledger. For example, you can use a [WebSocket connection to a public server](get-started-with-the-rippled-api.html).
 - You must have a secure way to transfer signed transaction binary data from the offline machine to the online machine.
     - One way to do this is with a QR code generator on the offline machine, and a QR code scanner on the online machine. (In this case, your "online machine" could be a handheld device such as a smartphone.)
     - Another way is to copy files from the offline machine to an online machine using physical media. If you use this method, be sure not to use physical media that could infect your offline machine with malicious software. (For example, do not reuse the same USB drive on both online and offline machines.)
@@ -24,7 +24,7 @@ To use offline signing, you must meet the following prerequisites:
 
 The offline machine needs secure persistent storage (for example, an encrypted disk drive) and a way to [sign transactions](set-up-secure-signing.html). For an offline machine, you typically use physical media to transfer any necessary software after downloading it from an online machine. You must be sure that the online machine, the physical media, and the software itself are not infected with malware.
 
-Software options for signing on the XRP Ledger include:
+Software options for signing on the SGY Ledger include:
 
 - [Install `rippled`](install-rippled.html) from a package (`.deb` or `.rpm` depending on which Linux distribution you use) file, then [run it in stand-alone mode](rippled-server-modes.html).
 - Install [ripple-lib](rippleapi-reference.html) and its dependencies offline. The Yarn package manager, for example, has [recommended instructions for offline usage](https://yarnpkg.com/blog/2016/11/24/offline-mirror/).
@@ -64,7 +64,7 @@ Loading: "/etc/opt/ripple/rippled.cfg"
 
 Take note of the following values:
 
-- **`account_id`**. This is the address associated with the key pair, which will become your **[account](accounts.html) address** in the XRP Ledger after you fund it with XRP (later in this process). It is safe to share your `account_id` publicly.
+- **`account_id`**. This is the address associated with the key pair, which will become your **[account](accounts.html) address** in the SGY Ledger after you fund it with SGY (later in this process). It is safe to share your `account_id` publicly.
 - **`master_seed`**. This is the secret seed value for the keypair, which you'll use to sign transactions from the account. For best security, encrypt this value before writing it to disk on the offline machine. As an encryption key, use a secure passphrase that human operators can memorize or write down somewhere physically secure, such as a [diceware passphrase](http://world.std.com/~reinhold/diceware.html) created with properly weighted dice. You may also want to use a physical security key as a second factor. The extent of the precautions to take at this stage is up to you.
 - **`key_type`**. This is the cryptographic algorithm used for this key pair. You need to know what type of key pair you have in order to sign valid transactions. The default is `secp256k1`.
 
@@ -74,9 +74,9 @@ Take note of the following values:
 
 ### {{n.next()}}. Fund the new address
 
-From an online machine, send enough XRP to the **account address** you noted in step 1. For more information, see [Creating Accounts](accounts.html#creating-accounts).
+From an online machine, send enough SGY to the **account address** you noted in step 1. For more information, see [Creating Accounts](accounts.html#creating-accounts).
 
-**Tip:** For testing purposes, you can use the [Testnet Faucet](xrp-testnet-faucet.html) to get a new account with Test XRP, then use that account to fund the address you generated offline.
+**Tip:** For testing purposes, you can use the [Testnet Faucet](xrp-testnet-faucet.html) to get a new account with Test SGY, then use that account to fund the address you generated offline.
 
 
 
@@ -123,7 +123,7 @@ Loading: "/etc/opt/ripple/rippled.cfg"
 
 Save the account's starting sequence number on the offline machine. Whenever you prepare a transaction using the offline machine, use the saved sequence number, then increase the sequence number by 1 and save the new value.
 
-You can prepare several transactions in advance this way, then transfer the signed transactions to the online machine all at once and submit them. As long as each transaction is validly formed and pays a sufficient [transaction cost](transaction-cost.html), the XRP Ledger network should eventually include those transactions in validated ledgers, keeping the account's sequence number in the shared XRP Ledger in sync with the "current" sequence number you are tracking on the offline machine. (Most transactions get a final, validated result within 15 seconds or less after being submitted to the network.)
+You can prepare several transactions in advance this way, then transfer the signed transactions to the online machine all at once and submit them. As long as each transaction is validly formed and pays a sufficient [transaction cost](transaction-cost.html), the SGY Ledger network should eventually include those transactions in validated ledgers, keeping the account's sequence number in the shared SGY Ledger in sync with the "current" sequence number you are tracking on the offline machine. (Most transactions get a final, validated result within 15 seconds or less after being submitted to the network.)
 
 Optionally, save the current ledger index to the offline machine. You can use this value to choose an appropriate `LastLedgerSequence` value for upcoming transactions.
 
@@ -137,10 +137,10 @@ On the offline machine, prepare and sign transactions for configuring your accou
 - [Require destination tags](require-destination-tags.html) so that users can't send you payments without tagging the reason they sent it or the customer it's intended for.
 - [Set Up Multi-Signing](set-up-multi-signing.html) for a higher bar of account security.
 - [Enable DepositAuth](depositauth.html) so you can only receive payments you've explicitly accepted or from parties you've pre-approved.
-- [Enable RequireAuth](become-an-xrp-ledger-gateway.html#enabling-requireauth) so that users can't open [trust lines](trust-lines-and-issuing.html) to you without your permission. If you don't plan to use the XRP Ledger's decentralized exchange or issued currency features, you may want to do this as a precaution.
+- [Enable RequireAuth](become-an-xrp-ledger-gateway.html#enabling-requireauth) so that users can't open [trust lines](trust-lines-and-issuing.html) to you without your permission. If you don't plan to use the SGY Ledger's decentralized exchange or issued currency features, you may want to do this as a precaution.
 - Issued currency [Gateways](become-an-xrp-ledger-gateway.html) may have additional setup, such as:
     - [Set a TransferRate](become-an-xrp-ledger-gateway.html#transferrate) for users transferring your issued currencies.
-    - [Disallow XRP payments](become-an-xrp-ledger-gateway.html#disallowxrp) if you plan to use this address for issued currencies only.
+    - [Disallow SGY payments](become-an-xrp-ledger-gateway.html#disallowxrp) if you plan to use this address for issued currencies only.
 
 At this stage, you are only signing the transactions, not submitting them. For each transaction, you must provide all fields, including fields that are normally auto-fillable such as the `Fee` ([transaction cost](transaction-cost.html)) and `Sequence` ([sequence number][]). If you prepare multiple transactions at the same time, you must use sequentially increasing `Sequence` numbers in the order you want the transactions to execute.
 
@@ -292,11 +292,11 @@ Loading: "/etc/opt/ripple/rippled.cfg"
 
 <!-- MULTICODE_BLOCK_END -->
 
-You may also find it useful to check the [account_info][account_info method] of the sending account after all transactions have processed. Note the account's current sequence number (`Sequence` field) and, optionally, XRP balance.
+You may also find it useful to check the [account_info][account_info method] of the sending account after all transactions have processed. Note the account's current sequence number (`Sequence` field) and, optionally, SGY balance.
 
 For any transactions that failed, you should decide what to do:
 
-- If the transaction failed with a `tefMAX_LEDGER` code, you may need to specify a higher [transaction cost](transaction-cost.html) to get the transaction processed. (This likely indicates that the XRP Ledger network is under load.) You may decide to replace the transaction with a new version that pays a higher cost and has a higher `LastLedgerSequence` parameter (if any).
+- If the transaction failed with a `tefMAX_LEDGER` code, you may need to specify a higher [transaction cost](transaction-cost.html) to get the transaction processed. (This likely indicates that the SGY Ledger network is under load.) You may decide to replace the transaction with a new version that pays a higher cost and has a higher `LastLedgerSequence` parameter (if any).
 - If the transaction failed with any [`tem`-class code](tem-codes.html), you probably made a typo or another error in constructing the transaction. Double-check the transaction so that you can replace it with a validly-formed one.
 - If the transaction failed with a [`tec`-class code](tec-codes.html), you should address it on a case-by-case basis depending on the exact reason it failed.
 
@@ -310,7 +310,7 @@ Return to the offline machine and apply any necessary changes to your custom ser
 
 - Updating the account's current `Sequence` number. If all transactions were included in validated ledgers (successfully or with `tec` codes), then the offline machine's saved sequence number should already be accurate. Otherwise, you may need to change the saved sequence number to match the `Sequence` value you noted in the previous step.
 - Updating the current ledger index so that you can use appropriate `LastLedgerSequence` values in any new transactions. (You should always do this shortly before constructing any new transactions.)
-- _(Optional)_ Updating your actual amount of XRP available, if you are tracking it in the offline machine.
+- _(Optional)_ Updating your actual amount of SGY available, if you are tracking it in the offline machine.
 
 Then adjust and sign any replacement transactions for transactions that failed in the previous step. Repeat the previous steps for constructing transactions on the offline machine, transferring them, and submitting them from the online machine.
 

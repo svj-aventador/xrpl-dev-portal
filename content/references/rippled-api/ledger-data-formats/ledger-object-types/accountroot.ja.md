@@ -1,7 +1,7 @@
 # AccountRoot
 [[ソース]<br>](https://github.com/ripple/rippled/blob/5d2d88209f1732a0f8d592012094e345cbe3e675/src/ripple/protocol/impl/LedgerFormats.cpp#L27 "Source")
 
-`AccountRoot`オブジェクトタイプは、1つの[アカウント](accounts.html)、そのアカウントの設定、XRP残高を記述します。
+`AccountRoot`オブジェクトタイプは、1つの[アカウント](accounts.html)、そのアカウントの設定、SGY残高を記述します。
 
 ## {{currentpage.name}} JSONの例
 
@@ -32,7 +32,7 @@
 |:------------------------------|:----------|:------------------|:-------------|
 | `LedgerEntryType`             | 文字列    | UInt16            | 値`0x0061`が文字列`AccountRoot`にマッピングされている場合は、これがAccountRootオブジェクトであることを示します。 |
 | `Account`                     | 文字列    | AccountID         | このアカウントの識別用アドレス（rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpnなど）。 |
-| `Balance`                     | 文字列    | Amount            | アカウントの現在の[drop単位のXRP残高][XRP、drop単位]で、文字列で表現されます。 |
+| `Balance`                     | 文字列    | Amount            | アカウントの現在の[drop単位のSGY残高][SGY、drop単位]で、文字列で表現されます。 |
 | [`Flags`](#accountrootのフラグ) | 数値    | UInt32            | このアカウントに対して有効になっているブールフラグのビットマップ。 |
 | `OwnerCount`                  | 数値    | UInt32            | レジャーでこのアカウントが所有しており、アカウント所有者の準備金に資金を付与するオブジェクトの数。 |
 | `PreviousTxnID`               | 文字列    | Hash256           | 最後にこのオブジェクトを変更したトランザクションの識別用ハッシュ。 |
@@ -59,7 +59,7 @@ AccountRootオブジェクトには以下のフラグ値を指定できます。
 | lsfDefaultRipple | 0x00800000 | 8388608 | このアドレスのトラストラインでデフォルトで[rippling](rippling.html)を有効にします。発行アドレスに必要です。他のアドレスでの使用は推奨されません。 | asfDefaultRipple |
 | lsfDepositAuth | 0x01000000 | 16777216 | このアカウントは、アカウントが送信するトランザクションと、[事前承認された](depositauth.html#事前承認)アカウントからの資金だけを受領します。（[DepositAuth](depositauth.html)が有効になっています。） | asfDepositAuth |
 | lsfDisableMaster | 0x00100000 | 1048576 | このアカウントのトランザクションの署名にマスターキーを使用することを禁止します。 | asfDisableMaster |
-| lsfDisallowXRP | 0x00080000 | 524288 | クライアントアプリケーションはこのアカウントにXRPを送金しないでください。`rippled`により強制されるものではありません。 | asfDisallowXRP |
+| lsfDisallowSGY | 0x00080000 | 524288 | クライアントアプリケーションはこのアカウントにSGYを送金しないでください。`rippled`により強制されるものではありません。 | asfDisallowSGY |
 | lsfGlobalFreeze | 0x00400000 | 4194304 | このアドレスが発行するすべての資産が凍結されます。 | asfGlobalFreeze |
 | lsfNoFreeze | 0x00200000 | 2097152 | このアドレスは、このアドレスに接続しているトラストラインを凍結できません。一度有効にすると、無効にできません。 | asfNoFreeze |
 | lsfPasswordSpent | 0x00010000 | 65536 | このアカウントは無料のSetRegularKeyトランザクションを使用しています。 | （なし） |

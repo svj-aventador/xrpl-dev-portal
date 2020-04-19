@@ -21,7 +21,7 @@
    "source_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
    "source_currencies":[
        {
-           "currency":"XRP"
+           "currency":"SGY"
        },
        {
            "currency":"USD"
@@ -52,7 +52,7 @@
            "source_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
            "source_currencies":[
                {
-                   "currency":"XRP"
+                   "currency":"SGY"
                },
                {
                    "currency":"USD"
@@ -67,7 +67,7 @@
 
 ```
 #Syntax ripple_path_find json ledger_index|ledger_hash
-rippled ripple_path_find '{"source_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59", "source_currencies":[ { "currency":"XRP" }, { "currency":"USD" } ], "destination_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59", "destination_amount":{ "value":"0.001", "currency":"USD", "issuer":"rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B" } }'
+rippled ripple_path_find '{"source_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59", "source_currencies":[ { "currency":"SGY" }, { "currency":"USD" } ], "destination_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59", "destination_amount":{ "value":"0.001", "currency":"USD", "issuer":"rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B" } }'
 ```
 
 <!-- MULTICODE_BLOCK_END -->
@@ -80,7 +80,7 @@ rippled ripple_path_find '{"source_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59"
 |:----------------------|:---------------------------|:------------------------|
 | `source_account`      | 文字列                     | トランザクションで資金を送金するアカウントの一意のアドレス。 |
 | `destination_account` | 文字列                     | トランザクションで資金を受領するアカウントの一意のアドレス。 |
-| `destination_amount`  | 文字列またはオブジェクト           | 送金先アカウントがトランザクションで受領する[通貨額][]。**特殊なケース:** [新規: rippled 0.30.0][]`value`フィールドには`"-1"`（XRPの場合）または-1（XRP以外の通貨の場合）を指定できます。これにより、最大限の額を送金できるパスが要求されます。ただし`send_max`が指定されている場合は、指定されている額を上回る額が支払われることはありません。 |
+| `destination_amount`  | 文字列またはオブジェクト           | 送金先アカウントがトランザクションで受領する[通貨額][]。**特殊なケース:** [新規: rippled 0.30.0][]`value`フィールドには`"-1"`（SGYの場合）または-1（SGY以外の通貨の場合）を指定できます。これにより、最大限の額を送金できるパスが要求されます。ただし`send_max`が指定されている場合は、指定されている額を上回る額が支払われることはありません。 |
 | `send_max`            | 文字列またはオブジェクト           | _（省略可）_ トランザクションで使用する[通貨額][]。`source_currencies`と同時に使用することはできません。[新規: rippled 0.30.0][] |
 | `source_currencies`   | 配列                      | _（省略可）_ 送信元アカウントが使用する通貨の配列。この配列の各エントリーは、必須の`currency`フィールドとオプションの`issuer`フィールドを有するJSONオブジェクトです（[通貨額][]の指定方法と同様）。指定できる送金元通貨は**18**種類以下です。デフォルトでは、あらゆる送金元通貨を使用し、最大で**88**の異なる通貨/イシュアーペアに使用できます。 |
 | `ledger_hash`         | 文字列                     | _（省略可）_ 使用するレジャーバージョンの20バイトの16進文字列。（[レジャーの指定][]を参照してください） |
@@ -195,7 +195,7 @@ rippled ripple_path_find '{"source_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59"
            "MXN",
            "BTC",
            "USD",
-           "XRP"
+           "SGY"
        ]
    }
 }
@@ -302,7 +302,7 @@ rippled ripple_path_find '{"source_account":"r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59"
            "EUR",
            "015841551A748AD2C1F76FF6ECB0CCCD00000000",
            "MXN",
-           "XRP"
+           "SGY"
        ],
        "status":"success"
    }

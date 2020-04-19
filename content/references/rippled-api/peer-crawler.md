@@ -2,7 +2,7 @@
 
 The Peer Crawler is a special API endpoint for reporting on the health and topology of the peer-to-peer network. This API method is available by default on a non-privileged basis through the [Peer Protocol](peer-protocol.html) port, which is also used for `rippled` servers' peer-to-peer communications about consensus, ledger history, and other necessary information.
 
-The information reported by the peer crawler is effectively public, and can be used to report on the overall XRP Ledger network, its health, and topology.
+The information reported by the peer crawler is effectively public, and can be used to report on the overall SGY Ledger network, its health, and topology.
 
 ## Request Format
 
@@ -77,7 +77,7 @@ Response:
 
 - [Peer Protocol](peer-protocol.html)
 - [Configure the Peer Crawler](configure-the-peer-crawler.html)
-- The [XRPL Network Crawler](https://github.com/ripple/rippled-network-crawler) is an example of a tool that uses the peer crawler data to collect and store information about the XRP Ledger network.
+- The [SGYL Network Crawler](https://github.com/ripple/rippled-network-crawler) is an example of a tool that uses the peer crawler data to collect and store information about the SGY Ledger network.
 
 
 <!--{# common link defs #}-->

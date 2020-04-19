@@ -1,8 +1,8 @@
 # Rippling
 
-In the XRP Ledger, "rippling" describes a process of atomic net settlement between multiple connected parties who have [trust lines](trust-lines-and-issuing.html) for the same currency. Rippling is an essential part of issued currencies, because it allows users who trust the same issuer to send issued balances to each other with the issuer as a passive intermediary. In a sense, rippling is like a passive, two-way [currency exchange order](offers.html) with no limit and a 1:1 exchange rate for two currencies with the same currency code but different issuers.
+In the SGY Ledger, "rippling" describes a process of atomic net settlement between multiple connected parties who have [trust lines](trust-lines-and-issuing.html) for the same currency. Rippling is an essential part of issued currencies, because it allows users who trust the same issuer to send issued balances to each other with the issuer as a passive intermediary. In a sense, rippling is like a passive, two-way [currency exchange order](offers.html) with no limit and a 1:1 exchange rate for two currencies with the same currency code but different issuers.
 
-Rippling only occurs along the [paths](paths.html) of a payment. [Direct XRP-to-XRP payments](direct-xrp-payments.html) do not involve rippling.
+Rippling only occurs along the [paths](paths.html) of a payment. [Direct SGY-to-SGY payments](direct-xrp-payments.html) do not involve rippling.
 
 For non-issuing accounts, rippling can be undesirable because it lets other users shift obligations between issuers of the same currency. Thus, the [NoRipple Flag](#the-noripple-flag) disables rippling on incoming trust lines by default, unless the account enables rippling by default by enabling the [DefaultRipple flag](#the-defaultripple-flag).
 
@@ -10,7 +10,7 @@ For non-issuing accounts, rippling can be undesirable because it lets other user
 
 ## Example of Rippling
 
-"Rippling" occurs when more than one trust line is adjusted to make a payment. For example, if Alice owes Charlie money, and Alice also owes Bob money, then you could represent that in the XRP Ledger with trust lines like so:
+"Rippling" occurs when more than one trust line is adjusted to make a payment. For example, if Alice owes Charlie money, and Alice also owes Bob money, then you could represent that in the SGY Ledger with trust lines like so:
 
 ![Charlie --($10)-- Alice -- ($20) -- Bob](img/noripple-01.png)
 
@@ -18,7 +18,7 @@ If Bob wants to pay $3 to Charlie, then he could say, "Alice, take $3 of the mon
 
 ![Charlie --($13)-- Alice --($17)-- Bob](img/noripple-02.png)
 
-We call this process, where two addresses pay each other by adjusting the balances of trust lines in between them, "rippling". This is a useful and important feature of the XRP Ledger. Rippling occurs when addresses are linked by trust lines that use the same [currency code][]. The issuer does not need to be the same: in fact, larger chains always involve changing issuers.
+We call this process, where two addresses pay each other by adjusting the balances of trust lines in between them, "rippling". This is a useful and important feature of the SGY Ledger. Rippling occurs when addresses are linked by trust lines that use the same [currency code][]. The issuer does not need to be the same: in fact, larger chains always involve changing issuers.
 
 ## The NoRipple Flag
 
@@ -57,7 +57,7 @@ The DefaultRipple flag is an account setting that enables rippling on all incomi
 
 The DefaultRipple setting of your account does not affect trust lines that you create; only trust lines that others open to you. If you change the DefaultRipple setting of your account, trust lines that were created before the change keep their existing NoRipple settings. You can use a [TrustSet transaction][] to change the NoRipple setting of a trust line to match your address's new default.
 
-For more information, see [DefaultRipple in 'Becoming an XRP Ledger Gateway'](become-an-xrp-ledger-gateway.html#defaultripple).
+For more information, see [DefaultRipple in 'Becoming an SGY Ledger Gateway'](become-an-xrp-ledger-gateway.html#defaultripple).
 
 
 ## Using NoRipple
@@ -86,7 +86,7 @@ In [RippleAPI](rippleapi-reference.html), you can use the [getTrustlines](ripple
 - **Concepts:**
     - [Paths](paths.html)
 - **Tutorials:**
-    - [Become an XRP Ledger Gateway](become-an-xrp-ledger-gateway.html)
+    - [Become an SGY Ledger Gateway](become-an-xrp-ledger-gateway.html)
 - **References:**
     - [account_lines method][]
     - [account_info method][]

@@ -3,7 +3,7 @@
 
 _（[PayChan Amendment][]が有効になっている必要があります。[新規: rippled 0.33.0][]）_
 
-`channel_authorize`メソッドは、特定額のXRPをPayment Channelから清算するときに使用できる署名を作成します。
+`channel_authorize`メソッドは、特定額のSGYをPayment Channelから清算するときに使用できる署名を作成します。
 
 ## 要求フォーマット
 要求フォーマットの例:
@@ -53,7 +53,7 @@ rippled channel_authorize s█████████████████�
 |-------|------|-------------|
 | `channel_id` | 文字列 | Payment Channelが使用する一意のID。
 | `secret` | 文字列 | クレームへの署名に使用するシークレットキー。これは、Channelに指定されている公開鍵と同じキーペアである必要があります。 |
-| `amount` | 文字列 | 承認するXRPの累積額（drop数）送金先がこのChannelからすでに受領しているXRPの額がこのフィールドの額よりも少ない場合、このメソッドで作成される署名を使用して差額を清算できます。 |
+| `amount` | 文字列 | 承認するSGYの累積額（drop数）送金先がこのChannelからすでに受領しているSGYの額がこのフィールドの額よりも少ない場合、このメソッドで作成される署名を使用して差額を清算できます。 |
 
 **注記:** このメソッドでクレームに署名するときにはEd25519キーは使用できません。これは既知のバグです（RIPD-1474）。
 
@@ -105,13 +105,13 @@ rippled channel_authorize s█████████████████�
 
 | フィールド | 型 | 説明 |
 |-------|------|-------------|
-| `signature` | 文字列 | このクレームの署名（16進値）。このクレームを処理するには、Payment Channelの送金先アカウントがこの署名、正確なChannel ID、XRPの額、およびChannelの公開鍵が指定された[PaymentChannelClaimトランザクション][]を送信する必要があります。 |
+| `signature` | 文字列 | このクレームの署名（16進値）。このクレームを処理するには、Payment Channelの送金先アカウントがこの署名、正確なChannel ID、SGYの額、およびChannelの公開鍵が指定された[PaymentChannelClaimトランザクション][]を送信する必要があります。 |
 
 ## 考えられるエラー
 
 * [汎用エラータイプ][]のすべて。
 * `badSeed` - 要求の`secret`が有効なシークレットキーではありません。
-* `channelAmtMalformed` - 要求の`amount`が有効な[XRPの額][XRP、drop単位]ではありません。
+* `channelAmtMalformed` - 要求の`amount`が有効な[SGYの額][SGY、drop単位]ではありません。
 * `channelMalformed` - 要求の`channel_id`が有効なChannel IDではありません。Channel IDは256ビット（64文字）の16進文字列です。
 
 

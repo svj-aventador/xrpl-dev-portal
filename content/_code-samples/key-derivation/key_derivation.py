@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
 ################################################################################
-# XRPL Key Derivation Code
+# SGYL Key Derivation Code
 # Author: rome@ripple.com
 # Copyright Ripple 2019
 # This sample code is provided as a reference for educational purposes. It is
 # not optimized for speed or for security. Use this code at your own risk and
 # exercise due caution before using it with real money or infrastructure.
 # This file is provided under the MIT license along with the rest of the
-# XRP Ledger Dev Portal docs and sample code:
+# SGY Ledger Dev Portal docs and sample code:
 # https://github.com/ripple/xrpl-dev-portal/blob/master/LICENSE
 # Some of its dependencies are released under other licenses or are adapted
 # from public domain code. See their respective files for details.
@@ -32,9 +32,9 @@ import ed25519
 import RFC1751
 from base58 import base58
 
-XRPL_SEED_PREFIX = b'\x21'
-XRPL_ACCT_PUBKEY_PREFIX = b'\x23'
-XRPL_VALIDATOR_PUBKEY_PREFIX = b'\x1c'
+SGYL_SEED_PREFIX = b'\x21'
+SGYL_ACCT_PUBKEY_PREFIX = b'\x23'
+SGYL_VALIDATOR_PUBKEY_PREFIX = b'\x1c'
 ED_PREFIX = b'\xed'
 
 def sha512half(buf):
@@ -50,10 +50,10 @@ class Seed:
 
     def __init__(self, in_string=None, correct_rfc1751=False):
         """
-        Decode a buffer input in one of the formats the XRPL supports and convert
+        Decode a buffer input in one of the formats the SGYL supports and convert
         it to a buffer representing the 16-byte seed to use for key derivation.
         Formats include:
-        - XRPL base58 encoding
+        - SGYL base58 encoding
         - RFC-1751
         - hexadecimal
         - passphrase
@@ -74,7 +74,7 @@ class Seed:
         # Is it base58?
         try:
             decoded = base58.b58decode_check(in_string)
-            if decoded[:1] == XRPL_SEED_PREFIX and len(decoded) == 17:
+            if decoded[:1] == SGYL_SEED_PREFIX and len(decoded) == 17:
                 self.bytes = decoded[1:]
                 return
             else:
@@ -115,10 +115,10 @@ class Seed:
 
     def encode_base58(self):
         """
-        Returns a string representation of this seed as an XRPL base58 encoded
+        Returns a string representation of this seed as an SGYL base58 encoded
         string such as 'snoPBrXtMeMyMHUVTgbuqAfg1SUTb'.
         """
-        return base58.b58encode_check(XRPL_SEED_PREFIX + self.bytes).decode()
+        return base58.b58encode_check(SGYL_SEED_PREFIX + self.bytes).decode()
 
     def encode_hex(self):
         """
@@ -193,7 +193,7 @@ class Seed:
 
     def derive_secp256k1_master_keys(self):
         """
-        Uses the XRPL's convoluted key derivation process to get the
+        Uses the SGYL's convoluted key derivation process to get the
         secp256k1 master keypair for this seed value.
         Saves the values to the object for later reference.
         """
@@ -224,11 +224,11 @@ class Seed:
         if validator:
             # Validators use the "root" public key
             key = self.secp256k1_root_public_key
-            prefix = XRPL_VALIDATOR_PUBKEY_PREFIX
+            prefix = SGYL_VALIDATOR_PUBKEY_PREFIX
         else:
             # Accounts use the derived "master" public key
             key = self.secp256k1_public_key
-            prefix = XRPL_ACCT_PUBKEY_PREFIX
+            prefix = SGYL_ACCT_PUBKEY_PREFIX
 
         return base58.b58encode_check(prefix + key).decode()
 
@@ -238,7 +238,7 @@ class Seed:
         """
         # Unlike secp256k1, Ed25519 public keys are the same for
         # accounts and for validators.
-        prefix = XRPL_ACCT_PUBKEY_PREFIX
+        prefix = SGYL_ACCT_PUBKEY_PREFIX
 
         return base58.b58encode_check(prefix +
                                       self.ed25519_public_key).decode()
@@ -287,7 +287,7 @@ def swap_byte_order(buf):
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("secret", nargs="?", default=None, help="The seed to "+
-        "derive a key from, in hex, XRPL base58, or RFC-1751; or the " + "passphrase to derive a seed and key from. If omitted, generate a "+
+        "derive a key from, in hex, SGYL base58, or RFC-1751; or the " + "passphrase to derive a seed and key from. If omitted, generate a "+
         "random seed.")
     p.add_argument("--unswap", "-u", default=False, action="store_true",
         help="If specified, preserve the byte order of RFC-1751 encoding"+

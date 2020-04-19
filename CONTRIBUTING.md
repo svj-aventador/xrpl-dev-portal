@@ -1,20 +1,20 @@
 # Contributing
 
-Thanks for considering a contribution to the XRP Ledger Developer Portal!
+Thanks for considering a contribution to the SGY Ledger Developer Portal!
 
 
-We're thrilled you're interested and your help is greatly appreciated. Contributing is a great way to learn about the XRP Ledger (XRPL).
+We're thrilled you're interested and your help is greatly appreciated. Contributing is a great way to learn about the SGY Ledger (SGYL).
 
-You may also be interested in learning about [Interledger Protocol (ILP)](https://interledger.org/), which, along with XRPL, is another part of the [Xpring developer ecosystem](https://xpring.io).
+You may also be interested in learning about [Interledger Protocol (ILP)](https://interledger.org/), which, along with SGYL, is another part of the [Xpring developer ecosystem](https://xpring.io).
 
 We are happy to review your pull requests. To make the process as smooth as possible, please read this document and follow the stated guidelines.
 
-Contributions become copyright the XRP Ledger Project and are provided under the MIT [LICENSE](LICENSE).
+Contributions become copyright the SGY Ledger Project and are provided under the MIT [LICENSE](LICENSE).
 
 
 ## About This Site
 
-The XRPL Dev Portal provides comprehensive documentation of the the XRP Ledger, including sample code and other information for developers to start building.
+The SGYL Dev Portal provides comprehensive documentation of the the SGY Ledger, including sample code and other information for developers to start building.
 
 ## Repository Layout
 
@@ -97,14 +97,14 @@ For pages that don't have markdown source content, leave out the `md` line and i
 
 ## Translations
 
-The XRP Ledger Dev Portal is mostly written in English, so the English version is generally the most up-to-date and accurate version. However, to broaden the reach of the XRP Ledger software and community, this repository also contains translated versions of the documentation. We strongly encourage members of the community who understand other languages to contribute translations of the dev portal contents in their native languages.
+The SGY Ledger Dev Portal is mostly written in English, so the English version is generally the most up-to-date and accurate version. However, to broaden the reach of the SGY Ledger software and community, this repository also contains translated versions of the documentation. We strongly encourage members of the community who understand other languages to contribute translations of the dev portal contents in their native languages.
 
 The `dactyl-config.yml` contains a "target" entry for each available language. (As of 2019-11-18, the available languages are English and Japanese.) This entry includes a dictionary of strings used in the template files. For example:
 
 ```yaml
 -   name: en
     lang: en
-    display_name: XRP Ledger Dev Portal
+    display_name: SGY Ledger Dev Portal
     # These github_ fields are used by the template's "Edit on GitHub" link.
     #  Override them with --vars to change which fork/branch to edit.
     github_forkurl: https://github.com/ripple/xrpl-dev-portal
@@ -128,7 +128,7 @@ languages:
         prefix: "/ja/"
 ```
 
-The same `dactyl-config.yml` file contains an entry for each content page in the XRP Ledger Dev Portal. If a page has been translated, there is a separate entry for each translation, linked to the "target" for that translation. If a page has not yet been translated, the English version is used across all targets. For each page, the HTML filename (`html` field) and navigation fields (`funnel`, `doc_type`, `supercategory`, `category`, and `subcategory`, if supplied) should be the same across all language versions of a page. The fields that are different for translated versions of the page should be (in all cases, only if the entry uses the field):
+The same `dactyl-config.yml` file contains an entry for each content page in the SGY Ledger Dev Portal. If a page has been translated, there is a separate entry for each translation, linked to the "target" for that translation. If a page has not yet been translated, the English version is used across all targets. For each page, the HTML filename (`html` field) and navigation fields (`funnel`, `doc_type`, `supercategory`, `category`, and `subcategory`, if supplied) should be the same across all language versions of a page. The fields that are different for translated versions of the page should be (in all cases, only if the entry uses the field):
 
 - **`name`** - the title of the page. This is usually only provided on landing pages with no Markdown source file, or special pages using unusual templates, such as the [dev tools](https://xrpl.org/dev-tools.html). This field is typically omitted from Markdown files, because Dactyl derives the title from the header on the first line of the file.
 - **`md`** - the Markdown file to use as the source content for the page. By convention, translated Markdown source files should use the same filename as the English-language version except that the file extension should be `.{language code}.md` instead of only `.md` for English. For example, Japanese translated files end in `.ja.md`
@@ -177,7 +177,7 @@ Example entry for a page that isn't translated:
 
 ### Where to Start
 
-If you want to translate the XRP Ledger Dev Portal into your native language of choice, start with the [XRP Ledger Overview file](https://github.com/ripple/xrpl-dev-portal/blob/master/content/concepts/introduction/xrp-ledger-overview.md), which describes the core properties and functions of the XRP Ledger.
+If you want to translate the SGY Ledger Dev Portal into your native language of choice, start with the [SGY Ledger Overview file](https://github.com/ripple/xrpl-dev-portal/blob/master/content/concepts/introduction/xrp-ledger-overview.md), which describes the core properties and functions of the SGY Ledger.
 
 Save the file as `xrp-ledger-overview.{language code}.md`, where `{language code}` is the [IETF BCP47](https://tools.ietf.org/html/bcp47) language code. (For example, "es" for Spanish, "ja" for Japanese, "zh-CN" for Simplified Chinese, "zh-TW" for Traditional Chinese as used in Taiwan, and so on.) Then open a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) adding your file to this repository. One of the repository's maintainers can help with the other necessary setup to add the language to the site.
 

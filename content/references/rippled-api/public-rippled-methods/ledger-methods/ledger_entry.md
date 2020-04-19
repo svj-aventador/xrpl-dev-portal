@@ -1,7 +1,7 @@
 # ledger_entry
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/LedgerEntry.cpp "Source")
 
-The `ledger_entry` method returns a single ledger object from the XRP Ledger in its raw format. See [ledger format][] for information on the different types of objects you can retrieve.
+The `ledger_entry` method returns a single ledger object from the SGY Ledger in its raw format. See [ledger format][] for information on the different types of objects you can retrieve.
 
 **Note:** There is no commandline version of this method. You can use the [json method][] to access this method from the commandline instead.
 
@@ -48,10 +48,10 @@ This method can retrieve several different types of data. You can select which t
 2. `account_root` - Retrieve an [AccountRoot object](accountroot.html). This is roughly equivalent to the [account_info method][].
 3. `directory` - Retrieve a [DirectoryNode](directorynode.html), which contains a list of other ledger objects.
 4. `offer` - Retrieve an [Offer object](offer.html), which defines an offer to exchange currency.
-5. `ripple_state` - Retrieve a [RippleState object](ripplestate.html), which tracks a (non-XRP) currency balance between two accounts.
+5. `ripple_state` - Retrieve a [RippleState object](ripplestate.html), which tracks a (non-SGY) currency balance between two accounts.
 6. `check` - Retrieve a [Check object](check.html), which is a potential payment that can be cashed by its recipient. [New in: rippled 1.0.0][]
-7. `escrow` - Retrieve an [Escrow object](escrow-object.html), which holds XRP until a specific time or condition is met. [New in: rippled 1.0.0][]
-8. `payment_channel` - Retrieve a [PayChannel object](paychannel.html), which holds XRP for asynchronous payments. [New in: rippled 1.0.0][]
+7. `escrow` - Retrieve an [Escrow object](escrow-object.html), which holds SGY until a specific time or condition is met. [New in: rippled 1.0.0][]
+8. `payment_channel` - Retrieve a [PayChannel object](paychannel.html), which holds SGY for asynchronous payments. [New in: rippled 1.0.0][]
 9. `deposit_preauth` - Retrieve a [DepositPreauth object](depositpreauth-object.html), which tracks preauthorization for payments to accounts requiring [Deposit Authorization](depositauth.html). [New in: rippled 1.1.0][]
 
 If you specify more than one of the above items, the server retrieves only one of them; it is undefined which it chooses.

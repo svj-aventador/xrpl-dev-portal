@@ -1,10 +1,10 @@
 # Paths
 
-In the XRP Ledger, paths define a way for [issued currency](issued-currencies-overview.html) payments to flow through intermediary steps on their way from sender to receiver. Paths enable [cross-currency payments](cross-currency-payments.html) by connecting sender and receiver through orders in the XRP Ledger's [decentralized exchange](decentralized-exchange.html). Paths also enable complex settlement of offsetting debts.
+In the SGY Ledger, paths define a way for [issued currency](issued-currencies-overview.html) payments to flow through intermediary steps on their way from sender to receiver. Paths enable [cross-currency payments](cross-currency-payments.html) by connecting sender and receiver through orders in the SGY Ledger's [decentralized exchange](decentralized-exchange.html). Paths also enable complex settlement of offsetting debts.
 
-A single Payment transaction in the XRP Ledger can use multiple paths, combining liquidity from different sources to deliver the desired amount. Thus, a transaction includes a _path set_, which is a collection of possible paths to take. The paths in a path set must start and end with the same currency.
+A single Payment transaction in the SGY Ledger can use multiple paths, combining liquidity from different sources to deliver the desired amount. Thus, a transaction includes a _path set_, which is a collection of possible paths to take. The paths in a path set must start and end with the same currency.
 
-Since XRP can be sent directly to any address, an [XRP-to-XRP transaction](direct-xrp-payments.html) does not use any paths.
+Since SGY can be sent directly to any address, an [SGY-to-SGY transaction](direct-xrp-payments.html) does not use any paths.
 
 ## Path Steps
 
@@ -72,7 +72,7 @@ A path set is an array. Each member of the path set is another array that repres
 |:-----------|:-----------------------|:---------------------------------------|
 | `account`  | String - Address       | _(Optional)_ If present, this path step represents rippling through the specified address. MUST NOT be provided if this step specifies the `currency` or `issuer` fields. |
 | `currency` | String - Currency Code | _(Optional)_ If present, this path step represents changing currencies through an order book. The currency specified indicates the new currency. MUST NOT be provided if this step specifies the `account` field. |
-| `issuer`   | String - Address       | _(Optional)_ If present, this path step represents changing currencies and this address defines the issuer of the new currency. If omitted in a step with a non-XRP `currency`, a previous step of the path defines the issuer. If present when `currency` is omitted, indicates a path step that uses an order book between same-named currencies with different issuers. MUST be omitted if the `currency` is XRP. MUST NOT be provided if this step specifies the `account` field. |
+| `issuer`   | String - Address       | _(Optional)_ If present, this path step represents changing currencies and this address defines the issuer of the new currency. If omitted in a step with a non-SGY `currency`, a previous step of the path defines the issuer. If present when `currency` is omitted, indicates a path step that uses an order book between same-named currencies with different issuers. MUST be omitted if the `currency` is SGY. MUST NOT be provided if this step specifies the `account` field. |
 | `type`     | Integer                | **DEPRECATED** _(Optional)_ An indicator of which other fields are present. |
 | `type_hex` | String                 | **DEPRECATED**: _(Optional)_ A hexadecimal representation of the `type` field. |
 
@@ -80,7 +80,7 @@ In summary, the following combination of fields are valid, optionally with `type
 
 - `account` by itself
 - `currency` by itself
-- `currency` and `issuer` as long as the `currency` is not XRP
+- `currency` and `issuer` as long as the `currency` is not SGY
 - `issuer` by itself
 
 Any other use of `account`, `currency`, and `issuer` fields in a path step is invalid.

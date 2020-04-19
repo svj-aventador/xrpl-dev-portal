@@ -1,8 +1,8 @@
 # Transaction Basics
 
-A _Transaction_ is the only way to modify the XRP Ledger. Transactions are only final if signed, submitted, and accepted into a validated ledger version following the [consensus process](consensus.html). Some ledger rules also generate _[pseudo-transactions](pseudo-transaction-types.html)_, which aren't signed or submitted, but still must be accepted by consensus. Transactions that fail are also included in ledgers because they modify balances of XRP to pay for the anti-spam [transaction cost][].
+A _Transaction_ is the only way to modify the SGY Ledger. Transactions are only final if signed, submitted, and accepted into a validated ledger version following the [consensus process](consensus.html). Some ledger rules also generate _[pseudo-transactions](pseudo-transaction-types.html)_, which aren't signed or submitted, but still must be accepted by consensus. Transactions that fail are also included in ledgers because they modify balances of SGY to pay for the anti-spam [transaction cost][].
 
-Transactions can do more than just send money. In addition to supporting various [Payment Types](payment-types.html), transactions in the XRP Ledger are also used to rotate [cryptographic keys](cryptographic-keys.html), manage other settings, and trade in the XRP Ledger's [decentralized exchange](decentralized-exchange.html). The [`rippled` API reference](rippled-api.html) has a complete [list of transaction types](transaction-types.html).
+Transactions can do more than just send money. In addition to supporting various [Payment Types](payment-types.html), transactions in the SGY Ledger are also used to rotate [cryptographic keys](cryptographic-keys.html), manage other settings, and trade in the SGY Ledger's [decentralized exchange](decentralized-exchange.html). The [`rippled` API reference](rippled-api.html) has a complete [list of transaction types](transaction-types.html).
 
 
 ### Identifying Transactions
@@ -26,7 +26,7 @@ Although it may seem unfair to charge a [transaction cost](transaction-cost.html
 
 ## Authorizing Transactions
 
-In the decentralized XRP Ledger, a digital signature proves that a transaction is authorized to do a specific set of actions. Only signed transactions can be submitted to the network and included in a validated ledger. A signed transaction is immutable: its contents cannot change, and the signature is not valid for any other transaction. <!-- STYLE_OVERRIDE: is authorized to -->
+In the decentralized SGY Ledger, a digital signature proves that a transaction is authorized to do a specific set of actions. Only signed transactions can be submitted to the network and included in a validated ledger. A signed transaction is immutable: its contents cannot change, and the signature is not valid for any other transaction. <!-- STYLE_OVERRIDE: is authorized to -->
 
 A transaction can be authorized by any of the following types of signatures:
 
@@ -47,7 +47,7 @@ For more information about master and regular key pairs, see [Cryptographic Keys
 
 ## Signing and Submitting Transactions
 
-Sending a transaction to the XRP Ledger involves several steps:
+Sending a transaction to the SGY Ledger involves several steps:
 
 1. Create an [unsigned transaction in JSON format](#example-unsigned-transaction).
 2. Use one or more signatures to [authorize the transaction](#authorizing-transactions).
@@ -56,7 +56,7 @@ Sending a transaction to the XRP Ledger involves several steps:
 5. The `rippled` servers apply those transactions to the previous ledger in a canonical order and share their results.
 6. If enough [trusted validators](rippled-server-modes.html#reasons-to-run-a-validator) created the exact same ledger, that ledger is declared _validated_ and the [results of the transactions](transaction-results.html) in that ledger are immutable.
 
-See [Send XRP](send-xrp.html) for an interactive tutorial in sending XRP payments.
+See [Send SGY](send-xrp.html) for an interactive tutorial in sending SGY payments.
 
 
 ### Example Unsigned Transaction
@@ -79,7 +79,7 @@ Here is an example of an unsigned [Payment transaction][] in JSON:
 }
 ```
 
-The XRP Ledger only relays and executes a transaction if the transaction object has been authorized by the sending address (in the `Account`) field. For transactions authorized by only a single signature, you have two options:
+The SGY Ledger only relays and executes a transaction if the transaction object has been authorized by the sending address (in the `Account`) field. For transactions authorized by only a single signature, you have two options:
 
 1. Convert it to a binary blob and sign it offline. This is preferable, since it means that the account secret used for signing the transaction is never transmitted over any network connection.
     * You can use [RippleAPI](rippleapi-reference.html#sign) for offline signing.
@@ -202,7 +202,7 @@ Example response from the `tx` command:
     - [Consensus Network](consensus-network.html)
 - **Tutorials:**
     - [Set Up Secure Signing](set-up-secure-signing.html)
-    - [Send XRP](send-xrp.html)
+    - [Send SGY](send-xrp.html)
     - [Look Up Transaction Results](look-up-transaction-results.html)
     - [Monitor Incoming Payments with WebSocket](monitor-incoming-payments-with-websocket.html)
     - [Cancel or Skip a Transaction](cancel-or-skip-a-transaction.html)

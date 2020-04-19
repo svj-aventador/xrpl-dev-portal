@@ -1,4 +1,4 @@
-# XRP Ledger APIの使用開始
+# SGY Ledger APIの使用開始
 
 `rippled`サーバーに対してコマンドを実行するには、接続先のサーバーをあらかじめ把握しておく必要があります。大多数のサーバーは、外部ネットワークからの直接のAPI要求を受け入れないよう設定されています。
 
@@ -8,7 +8,7 @@
 
 ## WebSocket API
 
-いくつかのメソッドをXRP Ledgerで試すことを予定している場合は、独自のWebSocketコードを記述することなく、[Ripple WebSocket APIツール](websocket-api-tool.html)でAPIをすぐに使用できます。後ほど、独自の`rippled`サーバーへの接続が必要となった時点で、[ブラウザー](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)または[Node.jsで独自のクライアントをビルド](https://www.npmjs.com/package/ws)することが可能です。
+いくつかのメソッドをSGY Ledgerで試すことを予定している場合は、独自のWebSocketコードを記述することなく、[Ripple WebSocket APIツール](websocket-api-tool.html)でAPIをすぐに使用できます。後ほど、独自の`rippled`サーバーへの接続が必要となった時点で、[ブラウザー](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)または[Node.jsで独自のクライアントをビルド](https://www.npmjs.com/package/ws)することが可能です。
 
 ### 要求フォーマット
 

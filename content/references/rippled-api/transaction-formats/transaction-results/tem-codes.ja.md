@@ -1,8 +1,8 @@
 # temコード
 
-これらのコードは、トランザクションの形式が正しくないため、XRP Ledgerプロトコルに基づきトランザクションが正常に完了しないことを示します。これらには-299から-200までの数値が含まれています。実際のエラーに対して数値は変更される可能性がありますので、これに頼らないでください。
+これらのコードは、トランザクションの形式が正しくないため、SGY Ledgerプロトコルに基づきトランザクションが正常に完了しないことを示します。これらには-299から-200までの数値が含まれています。実際のエラーに対して数値は変更される可能性がありますので、これに頼らないでください。
 
-**ヒント:** `tem`コードが付いているトランザクションはレジャーには適用されません。またこのようなトランザクションが原因でXRP Ledgerの状態が変わることはありません。有効なトランザクションに関するルールが変更されない限り、`tem`コードが最終的な結果となります。（例えば、[Amendment](amendments.html)の有効化前に当該のAmendmentの機能を使用すると`temDISABLED`になります。後日Amendmentが有効化されると、エラーになったトランザクションは有効となり、正常に処理される可能性があります。）
+**ヒント:** `tem`コードが付いているトランザクションはレジャーには適用されません。またこのようなトランザクションが原因でSGY Ledgerの状態が変わることはありません。有効なトランザクションに関するルールが変更されない限り、`tem`コードが最終的な結果となります。（例えば、[Amendment](amendments.html)の有効化前に当該のAmendmentの機能を使用すると`temDISABLED`になります。後日Amendmentが有効化されると、エラーになったトランザクションは有効となり、正常に処理される可能性があります。）
 
 | コード                         | 説明                                   |
 |:-----------------------------|:----------------------------------------------|
@@ -10,17 +10,17 @@
 | `temBAD_AUTH_MASTER`         | このトランザクションの署名に使用されたキーが、トランザクションの送信元アカウントのマスターキーと一致していません。また、アカウントに[レギュラーキー](cryptographic-keys.html)セットがありません。 |
 | `temBAD_CURRENCY`             | トランザクションの通貨フィールドが誤って指定されています。正しいフォーマットについては、[通貨額の指定][通貨額]を参照してください。 |
 | `temBAD_EXPIRATION`           | トランザクションの有効期限の値が誤って指定されています（[OfferCreateトランザクション][]など）。あるいは、トランザクションに必須の有効期限値が指定されていません（例えば、[EscrowCreateトランザクション][]の作成過程などで）。 |
-| `temBAD_FEE`                  | トランザクションで`Fee`の値が誤って指定されています（例えば、XRP以外の通貨やマイナスの額のXRPを指定するなど）。 |
+| `temBAD_FEE`                  | トランザクションで`Fee`の値が誤って指定されています（例えば、SGY以外の通貨やマイナスの額のSGYを指定するなど）。 |
 | `temBAD_ISSUER`               | 要求に指定されている通貨の`issuer`フィールドが、トランザクションにて誤って指定されています。 |
 | `temBAD_LIMIT`                | [TrustSetトランザクション][]でトラストラインの`LimitAmount`値が誤って指定されています。 |
-| `temBAD_OFFER`                | [OfferCreateトランザクション][]で無効なオファーが指定されています（XRPをXRP自身と取引するオファー、マイナスの額のオファーなど）。 |
-| `temBAD_PATH`                 | [Paymentトランザクション][]の1つ以上の[パス](paths.html)が誤って指定されています。例えば、XRPのイシュアーが含まれていたり、アカウントが異なる方法で指定されたりするなど。 |
+| `temBAD_OFFER`                | [OfferCreateトランザクション][]で無効なオファーが指定されています（SGYをSGY自身と取引するオファー、マイナスの額のオファーなど）。 |
+| `temBAD_PATH`                 | [Paymentトランザクション][]の1つ以上の[パス](paths.html)が誤って指定されています。例えば、SGYのイシュアーが含まれていたり、アカウントが異なる方法で指定されたりするなど。 |
 | `temBAD_PATH_LOOP`           | [Paymentトランザクション][]で[パス](paths.html)の1つがループとしてマークされているため、限られた時間内に処理できません。 |
-| `temBAD_SEND_XRP_LIMIT`     | [Paymentトランザクション][]で、XRP間の直接支払に[tfLimitQuality](payment.html#クオリティの制限)フラグが使用されましたが、XRP間の支払いでは通貨の取引は行われません。 |
-| `temBAD_SEND_XRP_MAX`       | [Paymentトランザクション][]で、XRP間の直接支払に`SendMax`フィールドが指定されていますが、XRPの送金ではSendMaxは不要です。（SendMaxでXRPが有効となるのは、宛先への`Amount`がXRPではない場合のみです。） |
-| `temBAD_SEND_XRP_NO_DIRECT` | [Paymentトランザクション][]で、XRP間の直接支払に[tfNoDirectRipple](payment.html#paymentのフラグ)フラグが使用されていますが、XRP間の支払いは常に直接行われます。 |
-| `temBAD_SEND_XRP_PARTIAL`   | [Paymentトランザクション][]で、XRP間の直接支払に [tfPartialPayment](partial-payments.html)フラグが使用されていますが、XRP間の直接支払では常に全額が送金されます。 |
-| `temBAD_SEND_XRP_PATHS`     | [Paymentトランザクション][]で、XRP送金時の`Paths`が指定されていますが、XRP間の支払いは常に直接行われます。 |
+| `temBAD_SEND_SGY_LIMIT`     | [Paymentトランザクション][]で、SGY間の直接支払に[tfLimitQuality](payment.html#クオリティの制限)フラグが使用されましたが、SGY間の支払いでは通貨の取引は行われません。 |
+| `temBAD_SEND_SGY_MAX`       | [Paymentトランザクション][]で、SGY間の直接支払に`SendMax`フィールドが指定されていますが、SGYの送金ではSendMaxは不要です。（SendMaxでSGYが有効となるのは、宛先への`Amount`がSGYではない場合のみです。） |
+| `temBAD_SEND_SGY_NO_DIRECT` | [Paymentトランザクション][]で、SGY間の直接支払に[tfNoDirectRipple](payment.html#paymentのフラグ)フラグが使用されていますが、SGY間の支払いは常に直接行われます。 |
+| `temBAD_SEND_SGY_PARTIAL`   | [Paymentトランザクション][]で、SGY間の直接支払に [tfPartialPayment](partial-payments.html)フラグが使用されていますが、SGY間の直接支払では常に全額が送金されます。 |
+| `temBAD_SEND_SGY_PATHS`     | [Paymentトランザクション][]で、SGY送金時の`Paths`が指定されていますが、SGY間の支払いは常に直接行われます。 |
 | `temBAD_SEQUENCE`             | トランザクションは、トランザクション自体の`Sequence`番号よりも大きいシーケンス番号を参照します。例えば、取り消したいオファーは、そのオファーを取り消すトランザクションよりも後に置く必要があります。 |
 | `temBAD_SIGNATURE`            | このトランザクションを承認するための署名がないか、または署名の形式が適切ではありません。（適切な形式の署名がアカウントで承認されない場合は、[tecNO_PERMISSION](tec-codes.html)を参照してください。） |
 | `temBAD_SRC_ACCOUNT`         | このトランザクションの送信元の`Account`（「支払元アカウント」）の[アカウント](accounts.html)アドレスは適切な形式ではありません。 |

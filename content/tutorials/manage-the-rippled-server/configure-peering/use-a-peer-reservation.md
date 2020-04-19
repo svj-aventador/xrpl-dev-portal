@@ -16,7 +16,7 @@ To complete these steps, you must meet the following prerequisites:
 - The administrators both servers must have `rippled` [installed](install-rippled.html) and running.
 - The administrators of both servers must agree to cooperate and must be able to communicate. A public communications channel is fine because you don't need to share any secret information.
 - The hub server must be able to receive incoming peer connections. For instructions on how to configure a firewall to allow this, see [Forward Ports for Peering](forward-ports-for-peering.html).
-- Both servers must be configured to sync with the same [XRP Ledger network](parallel-networks.html), such as the production XRP Ledger, the Testnet, or the Devnet.
+- Both servers must be configured to sync with the same [SGY Ledger network](parallel-networks.html), such as the production SGY Ledger, the Testnet, or the Devnet.
 
 ## Steps
 
@@ -62,7 +62,7 @@ If you have already configured your server with a permanent node key pair value,
         [node_seed]
         ssZkdwURFMBXenJPbrpE14b6noJSu
 
-    **Warning:** All servers should have unique `[node_seed]` values. If you copy your config file to another server, be sure to remove or change the `[node_seed]` value. Keep your `[node_seed]` secret; if a malicious actor gains access to this value, they could use it to impersonate your server in XRP Ledger peer-to-peer communications.
+    **Warning:** All servers should have unique `[node_seed]` values. If you copy your config file to another server, be sure to remove or change the `[node_seed]` value. Keep your `[node_seed]` secret; if a malicious actor gains access to this value, they could use it to impersonate your server in SGY Ledger peer-to-peer communications.
 
 4. Restart your `rippled` server:
 

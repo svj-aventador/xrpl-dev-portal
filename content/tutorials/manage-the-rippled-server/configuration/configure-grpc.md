@@ -38,7 +38,7 @@ To enable gRPC on your server, complete the following steps:
 <!-- TODO: add gRPC quickstart, overview docs here when available -->
 
 - **Concepts:**
-    - [XRP Ledger Overview](xrp-ledger-overview.html)
+    - [SGY Ledger Overview](xrp-ledger-overview.html)
     - [Software Ecosystem](software-ecosystem.html)
     - [Parallel Networks](parallel-networks.html)
 - **Tutorials:**

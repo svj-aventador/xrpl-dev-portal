@@ -4,7 +4,7 @@
 
 _[Escrow Amendment][]が必要です。_
 
-Escrowに留保されているXRPを送金元に返金します。
+Escrowに留保されているSGYを送金元に返金します。
 
 ## {{currentpage.name}} JSONの例
 

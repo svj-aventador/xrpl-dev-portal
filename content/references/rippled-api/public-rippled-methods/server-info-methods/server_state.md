@@ -1,7 +1,7 @@
 # server_state
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/ServerState.cpp "Source")
 
-The `server_state` command asks the server for various machine-readable information about the `rippled` server's current state. The response is almost the same as the [server_info method][], but uses units that are easier to process instead of easier to read. (For example, XRP values are given in integer drops instead of scientific notation or decimal values, and time is given in milliseconds instead of seconds.)
+The `server_state` command asks the server for various machine-readable information about the `rippled` server's current state. The response is almost the same as the [server_info method][], but uses units that are easier to process instead of easier to read. (For example, SGY values are given in integer drops instead of scientific notation or decimal values, and time is given in milliseconds instead of seconds.)
 
 ## Request Format
 An example of the request format:
@@ -530,7 +530,7 @@ The `state` object may have some arrangement of the following fields:
 | `complete_ledgers`               | String          | Range expression indicating the sequence numbers of the ledger versions the local `rippled` has in its database. It is possible to be a disjoint sequence, e.g. "2500-5000,32570-7695432". If the server does not have any complete ledgers (for example, it just started syncing with the network), this is the string `empty`. |
 | `closed_ledger`                  | Object          | _(May be omitted)_ Information on the most recently closed ledger that has not been validated by consensus. If the most recently validated ledger is available, the response omits this field and includes `validated_ledger` instead. The member fields are the same as the `validated_ledger` field. |
 | `io_latency_ms`                  | Number          | Amount of time spent waiting for I/O operations, in milliseconds. If this number is not very, very low, then the `rippled` server is probably having serious load issues. |
-| `jq_trans_overflow`              | String - Number | The number of times this server has had over 250 transactions waiting to be processed at once. A large number here may mean that your server is unable to handle the transaction load of the XRP Ledger network. For detailed recommendations of future-proof server specifications, see [Capacity Planning](capacity-planning.html). [New in: rippled 0.90.0][] |
+| `jq_trans_overflow`              | String - Number | The number of times this server has had over 250 transactions waiting to be processed at once. A large number here may mean that your server is unable to handle the transaction load of the SGY Ledger network. For detailed recommendations of future-proof server specifications, see [Capacity Planning](capacity-planning.html). [New in: rippled 0.90.0][] |
 | `load`                           | Object          | _(Admin only)_ Detailed information about the current load state of the server. |
 | `load.job_types`                 | Array           | _(Admin only)_ Information about the rate of different types of jobs the server is doing and how much time it spends on each. |
 | `load.threads`                   | Number          | _(Admin only)_ The number of threads in the server's main job pool. |
@@ -551,7 +551,7 @@ The `state` object may have some arrangement of the following fields:
 | `time`                           | String          | The current time in UTC, according to the server's clock. [Updated in: rippled 1.5.0][] |
 | `uptime`                         | Number          | Number of consecutive seconds that the server has been operational. [New in: rippled 0.30.1][] |
 | `validated_ledger`               | Object          | _(May be omitted)_ Information about the most recent fully-validated ledger. If the most recent validated ledger is not available, the response omits this field and includes `closed_ledger` instead. |
-| `validated_ledger.base_fee`      | Number          | Base fee, in drops of XRP, for propagating a transaction to the network. |
+| `validated_ledger.base_fee`      | Number          | Base fee, in drops of SGY, for propagating a transaction to the network. |
 | `validated_ledger.close_time`    | Number          | Time this ledger was closed, in [seconds since the Ripple Epoch][]. |
 | `validated_ledger.hash`          | String          | Unique hash of this ledger version, as hexadecimal. |
 | `validated_ledger.reserve_base`  | Number          | The minimum [account reserve](reserves.html), as of the most recent validated ledger version. |

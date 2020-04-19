@@ -1,6 +1,6 @@
 # Change or Remove a Regular Key Pair
 
-The XRP Ledger allows an account to authorize a secondary key pair, called a _[regular key pair](cryptographic-keys.html)_, to sign future transactions.  If your [account](accounts.html)'s regular key pair is compromised, or if you just want to periodically change the regular key pair as a security measure, use a [SetRegularKey transaction][] to remove or change the regular key pair for your account.
+The SGY Ledger allows an account to authorize a secondary key pair, called a _[regular key pair](cryptographic-keys.html)_, to sign future transactions.  If your [account](accounts.html)'s regular key pair is compromised, or if you just want to periodically change the regular key pair as a security measure, use a [SetRegularKey transaction][] to remove or change the regular key pair for your account.
 
 For more information about master and regular key pairs, see [Cryptographic Keys](cryptographic-keys.html).
 
@@ -363,7 +363,7 @@ In some cases, you can even use the `SetRegularKey` transaction to send a [key r
 - **Tutorials:**
     - [Change or Remove a Regular Key Pair](change-or-remove-a-regular-key-pair.html)
     - [Set Up Multi-Signing](set-up-multi-signing.html)
-    - [List XRP as an Exchange](list-xrp-as-an-exchange.html)
+    - [List SGY as an Exchange](list-xrp-as-an-exchange.html)
 - **References:**
     - [wallet_propose method][]
     - [sign method][]

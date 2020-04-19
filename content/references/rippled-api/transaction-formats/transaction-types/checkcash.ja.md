@@ -37,7 +37,7 @@ Checkに相当する資金があるとは保証されないため、送金元に
 - `CheckID`フィールドにより識別されるCheckが有効期限切れである場合、トランザクションは結果コード`tecEXPIRED`で失敗します。
 - Checkの送金先でRequireDestフラグが有効であるが、作成されるCheckには送金先タグが指定されていない場合、トランザクションは結果コード`tecDST_TAG_NEEDED`で失敗します。
 - トランザクションで`Amount`と`DeliverMin`の両方が指定または省略される場合、トランザクションは結果コード`temMALFORMED`で失敗します。
-- `Amount`または`DeliverMin` がCheckの通貨（およびXRP以外の通貨の場合はイシュアー）に一致しない場合、トランザクションは結果コード`temBAD_CURRENCY`で失敗します。
+- `Amount`または`DeliverMin` がCheckの通貨（およびSGY以外の通貨の場合はイシュアー）に一致しない場合、トランザクションは結果コード`temBAD_CURRENCY`で失敗します。
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

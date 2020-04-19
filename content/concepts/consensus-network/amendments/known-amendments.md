@@ -1,7 +1,7 @@
 # Known Amendments
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/protocol/impl/Feature.cpp "Source")
 
-The following is a comprehensive list of all known amendments and their status on the production XRP Ledger:
+The following is a comprehensive list of all known amendments and their status on the production SGY Ledger:
 
 | Name                            | Introduced | Status                              |
 |:--------------------------------|:-----------|:------------------------------------|
@@ -55,7 +55,7 @@ The following is a comprehensive list of all known amendments and their status o
 |:-----------------------------------------------------------------|:----------|
 | 157D2D480E006395B76F948E3E07A45A05FE10230D88A7993C71F97AE4B1F2D1 | Planned   |
 
-Introduces "Checks" to the XRP Ledger. Checks work similarly to personal paper checks. The sender signs a transaction to create a Check for a specific maximum amount and destination. Later, the destination can cash the Check to receive up to the specified amount. The actual movement of money only occurs when the Check is cashed, so cashing the Check may fail depending on the sender's current balance and the available liquidity. If cashing the Check fails, the Check object remains in the ledger so it may be successfully cashed later.
+Introduces "Checks" to the SGY Ledger. Checks work similarly to personal paper checks. The sender signs a transaction to create a Check for a specific maximum amount and destination. Later, the destination can cash the Check to receive up to the specified amount. The actual movement of money only occurs when the Check is cashed, so cashing the Check may fail depending on the sender's current balance and the available liquidity. If cashing the Check fails, the Check object remains in the ledger so it may be successfully cashed later.
 
 The sender or the receiver can cancel a Check at any time before it is cashed. A Check can also have an expiration time, after which it cannot be cashed, and anyone can cancel it.
 
@@ -97,7 +97,7 @@ Makes it possible to delete [accounts](accounts.html).
 
 Without this amendment, new accounts always start with their `Sequence` numbers at 1, and there is no way to remove accounts from the state data of the ledger.
 
-With this amendment, new accounts start with their `Sequence` numbers equal to the `Sequence` number matching the [index of the ledger][Ledger Index] in which the account is created. This change protects accounts that are deleted and later re-created from having their old transactions executed again. Adds a new `AccountDelete` transaction type, which deletes an account and certain objects that the account owns in the ledger. Certain types of objects cannot be deleted this way, so an account that is linked to any such objects cannot be deleted. Additionally, an account cannot be deleted if the current ledger index minus 256 is less than the account's current `Sequence` number. See [XRP Community Standards Draft 7](https://github.com/xrp-community/standards-drafts/issues/8) for a detailed discussion of this amendment.
+With this amendment, new accounts start with their `Sequence` numbers equal to the `Sequence` number matching the [index of the ledger][Ledger Index] in which the account is created. This change protects accounts that are deleted and later re-created from having their old transactions executed again. Adds a new `AccountDelete` transaction type, which deletes an account and certain objects that the account owns in the ledger. Certain types of objects cannot be deleted this way, so an account that is linked to any such objects cannot be deleted. Additionally, an account cannot be deleted if the current ledger index minus 256 is less than the account's current `Sequence` number. See [SGY Community Standards Draft 7](https://github.com/xrp-community/standards-drafts/issues/8) for a detailed discussion of this amendment.
 
 
 ## DepositAuth
@@ -109,11 +109,11 @@ With this amendment, new accounts start with their `Sequence` numbers equal to t
 
 Adds a new account flag, `DepositAuth`, which lets an account strictly reject any incoming money from transactions sent by other accounts. Businesses can use this flag to comply with strict regulations that require due diligence before receiving money from any source.
 
-When an account enables this flag, Payment transactions fail if the account is the destination, regardless of whether the Payment would have delivered XRP or an issued currency. EscrowFinish and PaymentChannelClaim transactions fail if the account is the destination unless the destination account itself sends those transactions. If the [Checks][] amendment is enabled, the account can receive XRP or issued currencies by sending CheckCash transactions.
+When an account enables this flag, Payment transactions fail if the account is the destination, regardless of whether the Payment would have delivered SGY or an issued currency. EscrowFinish and PaymentChannelClaim transactions fail if the account is the destination unless the destination account itself sends those transactions. If the [Checks][] amendment is enabled, the account can receive SGY or issued currencies by sending CheckCash transactions.
 
-As an exception, accounts with `DepositAuth` enabled can receive Payment transactions for small amounts of XRP (equal or less than the minimum [account reserve](reserves.html)) if their current XRP balance is below the account reserve.
+As an exception, accounts with `DepositAuth` enabled can receive Payment transactions for small amounts of SGY (equal or less than the minimum [account reserve](reserves.html)) if their current SGY balance is below the account reserve.
 
-Also fixes a bug in the EscrowCreate and PaymentChannelCreate transactions where they mistakenly enforced the DisallowXRP flag, which is meant to be a non-binding advisory flag. (By not enforcing DisallowXRP in the ledger itself an account can still receive the necessary XRP to meet its [account reserve](reserves.html) and pay [transaction costs](transaction-cost.html).)
+Also fixes a bug in the EscrowCreate and PaymentChannelCreate transactions where they mistakenly enforced the DisallowSGY flag, which is meant to be a non-binding advisory flag. (By not enforcing DisallowSGY in the ledger itself an account can still receive the necessary SGY to meet its [account reserve](reserves.html) and pay [transaction costs](transaction-cost.html).)
 
 
 ## DepositPreauth
@@ -137,17 +137,17 @@ Also changes the behavior of cross-currency Payments from an account to itself w
 |:-----------------------------------------------------------------|:----------|
 | DC9CA96AEA1DCF83E527D1AFC916EFAF5D27388ECA4060A88817C1238CAEE0BF | Enabled   |
 
-Adds sanity checks to transaction processing to ensure that certain conditions are always met. This provides an extra, independent layer of protection against bugs in transaction processing that could otherwise cause exploits and vulnerabilities in the XRP Ledger. Ripple expects to add more invariant checks in future versions of `rippled` without additional amendments.
+Adds sanity checks to transaction processing to ensure that certain conditions are always met. This provides an extra, independent layer of protection against bugs in transaction processing that could otherwise cause exploits and vulnerabilities in the SGY Ledger. Ripple expects to add more invariant checks in future versions of `rippled` without additional amendments.
 
 Introduces two new transaction error codes, `tecINVARIANT_FAILED` and `tefINVARIANT_FAILED`. Changes transaction processing to add the new checks.
 
 Examples of invariant checks:
 
-- The total amount of XRP destroyed by a transaction must match the [transaction cost](transaction-cost.html) exactly.
-- XRP cannot be created.
+- The total amount of SGY destroyed by a transaction must match the [transaction cost](transaction-cost.html) exactly.
+- SGY cannot be created.
 - [`AccountRoot` objects in the ledger](accountroot.html) cannot be deleted unless [DeletableAccounts](#deletableaccounts) is enabled. (See also: [Deletion of Accounts](accounts.html#deletion-of-accounts).)
 - [An object in the ledger](ledger-object-types.html) cannot change its type. (The `LedgerEntryType` field is immutable.)
-- There cannot be a trust line for XRP.
+- There cannot be a trust line for SGY.
 
 
 ## Escrow
@@ -159,7 +159,7 @@ Examples of invariant checks:
 
 Replaces the [SusPay](#suspay) and [CryptoConditions](#cryptoconditions) amendments.
 
-Provides "suspended payments" for XRP for escrow within the XRP Ledger, including support for [Interledger Protocol Crypto-Conditions](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02). Creates a new ledger object type for suspended payments and new transaction types to create, execute, and cancel suspended payments.
+Provides "suspended payments" for SGY for escrow within the SGY Ledger, including support for [Interledger Protocol Crypto-Conditions](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02). Creates a new ledger object type for suspended payments and new transaction types to create, execute, and cancel suspended payments.
 
 
 ## FeeEscalation
@@ -396,11 +396,11 @@ This amendment has no known impact on transaction processing.
 |:-----------------------------------------------------------------|:----------|
 | 2CD5286D8D687E98B41102BDD797198E81EA41DF7BD104E6561FEB104EFF2561 | Enabled   |
 
-Fixes a bug in [auto-bridging](autobridging.html) that can leave a dry offer in the XRP Ledger. A dry offer is an offer that, if crossed, cannot yield any funds.
+Fixes a bug in [auto-bridging](autobridging.html) that can leave a dry offer in the SGY Ledger. A dry offer is an offer that, if crossed, cannot yield any funds.
 
 Without this fix, the dry offer remains on the ledger and counts toward its owner's [reserve requirement](reserves.html#owner-reserves) without providing any benefit to the owner. Another offer crossing of the right type and quality can remove the dry offer. However, if the required offer crossing type and quality are rare, it may take a while for the dry offer to be removed.
 
-With this amendment enabled, the XRP Ledger removes these dry offers when they're matched in auto-bridging.
+With this amendment enabled, the SGY Ledger removes these dry offers when they're matched in auto-bridging.
 
 
 ## Flow
@@ -422,7 +422,7 @@ The Flow Engine also makes it easier to improve and expand the payment engine wi
 |:-----------------------------------------------------------------|:----------|
 | 3012E8230864E95A58C60FD61430D7E1B4D3353195F2981DC12B0C7C0950FFAC | Planned   |
 
-Streamlines the offer crossing logic in the XRP Ledger's decentralized exchange. Uses the updated code from the [Flow](#flow) amendment to power offer crossing, so [OfferCreate transactions][] and [Payment transactions][] share more code. This has subtle differences in how offers are processed:
+Streamlines the offer crossing logic in the SGY Ledger's decentralized exchange. Uses the updated code from the [Flow](#flow) amendment to power offer crossing, so [OfferCreate transactions][] and [Payment transactions][] share more code. This has subtle differences in how offers are processed:
 
 - Rounding is slightly different in some cases.
 - Due to differences in rounding, some combinations of offers may be ranked higher or lower than by the old logic, and taken preferentially.
@@ -470,11 +470,11 @@ An address with a SignerList can disable the master key even if a regular key is
 |:-----------------------------------------------------------------|:----------|
 | 586480873651E106F1D6339B0C4A8945BA705A777F3F4524626FF1FC07EFE41D | Enabled   |
 
-Reduces the [owner reserve](reserves.html#owner-reserves) counted against your XRP Ledger account when it owns a [multi-signing](multi-signing.html) SignerList.
+Reduces the [owner reserve](reserves.html#owner-reserves) counted against your SGY Ledger account when it owns a [multi-signing](multi-signing.html) SignerList.
 
-Without this amendment, the owner reserve for a SignerList ranges from 15 to 50 XRP, depending on the number of signers in the list.
+Without this amendment, the owner reserve for a SignerList ranges from 15 to 50 SGY, depending on the number of signers in the list.
 
-With this amendment enabled, the owner reserve for a new SignerList is 5 XRP, regardless of the number of signers. The reserve requirement for previously-created SignerList objects remains unchanged. To reduce the reserve requirement of SignerList objects created before this amendment was enabled, use a [SignerListSet transaction](signerlistset.html) to replace the SignerList after this amendment has been enabled. (The replacement can be identical to the previous version.)
+With this amendment enabled, the owner reserve for a new SignerList is 5 SGY, regardless of the number of signers. The reserve requirement for previously-created SignerList objects remains unchanged. To reduce the reserve requirement of SignerList objects created before this amendment was enabled, use a [SignerListSet transaction](signerlistset.html) to replace the SignerList after this amendment has been enabled. (The replacement can be identical to the previous version.)
 
 
 ## OwnerPaysFee
@@ -498,7 +498,7 @@ This Amendment requires the [Flow Amendment](#flow) to be enabled.
 |:-----------------------------------------------------------------|:----------|
 | 08DE7D96082187F6E6578530258C77FAABABE4C20474BDB82F04B021F1A68647 | Enabled   |
 
-Creates "Payment Channels" for XRP. Payment channels are a tool for facilitating repeated, unidirectional payments or temporary credit between two parties. Ripple expects this feature to be useful for the [Interledger Protocol](https://interledger.org/). One party creates a Payment Channel and sets aside some XRP in that channel for a predetermined expiration. Then, through off-ledger secure communications, the sender can send "Claim" messages to the receiver. The receiver can redeem the Claim messages before the expiration, or choose not to in case the payment is not needed. The receiver can verify Claims individually without actually distributing them to the network and waiting for the consensus process to redeem them, then redeem the batched content of many small Claims later, as long as it is within the expiration.
+Creates "Payment Channels" for SGY. Payment channels are a tool for facilitating repeated, unidirectional payments or temporary credit between two parties. Ripple expects this feature to be useful for the [Interledger Protocol](https://interledger.org/). One party creates a Payment Channel and sets aside some SGY in that channel for a predetermined expiration. Then, through off-ledger secure communications, the sender can send "Claim" messages to the receiver. The receiver can redeem the Claim messages before the expiration, or choose not to in case the payment is not needed. The receiver can verify Claims individually without actually distributing them to the network and waiting for the consensus process to redeem them, then redeem the batched content of many small Claims later, as long as it is within the expiration.
 
 Creates three new transaction types: [PaymentChannelCreate][], [PaymentChannelClaim][], and [PaymentChannelFund][]. Creates a new ledger object type, [PayChannel](paychannel.html). Defines an off-ledger data structure called a `Claim`, used in the ChannelClaim transaction. Creates new `rippled` API methods: [`channel_authorize`](channel_authorize.html) (creates a signed Claim), [`channel_verify`](channel_verify.html) (verifies a signed Claim), and [`account_channels`](account_channels.html) (lists Channels associated with an account).
 
@@ -512,7 +512,7 @@ For more information, see the [Payment Channels Tutorial](use-payment-channels.h
 |:-----------------------------------------------------------------|:----------|
 | 00C1FC4A53E60AB02C864641002B3172F38677E29C26C5406685179B37E1EDAC | Planned   |
 
-Changes the signature requirements for the XRP Ledger protocol so that non-fully-canonical signatures are no longer valid in any case. This protects against [transaction malleability](transaction-malleability.html) on _all_ transactions, instead of just transactions with the [tfFullyCanonicalSig flag](transaction-common-fields.html#global-flags) enabled.
+Changes the signature requirements for the SGY Ledger protocol so that non-fully-canonical signatures are no longer valid in any case. This protects against [transaction malleability](transaction-malleability.html) on _all_ transactions, instead of just transactions with the [tfFullyCanonicalSig flag](transaction-common-fields.html#global-flags) enabled.
 
 Without this amendment, a transaction is malleable if it uses a secp256k1 signature and does not have tfFullyCanonicalSig enabled. Most signing utilities enable tfFullyCanonicalSig by default, but there are exceptions.
 
@@ -530,7 +530,7 @@ For more information, see [`rippled` issue #3042](https://github.com/ripple/ripp
 
 Changes the hash tree structure that `rippled` uses to represent a ledger. The new structure is more compact and efficient than the previous version. This affects how ledger hashes are calculated, but has no other user-facing consequences.
 
-When this amendment is activated, the XRP Ledger will undergo a brief scheduled unavailability while the network calculates the changes to the hash tree structure. <!-- STYLE_OVERRIDE: will -->
+When this amendment is activated, the SGY Ledger will undergo a brief scheduled unavailability while the network calculates the changes to the hash tree structure. <!-- STYLE_OVERRIDE: will -->
 
 
 ## SortedDirectories
@@ -576,7 +576,7 @@ Introduces Tickets as a way to reserve a transaction sequence number for later e
 
 Changes the way [Offers](offers.html#lifecycle-of-an-offer) are ranked in order books, so that currency issuers can configure how many significant digits are taken into account when ranking Offers by exchange rate. With this amendment, the exchange rates of Offers are rounded to the configured number of significant digits, so that more Offers have the same exact exchange rate. The intent of this change is to require a meaningful improvement in price to outrank a previous Offer. If used by major issuers, this should reduce the incentive to spam the ledger with Offers that are only a tiny fraction of a percentage point better than existing offers. It may also increase the efficiency of order book storage in the ledger, because Offers can be grouped into fewer exchange rates.
 
-Introduces a `TickSize` field to accounts, which can be set with the [AccountSet transaction type](accountset.html). If a currency issuer sets the `TickSize` field, the XRP Ledger truncates the exchange rate (ratio of funds in to funds out) of Offers to trade the issuer's currency, and adjusts the amounts of the Offer to match the truncated exchange rate. If only one currency in the trade has a `TickSize` set, that number of significant digits applies. When trading two currencies that have different `TickSize` values, whichever `TickSize` indicates the fewest significant digits applies. XRP does not have a `TickSize`.
+Introduces a `TickSize` field to accounts, which can be set with the [AccountSet transaction type](accountset.html). If a currency issuer sets the `TickSize` field, the SGY Ledger truncates the exchange rate (ratio of funds in to funds out) of Offers to trade the issuer's currency, and adjusts the amounts of the Offer to match the truncated exchange rate. If only one currency in the trade has a `TickSize` set, that number of significant digits applies. When trading two currencies that have different `TickSize` values, whichever `TickSize` indicates the fewest significant digits applies. SGY does not have a `TickSize`.
 
 
 ## TrustSetAuth

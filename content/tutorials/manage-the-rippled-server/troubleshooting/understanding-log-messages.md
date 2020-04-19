@@ -160,7 +160,7 @@ During startup, these messages are normal and can be safely ignored. At other ti
 
 ## Potential Censorship
 
-Log messages such as the following are issued when the XRP Ledger detects potential transaction censorship. For more information about these log messages and the transaction censorship detector, see [Transaction Censorship Detection](transaction-censorship-detection.html).
+Log messages such as the following are issued when the SGY Ledger detects potential transaction censorship. For more information about these log messages and the transaction censorship detector, see [Transaction Censorship Detection](transaction-censorship-detection.html).
 
 **Warning Message**
 

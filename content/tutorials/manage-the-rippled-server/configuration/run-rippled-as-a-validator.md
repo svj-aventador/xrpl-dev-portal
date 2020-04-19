@@ -8,7 +8,7 @@ A [`rippled` server](the-rippled-server.html) running in [validator mode](ripple
 
 - Maintains a local copy of the complete shared global [ledger](ledgers.html)
 
-What makes a validator _different_ is that it also issues validation messages, which are sets of candidate transactions for evaluation by the XRP Ledger network during the [consensus process](consensus-principles-and-rules.html#how-consensus-works).
+What makes a validator _different_ is that it also issues validation messages, which are sets of candidate transactions for evaluation by the SGY Ledger network during the [consensus process](consensus-principles-and-rules.html#how-consensus-works).
 
 It's important to understand that merely issuing validation messages does not automatically give your validator a say in the consensus process. Other servers ignore your validation messages unless they add your validator to their Unique Node List (UNL). If your validator is included in a UNL, it is a _trusted_ validator and its proposals are considered in the consensus process by the servers that trust it.
 
@@ -34,7 +34,7 @@ Strive to have your validator always embody the following properties. Being a go
 
 - **Identified**
 
-    A good validator has a clearly identified owner. Providing [domain verification](#6-provide-domain-verification) is a good start. Ideally, XRP Ledger network UNLs include validators operated by different owners in multiple legal jurisdictions and geographic areas. This reduces the chance that any localized events could interfere with the impartial operations of trusted validators.
+    A good validator has a clearly identified owner. Providing [domain verification](#6-provide-domain-verification) is a good start. Ideally, SGY Ledger network UNLs include validators operated by different owners in multiple legal jurisdictions and geographic areas. This reduces the chance that any localized events could interfere with the impartial operations of trusted validators.
 
 Ripple (the company) publishes a [validator list](https://github.com/ripple/rippled/blob/develop/cfg/validators-example.txt) with a set of recommended validators. Ripple strongly recommends using exactly this list for production servers.
 
@@ -118,7 +118,7 @@ On your validator:
 
 ## 4. Connect to the network
 
-This section describes three different configurations you can use to connect your validator to the XRP Ledger network. Use the configuration that best suits your use case.
+This section describes three different configurations you can use to connect your validator to the SGY Ledger network. Use the configuration that best suits your use case.
 
 - [Discovered peers](#connect-using-discovered-peers): Connect to any servers in the peer-to-peer network.
 
@@ -131,16 +131,16 @@ For a comparison of these approaches, see [Pros and Cons of Peering Configuratio
 
 ### Connect using discovered peers
 
-This configuration connects your validator to the XRP Ledger network using [discovered peers](peer-protocol.html#peer-discovery). This is the default behavior for `rippled` servers.
+This configuration connects your validator to the SGY Ledger network using [discovered peers](peer-protocol.html#peer-discovery). This is the default behavior for `rippled` servers.
 
-_**To connect your validator to the XRP Ledger network using discovered peers,**_ omit the `[peer_private]` stanza or set it to `0` in your validator's `rippled.cfg` file. The [example rippled.cfg file](https://github.com/ripple/rippled/blob/develop/cfg/rippled-example.cfg) is delivered with this configuration.
+_**To connect your validator to the SGY Ledger network using discovered peers,**_ omit the `[peer_private]` stanza or set it to `0` in your validator's `rippled.cfg` file. The [example rippled.cfg file](https://github.com/ripple/rippled/blob/develop/cfg/rippled-example.cfg) is delivered with this configuration.
 
 
 ### Connect using proxies
 
 This configuration connects your validator to the network through stock `rippled` servers that you run yourself. These proxy servers sit between your validator and inbound and outbound network traffic.
 
-_**To connect your validator to the XRP Ledger network using proxies:**_
+_**To connect your validator to the SGY Ledger network using proxies:**_
 
 1. Set up stock `rippled` servers. For more information, see [Install rippled](install-rippled.html).
 
@@ -206,7 +206,7 @@ _**To connect your validator to the network using public hubs:**_
 
 ## 5. Verify your network connection
 
-Here are some methods you can use to verify that your validator has a healthy connection to the XRP Ledger network:
+Here are some methods you can use to verify that your validator has a healthy connection to the SGY Ledger network:
 
 - Use the [`peers`](peers.html) command to return a list of all `rippled` servers currently connected to your validator. If the `peers` array is `null`, you don’t have a healthy connection to the network. If you've set up your validator using the instructions in this document, the `peers` array should include the same number of objects as the number of peers defined in your `[ips_fixed]` stanza.
 
@@ -216,7 +216,7 @@ Here are some methods you can use to verify that your validator has a healthy co
 
 - Use the [`server_info`](server_info.html) command to return some basic information about your validator. The `server_state` should be set to `proposing`. It may also be set to `full` or `validating`, but only for a few minutes before moving into `proposing`.
 
-    If the `server_state` does not spend the majority of its time set to `proposing`, it may be a sign that your validator is unable to fully participate in the XRP Ledger network. For more information about server states and using the `server_info` endpoint to diagnose issues with your validator, see [`rippled` Server States](rippled-server-states.html) and [Get the `server_info`](diagnosing-problems.html#get-the-server_info).
+    If the `server_state` does not spend the majority of its time set to `proposing`, it may be a sign that your validator is unable to fully participate in the SGY Ledger network. For more information about server states and using the `server_info` endpoint to diagnose issues with your validator, see [`rippled` Server States](rippled-server-states.html) and [Get the `server_info`](diagnosing-problems.html#get-the-server_info).
 
 - Use the [`validators`](validators.html) command to return the current list of published and trusted validators used by the validator. Ensure that the `validator_list_expires` value is either `never` or not expired or about to expire.
 
@@ -224,7 +224,7 @@ Here are some methods you can use to verify that your validator has a healthy co
 
 ## 6. Provide domain verification
 
-To help validation list publishers and other participants in the XRP Ledger network understand who operates your validator, provide domain verification for your validator. At a high level, domain verification is a two-way link:
+To help validation list publishers and other participants in the SGY Ledger network understand who operates your validator, provide domain verification for your validator. At a high level, domain verification is a two-way link:
 
 - Use your domain to claim ownership of a validator key.
 
@@ -238,9 +238,9 @@ To provide domain verification:
 
 2. Serve an [`xrp-ledger.toml`](xrp-ledger-toml.html) file at your domain, and complete the [domain verification](xrp-ledger-toml.html#domain-verification) steps.
 
-3. Share your validator's public key with the public, especially other `rippled` operators. For example, you can share your validator's public key on your website, on social media, in the [XRPChat community forum](https://www.xrpchat.com/), or in a press release.
+3. Share your validator's public key with the public, especially other `rippled` operators. For example, you can share your validator's public key on your website, on social media, in the [SGYChat community forum](https://www.xrpchat.com/), or in a press release.
 
-4. Submit a request to have your validator listed in XRP Charts' [Validator Registry](https://xrpcharts.ripple.com/#/validators) using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLScszfq7rRLAfArSZtvitCyl-VFA9cNcdnXLFjURsdCQ3gHW7w/viewform). Having your validator listed in this registry provides another form of public verification that your validator and domain are owned by you. To complete the form, you'll need the following information:
+4. Submit a request to have your validator listed in SGY Charts' [Validator Registry](https://xrpcharts.ripple.com/#/validators) using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLScszfq7rRLAfArSZtvitCyl-VFA9cNcdnXLFjURsdCQ3gHW7w/viewform). Having your validator listed in this registry provides another form of public verification that your validator and domain are owned by you. To complete the form, you'll need the following information:
 
       1. Find your validator public key by running the following on the validator server.
 
@@ -268,7 +268,7 @@ To provide domain verification:
 
         Provide the value returned in the **Domain Signature** field of the Google Form.
 
-5. After submitting the completed Google Form, you'll receive an email from XRP Charts that tells you whether your domain verification succeeded or failed. If your domain verification succeeds, XRP Charts lists your validator and domain in its [Validator Registry](https://xrpcharts.ripple.com/#/validators).
+5. After submitting the completed Google Form, you'll receive an email from SGY Charts that tells you whether your domain verification succeeded or failed. If your domain verification succeeds, SGY Charts lists your validator and domain in its [Validator Registry](https://xrpcharts.ripple.com/#/validators).
 
 <!--{ ***TODO: For the future - add a new section or separate document: "Operating a Trusted Validator" -- things that you need to be aware of once your validator has been added to a UNL and is participating in consensus. We should tell the user what to expect once they are listed in a UNL. How to tell if your validator is participating in the consensus process? How to tell if something isn't right with your validator - warning signs that they should look out for? How to tell if your validator has fallen out of agreement - what is the acceptable vs unacceptable threshold? Maybe provide a script that will alert them when something is going wrong.*** }-->
 
@@ -284,14 +284,14 @@ For information about how to revoke a master key pair you generated for your val
 ## See Also
 
 - **Concepts:**
-    - [XRP Ledger Overview](xrp-ledger-overview.html)
+    - [SGY Ledger Overview](xrp-ledger-overview.html)
     - [Consensus Network](consensus-network.html)
     - [The `rippled` Server](the-rippled-server.html)
 - **Tutorials:**
     - [Cluster rippled Servers](cluster-rippled-servers.html)
     - [Install `rippled`](install-rippled.html)
     - [Capacity Planning](capacity-planning.html)
-    - [XRP Ledger Businesses](xrp-ledger-businesses.html)
+    - [SGY Ledger Businesses](xrp-ledger-businesses.html)
 - **References:**
     - [Validator Keys Tool Guide](https://github.com/ripple/validator-keys-tool/blob/master/doc/validator-keys-tool-guide.md)
     - [consensus_info method][]

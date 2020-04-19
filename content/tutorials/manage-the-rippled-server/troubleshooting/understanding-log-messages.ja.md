@@ -157,7 +157,7 @@ s2.ripple.com 51235
 
 ## Potential Censorship
 
-XRP Ledgerが取引検閲の可能性を検出すると、以下のようなログメッセージが出力されます。ログメッセージと取引検閲検出機能の詳細については、[取引検閲の検知](transaction-censorship-detection.html)を参照してください。
+SGY Ledgerが取引検閲の可能性を検出すると、以下のようなログメッセージが出力されます。ログメッセージと取引検閲検出機能の詳細については、[取引検閲の検知](transaction-censorship-detection.html)を参照してください。
 
 **警告メッセージ**
 

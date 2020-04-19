@@ -1,7 +1,7 @@
 # ledger_entry
 [[ソース]<br>](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/LedgerEntry.cpp "Source")
 
-`ledger_entry`メソッドは、XRP Ledgerの1つのレジャーオブジェクトを生フォーマットで返します。取得可能な各種オブジェクトについては、[レジャーフォーマット][]を参照してください。
+`ledger_entry`メソッドは、SGY Ledgerの1つのレジャーオブジェクトを生フォーマットで返します。取得可能な各種オブジェクトについては、[レジャーフォーマット][]を参照してください。
 
 **注記:** このメソッドのコマンドラインバージョンはありません。代わりに[jsonメソッド][]を使用してコマンドラインからこのメソッドにアクセスできます。
 
@@ -48,10 +48,10 @@
 2. `account_root` - [AccountRootオブジェクト](accountroot.html)を取得します。これは[account_infoメソッド][]とほぼ同等です。
 3. `directory` - 他のレジャーオブジェクトのリストが含まれている[DirectoryNode](directorynode.html)を取得します。
 4. `offer` - 通貨取引オファーを定義する[Offerオブジェクト](offer.html)を取得します。
-5. `ripple_state` - 2つのアカウント間の（XRP以外の）通貨の残高を追跡する[RippleStateオブジェクト](ripplestate.html)を取得します。
+5. `ripple_state` - 2つのアカウント間の（SGY以外の）通貨の残高を追跡する[RippleStateオブジェクト](ripplestate.html)を取得します。
 6. `check` - 受取人が現金化できる支払いである[Checkオブジェクト](check.html)を取得します。[新規: rippled 1.0.0][]
-7. `escrow` - 特定の時刻または条件に一致するまでXRPを保有する[Escrowオブジェクト](escrow-object.html)を取得します。[新規: rippled 1.0.0][]
-8. `payment_channel` - 非同期支払いのためにXRPを保有する[PayChannelオブジェクト](paychannel.html)を取得します。[新規: rippled 1.0.0][]
+7. `escrow` - 特定の時刻または条件に一致するまでSGYを保有する[Escrowオブジェクト](escrow-object.html)を取得します。[新規: rippled 1.0.0][]
+8. `payment_channel` - 非同期支払いのためにSGYを保有する[PayChannelオブジェクト](paychannel.html)を取得します。[新規: rippled 1.0.0][]
 9. `deposit_preauth` - [Deposit Authorization](depositauth.html)を必要とするアカウントへの支払いの事前承認を追跡する[DepositPreauthオブジェクト](depositpreauth-object.html)を取得します。[新規: rippled 1.1.0][]
 
 上記のアイテムを複数指定すると、サーバーはそのうちの1つのみを取得します。どのアイテムが取得されるかは未定義です。

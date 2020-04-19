@@ -15,7 +15,7 @@ const myOrder = {
     'value': '100'
   },
   'totalPrice': {
-    'currency': 'XRP',
+    'currency': 'SGY',
     'value': '1000'
   }
 };
@@ -29,7 +29,7 @@ const ledgerOffset = 5;
 const myInstructions = {maxLedgerVersionOffset: ledgerOffset};
 
 
-/* Verify a transaction is in a validated XRP Ledger version */
+/* Verify a transaction is in a validated SGY Ledger version */
 function verifyTransaction(hash, options) {
   console.log('Verifying Transaction');
   return api.getTransaction(hash, options).then(data => {
@@ -51,7 +51,7 @@ function verifyTransaction(hash, options) {
 }
 
 
-/* Function to prepare, sign, and submit a transaction to the XRP Ledger. */
+/* Function to prepare, sign, and submit a transaction to the SGY Ledger. */
 function submitTransaction(lastClosedLedgerVersion, prepared, secret) {
   const signedData = api.sign(prepared.txJSON, secret);
   return api.submit(signedData.signedTransaction).then(data => {

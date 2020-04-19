@@ -1,6 +1,6 @@
 # xrp-ledger.toml File
 
-If you run an XRP Ledger validator or use the XRP Ledger for your business, you can provide information about your usage of the XRP Ledger to the world in a machine-readable **`xrp-ledger.toml`** file. Scripts and applications can use the information contained in your `xrp-ledger.toml` file to better understand and represent you in the XRP Ledger. In some cases, humans may also find it useful to read the same file.
+If you run an SGY Ledger validator or use the SGY Ledger for your business, you can provide information about your usage of the SGY Ledger to the world in a machine-readable **`xrp-ledger.toml`** file. Scripts and applications can use the information contained in your `xrp-ledger.toml` file to better understand and represent you in the SGY Ledger. In some cases, humans may also find it useful to read the same file.
 
 One of the primary use cases for the `xrp-ledger.toml` file is [domain verification](#domain-verification).
 
@@ -32,18 +32,18 @@ The plain HTTP protocol is vulnerable to man-in-the-middle attacks; for example,
 
 ### Domain
 
-The domain where you serve the `xrp-ledger.toml` file is a statement of ownership. The file's contents are not as useful or trustworthy when they stand on their own. For practical reasons, it may be undesirable to serve the file from your main domain, so you MAY use any number of subdomains. When setting the [`Domain` field of XRP Ledger accounts](accountset.html#domain), you MUST provide the full domain, including all subdomains you used. See [Account Verification](#account-verification) for details.
+The domain where you serve the `xrp-ledger.toml` file is a statement of ownership. The file's contents are not as useful or trustworthy when they stand on their own. For practical reasons, it may be undesirable to serve the file from your main domain, so you MAY use any number of subdomains. When setting the [`Domain` field of SGY Ledger accounts](accountset.html#domain), you MUST provide the full domain, including all subdomains you used. See [Account Verification](#account-verification) for details.
 
-You MAY serve the same file from multiple subdomains, if desired. For example, if the subdomain `www.example.com` goes to the same website as `example.com`, you can serve the file from both locations. If your website _requires_ the `www` prefix, be sure to include it when you specify the domain (for example, when setting the `Domain` field of an XRP Ledger account).
+You MAY serve the same file from multiple subdomains, if desired. For example, if the subdomain `www.example.com` goes to the same website as `example.com`, you can serve the file from both locations. If your website _requires_ the `www` prefix, be sure to include it when you specify the domain (for example, when setting the `Domain` field of an SGY Ledger account).
 
-It is RECOMMENDED that you serve a human-readable website from the same domain as the `xrp-ledger.toml` file. The website can provide further information about your identity and how you use the XRP Ledger, which helps to build trust toward you and your services.
+It is RECOMMENDED that you serve a human-readable website from the same domain as the `xrp-ledger.toml` file. The website can provide further information about your identity and how you use the SGY Ledger, which helps to build trust toward you and your services.
 
 
 ### Path
 
 In compliance with [RFC5785](https://tools.ietf.org/html/rfc5785), the path MUST start with `/.well-known/`. The file MUST be available at the path `/.well-known/xrp-ledger.toml` exactly (case-sensitive, all lower case).
 
-You MAY, if desired, serve the same file from alternate capitalizations of the same file, such as `/.well-known/XRP-Ledger.TOML`. You MUST NOT serve different contents depending on how the path is capitalized.
+You MAY, if desired, serve the same file from alternate capitalizations of the same file, such as `/.well-known/SGY-Ledger.TOML`. You MUST NOT serve different contents depending on how the path is capitalized.
 
 
 ### Headers
@@ -109,7 +109,7 @@ unl = "https://vl.testnet.rippletest.net"
 address = "r3kmLJN5D28dHuH8vZNUZpMC43pEHpaocV"
 desc = "Ripple-owned address from old ripple.txt file"
 # Note: This doesn't prove ownership of an account unless the
-#   "Domain" field of the account in the XRP Ledger matches the
+#   "Domain" field of the account in the SGY Ledger matches the
 #   domain this file was served from.
 
 [[SERVERS]]
@@ -162,36 +162,36 @@ The specification does not define a `domain` field; the field should be determin
 
 The validators list provides information about validating servers you operate. If present, the validators list MUST BE presented as an array of tables, with each entry using the header `[[VALIDATORS]]`, including double square brackets. Each entry describes a separate validating server.
 
-The _first_ `[[VALIDATORS]]` entry in the file is treated as your primary validator. If you operate one or more validators for the production XRP Ledger, you should put the one you want others to trust first.
+The _first_ `[[VALIDATORS]]` entry in the file is treated as your primary validator. If you operate one or more validators for the production SGY Ledger, you should put the one you want others to trust first.
 
 For _each_ `[[VALIDATORS]]` entry, you MAY provide any of the following fields:
 
 | Field        | Type   | Description                                          |
 |:-------------|:-------|:-----------------------------------------------------|
-| `public_key` | String | The master public key of your primary validator, encoded in the XRP Ledger's base58 format (typically, this starts with `n`). |
+| `public_key` | String | The master public key of your primary validator, encoded in the SGY Ledger's base58 format (typically, this starts with `n`). |
 | `attestation`| String | A signed message, in hexadecimal, indicating that the same entity runs this validator and the domain serving this TOML file. For more information, see [Domain Verification](xrp-ledger-toml.html#domain-verification).
-| `network`  | String | Which network chain this validator follows. If omitted, clients SHOULD assume that the validator follows the production XRP Ledger. Use `main` to explicitly specify the production XRP Ledger. Use `testnet` for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
+| `network`  | String | Which network chain this validator follows. If omitted, clients SHOULD assume that the validator follows the production SGY Ledger. Use `main` to explicitly specify the production SGY Ledger. Use `testnet` for Ripple's SGY Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
 | `owner_country` | String | The two-letter ISO-3166-2 country code describing the main legal jurisdiction that you (the validator's owner) are subject to. |
 | `server_country` | String | The two-letter ISO-3166-2 country code describing the physical location where this validating server is. |
-| `unl` | String | An HTTPS URL where one can find the list of other validators this validator trusts. If the validator is configured to use a validator list site for UNL recommendations, this MUST match the server's configuration. For the production XRP Ledger network, use `https://vl.ripple.com` (trailing slash optional). |
+| `unl` | String | An HTTPS URL where one can find the list of other validators this validator trusts. If the validator is configured to use a validator list site for UNL recommendations, this MUST match the server's configuration. For the production SGY Ledger network, use `https://vl.ripple.com` (trailing slash optional). |
 
 
 ### Accounts
 
-The accounts list provides information about XRP Ledger accounts you own. If present, the accounts list MUST BE presented as an array of tables, with each entry using the header `[[ACCOUNTS]]`, including double square brackets. Each entry describes a separate account. For _each_ `[[ACCOUNTS]]` entry, you MAY provide any of the following fields:
+The accounts list provides information about SGY Ledger accounts you own. If present, the accounts list MUST BE presented as an array of tables, with each entry using the header `[[ACCOUNTS]]`, including double square brackets. Each entry describes a separate account. For _each_ `[[ACCOUNTS]]` entry, you MAY provide any of the following fields:
 
 | Field     | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `address` | String | The public address of the account, encoded in the XRP Ledger's base58 format (typically, this starts with an `r`). |
-| `network` | String | The network chain where this account is primarily used. If omitted, clients SHOULD assume that the account is claimed on the production XRP Ledger _and_ possibly other network chains. Use `main` for the production XRP Ledger. Use `testnet` for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
+| `address` | String | The public address of the account, encoded in the SGY Ledger's base58 format (typically, this starts with an `r`). |
+| `network` | String | The network chain where this account is primarily used. If omitted, clients SHOULD assume that the account is claimed on the production SGY Ledger _and_ possibly other network chains. Use `main` for the production SGY Ledger. Use `testnet` for Ripple's SGY Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
 | `desc`    | String | A human-readable description of this account's purpose or how you use it. |
 
-**Caution:** Anyone could claim ownership of any account by hosting an `xrp-ledger.toml` file, so the presence of an account here SHOULD NOT be considered authoritative unless the [`Domain` field for these accounts in the XRP Ledger](accountset.html#domain) also matches the domain that this `xrp-ledger.toml` file was served from. See [Account Verification](#account-verification) for details.
+**Caution:** Anyone could claim ownership of any account by hosting an `xrp-ledger.toml` file, so the presence of an account here SHOULD NOT be considered authoritative unless the [`Domain` field for these accounts in the SGY Ledger](accountset.html#domain) also matches the domain that this `xrp-ledger.toml` file was served from. See [Account Verification](#account-verification) for details.
 
 
 ### Principals
 
-The principals list provides information about the people (or business entities) involved in your XRP Ledger businesses and services. If present, the principals list MUST BE presented as an array of tables, with each entry using the header `[[PRINCIPALS]]`, including double square brackets. Each entry describes a different point of contact. For _each_ `[[PRINCIPALS]]` entry, you MAY provide any of the following fields:
+The principals list provides information about the people (or business entities) involved in your SGY Ledger businesses and services. If present, the principals list MUST BE presented as an array of tables, with each entry using the header `[[PRINCIPALS]]`, including double square brackets. Each entry describes a different point of contact. For _each_ `[[PRINCIPALS]]` entry, you MAY provide any of the following fields:
 
 | Field   | Type   | Description                                              |
 |:--------|:-------|:---------------------------------------------------------|
@@ -203,34 +203,34 @@ You may provide other contact information as desired. (See [Custom Fields](#cust
 
 ### Servers
 
-The servers list provides information about XRP Ledger servers (`rippled`) you run with public access. If present, the servers list MUST BE presented as an array of tables, with each entry using the header `[[SERVERS]]`, including double square brackets. Each entry describes a different server or server cluster. For _each_ `[[SERVERS]]` entry, you MAY provide any of the following fields:
+The servers list provides information about SGY Ledger servers (`rippled`) you run with public access. If present, the servers list MUST BE presented as an array of tables, with each entry using the header `[[SERVERS]]`, including double square brackets. Each entry describes a different server or server cluster. For _each_ `[[SERVERS]]` entry, you MAY provide any of the following fields:
 
 | Field   | Type   | Description                                              |
 |:--------|:-------|:---------------------------------------------------------|
 | `json_rpc` | String (URL) | The URL where you serve a public JSON-RPC API. This MUST begin with either `http://` or `https://`. HTTPS is RECOMMENDED for public APIs. |
 | `ws` | String (URL) | The URL where you serve a public WebSocket API. This MUST begin with either `ws://` or `wss://`. WSS is RECOMMENDED for public APIs. |
-| `peer` | String (URL) | The URL where your server is listening for the XRP Ledger Peer Protocol. Other XRP Ledger servers can connect at this URL. If your server provides a Peer Crawler response, it is served from this URL with `crawl` appended. |
-| `network`  | String | Which network chain this server follows. If omitted, clients SHOULD assume that the server follows the production XRP Ledger. Use `main` to explicitly specify the production XRP Ledger. Use `testnet` for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
+| `peer` | String (URL) | The URL where your server is listening for the SGY Ledger Peer Protocol. Other SGY Ledger servers can connect at this URL. If your server provides a Peer Crawler response, it is served from this URL with `crawl` appended. |
+| `network`  | String | Which network chain this server follows. If omitted, clients SHOULD assume that the server follows the production SGY Ledger. Use `main` to explicitly specify the production SGY Ledger. Use `testnet` for Ripple's SGY Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
 
 For all URLs in this section, the trailing slash is RECOMMENDED. If omitted, client applications SHOULD assume that there is a trailing slash implied.
 
 
 ### Currencies
 
-If you issue any assets, tokens, or currencies in the XRP Ledger, you can provide information about them in the `[[CURRENCIES]]` list. If present, the currencies list MUST BE presented as an array of tables, with each entry using the header `[[CURRENCIES]]`, including double square brackets. Each entry describes a separate issued currency or asset. For _each_ `[[CURRENCIES]]` entry, you MAY provide any of the following fields:
+If you issue any assets, tokens, or currencies in the SGY Ledger, you can provide information about them in the `[[CURRENCIES]]` list. If present, the currencies list MUST BE presented as an array of tables, with each entry using the header `[[CURRENCIES]]`, including double square brackets. Each entry describes a separate issued currency or asset. For _each_ `[[CURRENCIES]]` entry, you MAY provide any of the following fields:
 
 | Field   | Type   | Description                                           |
 |:--------|:-------|:------------------------------------------------------|
-| `code` | String | The (case-sensitive) ticker symbol of this currency in the XRP Ledger. This can be a three-digit code, a 40-character hex code, or a custom format (for clients that know how to represent the non-standard code in the XRP Ledger). See the [Currency Code reference](currency-formats.html#currency-codes) for information on the XRP Ledger's currency code formats. |
+| `code` | String | The (case-sensitive) ticker symbol of this currency in the SGY Ledger. This can be a three-digit code, a 40-character hex code, or a custom format (for clients that know how to represent the non-standard code in the SGY Ledger). See the [Currency Code reference](currency-formats.html#currency-codes) for information on the SGY Ledger's currency code formats. |
 | `display_decimals` | Number | The number of decimals that a client application should use to display amounts of this currency. |
-| `issuer` | String | The address of the XRP Ledger account where you issue this currency, encoded in the XRP Ledger's base58 format (typically, this starts with an `r`). You SHOULD also list this address in the `[[ACCOUNTS]]` list. (Reminder: the presence of an address here is not authoritative on its own. See [Account Verification](#account-verification) for details.) |
-| `network` | String | The network chain where you issue this currency. Use `main` to explicitly specify the production XRP Ledger. If omitted, clients SHOULD assume that the currency is issued on the production XRP Ledger. Use `testnet` for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
+| `issuer` | String | The address of the SGY Ledger account where you issue this currency, encoded in the SGY Ledger's base58 format (typically, this starts with an `r`). You SHOULD also list this address in the `[[ACCOUNTS]]` list. (Reminder: the presence of an address here is not authoritative on its own. See [Account Verification](#account-verification) for details.) |
+| `network` | String | The network chain where you issue this currency. Use `main` to explicitly specify the production SGY Ledger. If omitted, clients SHOULD assume that the currency is issued on the production SGY Ledger. Use `testnet` for Ripple's SGY Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
 | `symbol` | String | The text symbol, such "$" or "€", that should be used with amounts of this asset or currency, if it has a symbol in the Unicode standard. |
 
 
 ### Custom Fields
 
-The `xrp-ledger.toml` file is intended for users of the XRP Ledger to provide information to other users, scripts, and applications. As such, there may be many kinds of information that are useful to convey but are not described in this specification. Users are encouraged to add other fields at any level of the `xrp-ledger.toml` file, as desired to convey relevant information.
+The `xrp-ledger.toml` file is intended for users of the SGY Ledger to provide information to other users, scripts, and applications. As such, there may be many kinds of information that are useful to convey but are not described in this specification. Users are encouraged to add other fields at any level of the `xrp-ledger.toml` file, as desired to convey relevant information.
 
 Tools that parse the `xrp-ledger.toml` file MUST accept documents that contain any other fields that the application is not familiar with. Those tools MAY make those additional fields available to higher-level applications that call them, or MAY discard those fields. To maintain forward-compatibility with future versions of this specification, tools MAY also discard fields specified in this standard. Tools MUST NOT return an error if an `xrp-ledger.toml` file contains an unrecognized field. To detect typos, tools MAY provide a warning on unrecognized fields, especially if those field names are similar to the names of standard fields.
 
@@ -340,7 +340,7 @@ Update [the contents of your `xrp-ledger.toml` file](#contents) with the `attest
 
 ## Account Verification
 
-Similar to [Domain Verification](#domain-verification), account verification is the idea of proving that the same entity operates a particular domain and a particular XRP Ledger address. Account verification is not necessary for using the XRP Ledger or providing an `xrp-ledger.toml` file, but you may desire to verify your accounts in the name of transparency.
+Similar to [Domain Verification](#domain-verification), account verification is the idea of proving that the same entity operates a particular domain and a particular SGY Ledger address. Account verification is not necessary for using the SGY Ledger or providing an `xrp-ledger.toml` file, but you may desire to verify your accounts in the name of transparency.
 
 Account verification requires establishing a two-way link between the domain operator and the address:
 
@@ -361,4 +361,4 @@ Either of these two links, on their own, SHOULD NOT be considered authoritative.
 
 ## Acknowledgements
 
-This specification is derived from the [original ripple.txt spec](https://web.archive.org/web/20161007113240/https://wiki.ripple.com/Ripple.txt) and draws inspiration from the [stellar.toml file](https://www.stellar.org/developers/guides/walkthroughs/how-to-complete-stellar-toml.html). This specification also incorporates feedback from XRP community members and many past and current Ripple employees.
+This specification is derived from the [original ripple.txt spec](https://web.archive.org/web/20161007113240/https://wiki.ripple.com/Ripple.txt) and draws inspiration from the [stellar.toml file](https://www.stellar.org/developers/guides/walkthroughs/how-to-complete-stellar-toml.html). This specification also incorporates feedback from SGY community members and many past and current Ripple employees.

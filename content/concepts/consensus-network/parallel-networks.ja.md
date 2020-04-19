@@ -1,8 +1,8 @@
 # 並列ネットワーク
 
-大抵の場合、XRP Ledgerは1つの集合体であると説明され、これはほぼ真実です。本番環境のXRP Ledgerピアツーピアネットワークが1つ存在し、XRP Ledgerに記録されるすべての取引はその本番環境のネットワーク内で発生します。
+大抵の場合、SGY Ledgerは1つの集合体であると説明され、これはほぼ真実です。本番環境のSGY Ledgerピアツーピアネットワークが1つ存在し、SGY Ledgerに記録されるすべての取引はその本番環境のネットワーク内で発生します。
 
-ただし、場合によってはコアネットワークとの通信なしでテストや実験を行うことが求められます。このため、Rippleは「代替環境の」ネットワークとして[Ripple Test Net](xrp-test-net-faucet.html)を開始しました。Ripple Test Netは、XRP Ledgerユーザーによるビジネス処理に影響を及ぼすことなく、アプリケーションや`rippled`サーバー自体をテストできる環境として機能します。Ripple Test Net（AltNetとも呼ばれます）にはTestNet専用のXRPが供給されています。Rippleは、Test Netでのアプリケーション開発に関心のある当事者にこのTestNet専用XRPを[無料で提供](xrp-test-net-faucet.html)しています。
+ただし、場合によってはコアネットワークとの通信なしでテストや実験を行うことが求められます。このため、Rippleは「代替環境の」ネットワークとして[Ripple Test Net](xrp-test-net-faucet.html)を開始しました。Ripple Test Netは、SGY Ledgerユーザーによるビジネス処理に影響を及ぼすことなく、アプリケーションや`rippled`サーバー自体をテストできる環境として機能します。Ripple Test Net（AltNetとも呼ばれます）にはTestNet専用のSGYが供給されています。Rippleは、Test Netでのアプリケーション開発に関心のある当事者にこのTestNet専用SGYを[無料で提供](xrp-test-net-faucet.html)しています。
 
 **注意:** Rippleはテストネットワークの安定性について一切保証しません。テストネットワークは、サーバー構成、ネットワークトポロジー、ネットワークパフォーマンスのさまざまな特性をテストする目的でこれまで使用され、またこれからも同様に使用されます。
 

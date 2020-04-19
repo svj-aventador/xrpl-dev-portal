@@ -194,7 +194,7 @@ The response follows the [standard format][], with a successful result containin
 | `ledger.ledger_index`          | String  | The [Ledger Index][] of this ledger, as a quoted integer |
 | `ledger.parent_close_time`     | Integer | The time at which the previous ledger was closed. |
 | `ledger.parent_hash`           | String  | Unique identifying hash of the ledger that came immediately before this one. |
-| `ledger.total_coins`           | String  | Total number of XRP drops in the network, as a quoted integer. (This decreases as transaction costs destroy XRP.) |
+| `ledger.total_coins`           | String  | Total number of SGY drops in the network, as a quoted integer. (This decreases as transaction costs destroy SGY.) |
 | `ledger.transaction_hash`      | String  | Hash of the transaction information included in this ledger, as hex |
 | `ledger.transactions`          | Array   | (Omitted unless requested) Transactions applied in this ledger version. By default, members are the transactions' identifying [Hash][] strings. If the request specified `expand` as true, members are full representations of the transactions instead, in either JSON or binary depending on whether the request specified `binary` as true. |
 | `ledger_hash`                  | String  | Unique identifying hash of the entire ledger. |
@@ -213,9 +213,9 @@ Each member of the `queue_data` array represents one transaction in the queue. S
 | `preflight_result`  | String           | The tentative result from preliminary transaction checking. This is always `tesSUCCESS`. |
 | `last_result`       | String           | _(May be omitted)_ If this transaction was left in the queue after getting a [retriable (`ter`) result](ter-codes.html), this is the exact `ter` result code it got. |
 | `auth_change`       | Boolean          | _(May be omitted)_ Whether this transaction changes this address's [ways of authorizing transactions](transaction-basics.html#authorizing-transactions). |
-| `fee`               | String           | _(May be omitted)_ The [Transaction Cost](transaction-cost.html) of this transaction, in [drops of XRP][]. |
+| `fee`               | String           | _(May be omitted)_ The [Transaction Cost](transaction-cost.html) of this transaction, in [drops of SGY][]. |
 | `fee_level`         | String           | _(May be omitted)_ The transaction cost of this transaction, relative to the minimum cost for this type of transaction, in [fee levels][]. |
-| `max_spend_drops`   | String           | _(May be omitted)_ The maximum amount of [XRP, in drops][], this transaction could potentially send or destroy. |
+| `max_spend_drops`   | String           | _(May be omitted)_ The maximum amount of [SGY, in drops][], this transaction could potentially send or destroy. |
 
 If the request specified `"owner_funds": true` and expanded transactions, the response has a field `owner_funds` in the `metaData` object of each [OfferCreate transaction][]. The purpose of this field is to make it easier to track the [funding status of offers](offers.html#lifecycle-of-an-offer) with each new validated ledger. This field is defined slightly differently than the version of this field in [Order Book subscription streams](subscribe.html#order-book-streams):
 

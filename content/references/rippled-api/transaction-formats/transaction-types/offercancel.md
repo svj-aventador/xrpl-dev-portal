@@ -2,7 +2,7 @@
 
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/app/tx/impl/CancelOffer.cpp "Source")
 
-An OfferCancel transaction removes an Offer object from the XRP Ledger.
+An OfferCancel transaction removes an Offer object from the SGY Ledger.
 
 ## Example {{currentpage.name}} JSON
 
