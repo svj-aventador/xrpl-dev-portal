@@ -75,6 +75,7 @@ targets:
                 body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
+                ripple:
                 license: "License"
             to_top:
                 short: "Top"
@@ -299,6 +300,7 @@ targets:
                 body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
+                ripple:
                 license: "License"
             to_top:
                 short: "Top"
@@ -324,6 +326,7 @@ targets:
                 body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
+                ripple:
                 license: "License"
             to_top:
                 short: "Top"
@@ -5977,7 +5980,7 @@ pages:
             - en
             - ja
 
-    -   name: sgy-ledger.toml Checker
+    -   name: xrp-ledger.toml Checker
         funnel: Dev Tools
         html: xrp-ledger-toml-checker.html
         targets:
