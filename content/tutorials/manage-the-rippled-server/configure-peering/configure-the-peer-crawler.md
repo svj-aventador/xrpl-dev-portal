@@ -59,7 +59,7 @@ To disable the peer crawler API on your server, so it does not respond to peer c
 - **Concepts:**
     - [Peer Protocol](peer-protocol.html)
 - **Tutorials:**
-    - [Manage the rippled Server](manage-the-rippled-server.html)
+    - [Manage the SGY Server](manage-the-rippled-server.html)
 - **References:**
     - [server_info method][]
     - [peers method][]

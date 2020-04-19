@@ -4,7 +4,7 @@ Use these roadmaps to walk you, task-by-task, through implementing your use case
 
 Here are some of our users' most popular use cases:
 
-* **[Run a rippled Validator](run-a-rippled-validator.html)**
+* **[Run a SGY Validator](run-a-rippled-validator.html)**
 
       Learn how to install, run, and maintain a `rippled` server in validator mode.
 

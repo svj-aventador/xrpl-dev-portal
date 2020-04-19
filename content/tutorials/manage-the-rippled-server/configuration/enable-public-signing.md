@@ -37,7 +37,7 @@ To enable public signing, perform the following steps:
 - **Tutorials:**
     - [Set Up Secure Signing](set-up-secure-signing.html)
     - [Get Started with the rippled API](get-started-with-the-rippled-api.html)
-    - [Get Started with RippleAPI for JavaScript](get-started-with-rippleapi-for-javascript.html)
+    - [Get Started with API for JavaScript](get-started-with-rippleapi-for-javascript.html)
 - **References:**
     - [sign method][]
     - [sign_for method][]

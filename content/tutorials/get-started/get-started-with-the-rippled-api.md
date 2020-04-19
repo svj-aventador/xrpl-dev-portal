@@ -97,12 +97,11 @@ For a full list of API methods, see:
     - [Software Ecosystem](software-ecosystem.html)
     - [Parallel Networks](parallel-networks.html)
 - **Tutorials:**
-    - [Get Started with RippleAPI for JavaScript](get-started-with-rippleapi-for-javascript.html)
+    - [Get Started with API for JavaScript](get-started-with-rippleapi-for-javascript.html)
     - [Reliable Transaction Submission](reliable-transaction-submission.html)
-    - [Manage the rippled Server](manage-the-rippled-server.html)
+    - [Manage the SGY Server](manage-the-rippled-server.html)
 - **References:**
     - [SGY API Reference](rippled-api.html)
-    - [Ripple Data API v2](data-api.html)
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}			
