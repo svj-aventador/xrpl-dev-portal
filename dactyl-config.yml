@@ -5904,7 +5904,7 @@ pages:
             - en
             - ja
 
-    -   name: xrp-ledger.toml Checker
+    -   name: sgy-ledger.toml Checker
         funnel: Dev Tools
         html: xrp-ledger-toml-checker.html
         targets:
