@@ -249,45 +249,6 @@
 
   </section>
 
-  <section class="container-fluid related-projects card-grid card-grid-2x1">
-    <div class="section-hero card pl-0">
-      <h2>Related Projects</h2>
-      <div class="blurb">
-        <p>You're not alone in building the Internet of Value. These projects are proudly collaborating with the SGY Ledger to make all the world's money move like information moves today.</p>
-      </div>
-    </div><!--/.section-hero-->
-
-    {% set flag_n = cycler(* range(1,99)) %}
-
-    <div class="card interledger-link">
-      <div class="card-header">
-          <img class="project-icon" src="assets/img/ilp_logo.svg" />
-          <h3 class="card-title">Interledger</h3>
-      </div><!--/.card-header-->
-      <div class="card-body">
-        <p class="project-summary">Interledger is an open protocol suite for sending payments across different ledgers.</p>
-      </div><!--/.card-body-->
-      <div class="card-footer">
-        <a class="btn btn-outline-secondary external-link" href="https://interledger.org/" target="_blank">Learn More <i class="fa fa-external-link" aria-hidden="true"></i></a>
-      </div><!--/.card-footer-->
-      <div class="flag-vertical">{{"%02d"|format(flag_n.next())}}</div>
-    </div><!--/.card-->
-
-    <div class="card xpring-link">
-        <div class="card-header">
-            <img class="project-icon" src="assets/img/xpring-logo.svg" alt="Xpring" />
-            <h3 class="card-title">Xpring</h3>
-        </div><!--/.card-header-->
-        <div class="card-body">
-          <p class="project-summary">Xpring (pronounced “spring”) is a Ripple initiative that builds infrastructure and helps innovative blockchain projects grow through investments and partnerships.</p>
-        </div><!--/.card-body-->
-        <div class="card-footer">
-          <a class="btn btn-outline-secondary external-link" href="https://xpring.io/" target="_blank">Learn More <i class="fa fa-external-link" aria-hidden="true"></i></a>
-        </div><!--/.card-footer-->
-        <div class="flag-vertical">{{"%02d"|format(flag_n.next())}}</div>
-      </div><!--/.card-->
-
-  </section><!-- / Related Projects -->
 {% endblock %}
 
 
