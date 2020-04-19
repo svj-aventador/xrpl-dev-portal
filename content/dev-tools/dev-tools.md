@@ -30,7 +30,7 @@ Ripple provides a set of developer tools to help you test, explore, and validate
 
     Test how your code handles various SGY Ledger transactions by sending them over the Testnet to the address of your choice.
 
-* **[SGY Ledger Explorer](https://livenet.xrpl.org/)**
+* **[SGY Ledger Explorer](https://explorer.sgy.plus/)**
 
     View validations of new ledger versions in real-time, chart the geographic location of servers in the SGY Ledger network, and explore the state of the ledger. [Testnet Explorer](https://testnet.xrpl.org/) also available!
 

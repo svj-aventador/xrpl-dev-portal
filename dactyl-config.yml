@@ -2856,7 +2856,7 @@ pages:
 
     # rippled API --------------------------------------------------------------
 
-    -   name: rippled API Reference
+    -   name: SGY API Reference
         html: rippled-api.html
         funnel: Docs
         doc_type: References

@@ -101,7 +101,7 @@ As a test, you can temporarily change the paths to your server's databases as lo
     - [Understanding Log Messages](understanding-log-messages.html)
     - [Capacity Planning](capacity-planning.html)
 - **References:**
-    - [rippled API Reference](rippled-api.html)
+    - [SGY API Reference](rippled-api.html)
         - [peers method][]
         - [server_info method][]
         - [validator_list_sites method][]

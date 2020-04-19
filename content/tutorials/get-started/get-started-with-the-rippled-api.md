@@ -2,7 +2,7 @@
 
 The SGY Ledger's core server software is [`singularityd`](the-rippled-server.html). You can jump straight into developing on the SGY Ledger by accessing the API of a `singularityd` server.
 
-The quickest way to dive into the API is with the [**WebSocket API Tool**](websocket-api-tool.html), or use the [SGY Ledger Explorer](https://livenet.xrpl.org/) to watch the progress of the ledger live.
+The quickest way to dive into the API is with the [**WebSocket API Tool**](websocket-api-tool.html), or use the [SGY Ledger Explorer](https://explorer.sgy.plus/) to watch the progress of the ledger live.
 
 You can also [run your own instance of `singularityd`](install-rippled.html) or use a [public server](#public-servers).
 
@@ -101,7 +101,7 @@ For a full list of API methods, see:
     - [Reliable Transaction Submission](reliable-transaction-submission.html)
     - [Manage the rippled Server](manage-the-rippled-server.html)
 - **References:**
-    - [rippled API Reference](rippled-api.html)
+    - [SGY API Reference](rippled-api.html)
     - [Ripple Data API v2](data-api.html)
 
 <!--{# common link defs #}-->

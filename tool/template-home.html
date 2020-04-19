@@ -26,7 +26,7 @@
             <h5>{{target.strings.home.intro.subhead}}</h5>
             <p>{{target.strings.home.intro.sub_body}}</p>
           </div><!--/.blurb-->
-          <a class="btn btn-outline-secondary external-link" href="https://goo.gl/forms/sHMFxU8dKiTUaltE3" target="_blank">{{target.strings.home.intro.cta}} <i class="fa fa-external-link" aria-hidden="true"></i></a>
+          <!--a class="btn btn-outline-secondary external-link" href="https://goo.gl/forms/sHMFxU8dKiTUaltE3" target="_blank">{{target.strings.home.intro.cta}} <i class="fa fa-external-link" aria-hidden="true"></i></a -->
         </div>
       </div><!--/.section-hero-->
 
@@ -94,29 +94,13 @@
         </div><!--/.card-body-->
         <div class="card-footer">
           <div class="readmore">
-            <a href="https://livenet.xrpl.org/" class="btn btn-outline-secondary">{{target.strings.home.cards_1.explore.cta}}</a>
+            <a href="https://explorer.sgy.plus/" class="btn btn-outline-secondary">{{target.strings.home.cards_1.explore.cta}}</a>
           </div>
         </div><!--/.card-footer-->
         <div class="flag-vertical">{{"%02d"|format(flag_n.next())}}</div>
       </div><!--/.card-->
 
   </section><!--/"Above the fold" .card-grid-2x2-->
-
-  <section class="container-fluid card-grid">
-    <div class="card pl-0">
-      <div class="card-header">
-        <h2><a href="/blog/">SGY Ledger Blog</a></h2>
-      </div><!--/.card-header-->
-      <div class="card-body">
-        <div class="blurb">
-          <p>Visit the blog for the latest SGY Ledger info, including <a href="/blog/label/rippled-release-notes.html">Release Notes</a>, <a href="/blog/label/amendments.html">Amendments</a> to the SGY Ledger protocol, <a href="/blog/label/features.html">Feature articles</a> from SGY experts, and more.</p>
-        </div>
-      </div>
-      <div class="card-footer">
-        <a href="/blog/" class="btn btn-outline-secondary">View Blog</a>
-      </div>
-    </div>
-  </section>
 
   {% set flag_n = cycler(* range(1,99)) %}
   <section class="container-fluid card-grid card-grid-2x4" id="xrp_ledger_intro">

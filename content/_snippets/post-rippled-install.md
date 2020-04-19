@@ -11,7 +11,7 @@ After your `rippled` has synchronized with the rest of the network, you have a f
     $ /opt/ripple/bin/rippled server_info
 {% endif %}
 
-For more information about communicating with your `rippled` server using the rippled APIs, see the [rippled API reference](rippled-api.html).
+For more information about communicating with your `rippled` server using the rippled APIs, see the [SGY API Reference](rippled-api.html).
 
 Once you have your stock `rippled` server running, you may want to consider running it as a validating server. For information about validating servers and why you might want to run one, see [Run rippled as a Validator](run-rippled-as-a-validator.html).
 

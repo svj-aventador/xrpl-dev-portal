@@ -46,7 +46,7 @@ To enable gRPC on your server, complete the following steps:
     - [Reliable Transaction Submission](reliable-transaction-submission.html)
     - [Manage the rippled Server](manage-the-rippled-server.html)
 - **References:**
-    - [rippled API Reference](rippled-api.html)
+    - [SGY API Reference](rippled-api.html)
     - [Ripple Data API v2](data-api.html)
 
 <!--{# common link defs #}-->

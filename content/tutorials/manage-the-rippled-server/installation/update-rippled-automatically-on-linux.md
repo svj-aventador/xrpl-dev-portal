@@ -26,7 +26,7 @@ To set up automatic updates, complete the following steps:
     - [Capacity Planning](capacity-planning.html)
     - [Troubleshoot rippled](troubleshoot-the-rippled-server.html)
 - **References:**
-    - [rippled API Reference](rippled-api.html)
+    - [SGY API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 

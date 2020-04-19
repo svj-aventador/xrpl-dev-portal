@@ -121,7 +121,7 @@ For a more thorough explanation of various types of log messages, see [Understan
     - [Capacity Planning](capacity-planning.html)
     - [Configure rippled](configure-rippled.html)
 - **References:**
-    - [rippled API Reference](rippled-api.html)
+    - [SGY API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [log_level method][]
         - [server_info method][]

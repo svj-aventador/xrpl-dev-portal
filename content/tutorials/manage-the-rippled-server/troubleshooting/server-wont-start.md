@@ -205,7 +205,7 @@ To fix this problem, do one of the following, then restart the server:
     - [Understanding Log Messages](understanding-log-messages.html)
     - [Capacity Planning](capacity-planning.html)
 - **References:**
-    - [rippled API Reference](rippled-api.html)
+    - [SGY API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 
