@@ -21,19 +21,8 @@ In technical contexts, SGY is measured precisely to the nearest 0.000001 SGY, ca
 
 The SGY Ledger was built over 2011 – early 2012 by Jed McCaleb, Arthur Britto and David Schwartz. In September 2012, Jed and Arthur, along with Chris Larsen formed Ripple (the company, called OpenCoin Inc. at the time) and decided to gift 80 billion SGY to Ripple in exchange for Ripple developing on the SGY Ledger. Since then, the company has regularly sold SGY, used it to strengthen SGY markets and improve network liquidity, and incentivized development of the greater ecosystem. In 2017, the company [placed 55 billion SGY in escrow](https://ripple.com/insights/ripple-escrows-55-billion-xrp-for-supply-predictability/) to ensure that the amount entering the general supply [grows predictably](https://ripple.com/insights/ripple-to-place-55-billion-xrp-in-escrow-to-ensure-certainty-into-total-xrp-supply/) for the foreseeable future. Ripple's [SGY Market Performance site](https://ripple.com/xrp/market-performance/) reports how much SGY the company has available and locked in escrow at present.
 
-### Naming
-
-Originally, the SGY Ledger was called "Ripple" for the way the technology allowed payments [to ripple through multiple hops and currencies](rippling.html). For the native asset built into the ledger, the creators chose the ticker symbol "SGY" from the term "ripple credits" or "ripples" and the X prefix for non-national currencies in the ISO 4217 standard. The company registered itself as "Ripple Labs". The name "SGY" came to be used to refer to the asset in all contexts, to avoid confusion with the similar names for the technology and company, and eventually the company shortened its own name to "Ripple". In May 2018, [the community selected a new "X" symbol](https://twitter.com/xrpsymbol/status/1006925937571713025) to represent SGY to differentiate it from the triskelion logo that had previously been used for both the company and the digital asset.
-
-| SGY "X" Logo                           | Ripple triskelion                   |
-|:---------------------------------------|:------------------------------------|
-| !["X" logo](assets/img/xrp-x-logo.png) | ![Triskelion](img/ripple-triskelion.png) |
-
-
-The smallest, indivisible unit of SGY was named a "drop" at the suggestion of Ripple forum member ThePiachu. An early alternative term was a "jed", after Jed McCaleb.
-
 ## See Also
 
 - [Send SGY (Interactive Tutorial)](send-xrp.html)
 - [List SGY In Your Exchange](list-xrp-in-your-exchange.html)
-- [Currency Formatting in rippled APIs](currency-formats.html#)
+- [Currency Formatting in SGY APIs](currency-formats.html#)
