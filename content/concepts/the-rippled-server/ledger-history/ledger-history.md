@@ -35,7 +35,7 @@ If [online deletion](online-deletion.html) and advisory deletion are both enable
 
 Some servers in the SGY Ledger network are configured as "full-history" servers. These servers, which require significantly more disk space than other tracking servers, collect all available SGY Ledger history and **do not use online deletion**.
 
-Ripple provides a set of public full-history servers as a public service at `s2.ripple.com`. This service is provided for the benefit of the larger SGY community. Ripple reserves the right to block those who abuse the servers or use more than their fair share of the servers' resources.
+Ripple provides a set of public full-history servers as a public service at `s-us.sgy.plus`. This service is provided for the benefit of the larger SGY community. Ripple reserves the right to block those who abuse the servers or use more than their fair share of the servers' resources.
 
 **Tip:** Unlike some cryptocurrency networks, servers in the SGY Ledger do not need full history to know the current state and keep up with current transactions.
 

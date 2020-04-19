@@ -84,7 +84,7 @@ This is not strictly a problem, but if you want to acquire ledger history faster
 
 ```
 [ips_fixed]
-s2.ripple.com 51235
+s-us.sgy.plus 51235
 ```
 
 

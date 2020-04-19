@@ -12,7 +12,7 @@ const myInstructions = {
   maxLedgerVersionOffset: 5
 }
 
-const api = new RippleAPI({server: 'wss://s2.ripple.com'})
+const api = new RippleAPI({server: 'wss://s-us.sgy.plus'})
 
 function submitTransaction(lastClosedLedgerVersion, prepared, secret) {
   const signedData = api.sign(prepared.txJSON, secret)

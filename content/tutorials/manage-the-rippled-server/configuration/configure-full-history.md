@@ -47,7 +47,7 @@ To configure your server to acquire and store full history, complete the followi
 
     Your server can only download historical data from the peer-to-peer network if one its direct peers has the data available. The easiest way to ensure you can download full history is to peer with a server that already has full history.
 
-    **Tip:** Ripple makes a pool of full history servers publicly available. You can resolve the domain `s2.ripple.com` a few times to get the IP addresses of these servers. Ripple offers these servers as a public service, so be aware that their availability to peer with other servers is limited and you may be blocked if you abuse them.
+    **Tip:** Ripple makes a pool of full history servers publicly available. You can resolve the domain `s-us.sgy.plus` a few times to get the IP addresses of these servers. Ripple offers these servers as a public service, so be aware that their availability to peer with other servers is limited and you may be blocked if you abuse them.
 
 0. If you have a database dump from another full-history server to use as a basis, set the `[import_db]` stanza of your server's config file to point to the data to be imported. (Otherwise, skip this step.)
 

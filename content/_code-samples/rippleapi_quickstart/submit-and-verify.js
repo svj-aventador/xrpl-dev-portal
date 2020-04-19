@@ -23,7 +23,7 @@ const myOrder = {
 /* Milliseconds to wait between checks for a new ledger. */
 const INTERVAL = 1000;
 /* Instantiate RippleAPI. Uses s2 (full history server) */
-const api = new RippleAPI({server: 'wss://s2.ripple.com'});
+const api = new RippleAPI({server: 'wss://s-us.sgy.plus'});
 /* Number of ledgers to check for valid transaction before failing */
 const ledgerOffset = 5;
 const myInstructions = {maxLedgerVersionOffset: ledgerOffset};

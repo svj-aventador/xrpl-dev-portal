@@ -151,7 +151,7 @@ InboundLedger:WRN 11 timeouts for ledger 8265938
 
 ```
 [ips_fixed]
-s2.ripple.com 51235
+s-us.sgy.plus 51235
 ```
 
 

@@ -119,9 +119,9 @@ peer = "https://s-hk.sgy.plus:51235/"
 desc = "General purpose server cluster"
 
 [[SERVERS]]
-json_rpc = "https://s2.ripple.com:51234/"
-ws = "wss://s2.ripple.com/"
-peer = "https://s2.ripple.com:51235/"
+json_rpc = "https://s-us.sgy.plus:51234/"
+ws = "wss://s-us.sgy.plus/"
+peer = "https://s-us.sgy.plus:51235/"
 desc = "Full-history server cluster"
 
 [[SERVERS]]
