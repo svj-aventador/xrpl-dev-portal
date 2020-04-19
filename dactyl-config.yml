@@ -75,10 +75,6 @@ targets:
                 body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
-                ripple:
-                    careers: "Ripple Careers"
-                    github: "Ripple on GitHub"
-                    xrp_resources: "SGY Resources"
                 license: "License"
             to_top:
                 short: "Top"
@@ -303,10 +299,6 @@ targets:
                 body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
-                ripple:
-                    careers: "Ripple Careers"
-                    github: "Ripple on GitHub"
-                    xrp_resources: "SGY Resources"
                 license: "License"
             to_top:
                 short: "Top"
@@ -332,10 +324,6 @@ targets:
                 body: "We are making an effort to offer the SGY Ledger Dev Portal in a variety of languages, but not all pages are available in all languages. If you'd like to help, <a href=\"https://github.com/ripple/xrpl-dev-portal/blob/master/CONTRIBUTING.md\">please contribute!</a>"
             pagetoc: "In this document"
             footer:
-                ripple:
-                    careers: "Ripple Careers"
-                    github: "Ripple on GitHub"
-                    xrp_resources: "SGY Resources"
                 license: "License"
             to_top:
                 short: "Top"
@@ -5980,18 +5968,6 @@ pages:
             - en
             - ja
 
-    -   name: Data API v2 Tool
-        funnel: Dev Tools
-        html: data-api-v2-tool.html
-        methods_js: js/apitool-methods-data_v2.js
-        rest_host: https://data.ripple.com
-        doc_page: data-api.html
-        sidebar: custom
-        targets:
-            - en
-            - ja
-        template: template-rest-api-tool.html
-
     -   name: ripple.txt Validator # Redirect from ripple.txt validator to toml
         funnel: Dev Tools
         html: ripple-txt-validator.html
@@ -6001,7 +5977,7 @@ pages:
             - en
             - ja
 
-    -   name: xrp-ledger.toml Checker
+    -   name: sgy-ledger.toml Checker
         funnel: Dev Tools
         html: xrp-ledger-toml-checker.html
         targets:
