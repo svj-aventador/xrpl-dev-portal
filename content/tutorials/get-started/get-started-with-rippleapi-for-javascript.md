@@ -157,7 +157,7 @@ The second line imports RippleAPI into the current scope using Node.js's require
 
 ```
 const api = new RippleAPI({
-  server: 'wss://s1.ripple.com' // Public rippled server
+  server: 'wss://s-hk.sgy.plus' // Public rippled server
 });
 ```
 

@@ -113,9 +113,9 @@ desc = "Ripple-owned address from old ripple.txt file"
 #   domain this file was served from.
 
 [[SERVERS]]
-json_rpc = "https://s1.ripple.com:51234/"
-ws = "wss://s1.ripple.com/"
-peer = "https://s1.ripple.com:51235/"
+json_rpc = "https://s-hk.sgy.plus:51234/"
+ws = "wss://s-hk.sgy.plus/"
+peer = "https://s-hk.sgy.plus:51235/"
 desc = "General purpose server cluster"
 
 [[SERVERS]]

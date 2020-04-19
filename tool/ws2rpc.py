@@ -17,7 +17,7 @@ if sys.version_info[:2] <= (2,7):
 else:
     import http.client as httplib
 
-RIPPLED_RPC_HOST = "s1.ripple.com"
+RIPPLED_RPC_HOST = "s-hk.sgy.plus"
 RIPPLED_RPC_PORT = 51234
 
 def ws2rpc(s):

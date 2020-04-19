@@ -20,7 +20,7 @@
 *JSON-RPC*
 
 ```json
-POST http://s1.ripple.com:51234/
+POST http://s-hk.sgy.plus:51234/
 Content-Type: application/json
 
 {

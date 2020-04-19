@@ -482,7 +482,7 @@ When you instantiate the `RippleAPI` object, you must specify a server that's sy
 
 ```js
 ripple = require('ripple-lib')
-api = new ripple.RippleAPI({server: 'wss://s1.ripple.com:51233'})
+api = new ripple.RippleAPI({server: 'wss://s-hk.sgy.plus:51233'})
 api.connect()
 ```
 
