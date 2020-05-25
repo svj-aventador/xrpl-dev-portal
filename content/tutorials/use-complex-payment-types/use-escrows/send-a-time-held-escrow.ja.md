@@ -37,7 +37,7 @@ print(release_date_ripple)
 
 ## 2.EscrowCreateトランザクションの送信
 
-[EscrowCreateトランザクション][]に[署名して送信](transaction-basics.html#トランザクションへの署名とトランザクションの送信)します。トランザクションの`FinishAfter`フィールドを、保留中の支払いがリリースされる時刻に設定します。`Condition`フィールドを省略して、時刻を保留中の支払いをリリースする唯一の条件とします。`Destination`を受取人に設定します。受取人と送金元のアドレスは同じでもかまいません。`Amount`を、Escrowする[SGY、drop単位][]の合計額に設定します。
+[EscrowCreateトランザクション][]に[署名して送信](transaction-basics.html#トランザクションへの署名とトランザクションの送信)します。トランザクションの`FinishAfter`フィールドを、保留中の支払いがリリースされる時刻に設定します。`Condition`フィールドを省略して、時刻を保留中の支払いをリリースする唯一の条件とします。`Destination`を受取人に設定します。受取人と送金元のアドレスは同じでもかまいません。`Amount`を、Escrowする[RCP、drop単位][]の合計額に設定します。
 
 {% include '_snippets/secret-key-warning.md' %} <!--#{ fix md highlighting_ #}-->
 
@@ -135,7 +135,7 @@ print(release_date_ripple)
 
 `FinishAfter`の時刻が経過した後で資金のリリースを実行する[EscrowFinishトランザクション][]に[署名して送信](transaction-basics.html#トランザクションへの署名とトランザクションの送信)します。トランザクションの`Owner`フィールドにEscrowCreateトランザクションの`Account`アドレスを設定し、`OfferSequence` にEscrowCreateトランザクションの`Sequence`番号を設定します。時刻のみに基づいて保留されているEscrowの場合は、`Condition`フィールドと`Fulfillment`フィールドを省略します。
 
-**ヒント:** SGY Ledgerの状態はトランザクションでしか変更できないため、EscrowFinishトランザクションが必要です。このトランザクションの送信者は、Escrowの受取人、Escrowの元としての送金人、またはその他のSGY Ledgerアドレスのいずれかです。
+**ヒント:** RCP Ledgerの状態はトランザクションでしか変更できないため、EscrowFinishトランザクションが必要です。このトランザクションの送信者は、Escrowの受取人、Escrowの元としての送金人、またはその他のRCP Ledgerアドレスのいずれかです。
 
 Escrowが有効期限切れの場合は、[Escrowの取消し](cancel-an-expired-escrow.html)だけが可能です。
 
@@ -173,7 +173,7 @@ Escrowが有効期限切れの場合は、[Escrowの取消し](cancel-an-expired
 
 ## 8.最終結果の確認
 
-EscrowFinishトランザクションの識別用ハッシュを指定した[txメソッド][]を使用して、トランザクションの最終ステータスを確認します。特にトランザクションメタデータ内で、エスクローに預託された支払いの送金先の`ModifiedNode`（タイプが`AccountRoot`）を確認します。オブジェクトの`FinalFields`に、`Balance`フィールドのSGY返金額の増分が表示されている必要があります。
+EscrowFinishトランザクションの識別用ハッシュを指定した[txメソッド][]を使用して、トランザクションの最終ステータスを確認します。特にトランザクションメタデータ内で、エスクローに預託された支払いの送金先の`ModifiedNode`（タイプが`AccountRoot`）を確認します。オブジェクトの`FinalFields`に、`Balance`フィールドのRCP返金額の増分が表示されている必要があります。
 
 要求:
 

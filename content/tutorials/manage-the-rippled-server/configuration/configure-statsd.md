@@ -49,7 +49,7 @@ For descriptions of each StatsD metric, see the [`rippledmon` repository](https:
 ## See Also
 
 - **Concepts:**
-    - [SGY Ledger Overview](xrp-ledger-overview.html)
+    - [RCP Ledger Overview](xrp-ledger-overview.html)
     - [Consensus Network](consensus-network.html)
     - [The `rippled` Server](the-rippled-server.html)
 - **Tutorials:**

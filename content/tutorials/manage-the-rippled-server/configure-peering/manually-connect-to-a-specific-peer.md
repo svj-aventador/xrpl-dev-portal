@@ -1,6 +1,6 @@
 # Manually Connect to a Specific Peer
 
-Use these steps to manually connect your server to a specific [peer](peer-protocol.html) in the SGY Ledger network.
+Use these steps to manually connect your server to a specific [peer](peer-protocol.html) in the RCP Ledger network.
 
 **Tip:** If you want to make sure your server automatically connects to this server on startup and remains connected later, you may want to configure a [peer reservation](use-a-peer-reservation.html) for that peer.
 
@@ -8,7 +8,7 @@ Use these steps to manually connect your server to a specific [peer](peer-protoc
 ## Prerequisites
 
 - You must know the IP address of the peer you want to connect to.
-- You must know what port the peer you want to connect to uses for the SGY Ledger [peer protocol](peer-protocol.html). By default, this is port 51235.
+- You must know what port the peer you want to connect to uses for the RCP Ledger [peer protocol](peer-protocol.html). By default, this is port 51235.
 - You must have a network connection from your server to the peer. For example, the peer server must [forward the apppropriate port through its firewall](forward-ports-for-peering.html).
 - The peer server must have available peer slots. If the peer is already at its maximum number of peers, you can ask the peer server's operator to add a [peer reservation](use-a-peer-reservation.html) for your server.
 

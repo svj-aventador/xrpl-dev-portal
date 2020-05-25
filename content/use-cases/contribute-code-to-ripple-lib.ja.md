@@ -1,6 +1,6 @@
 # ripple-libへのコードの提供
 
-[RippleAPI](rippleapi-reference.html)の公式クライアントライブラリである`ripple-lib`の機能向上のために、コードまたはバグレポートを提供いただけますか? RippleAPIは、SGY Ledgerとやり取りするためのJavaScript APIです。以下は、コードと機能性の迅速なレビューの実現に向けたロードマップです。
+[RippleAPI](rippleapi-reference.html)の公式クライアントライブラリである`ripple-lib`の機能向上のために、コードまたはバグレポートを提供いただけますか? RippleAPIは、RCP Ledgerとやり取りするためのJavaScript APIです。以下は、コードと機能性の迅速なレビューの実現に向けたロードマップです。
 
 
 <!-- USE_CASE_STEPS_START -->
@@ -15,13 +15,13 @@
 <span class="use-case-step-num">{{n.next()}}</span>
 ## [`rippled`サーバーを設定して実行する](manage-the-rippled-server.html)
 
-RippleAPIは、SGY Ledgerとやり取りするためのAPIです。`rippled`は、SGY Ledgerを管理するコアのピアツーピアサーバーです。オプションとして、開発者の作業と機能性を理解するために`rippled`サーバーを設定して実行できます。誰もが自身の`rippled`サーバーを運用して、ネットワークをフォローし、SGY Ledgerの完全なコピーを保持できます。
+RippleAPIは、RCP Ledgerとやり取りするためのAPIです。`rippled`は、RCP Ledgerを管理するコアのピアツーピアサーバーです。オプションとして、開発者の作業と機能性を理解するために`rippled`サーバーを設定して実行できます。誰もが自身の`rippled`サーバーを運用して、ネットワークをフォローし、RCP Ledgerの完全なコピーを保持できます。
 
 
 <span class="use-case-step-num">{{n.next()}}</span>
-## [Test Net SGY Ledgerアカウントを取得する](xrp-test-net-faucet.html)
+## [Test Net RCP Ledgerアカウントを取得する](xrp-test-net-faucet.html)
 
-SGY Test Net Faucetを使用して、SGY Test Networkでテストアカウントを取得します。`rippled`サーバーを設定している場合は、Test Netに接続してテストコールを実行し、SGY Ledgerに慣れましょう。
+RCP Test Net Faucetを使用して、RCP Test Networkでテストアカウントを取得します。`rippled`サーバーを設定している場合は、Test Netに接続してテストコールを実行し、RCP Ledgerに慣れましょう。
 
 
 <span class="use-case-step-num">{{n.next()}}</span>
@@ -41,7 +41,7 @@ SGY Test Net Faucetを使用して、SGY Test Networkでテストアカウント
 
 `ripple-lib`を理解すると、その改善に関するアイデアが浮かぶこともあるかと思います。
 
-SGY Ledgerで開発作業を進めておられると思いますが、`ripple-lib`がご使用のアプリケーションに必要な機能を提供できるよう、コードを提供することもできます。
+RCP Ledgerで開発作業を進めておられると思いますが、`ripple-lib`がご使用のアプリケーションに必要な機能を提供できるよう、コードを提供することもできます。
 
 アイデアが必要な場合は、[Help Wantedイシュー](https://github.com/ripple/ripple-lib/issues?utf8=%E2%9C%93&q=label%3A%22help+wanted%22)のリストを参照してください。
 

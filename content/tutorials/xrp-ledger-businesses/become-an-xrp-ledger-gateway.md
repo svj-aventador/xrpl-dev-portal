@@ -1,12 +1,12 @@
-# Become an SGY Ledger Gateway
+# Become an RCP Ledger Gateway
 
-**Gateways** are the businesses that link the SGY Ledger to the rest of the world. An existing online financial institution can expand to act as a gateway in the the SGY Ledger. By becoming an SGY Ledger gateway, a financial services business can gain several advantages:
+**Gateways** are the businesses that link the RCP Ledger to the rest of the world. An existing online financial institution can expand to act as a gateway in the the RCP Ledger. By becoming an RCP Ledger gateway, a financial services business can gain several advantages:
 
-* By enabling its customers to send and receive value in the SGY Ledger, the business increases its value proposition to customers.
-* By accepting payments from the SGY Ledger, the business increases the number of ways that customers can fund accounts at its business, even internationally.
-* The business can use SGY Ledger-related services as a new source of revenue.
+* By enabling its customers to send and receive value in the RCP Ledger, the business increases its value proposition to customers.
+* By accepting payments from the RCP Ledger, the business increases the number of ways that customers can fund accounts at its business, even internationally.
+* The business can use RCP Ledger-related services as a new source of revenue.
 
-This document explains the concepts and steps necessary to become an SGY Ledger gateway. In this document, we use a fictional online currency exchange named "ACME" and its customers as examples, to show how ACME can expand its business to include being an SGY Ledger gateway.
+This document explains the concepts and steps necessary to become an RCP Ledger gateway. In this document, we use a fictional online currency exchange named "ACME" and its customers as examples, to show how ACME can expand its business to include being an RCP Ledger gateway.
 
 
 ## Contact Information
@@ -26,25 +26,25 @@ This guide focuses on running an **issuing gateway**.
 
 ### Trust Lines and Issued Currencies
 
-All assets in the SGY Ledger, except for the native cryptocurrency SGY, are represented as _issued currencies_, which are digital balances that represent currency or assets of value held by an issuer. The SGY Ledger has a system of directional accounting relationships, called _trust lines_, to make sure that users only hold issued currencies from counterparties they trust.
+All assets in the RCP Ledger, except for the native cryptocurrency RCP, are represented as _issued currencies_, which are digital balances that represent currency or assets of value held by an issuer. The RCP Ledger has a system of directional accounting relationships, called _trust lines_, to make sure that users only hold issued currencies from counterparties they trust.
 
 Main article: [Trust Lines and Issuing](trust-lines-and-issuing.html).
 
 
-### SGY
+### RCP
 
-[**SGY**](xrp.html) is the native cryptocurrency of the SGY Ledger. SGY can be sent directly from any SGY Ledger address to any other, without going through a gateway or liquidity provider. This helps make SGY a convenient bridge currency. For more information on SGY, see the [SGY Portal](https://ripple.com/xrp-portal/).
+[**RCP**](xrp.html) is the native cryptocurrency of the RCP Ledger. RCP can be sent directly from any RCP Ledger address to any other, without going through a gateway or liquidity provider. This helps make RCP a convenient bridge currency. For more information on RCP, see the [RCP Portal](https://ripple.com/xrp-portal/).
 
-Issuing gateways do not need to accumulate or exchange SGY. They must only hold a small balance of SGY to meet the [reserve requirements](reserves.html) and pay the [cost of sending transactions](transaction-cost.html) through the network. The SGY equivalent of $10 USD should be enough for at least one year of transaction costs for a busy gateway.
+Issuing gateways do not need to accumulate or exchange RCP. They must only hold a small balance of RCP to meet the [reserve requirements](reserves.html) and pay the [cost of sending transactions](transaction-cost.html) through the network. The RCP equivalent of $10 USD should be enough for at least one year of transaction costs for a busy gateway.
 
-Main article: [SGY](xrp.html).
+Main article: [RCP](xrp.html).
 
 
 ### Liquidity and Currency Exchange
 
-The SGY Ledger contains a [decentralized asset exchange](decentralized-exchange.html), where any user can place and fulfill bids to exchange SGY and issued currencies in any combination. [Cross-currency payments](cross-currency-payments.html) use the decentralized exchange to convert currency atomically when the transaction is executed. In this way, users who choose make offers in the decentralized exchange provide the liquidity that makes it possible to trade issued currencies.
+The RCP Ledger contains a [decentralized asset exchange](decentralized-exchange.html), where any user can place and fulfill bids to exchange RCP and issued currencies in any combination. [Cross-currency payments](cross-currency-payments.html) use the decentralized exchange to convert currency atomically when the transaction is executed. In this way, users who choose make offers in the decentralized exchange provide the liquidity that makes it possible to trade issued currencies.
 
-Currency traders who hold a gateway's issued currencies can provide liquidity to other popular currencies, without the gateway needing to float a large reserve in various destination currencies. The gateway also does not need to take on the risk of holding a variety of currencies. However, a gateway _may_ still want to provide liquidity to SGY or other popular currencies at a baseline rate, especially when the gateway is new to the exchange. If you do provide liquidity, **use a different address for trading than your issuing address.**
+Currency traders who hold a gateway's issued currencies can provide liquidity to other popular currencies, without the gateway needing to float a large reserve in various destination currencies. The gateway also does not need to take on the risk of holding a variety of currencies. However, a gateway _may_ still want to provide liquidity to RCP or other popular currencies at a baseline rate, especially when the gateway is new to the exchange. If you do provide liquidity, **use a different address for trading than your issuing address.**
 
 Third-party liquidity providers can use the [`rippled` APIs](rippled-api.html), [RippleAPI JavaScript Library](rippleapi-reference.html), or a third-party client application to access the distributed exchange. It may also help client applications to surface information about your gateway to clients if you provide an [`xrp-ledger.toml` file](xrp-ledger-toml.html).
 
@@ -53,11 +53,11 @@ Contact [partners@ripple.com](mailto:partners@ripple.com) for help establishing 
 
 ## Suggested Business Practices
 
-The value of a gateway's issued currency in the SGY Ledger comes directly from the trust that customers can redeem the issued balance from the gateway when needed. We recommend the following precautions to reduce the risk of business interruptions:
+The value of a gateway's issued currency in the RCP Ledger comes directly from the trust that customers can redeem the issued balance from the gateway when needed. We recommend the following precautions to reduce the risk of business interruptions:
 
 * Use separate [Issuing and Operational Addresses](issuing-and-operational-addresses.html) to limit your risk profile on the network.
 * Follow anti-money-laundering regulations for your jurisdiction, such as the [Bank Secrecy Act](http://en.wikipedia.org/wiki/Bank_Secrecy_Act). This usually includes requirements to collect ["Know-Your-Customer" (KYC) information](http://en.wikipedia.org/wiki/Know_your_customer).
-* Read and stay up-to-date with [Gateway Bulletins](#gateway-bulletins), which provide news and suggestions for SGY Ledger gateways.
+* Read and stay up-to-date with [Gateway Bulletins](#gateway-bulletins), which provide news and suggestions for RCP Ledger gateways.
 * Publicize all your policies and fees.
 
 
@@ -71,18 +71,18 @@ Main article: [Issuing and Operational Addresses](issuing-and-operational-addres
 
 ## Fees and Revenue Sources
 
-There are several ways in which a gateway can seek to profit from SGY Ledger integration. These can include:
+There are several ways in which a gateway can seek to profit from RCP Ledger integration. These can include:
 
-* Withdrawal and Deposit fees. Gateways typically charge a small fee (such as 1%) for the service of adding or removing money from the SGY Ledger. You have the power to determine the rate you credit people when they move money onto and off of the SGY Ledger through your gateway.
-* Transfer fees. You can set a percentage fee to charge automatically when customers send each other issued currencies created by your issuing address. This amount is debited from the SGY Ledger, decreasing your obligation each time your issued currencies change hands. See [TransferRate](#transferrate) for details.
-* Indirect revenue from value added. SGY Ledger integration can provide valuable functionality for your customers that distinguishes your business from your competitors.
-* Interest on SGY Ledger-backed funds. You can keep the collateral for the funds you issue in SGY Ledger in a bank account that earns interest. Make sure you can always access enough funds to service customer withdrawals.
-* [Financial Exchange](#liquidity-and-currency-exchange). A gateway can also make offers to buy and sell its issued currencies for other issued currencies in the SGY Ledger, providing liquidity to cross-currency payments and possibly making a profit. (As with all financial exchange, profits are not guaranteed.)
+* Withdrawal and Deposit fees. Gateways typically charge a small fee (such as 1%) for the service of adding or removing money from the RCP Ledger. You have the power to determine the rate you credit people when they move money onto and off of the RCP Ledger through your gateway.
+* Transfer fees. You can set a percentage fee to charge automatically when customers send each other issued currencies created by your issuing address. This amount is debited from the RCP Ledger, decreasing your obligation each time your issued currencies change hands. See [TransferRate](#transferrate) for details.
+* Indirect revenue from value added. RCP Ledger integration can provide valuable functionality for your customers that distinguishes your business from your competitors.
+* Interest on RCP Ledger-backed funds. You can keep the collateral for the funds you issue in RCP Ledger in a bank account that earns interest. Make sure you can always access enough funds to service customer withdrawals.
+* [Financial Exchange](#liquidity-and-currency-exchange). A gateway can also make offers to buy and sell its issued currencies for other issued currencies in the RCP Ledger, providing liquidity to cross-currency payments and possibly making a profit. (As with all financial exchange, profits are not guaranteed.)
 
 
 ### Choosing Fee Rates
 
-Fees imposed by gateways are optional. Higher fees earn more revenue when a gateway's services are used. On the other hand, high fees discourage customers from using your services. Consider the fees that are charged by other gateways, especially ones issuing similar currencies, as well as traditional payment systems outside of the SGY Ledger, such as wire fees. Choosing the right fee structure is a matter of balancing your pricing with what the market is willing to pay.
+Fees imposed by gateways are optional. Higher fees earn more revenue when a gateway's services are used. On the other hand, high fees discourage customers from using your services. Consider the fees that are charged by other gateways, especially ones issuing similar currencies, as well as traditional payment systems outside of the RCP Ledger, such as wire fees. Choosing the right fee structure is a matter of balancing your pricing with what the market is willing to pay.
 
 
 ## Gateway Compliance
@@ -198,7 +198,7 @@ See also:
 
 
 
-# SGY Ledger Integration
+# RCP Ledger Integration
 
 ## Before Integration
 
@@ -208,65 +208,65 @@ In the following diagram, ACME Exchange starts with €5 on hand, including €1
 
 ![Diagram: Alice sends €5 to ACME. ACME adds her balance to its balance sheet.](img/e2g-01.png)
 
-**Assumptions:** To integrate with the SGY Ledger, we assume that an exchange such as ACME meets the following assumptions:
+**Assumptions:** To integrate with the RCP Ledger, we assume that an exchange such as ACME meets the following assumptions:
 
 * ACME already has a system to accept deposits and withdrawals from some outside payment source.
 * ACME waits for deposits to clear before crediting them in ACME's system of record.
 * ACME always keeps enough funds on-hand to pay withdrawals on demand, subject to their terms and conditions.
     * ACME can set fees, minimum withdrawals, and delay times for deposits and withdrawals as their business model demands.
 
-## Sending from Gateway to the SGY Ledger
+## Sending from Gateway to the RCP Ledger
 
-SGY Ledger payments can automatically bridge between currencies, but an issuing gateway normally only sends single-currency payments that go directly to customers. This means debiting a customer's current balance in your system, and then sending the equivalent amount of issued currencies in the SGY Ledger to the customer's SGY Ledger address.
+RCP Ledger payments can automatically bridge between currencies, but an issuing gateway normally only sends single-currency payments that go directly to customers. This means debiting a customer's current balance in your system, and then sending the equivalent amount of issued currencies in the RCP Ledger to the customer's RCP Ledger address.
 
-An example flow for a payment into the SGY Ledger:
+An example flow for a payment into the RCP Ledger:
 
-1. Alice asks to send €3 of her ACME balance into the SGY Ledger.
+1. Alice asks to send €3 of her ACME balance into the RCP Ledger.
 2. In its system of record, ACME debits Alice's balance €3.
-3. ACME submits an SGY Ledger transaction, sending €3 to Alice's SGY Ledger address. The €3 is marked in the SGY Ledger as being "issued" by ACME (3 EUR.ACME).
+3. ACME submits an RCP Ledger transaction, sending €3 to Alice's RCP Ledger address. The €3 is marked in the RCP Ledger as being "issued" by ACME (3 EUR.ACME).
 
 **Assumptions:**
 
-* Alice already has an address in the SGY Ledger separate from her ACME account. Alice manages her SGY Ledger address using a third-party client application.
+* Alice already has an address in the RCP Ledger separate from her ACME account. Alice manages her RCP Ledger address using a third-party client application.
 
-![Diagram: ACME issues 3 EUR.ACME to Alice on the SGY Ledger](img/e2g-02.png)
+![Diagram: ACME issues 3 EUR.ACME to Alice on the RCP Ledger](img/e2g-02.png)
 
 
 
-### Requirements for Sending to SGY Ledger
+### Requirements for Sending to RCP Ledger
 
 There are several prerequisites that ACME must meet for this to happen:
 
-- ACME sets aside money that is issued in the SGY Ledger. ACME can query the SGY Ledger to see who holds its issued currencies at any time. There are several ways ACME may do this:
-    - ACME may create a SGY Ledger collateral account in ACME's system of record.
-    - ACME can store the funds allocated to the SGY Ledger in a separate bank account.
-    - If ACME is a cryptocurrency exchange, ACME can create a separate wallet to hold the funds allocated to the SGY Ledger, as publicly-verifiable proof to customers that the gateway is solvent.
-- ACME must control an address in the SGY Ledger. Ripple's best practices recommend using a separate issuing address and operational address. See [Issuing and Operational Addresses](issuing-and-operational-addresses.html) for details.
+- ACME sets aside money that is issued in the RCP Ledger. ACME can query the RCP Ledger to see who holds its issued currencies at any time. There are several ways ACME may do this:
+    - ACME may create a RCP Ledger collateral account in ACME's system of record.
+    - ACME can store the funds allocated to the RCP Ledger in a separate bank account.
+    - If ACME is a cryptocurrency exchange, ACME can create a separate wallet to hold the funds allocated to the RCP Ledger, as publicly-verifiable proof to customers that the gateway is solvent.
+- ACME must control an address in the RCP Ledger. Ripple's best practices recommend using a separate issuing address and operational address. See [Issuing and Operational Addresses](issuing-and-operational-addresses.html) for details.
     - ACME must enable the [DefaultRipple Flag](#defaultripple) on its issuing address for customers to send and receive its issued currencies.
-- Alice must create an accounting relationship (trust line) from her SGY Ledger address to ACME's issuing address. She can do this from any SGY Ledger client application as long as she knows ACME's issuing address.
+- Alice must create an accounting relationship (trust line) from her RCP Ledger address to ACME's issuing address. She can do this from any RCP Ledger client application as long as she knows ACME's issuing address.
     - ACME should publicize its issuing address on its website where customers can find it. It can also use an [`xrp-ledger.toml` file](xrp-ledger-toml.html) to publish the issuing address to automated systems.
-- ACME must create a user interface for Alice to send funds from ACME into the SGY Ledger.
-    - ACME needs to know Alice's SGY Ledger address. ACME can have Alice input her SGY Ledger addresss as part of the interface, or ACME can require Alice to input and verify her SGY Ledger address in advance.
+- ACME must create a user interface for Alice to send funds from ACME into the RCP Ledger.
+    - ACME needs to know Alice's RCP Ledger address. ACME can have Alice input her RCP Ledger addresss as part of the interface, or ACME can require Alice to input and verify her RCP Ledger address in advance.
 
-See [Sending Payments to Customers](#sending-payments-to-customers) for an example of how to send payments into the SGY Ledger.
+See [Sending Payments to Customers](#sending-payments-to-customers) for an example of how to send payments into the RCP Ledger.
 
 
-## Sending from SGY Ledger to Gateway
+## Sending from RCP Ledger to Gateway
 
-A payment out of the SGY Ledger means the Gateway receives a payment in the SGY Ledger, and credits a user in the gateway's system of record.
+A payment out of the RCP Ledger means the Gateway receives a payment in the RCP Ledger, and credits a user in the gateway's system of record.
 
-An example flow of a payment out of the SGY Ledger:
+An example flow of a payment out of the RCP Ledger:
 
-1. Bob sends an SGY Ledger transaction of €1 to ACME's issuing address.
+1. Bob sends an RCP Ledger transaction of €1 to ACME's issuing address.
 2. In ACME's system of record, ACME credits Bob's balance €1.
 
-Payments going from the SGY Ledger to a gateway can be single-currency or cross-currency payments. The gateway's issuing address can only receive issued currencies it created (or SGY).
+Payments going from the RCP Ledger to a gateway can be single-currency or cross-currency payments. The gateway's issuing address can only receive issued currencies it created (or RCP).
 
-### Requirements for Receiving from SGY Ledger
+### Requirements for Receiving from RCP Ledger
 
-In addition to the [requirements for sending into the SGY Ledger](#requirements-for-sending-to-xrp-ledger), there are several prerequisites that ACME must meet to process payments coming from the SGY Ledger:
+In addition to the [requirements for sending into the RCP Ledger](#requirements-for-sending-to-xrp-ledger), there are several prerequisites that ACME must meet to process payments coming from the RCP Ledger:
 
-- ACME must monitor its SGY Ledger addresses for incoming payments.
+- ACME must monitor its RCP Ledger addresses for incoming payments.
 - ACME must know which user to credit in its system of record for the incoming payments.
     - We recommend that ACME should [bounce any unrecognized incoming payments](#bouncing-payments) back to their sender.
     - Typically, the preferred method of recognizing incoming payments is through [destination tags](#source-and-destination-tags).
@@ -274,33 +274,33 @@ In addition to the [requirements for sending into the SGY Ledger](#requirements-
 
 ## Precautions
 
-Processing payments to and from the SGY Ledger naturally comes with some risks, so a gateway should be sure to take care in implementing these processes. We recommend the following precautions:
+Processing payments to and from the RCP Ledger naturally comes with some risks, so a gateway should be sure to take care in implementing these processes. We recommend the following precautions:
 
-- Protect yourself against reversible deposits. SGY Ledger payments are irreversible, but many electronic money systems like credit cards or PayPal are not. Scammers can abuse this to take their fiat money back by canceling a deposit after receiving issued currencies in the SGY Ledger.
-- When sending into the SGY Ledger, specify the issuing address as the issuer of the currency. Otherwise, you might accidentally use paths that deliver the same currency issued by other addresses.
-- Before sending a payment into the SGY Ledger, double check the cost of the payment. A payment from your operational address to a customer should not cost more than the destination amount plus any [transfer fee](#transferrate) you have set.
-- Before processing a payment out of Ripple, make sure you know the customer's identity. This makes it harder for anonymous attackers to scam you. Most anti-money-laundering regulations require this anyway. This is especially important because the users sending money from the SGY Ledger could be different than the ones that initially received the money in the SGY Ledger.
-- Follow the guidelines for [reliable transaction submission](#reliable-transaction-submission) when sending SGY Ledger transactions.
+- Protect yourself against reversible deposits. RCP Ledger payments are irreversible, but many electronic money systems like credit cards or PayPal are not. Scammers can abuse this to take their fiat money back by canceling a deposit after receiving issued currencies in the RCP Ledger.
+- When sending into the RCP Ledger, specify the issuing address as the issuer of the currency. Otherwise, you might accidentally use paths that deliver the same currency issued by other addresses.
+- Before sending a payment into the RCP Ledger, double check the cost of the payment. A payment from your operational address to a customer should not cost more than the destination amount plus any [transfer fee](#transferrate) you have set.
+- Before processing a payment out of Ripple, make sure you know the customer's identity. This makes it harder for anonymous attackers to scam you. Most anti-money-laundering regulations require this anyway. This is especially important because the users sending money from the RCP Ledger could be different than the ones that initially received the money in the RCP Ledger.
+- Follow the guidelines for [reliable transaction submission](#reliable-transaction-submission) when sending RCP Ledger transactions.
 - [Robustly monitor for incoming payments](#robustly-monitoring-for-payments), and read the correct amount. Don't mistakenly credit someone the full amount if they only sent a [partial payment](partial-payments.html).
-- Track your obligations and balances within the SGY Ledger, and compare with the assets in your collateral account. If they do not match up, stop processing withdrawals and deposits until you resolve the discrepancy.
+- Track your obligations and balances within the RCP Ledger, and compare with the assets in your collateral account. If they do not match up, stop processing withdrawals and deposits until you resolve the discrepancy.
 - Avoid ambiguous situations. We recommend the following:
-    - Enable the [`DisallowSGY` flag](#disallowxrp) for the issuing address and all operational addresses, so customers do not accidentally send you SGY. (Private exchanges should *not* set this flag, since they trade SGY normally.)
+    - Enable the [`DisallowRCP` flag](#disallowxrp) for the issuing address and all operational addresses, so customers do not accidentally send you RCP. (Private exchanges should *not* set this flag, since they trade RCP normally.)
     - Enable the [`RequireDest` flag](require-destination-tags.html) for the issuing address and all operational addresses, so customers do not accidentally send a payment without the destination tag to indicate who should be credited.
     - Enable the [`RequireAuth` flag](#requireauth) on all operational addresses so they cannot issue currency by accident.
-- Monitor for suspicious or abusive behavior. For example, a user could repeatedly send funds into and out of the SGY Ledger, as a denial of service attack that effectively empties an operational address's balance. Suspend customers whose addresses are involved in suspicious behavior by not processing their SGY Ledger payments.
+- Monitor for suspicious or abusive behavior. For example, a user could repeatedly send funds into and out of the RCP Ledger, as a denial of service attack that effectively empties an operational address's balance. Suspend customers whose addresses are involved in suspicious behavior by not processing their RCP Ledger payments.
 
 ## Trading on Ripple
 
-After the issued currencies have been created in the SGY Ledger, they can be freely transferred and traded by SGY Ledger users. There are several consequences of this situation:
+After the issued currencies have been created in the RCP Ledger, they can be freely transferred and traded by RCP Ledger users. There are several consequences of this situation:
 
 - Anyone can buy/sell EUR.ACME on Ripple. If ACME issues multiple currencies on Ripple, a separate trust line is necessary for each.
-    - This includes SGY Ledger users who do not have an account in ACME Exchange's systems. To withdraw the funds successfully from ACME, users still have to register with ACME.
-    - Optionally, ACME uses the [Authorized Trust Lines](#authorized-trust-lines) feature to limit who can hold EUR.ACME in the SGY Ledger.
-    - If ACME determines that a customer has acted in bad faith, ACME can [Freeze](#freeze) that user's accounting relationships to ACME in the SGY Ledger, so that the user can no longer trade in the gateway's issued currencies.
-- SGY Ledger users trading and sending EUR.ACME to one another requires no intervention by ACME.
-- All exchanges and balances in the SGY Ledger are publicly viewable.
+    - This includes RCP Ledger users who do not have an account in ACME Exchange's systems. To withdraw the funds successfully from ACME, users still have to register with ACME.
+    - Optionally, ACME uses the [Authorized Trust Lines](#authorized-trust-lines) feature to limit who can hold EUR.ACME in the RCP Ledger.
+    - If ACME determines that a customer has acted in bad faith, ACME can [Freeze](#freeze) that user's accounting relationships to ACME in the RCP Ledger, so that the user can no longer trade in the gateway's issued currencies.
+- RCP Ledger users trading and sending EUR.ACME to one another requires no intervention by ACME.
+- All exchanges and balances in the RCP Ledger are publicly viewable.
 
-The following diagram depicts an SGY Ledger payment sending 2EUR.ACME from Alice to Charlie. ACME can query the SGY Ledger to see updates to its balances any time after the transaction has occurred:
+The following diagram depicts an RCP Ledger payment sending 2EUR.ACME from Alice to Charlie. ACME can query the RCP Ledger to see updates to its balances any time after the transaction has occurred:
 
 ![Diagram: Alice's sends 2 EUR.ACME from her trust line to Charlie's](img/e2g-03.png)
 
@@ -308,7 +308,7 @@ The following diagram depicts an SGY Ledger payment sending 2EUR.ACME from Alice
 
 ## Freeze
 
-A gateway can freeze accounting relationships in the SGY Ledger to meet regulatory requirements:
+A gateway can freeze accounting relationships in the RCP Ledger to meet regulatory requirements:
 
 * Gateways can freeze individual accounting relationships, in case a customer address shows suspicious activity or violates a gateway's terms of use.
 * Gateways can freeze all accounting relationships to their issuing address, in case of a major security compromise or for migrating to a new issuing address.
@@ -319,20 +319,20 @@ For more information, see the [Freeze article](freezes.html).
 
 ## Authorized Trust Lines
 
-The SGY Ledger's Authorized Trust Lines feature (formerly called "Authorized Accounts") enables a gateway to limit who can hold that gateway's issued currencies, so that unknown SGY Ledger addresses cannot hold the currency the gateway issues. Ripple feels this is *not necessary* in most cases, since gateways have full control over the process of redeeming SGY Ledger balances for value in the outside world. (You can collect customer information and impose limits on withdrawals at that stage without worrying about what happens within the SGY Ledger.)
+The RCP Ledger's Authorized Trust Lines feature (formerly called "Authorized Accounts") enables a gateway to limit who can hold that gateway's issued currencies, so that unknown RCP Ledger addresses cannot hold the currency the gateway issues. Ripple feels this is *not necessary* in most cases, since gateways have full control over the process of redeeming RCP Ledger balances for value in the outside world. (You can collect customer information and impose limits on withdrawals at that stage without worrying about what happens within the RCP Ledger.)
 
 For more information, see [Authorized Trust Lines](authorized-trust-lines.html).
 
 
 ## Source and Destination Tags
 
-*Destination Tags* are a feature of SGY Ledger payments can be used to indicate the beneficiary or destination for a payment. For example, an SGY Ledger payment to a gateway may include a destination tag to indicate which customer should be credited for the payment. A gateway should keep a mapping of destination tags to accounts in the gateway's system of record.
+*Destination Tags* are a feature of RCP Ledger payments can be used to indicate the beneficiary or destination for a payment. For example, an RCP Ledger payment to a gateway may include a destination tag to indicate which customer should be credited for the payment. A gateway should keep a mapping of destination tags to accounts in the gateway's system of record.
 
 Similarly, *Source Tags* indicate the originator or source of a payment. Most commonly, a Source Tag is included so that the recipient of the payment knows where to bounce the payment. When you bounce an incoming payment, use the Source Tag from the incoming payment as the Destination Tag of the outgoing (bounce) payment.
 
 Ripple recommends making a user interface to generate a destination tag on-demand when a customer intends to send money to the gateway. You should consider that destination tag valid only for a payment with the expected amount. Later, bounce any other transactions that reuse the same destination tag.
 
-Enable the [RequireDest](require-destination-tags.html) flag on your issuing and operational addresses so that customers must use a destination tag to indicate where funds should go when they send SGY Ledger payments to your gateway.
+Enable the [RequireDest](require-destination-tags.html) flag on your issuing and operational addresses so that customers must use a destination tag to indicate where funds should go when they send RCP Ledger payments to your gateway.
 
 For more information, see [Source and Destination Tags](source-and-destination-tags.html).
 
@@ -361,21 +361,21 @@ Historically, Ripple (the company) issued gateway bulletins to introduce new fea
 
 ## Infrastructure
 
-For the gateway's own security as well as the stability of the network, Ripple recommends that each gateway run its own `rippled` servers. Ripple provides detailed and individualized recommendations to businesses interested in running a significant SGY-based business.
+For the gateway's own security as well as the stability of the network, Ripple recommends that each gateway run its own `rippled` servers. Ripple provides detailed and individualized recommendations to businesses interested in running a significant RCP-based business.
 
 Contact [partners@ripple.com](mailto:partners@ripple.com) to see how Ripple can help.
 
 ### APIs and Middleware
 
-There are several interfaces you can use to connect to the SGY Ledger, depending on your needs and your existing software:
+There are several interfaces you can use to connect to the RCP Ledger, depending on your needs and your existing software:
 
-* [`rippled`](rippled-api.html) provides JSON-RPC and WebSocket APIs that can be used as a low-level interface to all core SGY Ledger functionality.
+* [`rippled`](rippled-api.html) provides JSON-RPC and WebSocket APIs that can be used as a low-level interface to all core RCP Ledger functionality.
 * [RippleAPI](rippleapi-reference.html) provides a simplified API for JavaScript applications.
 
 
 ## Tool Security
 
-Any time you submit an SGY Ledger transaction, it must be signed using your secret key. The secret key gives full control over your SGY Ledger address. **Never** send your secret key to a server operated by someone else. Either use your own `rippled` server, or sign the transactions locally before sending them to a `rippled` server.
+Any time you submit an RCP Ledger transaction, it must be signed using your secret key. The secret key gives full control over your RCP Ledger address. **Never** send your secret key to a server operated by someone else. Either use your own `rippled` server, or sign the transactions locally before sending them to a `rippled` server.
 
 The examples in this document show API methods that include a secret key. This is only safe if you control `rippled` server yourself, *and* you connect to it over a connection that is secure from outside listeners. (For example, you could connect over a loopback (localhost) network, a private subnet, or an encrypted VPN.) Alternatively, you could use [RippleAPI](rippleapi-reference.html) to sign transactions locally before submitting them to a third-party server.
 
@@ -441,13 +441,13 @@ To confirm that an address has DefaultRipple enabled, look up the address using 
 
 
 
-## DisallowSGY
+## DisallowRCP
 
-The DisallowSGY setting (`disallowIncomingSGY` in RippleAPI) is designed to discourage SGY Ledger users from sending SGY to an address by accident. This reduces the costs and effort of bouncing undesired payments, if your gateway does not trade SGY. The DisallowSGY flag is not strictly enforced, because doing so could allow addresses to become permanently unusable if they run out of SGY. Client applications should honor the DisallowSGY flag by default.
+The DisallowRCP setting (`disallowIncomingRCP` in RippleAPI) is designed to discourage RCP Ledger users from sending RCP to an address by accident. This reduces the costs and effort of bouncing undesired payments, if your gateway does not trade RCP. The DisallowRCP flag is not strictly enforced, because doing so could allow addresses to become permanently unusable if they run out of RCP. Client applications should honor the DisallowRCP flag by default.
 
-An issuing gateway that does not trade SGY should enable the DisallowSGY flag on the gateway's issuing and operational addresses. A private exchange that trades in SGY should only enable the DisallowSGY flag on addresses that are not expected to receive SGY.
+An issuing gateway that does not trade RCP should enable the DisallowRCP flag on the gateway's issuing and operational addresses. A private exchange that trades in RCP should only enable the DisallowRCP flag on addresses that are not expected to receive RCP.
 
-The following is an example of using a locally-hosted `rippled`'s [submit method][] to send an AccountSet transaction to enable the DisallowSGY flag:
+The following is an example of using a locally-hosted `rippled`'s [submit method][] to send an AccountSet transaction to enable the DisallowRCP flag:
 
 Request:
 
@@ -533,7 +533,7 @@ POST http://localhost:5005/
 
 ### Authorizing Trust Lines
 
-If you are using the [Authorized Trust Lines](authorized-trust-lines.html) feature, customers cannot hold balances you issue unless you first authorize their accounting relationships to you in the SGY Ledger.
+If you are using the [Authorized Trust Lines](authorized-trust-lines.html) feature, customers cannot hold balances you issue unless you first authorize their accounting relationships to you in the RCP Ledger.
 
 To authorize an accounting relationship, submit a TrustSet transaction from your issuing address, with the user to trust as the `issuer` of the `LimitAmount`. Leave the `value` (the amount to trust them for) as **0**, and enable the [tfSetfAuth](trustset.html#trustset-flags) flag for the transaction.
 
@@ -573,7 +573,7 @@ POST http://localhost:8088/
 To robustly check for incoming payments, gateways should do the following:
 
 * Keep a record of the most-recently-processed transaction and ledger. That way, if you temporarily lose connectivity, you know how far to go back.
-* Check the result code of every incoming payment. Some payments go into the ledger to charge an anti-spam fee, even though they failed. Only transactions with the result code `tesSUCCESS` can change non-SGY balances. Only transactions from a validated ledger are final.
+* Check the result code of every incoming payment. Some payments go into the ledger to charge an anti-spam fee, even though they failed. Only transactions with the result code `tesSUCCESS` can change non-RCP balances. Only transactions from a validated ledger are final.
 * [Look out for Partial Payments](https://ripple.com/files/GB-2014-06.pdf "Partial Payment Flag Gateway Bulletin"). Payments with the partial-payment flag enabled can be considered "successful" if any non-zero amount is delivered, even miniscule amounts.
     * In `rippled`, check the transaction for a `meta.delivered_amount` field. If present, that field indicates how much money *actually* got delivered to the `Destination` address.
     * In RippleAPI, you can search the `outcome.BalanceChanges` field to see how much the destination address received. In some cases, this can be divided into multiple parts on different trust lines.
@@ -581,15 +581,15 @@ To robustly check for incoming payments, gateways should do the following:
 
 To make things simpler for your customers, we recommend accepting payments to either operational addresses and issuing addresses.
 
-As an added precaution, we recommend comparing the balances of your issuing address with the collateral funds in your internal accounting system as of each new SGY Ledger ledger version. The issuing address's negative balances should match the assets you have allocated to SGY Ledger outside the network. If the two do not match up, then you should suspend processing payments into and out of the SGY Ledger until you have resolved the discrepancy.
+As an added precaution, we recommend comparing the balances of your issuing address with the collateral funds in your internal accounting system as of each new RCP Ledger ledger version. The issuing address's negative balances should match the assets you have allocated to RCP Ledger outside the network. If the two do not match up, then you should suspend processing payments into and out of the RCP Ledger until you have resolved the discrepancy.
 
 * Use `rippled`'s [gateway_balances method][] or [RippleAPI's `getTrustlines` method](rippleapi-reference.html#gettrustlines) to check your balances.
-* If you have a [TransferRate](#transferrate) set, then your obligations within the SGY Ledger decrease slightly whenever other SGY Ledger addresses transfer your issued currencies among themselves.
+* If you have a [TransferRate](#transferrate) set, then your obligations within the RCP Ledger decrease slightly whenever other RCP Ledger addresses transfer your issued currencies among themselves.
 
 
 ## TransferRate
 
-The *TransferRate* setting (`transferRate` in RippleAPI) defines a fee to charge for transferring issued currencies from one SGY Ledger address to another. See [Transfer Fees](transfer-fees.html) for more information.
+The *TransferRate* setting (`transferRate` in RippleAPI) defines a fee to charge for transferring issued currencies from one RCP Ledger address to another. See [Transfer Fees](transfer-fees.html) for more information.
 
 The following is an example of using a locally-hosted `rippled`'s [submit method][] to send an AccountSet transaction for the issuing address rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW, setting the TransferRate to charge a fee of 0.5%.
 
@@ -641,21 +641,21 @@ Response:
 
 ### TransferRate with Operational and Standby Addresses
 
-All SGY Ledger addresses, including operational and standby addresses, are subject to the transfer fee. If you set a nonzero transfer fee, then you must send extra (to pay the TransferRate) when making payments from your operational address or standby address. In other words, your addresses must pay back a little of the balance your issuing address created, each time you make a payment.
+All RCP Ledger addresses, including operational and standby addresses, are subject to the transfer fee. If you set a nonzero transfer fee, then you must send extra (to pay the TransferRate) when making payments from your operational address or standby address. In other words, your addresses must pay back a little of the balance your issuing address created, each time you make a payment.
 
 * In `rippled`'s APIs, you should set the [`SendMax` transaction parameter][Payment] higher than the destination `Amount` parameter.
 * In RippleAPI, you should set the `source.maxAmount` parameter higher than the `destination.amount` parameter; or, set the `source.amount` parameter higher than the `destination.minAmount` parameter.
 
-**Note:** The TransferRate does not apply when sending issued currencies directly to the issuing address. The issuing address must always accept its issued currencies at face value in the SGY Ledger. This means that customers don't have to pay the TransferRate if they send payments to the issuing address directly, but they do when sending to an operational address. If you accept payments at both addresses, you may want to adjust the amount you credit customers in your system of record when customers send payments to the operational address, to compensate for the TransferRate the customer pays.
+**Note:** The TransferRate does not apply when sending issued currencies directly to the issuing address. The issuing address must always accept its issued currencies at face value in the RCP Ledger. This means that customers don't have to pay the TransferRate if they send payments to the issuing address directly, but they do when sending to an operational address. If you accept payments at both addresses, you may want to adjust the amount you credit customers in your system of record when customers send payments to the operational address, to compensate for the TransferRate the customer pays.
 
-For example: If ACME sets a transfer fee of 1%, an SGY Ledger payment to deliver 5 EUR.ACME from a customer address to ACME's issuing address would cost exactly 5 EUR.ACME. However, the customer would need to send 5.05 EUR.ACME to deliver 5 EUR.ACME to ACME's operational address. (The issuing address's total obligations in the SGY Ledger decrease by 0.05 EUR.ACME.) When ACME credits customers for payments to ACME's operational address, ACME credits the customer for the amount delivered to the operational address _and_ the transfer fee, giving the customer €5,05 in ACME's systems.
+For example: If ACME sets a transfer fee of 1%, an RCP Ledger payment to deliver 5 EUR.ACME from a customer address to ACME's issuing address would cost exactly 5 EUR.ACME. However, the customer would need to send 5.05 EUR.ACME to deliver 5 EUR.ACME to ACME's operational address. (The issuing address's total obligations in the RCP Ledger decrease by 0.05 EUR.ACME.) When ACME credits customers for payments to ACME's operational address, ACME credits the customer for the amount delivered to the operational address _and_ the transfer fee, giving the customer €5,05 in ACME's systems.
 
 
 ## Sending Payments to Customers
 
-When you build an automated system to send payments into the SGY Ledger for your customers, you must make sure that it constructs payments carefully. Malicious actors are constantly trying to find ways to trick a system into paying them more money than it should.
+When you build an automated system to send payments into the RCP Ledger for your customers, you must make sure that it constructs payments carefully. Malicious actors are constantly trying to find ways to trick a system into paying them more money than it should.
 
-One common pitfall is performing pathfinding before sending sending a payment to customers in the SGY Ledger. If you specify the issuers correctly, the [default paths](paths.html#default-paths) can deliver the currency as intended.
+One common pitfall is performing pathfinding before sending sending a payment to customers in the RCP Ledger. If you specify the issuers correctly, the [default paths](paths.html#default-paths) can deliver the currency as intended.
 
 The following is an example of using a locally-hosted `rippled`'s [submit method][] to send a payment from the operational address rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn to the customer address raKEEVSGnKSD9Zyvxu4z6Pqpm4ABH8FS6n, sending and delivering funds issued by the issuing address rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW.
 
@@ -736,7 +736,7 @@ When one of your addresses receives a payment whose purpose is unclear, we recom
 
 The first requirement to bouncing payments is [robustly monitoring for incoming payments](#robustly-monitoring-for-payments). You do not want to accidentally refund a customer for more than they sent you! (This is particularly important if your bounce process is automated.) The [Partial Payment Flag Gateway Bulletin (PDF)](https://ripple.com/files/GB-2014-06.pdf) explains how to avoid a common problem.
 
-Second, you should send bounced payments as Partial Payments. Since third parties can manipulate the cost of pathways between addresses, Partial Payments allow you to divest yourself of the full amount without being concerned about exchange rates within the SGY Ledger. You should publicize your bounced payments policy as part of your terms of use. Send the bounced payment from either an operational address or a standby address.
+Second, you should send bounced payments as Partial Payments. Since third parties can manipulate the cost of pathways between addresses, Partial Payments allow you to divest yourself of the full amount without being concerned about exchange rates within the RCP Ledger. You should publicize your bounced payments policy as part of your terms of use. Send the bounced payment from either an operational address or a standby address.
 
 * To send a Partial Payment using `rippled`, enable the [tfPartialPayment flag](payment.html#payment-flags) on the transaction. Set the `Amount` field to the amount you received and omit the `SendMax` field.
 * To send a Partial Payment using RippleAPI, set the `allowPartialPayment` field of the [Payment object](rippleapi-reference.html#payment) to `true`. Set the `source.maxAmount` and `destination.amount` both equal to the amount you received.
@@ -764,7 +764,7 @@ For more information, see [Reliable Transaction Submission](reliable-transaction
 
 ## xrp-ledger.toml File
 
-You can publish information about what currencies your gateway issues, and which SGY Ledger addresses you control, to protect against impostors or confusion, using an [`xrp-ledger.toml` file](xrp-ledger-toml.html). This machine-readable format is convenient for client applications to process. If you run an SGY Ledger validator, you can also publish the key in the same file.
+You can publish information about what currencies your gateway issues, and which RCP Ledger addresses you control, to protect against impostors or confusion, using an [`xrp-ledger.toml` file](xrp-ledger-toml.html). This machine-readable format is convenient for client applications to process. If you run an RCP Ledger validator, you can also publish the key in the same file.
 
 
 <!-- STYLE_OVERRIDE: gateway, gateways -->

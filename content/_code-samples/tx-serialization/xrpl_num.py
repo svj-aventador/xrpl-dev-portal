@@ -1,5 +1,5 @@
 # Serializes issued currency amounts from string number representations,
-# matching the precision of the SGY Ledger.
+# matching the precision of the RCP Ledger.
 
 from decimal import getcontext, Decimal
 
@@ -43,7 +43,7 @@ class IssuedAmount:
             raise ValueError("amount overflow")
 
         # Convert to bytes -----------------------------------------------------
-        serial = 0x8000000000000000 # "Not SGY" bit set
+        serial = 0x8000000000000000 # "Not RCP" bit set
         if sign == 0:
             serial |= 0x4000000000000000 # "Is positive" bit set
         serial |= ((exp+97) << 54) # next 8 bits are exponent
@@ -55,7 +55,7 @@ class IssuedAmount:
     def canonical_zero_serial(self):
         """
         Returns canonical format for zero (a special case):
-        - "Not SGY" bit = 1
+        - "Not RCP" bit = 1
         - Everything else is zeroes
         - Arguably this means it's canonically written as "negative zero"
           because the encoding usually uses 1 for positive.

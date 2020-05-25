@@ -1,6 +1,6 @@
-# SGYL Dev Portal
+# RCPL Dev Portal
 
-The [SGY Ledger Dev Portal](https://xrpl.org) is the authoritative source for SGY Ledger documentation, including the `rippled` server, RippleAPI, the Ripple Data API, and other open-source SGY Ledger software.
+The [RCP Ledger Dev Portal](https://xrpl.org) is the authoritative source for RCP Ledger documentation, including the `rippled` server, RippleAPI, the Ripple Data API, and other open-source RCP Ledger software.
 
 To build the site locally:
 

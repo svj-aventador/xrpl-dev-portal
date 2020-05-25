@@ -1,10 +1,10 @@
 # Look Up Transaction Results
 
-To use the SGY Ledger effectively, you need to be able to understand [transaction](transaction-basics.html) outcomes: did the transaction succeed? What did it accomplish? If it failed, why?
+To use the RCP Ledger effectively, you need to be able to understand [transaction](transaction-basics.html) outcomes: did the transaction succeed? What did it accomplish? If it failed, why?
 
-The SGY Ledger is a shared system, with all data recorded publicly and carefully, securely updated with each new [ledger version](ledgers.html). Anyone can look up the exact outcome of any transaction and read the [transaction metadata](transaction-metadata.html) to see what it did.
+The RCP Ledger is a shared system, with all data recorded publicly and carefully, securely updated with each new [ledger version](ledgers.html). Anyone can look up the exact outcome of any transaction and read the [transaction metadata](transaction-metadata.html) to see what it did.
 
-This document describes, at a low level, how to know why a transaction reached the outcome it did. For an end-user, it is easier to look at a processed view of a transaction. For example, you can [use SGY Charts to get an English-language description of any recorded transaction](https://xrpcharts.ripple.com/#/transactions/).
+This document describes, at a low level, how to know why a transaction reached the outcome it did. For an end-user, it is easier to look at a processed view of a transaction. For example, you can [use RCP Charts to get an English-language description of any recorded transaction](https://xrpcharts.ripple.com/#/transactions/).
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ To understand the outcome of a transaction as described in these instructions, y
     - For looking up the outcomes of transactions you've recently submitted, the server you submitted through should be sufficient, as long as it maintains sync with the network during that time.
     - For outcomes of older transactions, you may want to use a [full-history server](ledger-history.html#full-history).
 
-**Tip:** There are other ways of querying for data on transactions from the SGY Ledger, including the [Data API](data-api.html) and other exported databases, but those interfaces are non-authoritative. This document describes how to look up data using the `rippled` API directly, for the most direct and authoritative results possible.
+**Tip:** There are other ways of querying for data on transactions from the RCP Ledger, including the [Data API](data-api.html) and other exported databases, but those interfaces are non-authoritative. This document describes how to look up data using the `rippled` API directly, for the most direct and authoritative results possible.
 
 
 ## 1. Get Transaction Status
@@ -59,7 +59,7 @@ This example shows an [AccountSet transaction][] sent by the [account](accounts.
 
 ### Case: Not Included in a Validated Ledger
 
-**If a transaction is not included in a validated ledger, it cannot possibly have had _any_ effect on the shared SGY Ledger state.** If the transaction's failure to be included in a ledger is [_final_](finality-of-results.html), then it cannot have any future effect, either.
+**If a transaction is not included in a validated ledger, it cannot possibly have had _any_ effect on the shared RCP Ledger state.** If the transaction's failure to be included in a ledger is [_final_](finality-of-results.html), then it cannot have any future effect, either.
 
 If the transaction's failure is not final, it may still become included in a _future_ validated ledger. You can use the provisional results of applying the transaction to the current open ledger as a preview of the likely effects the transaction may have in a final ledger, but those results can change due to [numerous factors](finality-of-results.html#how-can-non-final-results-change).
 
@@ -69,7 +69,7 @@ If the transaction's failure is not final, it may still become included in a _fu
 If the transaction _is_ included in a validated ledger, then the [transaction metadata](transaction-metadata.html) contains a full report of all changes that were made to the ledger state as a result of processing the transaction. The metadata's `TransactionResult` field contains a [transaction result code](transaction-results.html) that summarizes the outcome:
 
 - The code `tesSUCCESS` indicates that the transaction was, more or less, successful.
-- A `tec`-class code indicates that the transaction failed, and its only effects on the ledger state are to destroy the SGY [transaction cost](transaction-cost.html) and possibly perform some bookkeeping like removing [expired Offers](offers.html#offer-expiration) and [closed payment channels](payment-channels.html#payment-channel-lifecycle).
+- A `tec`-class code indicates that the transaction failed, and its only effects on the ledger state are to destroy the RCP [transaction cost](transaction-cost.html) and possibly perform some bookkeeping like removing [expired Offers](offers.html#offer-expiration) and [closed payment channels](payment-channels.html#payment-channel-lifecycle).
 - No other code can appear in any ledger.
 
 The result code is only a summary of the transaction's outcome. To understand in more detail what the transaction did, you must read the rest of the metadata in context of the transaction's instructions and the ledger state before the transaction executed.
@@ -81,9 +81,9 @@ Transaction metadata describes _exactly_ how the transaction was applied to the 
 
 {% include '_snippets/tx-metadata-field-table.md' %} <!--_ -->
 
-Most of the metadata is contained in [the `AffectedNodes` array](transaction-metadata.html#affectednodes). What to look for in this array depends on the type of transaction. Almost every transaction modifies the sender's [AccountRoot object][] to destroy the SGY [transaction cost](transaction-cost.html) and increase the [account's Sequence number](basic-data-types.html#account-sequence).
+Most of the metadata is contained in [the `AffectedNodes` array](transaction-metadata.html#affectednodes). What to look for in this array depends on the type of transaction. Almost every transaction modifies the sender's [AccountRoot object][] to destroy the RCP [transaction cost](transaction-cost.html) and increase the [account's Sequence number](basic-data-types.html#account-sequence).
 
-**Info:** One exception to this rule is for [pseudo-transactions](pseudo-transaction-types.html), which aren't sent from a real account and thus do not modify an AccountRoot object. There are other exceptions that modify an AccountRoot object without changing its `Balance` field: [free key reset transactions](transaction-cost.html#key-reset-transaction) do not change the sender's SGY balance; and in the unlikely scenario that a transaction causes an account to receive exactly as much SGY as it destroys, the account's Balance shows no net change. (The transaction cost is reflected elsewhere in the metadata, from wherever the account received the SGY.)
+**Info:** One exception to this rule is for [pseudo-transactions](pseudo-transaction-types.html), which aren't sent from a real account and thus do not modify an AccountRoot object. There are other exceptions that modify an AccountRoot object without changing its `Balance` field: [free key reset transactions](transaction-cost.html#key-reset-transaction) do not change the sender's RCP balance; and in the unlikely scenario that a transaction causes an account to receive exactly as much RCP as it destroys, the account's Balance shows no net change. (The transaction cost is reflected elsewhere in the metadata, from wherever the account received the RCP.)
 
 This example shows the full response from step 1 above. See if you can figure out what changes it made to the ledger:
 
@@ -140,7 +140,7 @@ The _only_ changes made by this [no-op transaction](cancel-or-skip-a-transaction
 
 - The `Sequence` value increases from 376 to 377.
 
-- The SGY `Balance` in this account changes from `396015176` to `396015164` [drops of SGY][]. This decrease of exactly 12 drops represents the [transaction cost](transaction-cost.html), as specified in the `Fee` field of the transaction.
+- The RCP `Balance` in this account changes from `396015176` to `396015164` [drops of RCP][]. This decrease of exactly 12 drops represents the [transaction cost](transaction-cost.html), as specified in the `Fee` field of the transaction.
 
 - The [`AccountTxnID`](transaction-common-fields.html#accounttxnid) changes to reflect that this transaction is now the one most recently sent from this address.
 
@@ -150,15 +150,15 @@ The _only_ changes made by this [no-op transaction](cancel-or-skip-a-transaction
 
 Since the `ModifiedNode` entry for rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn's account is the only object in the `AffectedNodes` array, no other changes were made to the ledger as a result of this transaction.
 
-**Tip:** If the transaction sends or receives SGY, the sender's balance changes are combined with the transaction cost, resulting in a single change to the `Balance` field in the net amount. For example, if you sent 1 SGY (1,000,000 drops) and destroyed 10 drops for the transaction cost, the metadata shows your `Balance` decreasing by 1,000,010 drops of SGY.
+**Tip:** If the transaction sends or receives RCP, the sender's balance changes are combined with the transaction cost, resulting in a single change to the `Balance` field in the net amount. For example, if you sent 1 RCP (1,000,000 drops) and destroyed 10 drops for the transaction cost, the metadata shows your `Balance` decreasing by 1,000,010 drops of RCP.
 
 ### General-Purpose Bookkeeping
 
 Almost any transaction can result in the following types of changes:
 
-- **Sequence and Transaction Cost changes:** [As mentioned, every transaction (excluding pseudo-transactions) modifies the sender's `AccountRoot` object](#2-interpret-metadata) to increase the sender's sequence number and destroy the SGY used to pay the transaction cost.
+- **Sequence and Transaction Cost changes:** [As mentioned, every transaction (excluding pseudo-transactions) modifies the sender's `AccountRoot` object](#2-interpret-metadata) to increase the sender's sequence number and destroy the RCP used to pay the transaction cost.
 - **Account Threading:** Some transactions that create objects also modify the [AccountRoot object](accountroot.html) of an intended recipient or destination account to indicate that something relating to that account changed. This technique of "tagging" an account changes only that object's `PreviousTxnID` and `PreviousTxnLgrSeq` fields. This makes it more efficient to look up an account's transaction history by following the "thread" of transactions mentioned in these fields.
-- **Directory Updates:** Transactions that create or remove ledger objects often make changes to [DirectoryNode objects](directorynode.html) to track which objects exist. Also, when a transaction adds an object that counts towards an account's [owner reserve](reserves.html#owner-reserves), it increases the `OwnerCount` of the owner's [AccountRoot object][]. Removing an object decreases the `OwnerCount`. This is how the SGY Ledger tracks how much owner reserve each account owes at any point in time.
+- **Directory Updates:** Transactions that create or remove ledger objects often make changes to [DirectoryNode objects](directorynode.html) to track which objects exist. Also, when a transaction adds an object that counts towards an account's [owner reserve](reserves.html#owner-reserves), it increases the `OwnerCount` of the owner's [AccountRoot object][]. Removing an object decreases the `OwnerCount`. This is how the RCP Ledger tracks how much owner reserve each account owes at any point in time.
 
 Example of increasing an Account's `OwnerCount`:
 
@@ -208,9 +208,9 @@ Other things to look for when processing transaction metadata depend on the tran
 
 ### Payments
 
-A [Payment transaction][] can represent a direct SGY-to-SGY transaction, a [cross-currency payment](cross-currency-payments.html), or a direct transaction in an [issued (non-SGY) currency](issued-currencies.html). Anything other than a direct SGY-to-SGY transaction can be a [partial payment](partial-payments.html), including issued currency to SGY or SGY to issued currency transactions.
+A [Payment transaction][] can represent a direct RCP-to-RCP transaction, a [cross-currency payment](cross-currency-payments.html), or a direct transaction in an [issued (non-RCP) currency](issued-currencies.html). Anything other than a direct RCP-to-RCP transaction can be a [partial payment](partial-payments.html), including issued currency to RCP or RCP to issued currency transactions.
 
-SGY amounts are tracked in the `Balance` field of `AccountRoot` objects. (SGY can also exist in [Escrow objects](escrow-object.html) and [PayChannel objects](paychannel.html), but Payment transactions cannot affect those.)
+RCP amounts are tracked in the `Balance` field of `AccountRoot` objects. (RCP can also exist in [Escrow objects](escrow-object.html) and [PayChannel objects](paychannel.html), but Payment transactions cannot affect those.)
 
 You should always use [the delivered_amount field](partial-payments.html#the-delivered_amount-field) to see how much a payment delivered.
 
@@ -230,9 +230,9 @@ Cross-currency payments consume [Offers](offer.html) in part or entirely to chan
 
 The [`QualityIn` and `QualityOut` settings of trust lines](trustset.html) can affect how one side of a trust line values the issued currency, so that the numeric change in balances is different from how the sender values that currency. The `delivered_amount` shows how much was delivered as valued by the recipient.
 
-If the amount to be sent or received is outside of the [issued currency precision](currency-formats.html#issued-currency-precision), it is possible that one side may be debited for an amount that is rounded to nothing on the other side of the transaction. Therefore, when two parties transact while their balances are different by a factor of 10<sup>16</sup>, it is possible that rounding may effectively "create" or "destroy" small amounts of the issued currency. (SGY is never rounded, so this is not possible with SGY.)
+If the amount to be sent or received is outside of the [issued currency precision](currency-formats.html#issued-currency-precision), it is possible that one side may be debited for an amount that is rounded to nothing on the other side of the transaction. Therefore, when two parties transact while their balances are different by a factor of 10<sup>16</sup>, it is possible that rounding may effectively "create" or "destroy" small amounts of the issued currency. (RCP is never rounded, so this is not possible with RCP.)
 
-Depending on the length of the [paths](paths.html), the metadata for cross-currency payments can be _long_. For example, [transaction 8C55AFC2A2AA42B5CE624AEECDB3ACFDD1E5379D4E5BF74A8460C5E97EF8706B](https://xrpcharts.ripple.com/#/transactions/8C55AFC2A2AA42B5CE624AEECDB3ACFDD1E5379D4E5BF74A8460C5E97EF8706B) delivered 2.788 GCB issued by rHaaans..., spending SGY but passing through USD from 2 issuers, paying SGY to 2 accounts, removing an unfunded offer from r9ZoLsJ to trade EUR for ETH, plus bookkeeping for a total of 17 different ledger objects modified.
+Depending on the length of the [paths](paths.html), the metadata for cross-currency payments can be _long_. For example, [transaction 8C55AFC2A2AA42B5CE624AEECDB3ACFDD1E5379D4E5BF74A8460C5E97EF8706B](https://xrpcharts.ripple.com/#/transactions/8C55AFC2A2AA42B5CE624AEECDB3ACFDD1E5379D4E5BF74A8460C5E97EF8706B) delivered 2.788 GCB issued by rHaaans..., spending RCP but passing through USD from 2 issuers, paying RCP to 2 accounts, removing an unfunded offer from r9ZoLsJ to trade EUR for ETH, plus bookkeeping for a total of 17 different ledger objects modified.
 
 ### Offers
 
@@ -259,7 +259,7 @@ An [OfferCreate transaction][] may or may not create an object in the ledger, de
 }
 ```
 
-A `ModifiedNode` of type `Offer` indicates an Offer that was matched and partially consumed. A single transaction can consume a large number of Offers. An Offer to trade two issued currencies might also consume Offers to trade SGY because of [auto-bridging](autobridging.html). All or part of an exchange can be auto-bridged.
+A `ModifiedNode` of type `Offer` indicates an Offer that was matched and partially consumed. A single transaction can consume a large number of Offers. An Offer to trade two issued currencies might also consume Offers to trade RCP because of [auto-bridging](autobridging.html). All or part of an exchange can be auto-bridged.
 
 A `DeletedNode` of LedgerEntryType `Offer` can indicate a matching Offer that was fully consumed, an Offer that was found to be [expired or unfunded](offers.html#lifecycle-of-an-offer) at the time of processing, or an Offer that was canceled as part of placing a new Offer. You can recognize a canceled Offer because the `Account` that placed it is the sender of the transaction that deleted it.
 
@@ -299,17 +299,17 @@ If an OfferCreate transaction shows a `CreatedNode` of type `RippleState`, that 
 
 ### Escrows
 
-A successful [EscrowCreate transaction][] creates an [Escrow object](escrow-object.html) in the ledger. Look for a `CreatedNode` entry of LedgerEntryType `Escrow`. The `NewFields` should show an `Amount` equal to the amount of SGY escrowed, and other properties as specified.
+A successful [EscrowCreate transaction][] creates an [Escrow object](escrow-object.html) in the ledger. Look for a `CreatedNode` entry of LedgerEntryType `Escrow`. The `NewFields` should show an `Amount` equal to the amount of RCP escrowed, and other properties as specified.
 
-A successful EscrowCreate transaction also debits the same amount of SGY from the sender. Look for a `ModifiedNode` of LedgerEntryType `AccountRoot`, where the `Account` in the final fields matches the address from the `Account` in the transaction instructions. The `Balance` should show the decrease in SGY due to the escrowed SGY (in addition to the SGY destroyed to pay the transaction cost).
+A successful EscrowCreate transaction also debits the same amount of RCP from the sender. Look for a `ModifiedNode` of LedgerEntryType `AccountRoot`, where the `Account` in the final fields matches the address from the `Account` in the transaction instructions. The `Balance` should show the decrease in RCP due to the escrowed RCP (in addition to the RCP destroyed to pay the transaction cost).
 
-A successful [EscrowFinish transaction][] modifies the `AccountRoot` of the recipient to increase their SGY balance (in the `Balance` field), deletes the `Escrow` object, and reduces the owner count of the escrow creator. Since the escrow's creator, recipient, and finisher may all be different accounts or the same, this can result in _one to three_ `ModifiedNode` objects of LedgerEntryType `AccountRoot`. A successful [EscrowCancel transaction][] is very similar, except it sends the SGY back to the original creator of the escrow.
+A successful [EscrowFinish transaction][] modifies the `AccountRoot` of the recipient to increase their RCP balance (in the `Balance` field), deletes the `Escrow` object, and reduces the owner count of the escrow creator. Since the escrow's creator, recipient, and finisher may all be different accounts or the same, this can result in _one to three_ `ModifiedNode` objects of LedgerEntryType `AccountRoot`. A successful [EscrowCancel transaction][] is very similar, except it sends the RCP back to the original creator of the escrow.
 
 Of course, an EscrowFinish can only be successful if it meets the conditions of the escrow, and an EscrowCancel can only be successful if the expiration of the Escrow object is before the close time of the previous ledger.
 
 Escrow transactions also do normal [bookkeeping](#general-purpose-bookkeeping) for adjusting the sender's owner reserve and the directories of the accounts involved.
 
-In the following excerpt, we see that r9UUEX...'s balance increases by 1 billion SGY and its owner count decreases by 1 because an escrow from that account to itself finished successfully. The `Sequence` number does not change because [a third party completed the escrow](https://xrpcharts.ripple.com/#/transactions/C4FE7F5643E20E7C761D92A1B8C98320614DD8B8CD8A04CFD990EBC5A39DDEA2):
+In the following excerpt, we see that r9UUEX...'s balance increases by 1 billion RCP and its owner count decreases by 1 because an escrow from that account to itself finished successfully. The `Sequence` number does not change because [a third party completed the escrow](https://xrpcharts.ripple.com/#/transactions/C4FE7F5643E20E7C761D92A1B8C98320614DD8B8CD8A04CFD990EBC5A39DDEA2):
 
 ```json
 {
@@ -351,7 +351,7 @@ In the following excerpt, we see that r9UUEX...'s balance increases by 1 billion
 
 ### Payment Channels
 
-Look for a `CreatedNode` of LedgerEntryType `PayChannel` when creating a payment channel. You should also find a `ModifiedNode` of LedgerEntryType `AccountRoot` showing the decrease in the sender's balance. Look for an `Account` field in the `FinalFields` to confirm that the address matches the sender, and look at the difference in the `Balance` fields to see the change in SGY balance.
+Look for a `CreatedNode` of LedgerEntryType `PayChannel` when creating a payment channel. You should also find a `ModifiedNode` of LedgerEntryType `AccountRoot` showing the decrease in the sender's balance. Look for an `Account` field in the `FinalFields` to confirm that the address matches the sender, and look at the difference in the `Balance` fields to see the change in RCP balance.
 
 If the [fixPayChanRecipientOwnerDir amendment](known-amendments.html#fixpaychanrecipientownerdir) :not_enabled: is enabled, the metadata should also change the destination account's [owner directory](directorynode.html) to list the newly-created payment channel. This prevents an account from [being deleted](accounts.html#deletion-of-accounts) if it is the receiver of an open payment channel. (If the payment channel was created before the fixPayChanRecipientOwnerDir amendment became enabled, the account can be deleted.)
 
@@ -426,7 +426,7 @@ Most other transactions create a specific type of ledger entry and [adjust the s
 
 ### Pseudo-Transactions
 
-[Pseudo-transactions](pseudo-transaction-types.html) also have metadata, but they do not follow all the rules of normal transactions. They are not tied to a real account (the `Account` value is just the [base58-encoded form of the number 0](accounts.html#special-addresses)), so they do not modify an AccountRoot object in the ledger to increase the `Sequence` number or destroy SGY. Pseudo-transactions only make specific changes to special ledger objects:
+[Pseudo-transactions](pseudo-transaction-types.html) also have metadata, but they do not follow all the rules of normal transactions. They are not tied to a real account (the `Account` value is just the [base58-encoded form of the number 0](accounts.html#special-addresses)), so they do not modify an AccountRoot object in the ledger to increase the `Sequence` number or destroy RCP. Pseudo-transactions only make specific changes to special ledger objects:
 
 - [EnableAmendment pseudo-transactions][] modify the [Amendments ledger object](amendments-object.html) to track which amendments are enabled, and which ones are pending with majority support and for how long.
 - [SetFee pseudo-transactions][] modify the [FeeSettings ledger object](feesettings.html) to change the base levels for the [transaction cost](transaction-cost.html) and [reserve requirements](reserves.html).

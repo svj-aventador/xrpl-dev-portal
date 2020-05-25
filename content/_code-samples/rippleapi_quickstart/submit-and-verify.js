@@ -15,7 +15,7 @@ const myOrder = {
     'value': '100'
   },
   'totalPrice': {
-    'currency': 'SGY',
+    'currency': 'RCP',
     'value': '1000'
   }
 };
@@ -23,13 +23,13 @@ const myOrder = {
 /* Milliseconds to wait between checks for a new ledger. */
 const INTERVAL = 1000;
 /* Instantiate RippleAPI. Uses s2 (full history server) */
-const api = new RippleAPI({server: 'wss://s-us.sgy.plus'});
+const api = new RippleAPI({server: 'wss://s-us.RCP.plus'});
 /* Number of ledgers to check for valid transaction before failing */
 const ledgerOffset = 5;
 const myInstructions = {maxLedgerVersionOffset: ledgerOffset};
 
 
-/* Verify a transaction is in a validated SGY Ledger version */
+/* Verify a transaction is in a validated RCP Ledger version */
 function verifyTransaction(hash, options) {
   console.log('Verifying Transaction');
   return api.getTransaction(hash, options).then(data => {
@@ -51,7 +51,7 @@ function verifyTransaction(hash, options) {
 }
 
 
-/* Function to prepare, sign, and submit a transaction to the SGY Ledger. */
+/* Function to prepare, sign, and submit a transaction to the RCP Ledger. */
 function submitTransaction(lastClosedLedgerVersion, prepared, secret) {
   const signedData = api.sign(prepared.txJSON, secret);
   return api.submit(signedData.signedTransaction).then(data => {

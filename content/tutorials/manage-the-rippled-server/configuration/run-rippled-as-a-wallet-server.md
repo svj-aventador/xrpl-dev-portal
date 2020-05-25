@@ -1,6 +1,6 @@
 # Run rippled as a Wallet Server
 
-A wallet server is a multipurpose configuration for `rippled`. With a wallet server, you can submit transactions to the SGY Ledger, access ledger history, and use the latest [tools](https://xpring.io/) to integrate with SGY.
+A wallet server is a multipurpose configuration for `rippled`. With a wallet server, you can submit transactions to the RCP Ledger, access ledger history, and use the latest [tools](https://xpring.io/) to integrate with RCP.
 
 
 A wallet server does all of the following:
@@ -38,14 +38,14 @@ For more information, see [Troubleshooting `rippled`](troubleshoot-the-rippled-s
 ## See Also
 
 - **Concepts:**
-    - [SGY Ledger Overview](xrp-ledger-overview.html)
+    - [RCP Ledger Overview](xrp-ledger-overview.html)
     - [Consensus Network](consensus-network.html)
     - [The `rippled` Server](the-rippled-server.html)
 - **Tutorials:**
     - [Cluster rippled Servers](cluster-rippled-servers.html)
     - [Install `rippled`](install-rippled.html)
     - [Capacity Planning](capacity-planning.html)
-    - [SGY Ledger Businesses](xrp-ledger-businesses.html)
+    - [RCP Ledger Businesses](xrp-ledger-businesses.html)
 - **References:**
     - [Validator Keys Tool Guide](https://github.com/ripple/validator-keys-tool/blob/master/doc/validator-keys-tool-guide.md)
     - [consensus_info method][]

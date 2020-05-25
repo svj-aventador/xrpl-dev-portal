@@ -1,7 +1,7 @@
 # validation_create
 [[Source]](https://github.com/ripple/rippled/blob/315a8b6b602798a4cff4d8e1911936011e12abdb/src/ripple/rpc/handlers/ValidationCreate.cpp "Source")
 
-Use the `validation_create` command to generate [cryptographic keys a `rippled` server can use to identify itself to the network](peer-protocol.html#node-key-pair). Similar to the [wallet_propose method][], this method only generates a set of keys in the proper format. It does not any makes changes to the SGY Ledger data or server configuration.
+Use the `validation_create` command to generate [cryptographic keys a `rippled` server can use to identify itself to the network](peer-protocol.html#node-key-pair). Similar to the [wallet_propose method][], this method only generates a set of keys in the proper format. It does not any makes changes to the RCP Ledger data or server configuration.
 
 _The `validation_create` method is an [admin method](admin-rippled-methods.html) that cannot be run by unprivileged users._
 
@@ -51,7 +51,7 @@ The request includes the following parameters:
 
 | `Field`  | Type   | Description                                              |
 |:---------|:-------|:---------------------------------------------------------|
-| `secret` | String | _(Optional)_ Use this value as a seed to generate the credentials. The same secret always generates the same credentials. You can provide the seed in [RFC-1751](https://tools.ietf.org/html/rfc1751) format or the SGY Ledger's [base58][] format. If omitted, generate a random seed. |
+| `secret` | String | _(Optional)_ Use this value as a seed to generate the credentials. The same secret always generates the same credentials. You can provide the seed in [RFC-1751](https://tools.ietf.org/html/rfc1751) format or the RCP Ledger's [base58][] format. If omitted, generate a random seed. |
 
 **Note:** The security of your validator depends on the entropy of your seed. Do not use a secret value for real business purposes unless it is generated with a strong source of randomness. Ripple recommends omitting the `secret` when generating new credentials for the first time.
 
@@ -96,8 +96,8 @@ The response follows the [standard format][], with a successful result containin
 | `Field`                 | Type   | Description                               |
 |:------------------------|:-------|:------------------------------------------|
 | `validation_key`        | String | The secret key for these validation credentials, in [RFC-1751](https://tools.ietf.org/html/rfc1751) format. |
-| `validation_public_key` | String | The public key for these validation credentials, in the SGY Ledger's [base58][] encoded string format. |
-| `validation_seed`       | String | The secret key for these validation credentials, in the SGY Ledger's [base58][] encoded string format. |
+| `validation_public_key` | String | The public key for these validation credentials, in the RCP Ledger's [base58][] encoded string format. |
+| `validation_seed`       | String | The secret key for these validation credentials, in the RCP Ledger's [base58][] encoded string format. |
 
 ### Possible Errors
 

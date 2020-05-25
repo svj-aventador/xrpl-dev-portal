@@ -26,8 +26,8 @@ DepositPreauthトランザクションは別のアカウントに対し、この
 
 | フィールド         | JSONの型 | [内部の型][] | 説明 |
 |:--------------|:----------|:------------------|:-----|
-| `Authorize`   | 文字列    | AccountID         | _（省略可）_ 事前承認する送信者のSGY Ledgerアドレス。 |
-| `Unauthorize` | 文字列    | AccountID         | _（省略可）_ 事前承認を取り消す必要がある送信者のSGY Ledgerアドレス。 |
+| `Authorize`   | 文字列    | AccountID         | _（省略可）_ 事前承認する送信者のRCP Ledgerアドレス。 |
+| `Unauthorize` | 文字列    | AccountID         | _（省略可）_ 事前承認を取り消す必要がある送信者のRCP Ledgerアドレス。 |
 
 `Authorize`または`Unauthorize`_のいずれか_ を指定する必要がありますが、両方は指定しないでください。
 
@@ -37,7 +37,7 @@ DepositPreauthトランザクションは別のアカウントに対し、この
 - すでに事前承認済みのアカウントを事前承認しようとすると、[`tecDUPLICATE`](tec-codes.html)で失敗します。
 - 事前承認されていないアカウントを承認解除しようとすると、[`tecNO_ENTRY`](tec-codes.html)で失敗します。
 - レジャーで資金が供給されていないアドレスを事前承認しようとすると、[`tecNO_TARGET`](tec-codes.html)で失敗します。
-- 承認を追加すると[DepositPreauthオブジェクト](depositpreauth-object.html)がレジャーに追加されて、[所有者の必要準備金](reserves.html#所有者準備金)に反映されます。トランザクションの送信者に、増額された準備金の支払いに十分なSGYがない場合、トランザクションは[`tecINSUFFICIENT_RESERVE`](tec-codes.html)で失敗します。アカウントの送信者の所有オブジェクトが最大数に達している場合、トランザクションは[`tecDIR_FULL`](tec-codes.html)で失敗します。
+- 承認を追加すると[DepositPreauthオブジェクト](depositpreauth-object.html)がレジャーに追加されて、[所有者の必要準備金](reserves.html#所有者準備金)に反映されます。トランザクションの送信者に、増額された準備金の支払いに十分なRCPがない場合、トランザクションは[`tecINSUFFICIENT_RESERVE`](tec-codes.html)で失敗します。アカウントの送信者の所有オブジェクトが最大数に達している場合、トランザクションは[`tecDIR_FULL`](tec-codes.html)で失敗します。
 
 
 <!--{# common link defs #}-->

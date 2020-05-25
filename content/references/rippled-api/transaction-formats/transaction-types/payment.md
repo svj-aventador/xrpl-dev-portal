@@ -29,13 +29,13 @@ Payments are also the only way to [create accounts](#creating-accounts).
 
 | Field          | JSON Type            | [Internal Type][] | Description      |
 |:---------------|:---------------------|:------------------|:-----------------|
-| Amount         | [Currency Amount][]  | Amount            | The amount of currency to deliver. For non-SGY amounts, the nested field names MUST be lower-case. If the [**tfPartialPayment** flag](#payment-flags) is set, deliver _up to_ this amount instead. |
+| Amount         | [Currency Amount][]  | Amount            | The amount of currency to deliver. For non-RCP amounts, the nested field names MUST be lower-case. If the [**tfPartialPayment** flag](#payment-flags) is set, deliver _up to_ this amount instead. |
 | Destination    | String               | Account           | The unique address of the account receiving the payment. |
 | DestinationTag | Number               | UInt32            | _(Optional)_ Arbitrary tag that identifies the reason for the payment to the destination, or a hosted recipient to pay. |
 | InvoiceID      | String               | Hash256           | _(Optional)_ Arbitrary 256-bit hash representing a specific reason or identifier for this payment. |
-| Paths          | Array of path arrays | PathSet           | (Optional, auto-fillable) Array of [payment paths](paths.html) to be used for this transaction. Must be omitted for SGY-to-SGY transactions. |
-| SendMax        | [Currency Amount][]  | Amount            | _(Optional)_ Highest amount of source currency this transaction is allowed to cost, including [transfer fees](transfer-fees.html), exchange rates, and [slippage](http://en.wikipedia.org/wiki/Slippage_%28finance%29). Does not include the [SGY destroyed as a cost for submitting the transaction](transaction-cost.html). For non-SGY amounts, the nested field names MUST be lower-case. Must be supplied for cross-currency/cross-issue payments. Must be omitted for SGY-to-SGY payments. |
-| DeliverMin     | [Currency Amount][]  | Amount            | _(Optional)_ Minimum amount of destination currency this transaction should deliver. Only valid if this is a [partial payment](partial-payments.html). For non-SGY amounts, the nested field names are lower-case. |
+| Paths          | Array of path arrays | PathSet           | (Optional, auto-fillable) Array of [payment paths](paths.html) to be used for this transaction. Must be omitted for RCP-to-RCP transactions. |
+| SendMax        | [Currency Amount][]  | Amount            | _(Optional)_ Highest amount of source currency this transaction is allowed to cost, including [transfer fees](transfer-fees.html), exchange rates, and [slippage](http://en.wikipedia.org/wiki/Slippage_%28finance%29). Does not include the [RCP destroyed as a cost for submitting the transaction](transaction-cost.html). For non-RCP amounts, the nested field names MUST be lower-case. Must be supplied for cross-currency/cross-issue payments. Must be omitted for RCP-to-RCP payments. |
+| DeliverMin     | [Currency Amount][]  | Amount            | _(Optional)_ Minimum amount of destination currency this transaction should deliver. Only valid if this is a [partial payment](partial-payments.html). For non-RCP amounts, the nested field names are lower-case. |
 
 ## Types of Payments
 
@@ -43,13 +43,13 @@ The Payment transaction type is a general-purpose tool that can represent severa
 
 | Payment type                              | `Amount`                        | `SendMax`                       | `Paths`          | `Address` = `Destination`? | Description |
 |:------------------------------------------|:--------------------------------|:--------------------------------|:-----------------|:---------------------------|:--|
-| [Direct SGY-to-SGY Payment][]             | String (SGY)                    | Omitted                         | Omitted          | No                         | Transfers SGY directly from one account to another. Always delivers the exact amount. No fee applies other than the basic [transaction cost](transaction-cost.html). |
-| [Creating or redeeming issued currency][] | Object                          | Object (optional)               | Optional         | No                         | Increases or decreases the amount of a non-SGY currency or asset tracked in the SGY Ledger. [Transfer fees](transfer-fees.html) and [freezes](freezes.html) do not apply when sending and redeeming directly. |
-| [Cross-currency Payment][]                | Object (non-SGY) / String (SGY) | Object (non-SGY) / String (SGY) | Usually required | No                         | Send issued currency from one holder to another. The `Amount` and `SendMax` cannot _both_ be SGY. These payments [ripple through](rippling.html) the issuer and can take longer [paths](paths.html) through several intermediaries if the transaction specifies a path set. [Transfer fees](transfer-fees.html) set by the issuer(s) apply to this type of transaction. These transactions consume offers in the [decentralized exchange](decentralized-exchange.html) to connect between different currencies, or possibly even between currencies with the same currency code and different issuers. |
-| [Partial payment][]                       | Object (non-SGY) / String (SGY) | Object (non-SGY) / String (SGY) | Usually required | No                         | Sends _up to_ a specific amount of any currency. Uses the [tfPartialPayment flag](#payment-flags). May include a `DeliverMin` amount specifying the minimum that the transaction must deliver to be successful; if the transaction does not specify `DeliverMin`, it can succeed by delivering _any positive amount_. |
-| Currency conversion                       | Object (non-SGY) / String (SGY) | Object (non-SGY) / String (SGY) | Required         | Yes                        | Consumes offers in the [decentralized exchange](decentralized-exchange.html) to convert one currency to another, possibly taking [arbitrage](https://en.wikipedia.org/wiki/Arbitrage) opportunities. The `Amount` and `SendMax` cannot both be SGY. Also called a _circular payment_ because it delivers money to the sender. The [Data API](data-api.html) tracks this type of transaction as an "exchange" and not a "payment". |
+| [Direct RCP-to-RCP Payment][]             | String (RCP)                    | Omitted                         | Omitted          | No                         | Transfers RCP directly from one account to another. Always delivers the exact amount. No fee applies other than the basic [transaction cost](transaction-cost.html). |
+| [Creating or redeeming issued currency][] | Object                          | Object (optional)               | Optional         | No                         | Increases or decreases the amount of a non-RCP currency or asset tracked in the RCP Ledger. [Transfer fees](transfer-fees.html) and [freezes](freezes.html) do not apply when sending and redeeming directly. |
+| [Cross-currency Payment][]                | Object (non-RCP) / String (RCP) | Object (non-RCP) / String (RCP) | Usually required | No                         | Send issued currency from one holder to another. The `Amount` and `SendMax` cannot _both_ be RCP. These payments [ripple through](rippling.html) the issuer and can take longer [paths](paths.html) through several intermediaries if the transaction specifies a path set. [Transfer fees](transfer-fees.html) set by the issuer(s) apply to this type of transaction. These transactions consume offers in the [decentralized exchange](decentralized-exchange.html) to connect between different currencies, or possibly even between currencies with the same currency code and different issuers. |
+| [Partial payment][]                       | Object (non-RCP) / String (RCP) | Object (non-RCP) / String (RCP) | Usually required | No                         | Sends _up to_ a specific amount of any currency. Uses the [tfPartialPayment flag](#payment-flags). May include a `DeliverMin` amount specifying the minimum that the transaction must deliver to be successful; if the transaction does not specify `DeliverMin`, it can succeed by delivering _any positive amount_. |
+| Currency conversion                       | Object (non-RCP) / String (RCP) | Object (non-RCP) / String (RCP) | Required         | Yes                        | Consumes offers in the [decentralized exchange](decentralized-exchange.html) to convert one currency to another, possibly taking [arbitrage](https://en.wikipedia.org/wiki/Arbitrage) opportunities. The `Amount` and `SendMax` cannot both be RCP. Also called a _circular payment_ because it delivers money to the sender. The [Data API](data-api.html) tracks this type of transaction as an "exchange" and not a "payment". |
 
-[Direct SGY-to-SGY Payment]: direct-xrp-payments.html
+[Direct RCP-to-RCP Payment]: direct-xrp-payments.html
 [Creating or redeeming issued currency]: issued-currencies-overview.html
 [Cross-currency Payment]: cross-currency-payments.html
 [Partial payment]: partial-payments.html
@@ -57,7 +57,7 @@ The Payment transaction type is a general-purpose tool that can represent severa
 
 ## Special issuer Values for SendMax and Amount
 
-Most of the time, the `issuer` field of a non-SGY [Currency Amount][] indicates a financial institution's [issuing address](issuing-and-operational-addresses.html). However, when describing payments, there are special rules for the `issuer` field in the `Amount` and `SendMax` fields of a payment.
+Most of the time, the `issuer` field of a non-RCP [Currency Amount][] indicates a financial institution's [issuing address](issuing-and-operational-addresses.html). However, when describing payments, there are special rules for the `issuer` field in the `Amount` and `SendMax` fields of a payment.
 
 * There is only ever one balance for the same currency between two addresses. This means that, sometimes, the `issuer` field of an amount actually refers to a counterparty that is redeeming issuances, instead of the address that created the issuances.
 * When the `issuer` field of the destination `Amount` field matches the `Destination` address, it is treated as a special case meaning "any issuer that the destination accepts." This includes all addresses to which the destination has extended trust lines, as well as issuances created by the destination which are held on other trust lines.
@@ -65,7 +65,7 @@ Most of the time, the `issuer` field of a non-SGY [Currency Amount][] indicates 
 
 ## Creating Accounts
 
-The Payment transaction type can create new accounts in the SGY Ledger by sending enough SGY to an unfunded address. Other transactions to unfunded addresses always fail.
+The Payment transaction type can create new accounts in the RCP Ledger by sending enough RCP to an unfunded address. Other transactions to unfunded addresses always fail.
 
 For more information, see [Accounts](accounts.html#creating-accounts).
 
@@ -75,7 +75,7 @@ If present, the `Paths` field must contain a _path set_ - an array of path array
 
 You must omit the `Paths` field for direct payments, including:
 
-* An SGY-to-SGY transfer.
+* An RCP-to-RCP transfer.
 * A direct transfer on a trust line that connects the sender and receiver.
 
 If the `Paths` field is provided, the server decides at transaction processing time which paths to use, from the provided set plus a _default path_ (the most direct way possible to connect the specified accounts). This decision is deterministic and attempts to minimize costs, but it is not guaranteed to be perfect.
@@ -107,7 +107,7 @@ For more information, see the full article on [Partial Payments](partial-payment
 
 ## Limit Quality
 
-The SGY Ledger defines the "quality" of a currency exchange as the ratio of the numeric amount in to the numeric amount out. For example, if you spend $2 USD to receive £1 GBP, then the "quality" of that exchange is `0.5`.
+The RCP Ledger defines the "quality" of a currency exchange as the ratio of the numeric amount in to the numeric amount out. For example, if you spend $2 USD to receive £1 GBP, then the "quality" of that exchange is `0.5`.
 
 The [*tfLimitQuality* flag](#payment-flags) allows you to set a minimum quality of conversions that you are willing to take. This limit quality is defined as the destination `Amount` divided by the `SendMax` amount (the numeric amounts only, regardless of currency). When set, the payment processing engine avoids using any paths whose quality (conversion rate) is worse (numerically lower) than the limit quality.
 

@@ -8,13 +8,13 @@
 
       `rippled`サーバーをインストールし、バリデータモードで実行、保守する手順を説明します。
 
-* **[各自の取引所へのSGYの上場](list-xrp-in-your-exchange.html)**
+* **[各自の取引所へのRCPの上場](list-xrp-in-your-exchange.html)**
 
-      SGY Ledgerと統合し、SGYを各自の取引所に上場できるようにします。これによりユーザーがSGYの預入と引出を実行できるようになります。
+      RCP Ledgerと統合し、RCPを各自の取引所に上場できるようにします。これによりユーザーがRCPの預入と引出を実行できるようになります。
 
 * **[`rippled`へのコードの提供](contribute-code-to-rippled.html)**
 
-      SGY Ledgerピアツーピアネットワークの中心となる`rippled`のオープンソースリファレンスサーバー実装の改善にご協力ください。
+      RCP Ledgerピアツーピアネットワークの中心となる`rippled`のオープンソースリファレンスサーバー実装の改善にご協力ください。
 
 * **[`ripple-lib`へのコードの提供](contribute-code-to-ripple-lib.html)**
 
@@ -22,6 +22,6 @@
 
 * **[スマートコントラクトとしてのEscrowの使用](use-an-escrow-as-a-smart-contract.html)**
 
-      SGY LedgerのEscrow機能を使用してスマートコントラクトを提供する方法を説明します。
+      RCP LedgerのEscrow機能を使用してスマートコントラクトを提供する方法を説明します。
 
 このページに記載されていないケースのロードマップをご希望の場合は、以下よりお問い合わせください。[お問い合わせ>](mailto:docs@ripple.com)

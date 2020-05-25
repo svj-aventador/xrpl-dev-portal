@@ -9,9 +9,9 @@
 [通貨額の指定]: basic-data-types.html#通貨額の指定
 [Currency Code]: currency-formats.html#currency-codes
 [通貨コード]: currency-formats.html#通貨コード
-[drops of SGY]: basic-data-types.html#specifying-currency-amounts
+[drops of RCP]: basic-data-types.html#specifying-currency-amounts
 [fee levels]: transaction-cost.html#fee-levels
-[SGYのdrop数]: basic-data-types.html#通貨額の指定
+[RCPのdrop数]: basic-data-types.html#通貨額の指定
 [Hash]: basic-data-types.html#hashes
 [ハッシュ]: basic-data-types.html#ハッシュ
 [identifying hash]: transaction-basics.html#identifying-transactions
@@ -46,8 +46,8 @@
 [トランザクションコスト]: transaction-cost.html
 [universal error types]: error-formatting.html#universal-errors
 [汎用エラータイプ]: error-formatting.html#汎用エラー
-[SGY, in drops]: basic-data-types.html#specifying-currency-amounts
-[SGY、drop単位]: basic-data-types.html#通貨額の指定
+[RCP, in drops]: basic-data-types.html#specifying-currency-amounts
+[RCP、drop単位]: basic-data-types.html#通貨額の指定
 
 <!-- API object types -->
 [AccountRoot object]: accountroot.html

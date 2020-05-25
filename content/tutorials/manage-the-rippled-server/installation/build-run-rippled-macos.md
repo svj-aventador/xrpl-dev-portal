@@ -178,7 +178,7 @@ For information about `rippled` log messages, see [Understanding Log Messages](u
     - [Troubleshoot rippled](troubleshoot-the-rippled-server.html)
     - [Get Started with the rippled API](get-started-with-the-rippled-api.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 

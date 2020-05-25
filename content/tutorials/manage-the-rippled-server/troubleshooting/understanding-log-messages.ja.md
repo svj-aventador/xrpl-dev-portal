@@ -151,13 +151,13 @@ InboundLedger:WRN 11 timeouts for ledger 8265938
 
 ```
 [ips_fixed]
-s-us.sgy.plus 51235
+s-us.RCP.plus 51235
 ```
 
 
 ## Potential Censorship
 
-SGY Ledgerが取引検閲の可能性を検出すると、以下のようなログメッセージが出力されます。ログメッセージと取引検閲検出機能の詳細については、[取引検閲の検知](transaction-censorship-detection.html)を参照してください。
+RCP Ledgerが取引検閲の可能性を検出すると、以下のようなログメッセージが出力されます。ログメッセージと取引検閲検出機能の詳細については、[取引検閲の検知](transaction-censorship-detection.html)を参照してください。
 
 **警告メッセージ**
 

@@ -3,7 +3,7 @@
 
 _[PayChan Amendment][]が必要です。_
 
-一方向のChannelを作成し、SGYを供給します。このトランザクションを送信するアドレスは、Payment Channelの「支払元アドレス」になります。
+一方向のChannelを作成し、RCPを供給します。このトランザクションを送信するアドレスは、Payment Channelの「支払元アドレス」になります。
 
 ## {{currentpage.name}} JSONの例
 
@@ -27,9 +27,9 @@ _[PayChan Amendment][]が必要です。_
 
 | フィールド            | JSONの型 | [内部の型][] | 説明               |
 |:-----------------|:----------|:------------------|:--------------------------|
-| `Amount`         | 文字列    | Amount            | 送金元の残高から差し引いてこのChannelに留保する[SGY、drop単位][]の額。このChannelのオープン時には、SGYを`Destination`アドレスにのみ移動できます。Channelが閉鎖すると、未請求のSGYは支払元アドレスの残高に戻されます。 |
-| `Destination`    | 文字列    | AccountID         | このChannelに対するSGYクレームを受け取るアドレス。Channelの「宛先アドレス」とも呼ばれます。送金元（`Account`）と同一にはできません。 |
-| `SettleDelay`    | 数値    | UInt32            | Channelに未請求のSGYがある場合に、支払元アドレスがそのChannelを閉鎖するまでに待機する時間。 |
+| `Amount`         | 文字列    | Amount            | 送金元の残高から差し引いてこのChannelに留保する[RCP、drop単位][]の額。このChannelのオープン時には、RCPを`Destination`アドレスにのみ移動できます。Channelが閉鎖すると、未請求のRCPは支払元アドレスの残高に戻されます。 |
+| `Destination`    | 文字列    | AccountID         | このChannelに対するRCPクレームを受け取るアドレス。Channelの「宛先アドレス」とも呼ばれます。送金元（`Account`）と同一にはできません。 |
+| `SettleDelay`    | 数値    | UInt32            | Channelに未請求のRCPがある場合に、支払元アドレスがそのChannelを閉鎖するまでに待機する時間。 |
 | `PublicKey`      | 文字列    | Blob              | 支払元がこのChannelに対するクレームに署名するときに使用する公開鍵またはキーペア（16進数）。secp256k1公開鍵またはEd25519公開鍵を指定できます。 <!-- STYLE_OVERRIDE: will --> |
 | `CancelAfter`    | 数値    | UInt32            | _（省略可）_ このChannelの有効期限（[Rippleエポック以降の経過秒数][]）。この時刻の経過後にトランザクションがこのChannelを変更しようとすると、このChannelは閉鎖し、Channelは変更されません。この値は変更できません。Channelはこの時刻よりも早い時点で閉鎖できますが、この時刻の経過後にもオープンしたままにすることはできません。 |
 | `DestinationTag` | 数値    | UInt32            | _（省略可）_ このPayment Channelの宛先（宛先アドレスのホスティングされている受取人など） を詳しく指定するための任意のタグ。 |

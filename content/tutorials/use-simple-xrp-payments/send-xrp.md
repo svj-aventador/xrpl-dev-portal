@@ -1,6 +1,6 @@
-# Send SGY
+# Send RCP
 
-This tutorial explains how to send a simple SGY Payment using RippleAPI for JavaScript. First, we step through the process with the SGY Test Net. Then, we compare that to the additional requirements for doing the equivalent in production.
+This tutorial explains how to send a simple RCP Payment using RippleAPI for JavaScript. First, we step through the process with the RCP Test Net. Then, we compare that to the additional requirements for doing the equivalent in production.
 
 ## Prerequisites
 
@@ -10,9 +10,9 @@ This tutorial explains how to send a simple SGY Payment using RippleAPI for Java
 <!-- Helper for interactive tutorial breadcrumbs -->
 <script type="application/javascript" src="assets/js/interactive-tutorial.js"></script>
 
-- This page provides JavaScript examples that use the ripple-lib (RippleAPI) library version 1.1.2. The [RippleAPI Beginners Guide](get-started-with-rippleapi-for-javascript.html) describes how to get started using RippleAPI to access SGY Ledger data from JavaScript.
+- This page provides JavaScript examples that use the ripple-lib (RippleAPI) library version 1.1.2. The [RippleAPI Beginners Guide](get-started-with-rippleapi-for-javascript.html) describes how to get started using RippleAPI to access RCP Ledger data from JavaScript.
 
-- To send transactions in the SGY Ledger, you first need an address and secret key, and some SGY. You can get an address in the SGY Test Net with a supply of Test Net SGY using the following interface:
+- To send transactions in the RCP Ledger, you first need an address and secret key, and some RCP. You can get an address in the RCP Test Net with a supply of Test Net RCP using the following interface:
 
 {{ start_step("Generate") }}
 <button id="generate-creds-button" class="btn btn-primary">Generate credentials</button>
@@ -50,7 +50,7 @@ $(document).ready( () => {
           "</span>").show()
         $("#balance").hide().html('<strong>Balance:</strong> ' +
           Number(data.balance).toLocaleString('en') +
-          ' SGY').show()
+          ' RCP').show()
 
         // Automatically populate examples with these credentials...
         // Set sender address
@@ -87,7 +87,7 @@ $(document).ready( () => {
 })
 </script>
 
-**Caution:** Ripple operates the SGY Test Net for testing purposes only, and regularly resets the state of the test net along with all balances. As a precaution, Ripple recommends **not** using the same addresses on the test net and production.
+**Caution:** Ripple operates the RCP Test Net for testing purposes only, and regularly resets the state of the test net along with all balances. As a precaution, Ripple recommends **not** using the same addresses on the test net and production.
 
 
 ## Send a Payment on the Test Net
@@ -97,7 +97,7 @@ $(document).ready( () => {
 
 To provide the necessary auto-fillable fields, ripple-lib must be connected to a server where it can get the current status of your account and the shared ledger itself. (For more security, you should sign transactions while being offline, but you must provide the auto-fillable fields manually if you do so.) You must be connected to the network to submit transactions to it.
 
-The following code sample instantiates a new RippleAPI instance and connects to one of the public SGY Test Net servers that Ripple runs:
+The following code sample instantiates a new RippleAPI instance and connects to one of the public RCP Test Net servers that Ripple runs:
 
 ```js
 ripple = require('ripple-lib')
@@ -144,7 +144,7 @@ $("#connect-button").click(() => {
 
 ### {{n.next()}}. Prepare Transaction
 
-Typically, we create SGY Ledger transactions as objects in the JSON [transaction format](transaction-formats.html). The following example shows a minimal Payment specification:
+Typically, we create RCP Ledger transactions as objects in the JSON [transaction format](transaction-formats.html). The following example shows a minimal Payment specification:
 
 ```json
 {
@@ -155,12 +155,12 @@ Typically, we create SGY Ledger transactions as objects in the JSON [transaction
 }
 ```
 
-The bare minimum set of instructions you must provide for an SGY Payment is:
+The bare minimum set of instructions you must provide for an RCP Payment is:
 
 - An indicator that this is a payment. (`"TransactionType": "Payment"`)
 - The sending address. (`"Account"`)
-- The address that should receive the SGY (`"Destination"`). This can't be the same as the sending address.
-- The amount of SGY to send (`"Amount"`). Typically, this is specified as an integer in "drops" of SGY, where 1,000,000 drops equals 1 SGY.
+- The address that should receive the RCP (`"Destination"`). This can't be the same as the sending address.
+- The amount of RCP to send (`"Amount"`). Typically, this is specified as an integer in "drops" of RCP, where 1,000,000 drops equals 1 RCP.
 
 Technically, a viable transaction must contain some additional fields, and certain optional fields such as `LastLedgerSequence` are strongly recommended. The [`prepareTransaction()` method](rippleapi-reference.html#preparetransaction) automatically fills in good defaults for the remaining fields of a transaction. Here's an example of preparing the above payment:
 
@@ -179,7 +179,7 @@ async function doPrepare() {
   })
   const maxLedgerVersion = preparedTx.instructions.maxLedgerVersion
   console.log("Prepared transaction instructions:", preparedTx.txJSON)
-  console.log("Transaction cost:", preparedTx.instructions.fee, "SGY")
+  console.log("Transaction cost:", preparedTx.instructions.fee, "RCP")
   console.log("Transaction expires after ledger:", maxLedgerVersion)
   return preparedTx.txJSON
 }
@@ -215,7 +215,7 @@ txJSON = JSON.stringify(doPrepare())
       "<div><strong>Prepared transaction instructions:</strong> <pre><code id='prepared-tx-json'>" +
       JSON.stringify(JSON.parse(preparedTx.txJSON), null, 2) + "</code></pre></div>" +
       "<div><strong>Transaction cost:</strong> " +
-      preparedTx.instructions.fee + " SGY</div>" +
+      preparedTx.instructions.fee + " RCP</div>" +
       "<div><strong>Transaction expires after ledger:</strong> " +
       maxLedgerVersion + "</div>"
     )
@@ -241,7 +241,7 @@ const txBlob = response.signedTransaction
 console.log("Signed blob:", txBlob)
 ```
 
-The result of the signing operation is a transaction object containing a signature. Typically, SGY Ledger APIs expect a signed transaction to be the hexadecimal representation of the transaction's canonical [binary format](serialization.html), called a "blob".
+The result of the signing operation is a transaction object containing a signature. Typically, RCP Ledger APIs expect a signed transaction to be the hexadecimal representation of the transaction's canonical [binary format](serialization.html), called a "blob".
 
 The signing API also returns the transaction's ID, or identifying hash, which you can use to look up the transaction later. This is a 64-character hexadecimal string that is unique to this transaction.
 
@@ -311,7 +311,7 @@ If you see any other result, you should check the following:
 
 - Are you using the correct addresses for the sender and destination?
 - Did you forget any other fields of the transaction, skip any steps, or make any other typos?
-- Do you have enough Test Net SGY to send the transaction? The amount of SGY you can send is limited by the [reserve requirement](reserves.html), which is currently 20 SGY with an additional 5 SGY for each "object" you own in the ledger. (If you generated a new address with the Test Net Faucet, you don't own any objects.)
+- Do you have enough Test Net RCP to send the transaction? The amount of RCP you can send is limited by the [reserve requirement](reserves.html), which is currently 20 RCP with an additional 5 RCP for each "object" you own in the ledger. (If you generated a new address with the Test Net Faucet, you don't own any objects.)
 - Are you connected to a server on the test network?
 
 See the full list of [transaction results](transaction-results.html) for more possibilities.
@@ -357,7 +357,7 @@ See the full list of [transaction results](transaction-results.html) for more po
 
 ### {{n.next()}}. Wait for Validation
 
-Most transactions are accepted into the next ledger version after they're submitted, which means it may take 4-7 seconds for a transaction's outcome to be final. If the SGY Ledger is busy or poor network connectivity delays a transaction from being relayed throughout the network, a transaction may take longer to be confirmed. (For information on how to set an expiration for transactions, see [Reliable Transaction Submission](reliable-transaction-submission.html).)
+Most transactions are accepted into the next ledger version after they're submitted, which means it may take 4-7 seconds for a transaction's outcome to be final. If the RCP Ledger is busy or poor network connectivity delays a transaction from being relayed throughout the network, a transaction may take longer to be confirmed. (For information on how to set an expiration for transactions, see [Reliable Transaction Submission](reliable-transaction-submission.html).)
 
 You use the `ledger` event type in RippleAPI to trigger your code to run whenever there is a new validated ledger version. For example:
 
@@ -457,14 +457,14 @@ The RippleAPI `getTransaction()` method only returns success if the transaction 
 
 ## Differences for Production
 
-To send an SGY payment on the production SGY Ledger, the steps you take are largely the same. However, there are some key differences in the necessary setup:
+To send an RCP payment on the production RCP Ledger, the steps you take are largely the same. However, there are some key differences in the necessary setup:
 
-- [Getting real SGY isn't free.](#getting-a-real-xrp-account)
-- [You must connect to a server that's synced with the production SGY Ledger network.](#connecting-to-the-production-xrp-ledger)
+- [Getting real RCP isn't free.](#getting-a-real-xrp-account)
+- [You must connect to a server that's synced with the production RCP Ledger network.](#connecting-to-the-production-xrp-ledger)
 
-### Getting a Real SGY Account
+### Getting a Real RCP Account
 
-This tutorial uses a button to get an address that's already funded with Test Net SGY, which only works because Test Net SGY is not worth anything. For actual SGY, you need to get SGY from someone who already has some. (For example, you might buy it on an exchange.) You can generate an address and secret that'll work on either production or the test net using RippleAPI's [generateAddress() method](rippleapi-reference.html#generateaddress):
+This tutorial uses a button to get an address that's already funded with Test Net RCP, which only works because Test Net RCP is not worth anything. For actual RCP, you need to get RCP from someone who already has some. (For example, you might buy it on an exchange.) You can generate an address and secret that'll work on either production or the test net using RippleAPI's [generateAddress() method](rippleapi-reference.html#generateaddress):
 
 ```js
 const generated = api.generateAddress()
@@ -472,17 +472,17 @@ console.log(generated.address) // Example: rGCkuB7PBr5tNy68tPEABEtcdno4hE6Y7f
 console.log(generated.secret) // Example: sp6JS7f14BuwFY8Mw6bTtLKWauoUs
 ```
 
-**Warning:** You should only use an address and secret that you generated securely, on your local machine. If another computer generated the address and secret and sent it to you over a network, it's possible that someone else on the network may see that information. If they do, they'll have as much control over your SGY as you do. It's also recommended not to use the same address for the test net and for production, because transactions that you created for use on one network could potentially also be viable on the other network, depending on the parameters you provided.
+**Warning:** You should only use an address and secret that you generated securely, on your local machine. If another computer generated the address and secret and sent it to you over a network, it's possible that someone else on the network may see that information. If they do, they'll have as much control over your RCP as you do. It's also recommended not to use the same address for the test net and for production, because transactions that you created for use on one network could potentially also be viable on the other network, depending on the parameters you provided.
 
-Generating an address and secret doesn't get you SGY directly; it's just choosing a random number. You must also receive SGY at that address to [fund the account](accounts.html#creating-accounts). A common way to acquire SGY is to buy it from an exchange, then withdraw it to your own address. For more information, see Ripple's [SGY Buying Guide](https://ripple.com/xrp/buy-xrp/).
+Generating an address and secret doesn't get you RCP directly; it's just choosing a random number. You must also receive RCP at that address to [fund the account](accounts.html#creating-accounts). A common way to acquire RCP is to buy it from an exchange, then withdraw it to your own address. For more information, see Ripple's [RCP Buying Guide](https://ripple.com/xrp/buy-xrp/).
 
-### Connecting to the Production SGY Ledger
+### Connecting to the Production RCP Ledger
 
-When you instantiate the `RippleAPI` object, you must specify a server that's synced with the appropriate SGY Ledger. For many cases, you can use Ripple's public servers, such as in the following snippet:
+When you instantiate the `RippleAPI` object, you must specify a server that's synced with the appropriate RCP Ledger. For many cases, you can use Ripple's public servers, such as in the following snippet:
 
 ```js
 ripple = require('ripple-lib')
-api = new ripple.RippleAPI({server: 'wss://s-hk.sgy.plus:51233'})
+api = new ripple.RippleAPI({server: 'wss://s-hk.RCP.plus:51233'})
 api.connect()
 ```
 
@@ -501,11 +501,11 @@ api.connect()
 After completing this tutorial, you may want to try the following:
 
 - Build [Reliable transaction submission](reliable-transaction-submission.html) for production systems.
-- Consult the [RippleAPI JavaScript Reference](rippleapi-reference.html) for the full range of SGY Ledger functionality.
+- Consult the [RippleAPI JavaScript Reference](rippleapi-reference.html) for the full range of RCP Ledger functionality.
 - Customize your [Account Settings](manage-account-settings.html).
 - Learn how [Transaction Metadata](transaction-metadata.html) describes the outcome of a transaction in detail.
 - Explore [Complex Payment Types](complex-payment-types.html) like escrow and payment channels.
-- Read best practices for [SGY Ledger Businesses](xrp-ledger-businesses.html).
+- Read best practices for [RCP Ledger Businesses](xrp-ledger-businesses.html).
 
 
 

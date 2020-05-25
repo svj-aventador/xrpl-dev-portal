@@ -322,7 +322,7 @@ An example of a successful response:
               "type_hex": "0000000000000001"
             },
             {
-              "currency": "SGY",
+              "currency": "RCP",
               "type": 16,
               "type_hex": "0000000000000010"
             },
@@ -363,7 +363,7 @@ An example of a successful response:
               "type_hex": "0000000000000001"
             },
             {
-              "currency": "SGY",
+              "currency": "RCP",
               "type": 16,
               "type_hex": "0000000000000010"
             },
@@ -391,7 +391,7 @@ An example of a successful response:
               "type_hex": "0000000000000001"
             },
             {
-              "currency": "SGY",
+              "currency": "RCP",
               "type": 16,
               "type_hex": "0000000000000010"
             },

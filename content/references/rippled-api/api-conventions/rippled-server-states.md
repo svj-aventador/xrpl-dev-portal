@@ -1,10 +1,10 @@
 # rippled Server States
 
-Depending on how the `rippled` server is configured, how long it has been running, and other factors, a server may be participating in the global SGY Ledger peer-to-peer network to different degrees. This is represented as the `server_state` field in the responses to the [server_info method][] and [server_state method][]. The possible responses follow a range of ascending interaction, with each later value superseding the previous one. Their definitions are as follows (in order of increasing priority):
+Depending on how the `rippled` server is configured, how long it has been running, and other factors, a server may be participating in the global RCP Ledger peer-to-peer network to different degrees. This is represented as the `server_state` field in the responses to the [server_info method][] and [server_state method][]. The possible responses follow a range of ascending interaction, with each later value superseding the previous one. Their definitions are as follows (in order of increasing priority):
 
 | `Value`        | Description                                                 |
 |:---------------|:------------------------------------------------------------|
-| `disconnected` | The server is not connected to the SGY Ledger peer-to-peer network whatsoever. It may be running in offline mode, or it may not be able to access the network for whatever reason. |
+| `disconnected` | The server is not connected to the RCP Ledger peer-to-peer network whatsoever. It may be running in offline mode, or it may not be able to access the network for whatever reason. |
 | `connected`    | The server believes it is connected to the network.         |
 | `syncing`      | The server is currently behind on ledger versions. (It is normal for a server to spend a few minutes catching up after you start it.) |
 | `tracking`     | The server is in agreement with the network                 |

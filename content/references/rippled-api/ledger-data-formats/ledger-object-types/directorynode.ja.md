@@ -87,7 +87,7 @@ DirectoryNodeのIDを作成するときには、DirectoryNodeが以下のどの�
 * `TakerPaysIssuer`のAccountID
 * `TakerGetsIssuer`のAccountID
 
-オファーディレクトリーのIDの下位64ビットは、そのディレクトリー内のオファーのTakerPaysの額をTakerGetsの額で割った結果を、SGY Ledgerの内部金額フォーマットの64ビット数値で表したものです。
+オファーディレクトリーのIDの下位64ビットは、そのディレクトリー内のオファーのTakerPaysの額をTakerGetsの額で割った結果を、RCP Ledgerの内部金額フォーマットの64ビット数値で表したものです。
 
 **DirectoryNodeがディレクトリーの1番目のページではない場合**（所有者ディレクトリー、オファーディレクトリーのいずれの場合でも）、DirectoryNodeのIDは、以下の値をこの順序で連結した[SHA-512ハーフ][]です。
 

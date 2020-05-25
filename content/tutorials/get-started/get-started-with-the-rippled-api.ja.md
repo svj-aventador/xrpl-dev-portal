@@ -1,4 +1,4 @@
-# SGY Ledger APIの使用開始
+# RCP Ledger APIの使用開始
 
 `rippled`サーバーに対してコマンドを実行するには、接続先のサーバーをあらかじめ把握しておく必要があります。大多数のサーバーは、外部ネットワークからの直接のAPI要求を受け入れないよう設定されています。
 
@@ -8,7 +8,7 @@
 
 ## WebSocket API
 
-いくつかのメソッドをSGY Ledgerで試すことを予定している場合は、独自のWebSocketコードを記述することなく、[Ripple WebSocket APIツール](websocket-api-tool.html)でAPIをすぐに使用できます。後ほど、独自の`rippled`サーバーへの接続が必要となった時点で、[ブラウザー](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)または[Node.jsで独自のクライアントをビルド](https://www.npmjs.com/package/ws)することが可能です。
+いくつかのメソッドをRCP Ledgerで試すことを予定している場合は、独自のWebSocketコードを記述することなく、[Ripple WebSocket APIツール](websocket-api-tool.html)でAPIをすぐに使用できます。後ほど、独自の`rippled`サーバーへの接続が必要となった時点で、[ブラウザー](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)または[Node.jsで独自のクライアントをビルド](https://www.npmjs.com/package/ws)することが可能です。
 
 ### 要求フォーマット
 
@@ -26,8 +26,8 @@
 
 | `Domain`        | ポート | 注記                                 |
 |:----------------|:-----|:--------------------------------------|
-| `s-hk.sgy.plus` | 443  | `wss://`のみ。汎用サーバー |
-| `s-us.sgy.plus` | 443  | `wss://`のみ。すべての履歴が記録されるサーバー    |
+| `s-hk.RCP.plus` | 443  | `wss://`のみ。汎用サーバー |
+| `s-us.RCP.plus` | 443  | `wss://`のみ。すべての履歴が記録されるサーバー    |
 
 これらの公開サーバーは継続的な使用やビジネスでの使用を想定したものではなく、いつでも使用不可となる可能性があります。日常的な使用については、独自の`rippled`サーバーを自社で運用するか、信頼できる事業者と運用委託契約を締結します。
 
@@ -57,8 +57,8 @@ JSON-RPC要求を作成するには、`rippled`サーバーがJSON-RPC接続を�
 
 | `Domain`        | ポート  | 注記                  |
 |:----------------|:------|:-----------------------|
-| `s-hk.sgy.plus` | 51234 | 汎用サーバー |
-| `s-us.sgy.plus` | 51234 | すべての履歴が記録されるサーバー    |
+| `s-hk.RCP.plus` | 51234 | 汎用サーバー |
+| `s-us.RCP.plus` | 51234 | すべての履歴が記録されるサーバー    |
 
 これらの公開サーバーは継続的な使用やビジネスでの使用を想定したものではなく、いつでも使用不可となる可能性があります。日常的な使用については、独自の`rippled`サーバーを自社で運用するか、信頼できる事業者と運用委託契約を締結します。
 
@@ -97,7 +97,7 @@ rippled --conf=/etc/rippled.cfg server_info
 *JSON-RPC*
 
 ```
-POST http://s-hk.sgy.plus:51234/
+POST http://s-hk.RCP.plus:51234/
 {
     "method": "account_info",
     "params": [

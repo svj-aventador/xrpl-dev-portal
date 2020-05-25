@@ -1,6 +1,6 @@
 # Offers
 
-In the SGY Ledger's decentralized exchange, orders to trade currency are called "Offers". Offers can trade SGY with issued currencies, or issued currencies with each other, including issued currencies with the same currency code but different issuers. (Currencies with the same code but different issuers can also sometimes be exchanged through [rippling](rippling.html).)
+In the RCP Ledger's decentralized exchange, orders to trade currency are called "Offers". Offers can trade RCP with issued currencies, or issued currencies with each other, including issued currencies with the same currency code but different issuers. (Currencies with the same code but different issuers can also sometimes be exchanged through [rippling](rippling.html).)
 
 - To create an Offer, send an [OfferCreate transaction][].
 - Offers that aren't fully filled immediately become [Offer objects](offer.html) in the ledger data. Later Offers and Payments can consume the Offer object from the ledger.
@@ -23,8 +23,8 @@ It is possible for an offer to become temporarily or permanently _unfunded_:
     * The offer becomes funded again when the creator obtains more of that currency.
 * If the currency required to fund the offer is held in a [frozen trust line](freezes.html).
     * The offer becomes funded again when the trust line is no longer frozen.
-* If the creator does not have enough SGY for the reserve amount of a new trust line required by the offer. (See [Offers and Trust](#offers-and-trust).)
-    * The offer becomes funded again when the creator obtains more SGY, or the reserve requirements decrease.
+* If the creator does not have enough RCP for the reserve amount of a new trust line required by the offer. (See [Offers and Trust](#offers-and-trust).)
+    * The offer becomes funded again when the creator obtains more RCP, or the reserve requirements decrease.
 * If the Expiration time included in the offer is before the close time of the most recently-closed ledger. (See [Offer Expiration](#offer-expiration).)
 
 An unfunded offer can stay on the ledger indefinitely, but it does not have any effect. The only ways an offer can be *permanently* removed from the ledger are:
@@ -46,7 +46,7 @@ A client application can locally track the funding status of offers. To do this,
 
 The limit values of trust lines (See [TrustSet](trustset.html)) do not affect offers. In other words, you can use an offer to acquire more than the maximum amount you trust an issuer to redeem.
 
-However, holding non-SGY balances still requires a trust line to the address issuing those balances. When an offer is taken, it automatically creates any necessary trust lines, setting their limits to 0. Because [trust lines increase the reserve an account must hold](reserves.html), any offers that would require a new trust line also require the address to have enough SGY to meet the reserve for that trust line.
+However, holding non-RCP balances still requires a trust line to the address issuing those balances. When an offer is taken, it automatically creates any necessary trust lines, setting their limits to 0. Because [trust lines increase the reserve an account must hold](reserves.html), any offers that would require a new trust line also require the address to have enough RCP to meet the reserve for that trust line.
 
 A trust line indicates an issuer you trust enough to accept their issuances as payment, within limits. Offers are explicit instructions to acquire certain issuances, so they are allowed to go beyond those limits.
 
@@ -66,7 +66,7 @@ You can determine the final disposition of an offer with an `Expiration` as soon
 
 **Note:** Since only new transactions can modify the ledger, an expired offer can stay on the ledger after it becomes inactive. The offer is treated as unfunded and has no effect, but it can continue to appear in results (for example, from the [ledger_entry](ledger_entry.html) command). Later on, the expired offer can get finally deleted as a result of another transaction (such as another OfferCreate) if the server finds it while processing.
 
-If an OfferCreate transaction has an `Expiration` time that has already passed when the transaction first gets included in a ledger, the transaction does not execute the offer. The result code of such a transaction depends on whether the [Checks amendment][]:not_enabled: is enabled. With the Checks amendment enabled, the transaction has the `tecEXPIRED` result code. Otherwise, the transaction has the `tesSUCCESS` transaction code. In either case, the transaction has no effect except to destroy the SGY paid as a [transaction cost](transaction-cost.html).
+If an OfferCreate transaction has an `Expiration` time that has already passed when the transaction first gets included in a ledger, the transaction does not execute the offer. The result code of such a transaction depends on whether the [Checks amendment][]:not_enabled: is enabled. With the Checks amendment enabled, the transaction has the `tecEXPIRED` result code. Otherwise, the transaction has the `tesSUCCESS` transaction code. In either case, the transaction has no effect except to destroy the RCP paid as a [transaction cost](transaction-cost.html).
 
 ## See Also
 
@@ -74,7 +74,7 @@ If an OfferCreate transaction has an `Expiration` time that has already passed w
     - [Issued Currencies Overview](issued-currencies-overview.html)
     - [Paths](paths.html)
 - **Tutorials:**
-    - [List Your Exchange on SGY Charts](list-your-exchange-on-xrp-charts.html) - for off-ledger exchanges
+    - [List Your Exchange on RCP Charts](list-your-exchange-on-xrp-charts.html) - for off-ledger exchanges
 - **References:**
     - [account_offers method][]
     - [book_offers method][]

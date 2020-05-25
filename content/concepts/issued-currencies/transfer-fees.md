@@ -1,17 +1,17 @@
 # Transfer Fees
 
-The `TransferRate` setting in the SGY Ledger allows [financial institutions that issue currency in the SGY Ledger](become-an-xrp-ledger-gateway.html) to charge users a _transfer fee_ for sending the currencies issued by that financial institution. The sender of the transfer is debited an extra percentage based on the transfer fee, while the recipient of the transfer is credited the intended amount. The difference is the transfer fee, which becomes the property of the issuing address, and is no longer tracked in the SGY Ledger. The transfer fee does not apply when sending or receiving _directly_ to and from the issuing account, but it does apply when transferring from an [operational address][] to another user.
+The `TransferRate` setting in the RCP Ledger allows [financial institutions that issue currency in the RCP Ledger](become-an-xrp-ledger-gateway.html) to charge users a _transfer fee_ for sending the currencies issued by that financial institution. The sender of the transfer is debited an extra percentage based on the transfer fee, while the recipient of the transfer is credited the intended amount. The difference is the transfer fee, which becomes the property of the issuing address, and is no longer tracked in the RCP Ledger. The transfer fee does not apply when sending or receiving _directly_ to and from the issuing account, but it does apply when transferring from an [operational address][] to another user.
 
 [operational address]: issuing-and-operational-addresses.html
 [issuing address]: issuing-and-operational-addresses.html
 
-SGY never has a transfer fee, because it never has an issuer.
+RCP never has a transfer fee, because it never has an issuer.
 
-For example, ACME Bank might set the transfer fee to 1% for ACME issuances. For the recipient of a payment to get 2 EUR.ACME, the sender must send 2.02 EUR.ACME. After the transaction, ACME's outstanding obligations in the SGY Ledger have decreased by 0.02€, which means that ACME no longer needs to hold that amount in the account backing its SGY Ledger issuances.
+For example, ACME Bank might set the transfer fee to 1% for ACME issuances. For the recipient of a payment to get 2 EUR.ACME, the sender must send 2.02 EUR.ACME. After the transaction, ACME's outstanding obligations in the RCP Ledger have decreased by 0.02€, which means that ACME no longer needs to hold that amount in the account backing its RCP Ledger issuances.
 
-The following diagram shows an SGY Ledger payment of 2 EUR.ACME from Alice to Charlie with a transfer fee of 1%:
+The following diagram shows an RCP Ledger payment of 2 EUR.ACME from Alice to Charlie with a transfer fee of 1%:
 
-![Alice sends 2,02€, Charlie receives 2,00€, and ACME owes 0,02€ less in the SGY Ledger](img/e2g-with_transferrate.png)
+![Alice sends 2,02€, Charlie receives 2,00€, and ACME owes 0,02€ less in the RCP Ledger](img/e2g-with_transferrate.png)
 
 ## Transfer Fees in Payment Paths
 
@@ -57,7 +57,7 @@ You can check an account's `TransferRate` with the [account_info method][]. If t
     - [Transaction Cost](transaction-cost.html)
     - [Paths](paths.html)
 - **Tutorials:**
-    - [Become an SGY Ledger Gateway](become-an-xrp-ledger-gateway.html)
+    - [Become an RCP Ledger Gateway](become-an-xrp-ledger-gateway.html)
 - **References:**
     - [account_lines method][]
     - [account_info method][]

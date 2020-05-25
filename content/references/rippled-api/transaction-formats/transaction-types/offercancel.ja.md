@@ -2,7 +2,7 @@
 
 [[ソース]<br>](https://github.com/ripple/rippled/blob/master/src/ripple/app/tx/impl/CancelOffer.cpp "Source")
 
-OfferCancelトランザクションは、SGY LedgerからOfferオブジェクトを削除します。
+OfferCancelトランザクションは、RCP LedgerからOfferオブジェクトを削除します。
 
 ## {{currentpage.name}}のJSONの例
 

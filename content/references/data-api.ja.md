@@ -1,6 +1,6 @@
 # Ripple Data API v2
 
-Ripple Data API v2を使用すると、SGY Ledgerの変更に関する情報（トランザクション履歴や処理済みの分析データなど）にアクセスできます。このような情報は専用データベースに保管されるので、`rippled`サーバーで保持する必要のある履歴レジャーバージョンの数が少なくなります。Data API v2は[SGY Charts](https://xrpcharts.ripple.com/)や[ripple.com](https://www.ripple.com)などのアプリケーションのデータソースとしても機能します。
+Ripple Data API v2を使用すると、RCP Ledgerの変更に関する情報（トランザクション履歴や処理済みの分析データなど）にアクセスできます。このような情報は専用データベースに保管されるので、`rippled`サーバーで保持する必要のある履歴レジャーバージョンの数が少なくなります。Data API v2は[RCP Charts](https://xrpcharts.ripple.com/)や[ripple.com](https://www.ripple.com)などのアプリケーションのデータソースとしても機能します。
 
 Rippleは可能な限り完全なトランザクションレコードが含まれているData APIのライブインスタンスを以下のアドレスで公開しています。
 
@@ -48,7 +48,7 @@ Data API v2は、以下のメソッドを備えたREST APIです。
 * [Get Exchange Volume - `GET /v2/network/exchange_volume`](#get-exchange-volume)
 * [Get Payment Volume - `GET /v2/network/payment_volume`](#get-payment-volume)
 * [Get External Markets - `GET /v2/network/external_markets`](#get-external-markets)
-* [Get SGY Distribution - `GET /v2/network/xrp_distribution`](#get-xrp-distribution)
+* [Get RCP Distribution - `GET /v2/network/xrp_distribution`](#get-xrp-distribution)
 * [Get Top Currencies - `GET /v2/network/top_currencies`](#get-top-currencies)
 * [Get Top Markets - `GET /v2/network/top_markets`](#get-top-markets)
 
@@ -624,7 +624,7 @@ GET /v2/payments/{currency}
 
 | フィールド      | 値  | 説明                                            |
 |:-----------|:-------|:-------------------------------------------------------|
-| `currency` | 文字列 | _（省略可）_ 通貨コード、`+`、相手側アドレスの順。（あるいは`SGY`のみ（相手側なし）。）省略すると、全通貨のペイメントが返されます。 |
+| `currency` | 文字列 | _（省略可）_ 通貨コード、`+`、相手側アドレスの順。（あるいは`RCP`のみ（相手側なし）。）省略すると、全通貨のペイメントが返されます。 |
 
 オプションで、以下のクエリーパラメーターを指定できます。
 
@@ -756,8 +756,8 @@ GET /v2/exchanges/{base}/{counter}
 
 | フィールド     | 値  | 説明                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `base`    | 文字列 | ペアのベース通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ただし、ベース通貨がSGYの場合を除く）。 |
-| `counter` | 文字列 | ペアのクオート通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ただし、クオート通貨がSGYの場合を除く）。 |
+| `base`    | 文字列 | ペアのベース通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ただし、ベース通貨がRCPの場合を除く）。 |
+| `counter` | 文字列 | ペアのクオート通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ただし、クオート通貨がRCPの場合を除く）。 |
 
 オプションで、以下のクエリーパラメーターを指定できます。
 
@@ -788,7 +788,7 @@ GET /v2/exchanges/{base}/{counter}
 要求:
 
 ```
-GET /v2/exchanges/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/SGY?descending=true&limit=3&result=tesSUCCESS&type=OfferCreate
+GET /v2/exchanges/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/RCP?descending=true&limit=3&result=tesSUCCESS&type=OfferCreate
 ```
 
 応答:
@@ -798,7 +798,7 @@ GET /v2/exchanges/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/SGY?descending=true&lim
 {
    "result": "success",
    "count": 3,
-   "marker": "USD|rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q|SGY||20151021222220|000016612683|00017|00000",
+   "marker": "USD|rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q|RCP||20151021222220|000016612683|00017|00000",
    "exchanges": [
        {
            "base_amount": 4.98954834453577,
@@ -817,7 +817,7 @@ GET /v2/exchanges/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/SGY?descending=true&lim
            "tx_type": "Payment",
            "base_currency": "USD",
            "base_issuer": "rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q",
-           "counter_currency": "SGY"
+           "counter_currency": "RCP"
        },
        {
            "base_amount": 0.0004716155440678037,
@@ -836,7 +836,7 @@ GET /v2/exchanges/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/SGY?descending=true&lim
            "tx_type": "Payment",
            "base_currency": "USD",
            "base_issuer": "rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q",
-           "counter_currency": "SGY"
+           "counter_currency": "RCP"
        },
        {
            "base_amount": 0.0004714169229390923,
@@ -857,7 +857,7 @@ GET /v2/exchanges/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/SGY?descending=true&lim
            "tx_type": "OfferCreate",
            "base_currency": "USD",
            "base_issuer": "rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q",
-           "counter_currency": "SGY"
+           "counter_currency": "RCP"
        }
    ]
 }
@@ -888,8 +888,8 @@ GET /v2/exchange_rates/{base}/{counter}
 
 | フィールド     | 値  | 説明                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `base`    | 文字列 | ペアのベース通貨を、[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します。SGYの場合は`+`とイシュアーを省略します。 |
-| `counter` | 文字列 | ペアのクオート通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します。SGYの場合は`+`とイシュアーを省略します。 |
+| `base`    | 文字列 | ペアのベース通貨を、[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します。RCPの場合は`+`とイシュアーを省略します。 |
+| `counter` | 文字列 | ペアのクオート通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します。RCPの場合は`+`とイシュアーを省略します。 |
 
 
 オプションで、以下のクエリーパラメーターを指定できます。
@@ -908,7 +908,7 @@ GET /v2/exchange_rates/{base}/{counter}
 | `result` | 文字列 | 値が`success`の場合は、成功した場合の応答であることを示します。 |
 | `rate`   | 数値 | 要求された為替レート。為替レートを判別できなかった場合は`0` です。 |
 
-すべての為替レートは、ベース通貨とクオート通貨をSGYに変換して算出されます。
+すべての為替レートは、ベース通貨とクオート通貨をRCPに変換して算出されます。
 
 レートは指定されたカレンダー日の出来高加重平均から導出されます。過去14日間における最新50件の取引の加重平均です。
 
@@ -917,7 +917,7 @@ GET /v2/exchange_rates/{base}/{counter}
 要求:
 
 ```
-GET /v2/exchange_rates/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/SGY?date=2015-11-13T00:00:00Z
+GET /v2/exchange_rates/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q/RCP?date=2015-11-13T00:00:00Z
 ```
 
 応答:
@@ -957,10 +957,10 @@ GET /v2/normalize
 | フィールド               | 値                      | 説明               |
 |:--------------------|:---------------------------|:--------------------------|
 | `amount`            | 数値                     | （必須）正規化する通貨の額。 |
-| `currency`          | 文字列 - [通貨コード][] | 交換前の`amount`の通貨コード。デフォルトはSGYです。 |
-| `issuer`            | 文字列 - [アドレス][]       | 交換前の通貨のイシュアー。（`currency`がSGY以外の場合には必須です。） |
-| `exchange_currency` | 文字列 - [通貨コード][] | 交換後の通貨。デフォルトはSGYです。 |
-| `exchange_issuer`   | 文字列 - [アドレス][]       | 交換後の通貨のイシュアー。（`exchange_currency`がSGY以外の場合には必須です。） |
+| `currency`          | 文字列 - [通貨コード][] | 交換前の`amount`の通貨コード。デフォルトはRCPです。 |
+| `issuer`            | 文字列 - [アドレス][]       | 交換前の通貨のイシュアー。（`currency`がRCP以外の場合には必須です。） |
+| `exchange_currency` | 文字列 - [通貨コード][] | 交換後の通貨。デフォルトはRCPです。 |
+| `exchange_issuer`   | 文字列 - [アドレス][]       | 交換後の通貨のイシュアー。（`exchange_currency`がRCP以外の場合には必須です。） |
 | `date`              | 文字列 - [タイムスタンプ][]     | この時点の為替レートに基づいて変換します。デフォルトは現行時刻です。 |
 | `strict`            | ブール値                    | `true`の場合は、10件未満の取引から判別された為替レートは使用されません。デフォルトは`true`です。 |
 
@@ -975,14 +975,14 @@ GET /v2/normalize
 | `converted` | 数値 | 交換後の`exchange_currency`の額。為替レートを判別できなかった場合は`0`です。 |
 | `rate`      | 数値 | 交換の計算に使用された為替レート。為替レートを判別できなかった場合は`0`です。 |
 
-為替レートはすべて、両方の通貨をSGYに交換することで算出されます。
+為替レートはすべて、両方の通貨をRCPに交換することで算出されます。
 
 #### 例
 
 要求:
 
 ```
-GET /v2/normalize?amount=100&currency=SGY&exchange_currency=USD&exchange_issuer=rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
+GET /v2/normalize?amount=100&currency=RCP&exchange_currency=USD&exchange_issuer=rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
 ```
 
 応答:
@@ -1167,7 +1167,7 @@ GET /v2/reports/2015-08-19T00:00:00Z?accounts=true&payments=true
 ## Get Stats
 [[ソース]<br>](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/stats.js "Source")
 
-SGY Ledgerでのトランザクションアクティビティの統計情報を、さまざまな時間間隔で取得します。
+RCP Ledgerでのトランザクションアクティビティの統計情報を、さまざまな時間間隔で取得します。
 
 #### 要求フォーマット
 
@@ -1203,7 +1203,7 @@ GET /v2/stats
 
 | ファミリー   | 含まれるメトリクス | 意味 |
 |:---------|:-----------------|:--------|
-| `type`   | SGY Ledgerのすべての[トランザクションタイプ](transaction-formats.html)（`Payment`、`AccountSet`、`OfferCreate`など）。 | 所定の間隔内に発生した、指定されたタイプのトランザクションの数。 |
+| `type`   | RCP Ledgerのすべての[トランザクションタイプ](transaction-formats.html)（`Payment`、`AccountSet`、`OfferCreate`など）。 | 所定の間隔内に発生した、指定されたタイプのトランザクションの数。 |
 | `result` | `tesSUCCESS`、`tecPATH_DRY`などを含む、すべての[トランザクション結果コード](transaction-results.html)（数値コードではなく文字列コード）。 | 所定の間隔内に指定された結果コードを取得したトランザクションの数。 |
 | `metric` | Data-API定義の特殊トランザクションメトリクス。 | （場合により異なる） |
 
@@ -1291,8 +1291,8 @@ GET /v2/active_accounts/{base}/{counter}
 
 | フィールド     | 値  | 説明                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `base`    | 文字列 | ペアのベース通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ベース通貨がSGYの場合を除く）。 |
-| `counter` | 文字列 | ペアのクオート通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ただし、クオート通貨がSGYの場合を除く）。 |
+| `base`    | 文字列 | ペアのベース通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ベース通貨がRCPの場合を除く）。 |
+| `counter` | 文字列 | ペアのクオート通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ただし、クオート通貨がRCPの場合を除く）。 |
 
 オプションで、以下のクエリーパラメーターを指定できます。
 
@@ -1335,7 +1335,7 @@ GET /v2/active_accounts/{base}/{counter}
 要求:
 
 ```
-GET /v2/active_accounts/SGY/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
+GET /v2/active_accounts/RCP/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
 ```
 
 応答:
@@ -1425,7 +1425,7 @@ GET /v2/active_accounts/SGY/USD+rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q
 
 指定された期間における取引量の合計を取得します。_（新規: [v2.0.4][]）_
 
-APIは、結果を複数の種類の通貨ではなく1つの _表示通貨_ 単位で返します。SGYと他の通貨の取引には、標準レートが使用されます。
+APIは、結果を複数の種類の通貨ではなく1つの _表示通貨_ 単位で返します。RCPと他の通貨の取引には、標準レートが使用されます。
 
 #### 要求フォーマット
 
@@ -1446,7 +1446,7 @@ GET /v2/network/exchange_volume
 | フィールド               | 値                      | 説明               |
 |:--------------------|:---------------------------|:--------------------------|
 | `live`              | 文字列                     | この時間の長さのライブローリングウィンドウを返します。有効な値は`day`、`hour`、`minute`です。_（新規: [v2.3.0][]）_ |
-| `exchange_currency` | 文字列 - [通貨コード][] | すべての額を正規化し、この通貨を表示通貨として使用します。SGY以外の場合は`exchange_issuer`も必要です。デフォルトはSGYです。 |
+| `exchange_currency` | 文字列 - [通貨コード][] | すべての額を正規化し、この通貨を表示通貨として使用します。RCP以外の場合は`exchange_issuer`も必要です。デフォルトはRCPです。 |
 | `exchange_issuer`   | 文字列 - [アドレス][]       | 結果を、このイシュアーが発行した特定の`currency`に正規化します。 |
 | `format`            | 文字列                     | 返される結果のフォーマットは`csv`または`json`です。デフォルトは`json`です。 |
 
@@ -1468,8 +1468,8 @@ GET /v2/network/exchange_volume
 | `count`            | 数値 | この間隔内にこのマーケットで行われた取引の件数。 |
 | `rate`             | 数値 | ベース通貨から表示通貨への為替レート。 |
 | `amount`           | 数値 | このマーケットにおける取引量（ベース通貨単位）。 |
-| `base`             | オブジェクト | このマーケットにおけるベース通貨の`currency`と`issuer`。SGYの場合は`issuer`はありません。 |
-| `counter`          | オブジェクト | このマーケットにおけるクオート通貨の`currency`と`issuer`。SGYの場合は`issuer`はありません。 |
+| `base`             | オブジェクト | このマーケットにおけるベース通貨の`currency`と`issuer`。RCPの場合は`issuer`はありません。 |
+| `counter`          | オブジェクト | このマーケットにおけるクオート通貨の`currency`と`issuer`。RCPの場合は`issuer`はありません。 |
 | `converted_amount` | 数値 | このマーケットにおける合計取引量（表示通貨に変換）。_（[v2.1.0][]より古いバージョンでは、これは`convertedAmount`でした。）_ |
 
 #### 例
@@ -1500,7 +1500,7 @@ GET /v2/network/exchange_volume?exchange_currency=USD&exchange_issuer=rvYAfWj5gh
                        "issuer": "rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B"
                    },
                    "counter": {
-                       "currency": "SGY"
+                       "currency": "RCP"
                    },
                    "converted_amount": 117720.99268355068
                },
@@ -1513,7 +1513,7 @@ GET /v2/network/exchange_volume?exchange_currency=USD&exchange_issuer=rvYAfWj5gh
                        "issuer": "rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B"
                    },
                    "counter": {
-                       "currency": "SGY"
+                       "currency": "RCP"
                    },
                    "converted_amount": 74003.51871932109
                },
@@ -1572,7 +1572,7 @@ GET /v2/network/exchange_volume?exchange_currency=USD&exchange_issuer=rvYAfWj5gh
 
 指定された期間のペイメントの合計取引量を取得します。_（新規: [v2.0.4][]）_
 
-APIは、結果を複数の種類の通貨ではなく1つの _表示通貨_ 単位で返します。SGYと他の通貨の取引には、標準レートが使用されます。
+APIは、結果を複数の種類の通貨ではなく1つの _表示通貨_ 単位で返します。RCPと他の通貨の取引には、標準レートが使用されます。
 
 #### 要求フォーマット
 
@@ -1593,7 +1593,7 @@ GET /v2/network/payment_volume
 | フィールド               | 値                      | 説明               |
 |:--------------------|:---------------------------|:--------------------------|
 | `live`              | 文字列                     | この時間の長さのライブローリングウィンドウを返します。有効な値は`day`、`hour`、`minute`です。_（新規: [v2.3.0][]）_ |
-| `exchange_currency` | 文字列 - [通貨コード][] | すべての額を正規化し、この通貨を表示通貨として使用します。SGY以外の場合は`exchange_issuer`も必要です。デフォルトはSGYです。 |
+| `exchange_currency` | 文字列 - [通貨コード][] | すべての額を正規化し、この通貨を表示通貨として使用します。RCP以外の場合は`exchange_issuer`も必要です。デフォルトはRCPです。 |
 | `exchange_issuer`   | 文字列 - [アドレス][]       | 結果を、このイシュアーが発行した特定の`currency`に正規化します。 |
 | `format`            | 文字列                     | 返される結果のフォーマットは`csv`または`json`です。デフォルトは`json`です。 |
 
@@ -1613,7 +1613,7 @@ GET /v2/network/payment_volume
 | フィールド              | 値                      | 説明                |
 |:-------------------|:---------------------------|:---------------------------|
 | `currency`         | 文字列 - [通貨コード][] | このペイメントの取引量オブジェクトの通貨。 |
-| `issuer`           | 文字列 - [アドレス][]       | （SGYの場合は省略）このペイメントの取引量オブジェクトのイシュアー。 |
+| `issuer`           | 文字列 - [アドレス][]       | （RCPの場合は省略）このペイメントの取引量オブジェクトのイシュアー。 |
 | `amount`           | 数値                     | 当該間隔内におけるこの通貨でのペイメントの合計額（当該通貨単位）。 |
 | `count`            | 数値                     | この通貨でのペイメントの合計件数。 |
 | `rate`             | 数値                     | この通貨と表示通貨間の為替レート。 |
@@ -1673,7 +1673,7 @@ GET /v2/network/payment_volume
                    "converted_amount": 644756.0609868265
                },
                {
-                   "currency": "SGY",
+                   "currency": "RCP",
                    "amount": 296246369.30089426,
                    "count": 8691,
                    "rate": 1,
@@ -1683,7 +1683,7 @@ GET /v2/network/payment_volume
            "count": 9388,
            "endTime": "2015-09-11T19:58:59+00:00",
            "exchange": {
-               "currency": "SGY"
+               "currency": "RCP"
            },
            "exchangeRate": 1,
            "startTime": "2015-11-10T00:19:04+00:00",
@@ -1700,7 +1700,7 @@ GET /v2/network/payment_volume
 
 指定のローリング間隔におけるレジャー外の取引のリストから、取引量の合計を取得します。
 
-APIは、結果を複数の種類の通貨ではなく1つの _表示通貨_ 単位で返します。SGYと他の通貨の取引には、標準レートが使用されます。
+APIは、結果を複数の種類の通貨ではなく1つの _表示通貨_ 単位で返します。RCPと他の通貨の取引には、標準レートが使用されます。
 
 #### 要求フォーマット ####
 
@@ -1721,7 +1721,7 @@ GET /v2/network/external_markets
 | フィールド               | 値                      | 説明               |
 |:--------------------|:---------------------------|:--------------------------|
 | `period`            | 文字列                     | 集約期間 - 有効な間隔は`1hour`、`1day`、`3day`、`7day`、`30day`です。デフォルトは`1day`です。 |
-| `exchange_currency` | 文字列 - [通貨コード][] | すべての額を正規化し、この通貨を表示通貨として使用します。SGY以外の場合は`exchange_issuer`も必要です。デフォルトはSGYです。 |
+| `exchange_currency` | 文字列 - [通貨コード][] | すべての額を正規化し、この通貨を表示通貨として使用します。RCP以外の場合は`exchange_issuer`も必要です。デフォルトはRCPです。 |
 | `exchange_issuer`   | 文字列 - [アドレス][]       | 結果を、このイシュアーが発行した特定の`currency`に正規化します。 |
 
 
@@ -1733,7 +1733,7 @@ GET /v2/network/external_markets
 | `result`      | 文字列 | 値が`success`の場合は、成功した場合の応答であることを示します。 |
 | `data`        | オブジェクト | 指定の期間のデータが含まれています。             |
 | `data.date`   | 文字列 | この期間が計算された日付。           |
-| `data.total`  | 数値 | 当該期間に取引されたSGYの合計額。       |
+| `data.total`  | 数値 | 当該期間に取引されたRCPの合計額。       |
 | `data.period` | 文字列 | 照会された期間の名前。                         |
 
 取引量オブジェクトの`components`配列の各オブジェクトは、1つの外部マーケットの取引量を表します。マーケットによってはすべてのフィールドが表示されるわけではありません。
@@ -1741,7 +1741,7 @@ GET /v2/network/external_markets
 | フィールド              | 値  | 説明                                    |
 |:-------------------|:-------|:-----------------------------------------------|
 | `source`           | 文字列 | 特定の外部マーケットのドメイン名。   |
-| `base_volume`      | 数値 | ベース通貨（SGY）単位での取引量。 |
+| `base_volume`      | 数値 | ベース通貨（RCP）単位での取引量。 |
 | `counter_volume`   | 数値 | クオート通貨単位での取引量。 |
 | `base_currecy`     | 文字列 | マーケットペアのベース通貨。              |
 | `counter_currency` | 文字列 | マーケットペアのクオート通貨。           |
@@ -1769,7 +1769,7 @@ GET /v2/network/external_markets
        "base_volume": "52847221.256202064",
        "counter_volume": "619.8111371100003",
        "source": "poloniex.com",
-       "base_currency": "SGY",
+       "base_currency": "RCP",
        "counter_currency": "BTC",
        "rate": "0.0000117284"
      },
@@ -1777,7 +1777,7 @@ GET /v2/network/external_markets
        "base_volume": "389955.29648717004",
        "counter_volume": "3212.07137265",
        "source": "poloniex.com",
-       "base_currency": "SGY",
+       "base_currency": "RCP",
        "counter_currency": "USD",
        "rate": "0.00823702"
      },
@@ -1786,26 +1786,26 @@ GET /v2/network/external_markets
        "counter_volume": "70.57870572291264",
        "count": 250,
        "source": "kraken.com",
-       "base_currency": "SGY",
+       "base_currency": "RCP",
        "counter_currency": "BTC",
        "rate": "0.0000117138"
      },
      {
        "base_volume": "4141962.161763998",
        "source": "btc38.com",
-       "base_currency": "SGY",
+       "base_currency": "RCP",
        "counter_currency": "CNY"
      },
      {
        "base_volume": "303505",
        "source": "btc38.com",
-       "base_currency": "SGY",
+       "base_currency": "RCP",
        "counter_currency": "BTC"
      },
      {
        "base_volume": "1275008.2922999999",
        "source": "jubi.com",
-       "base_currency": "SGY",
+       "base_currency": "RCP",
        "counter_currency": "CNY"
      }
    ],
@@ -1818,10 +1818,10 @@ GET /v2/network/external_markets
 
 
 
-## Get SGY Distribution
+## Get RCP Distribution
 [[ソース]<br>](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/network/xrpDistribution.js "Source")
 
-現存し、流通しているSGYの合計額に関する情報を週単位で取得します。_（新規: [v2.2.0][]）_
+現存し、流通しているRCPの合計額に関する情報を週単位で取得します。_（新規: [v2.2.0][]）_
 
 #### 要求フォーマット
 
@@ -1856,16 +1856,16 @@ GET /v2/network/xrp_distribution
 |:---------|:------------------------------|:----------------------------------|
 | `result` | 文字列                        | 値が`success`の場合、本文は成功した場合の応答を表しています。 |
 | `count`  | 整数                       | 返された行の数。          |
-| `rows`   | 流通量オブジェクトの配列 | SGY流通量の週次スナップショット。 |
+| `rows`   | 流通量オブジェクトの配列 | RCP流通量の週次スナップショット。 |
 
 各流通量オブジェクトのフィールドを次に示します。
 
 | フィールド           | 値                  | 説明                       |
 |:----------------|:-----------------------|:----------------------------------|
 | `date`          | 文字列 - [タイムスタンプ][] | このスナップショットの時刻。        |
-| `total`         | 文字列                 | 現存するSGYの合計。           |
-| `undistributed` | 文字列                 | Ripple（企業）が保有するSGYの総額。 |
-| `distributed`   | 文字列                 | Ripple以外が保有するSGYの総額。 |
+| `total`         | 文字列                 | 現存するRCPの合計。           |
+| `undistributed` | 文字列                 | Ripple（企業）が保有するRCPの総額。 |
+| `distributed`   | 文字列                 | Ripple以外が保有するRCPの総額。 |
 
 #### 例
 
@@ -1899,7 +1899,7 @@ GET /v2/network/xrp_distribution
 ## Get Top Currencies
 [[ソース]<br>](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/network/topCurrencies.js "Source")
 
-SGY Ledgerの上位通貨を、ランクが高いものから順に返します。このランクは、トランザクションの額と件数、および一意の取引相手の数に基づいて決定します。デフォルトでは、現在の日付で終了する30日間ローリングウィンドウの結果が返されます。結果を取得する30日間ローリングウィンドウの最終日の日付を指定できます。_（新規: [v2.1.0][]）_
+RCP Ledgerの上位通貨を、ランクが高いものから順に返します。このランクは、トランザクションの額と件数、および一意の取引相手の数に基づいて決定します。デフォルトでは、現在の日付で終了する30日間ローリングウィンドウの結果が返されます。結果を取得する30日間ローリングウィンドウの最終日の日付を指定できます。_（新規: [v2.1.0][]）_
 
 
 #### 要求フォーマット
@@ -1951,12 +1951,12 @@ GET /v2/network/top_currencies/{date}
 | フィールド                 | 値                      | 説明             |
 |:----------------------|:---------------------------|:------------------------|
 | `currency`            | 文字列 - [通貨コード][] | このオブジェクトが表す通貨。 |
-| `issuer`              | 文字列 - [アドレス][]       | この通貨を発行するSGY Ledgerアドレス。 |
+| `issuer`              | 文字列 - [アドレス][]       | この通貨を発行するRCP Ledgerアドレス。 |
 | `avg_exchange_count`  | [文字列 - 数値][]        | 1日あたりの平均[取引](#取引オブジェクト)件数。 |
-| `avg_exchange_volume` | [文字列 - 数値][]        | 1日あたりの平均取引量（SGYに正規化）。 |
+| `avg_exchange_volume` | [文字列 - 数値][]        | 1日あたりの平均取引量（RCPに正規化）。 |
 | `avg_payment_count`   | [文字列 - 数値][]        | 1日あたりの平均[ペイメント](#ペイメントオブジェクト)件数。 |
-| `avg_payment_volume`  | [文字列 - 数値][]        | 1日あたりの平均ペイメント取引量（SGYに正規化）。 |
-| `issued_value`        | [文字列 - 数値][]        | このイシュアーが発行したこの通貨の合計額（SGYに正規化）。 |
+| `avg_payment_volume`  | [文字列 - 数値][]        | 1日あたりの平均ペイメント取引量（RCPに正規化）。 |
+| `issued_value`        | [文字列 - 数値][]        | このイシュアーが発行したこの通貨の合計額（RCPに正規化）。 |
 
 #### 例
 
@@ -2002,7 +2002,7 @@ GET /v2/network/top_currencies/2016-04-14?limit=2
 ## Get Top Markets
 [[ソース]<br>](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/network/topMarkets.js "Source")
 
-SGY Ledgerの上位マーケットを、ランクが高いものから順に返します。このランクは、取引の数と量、および参加取引相手の数に基づいて決定します。デフォルトでは、現在の日付で終わる30日間ローリングウィンドウにおける上位のマーケットが返されます。結果を取得する30日間ローリングウィンドウの最終日の日付を指定できます。_（新規: [v2.1.0][]）_
+RCP Ledgerの上位マーケットを、ランクが高いものから順に返します。このランクは、取引の数と量、および参加取引相手の数に基づいて決定します。デフォルトでは、現在の日付で終わる30日間ローリングウィンドウにおける上位のマーケットが返されます。結果を取得する30日間ローリングウィンドウの最終日の日付を指定できます。_（新規: [v2.1.0][]）_
 
 #### 要求フォーマット
 
@@ -2053,13 +2053,13 @@ GET /v2/network/top_markets/{date}
 | フィールド                | 値                      | 説明              |
 |:---------------------|:---------------------------|:-------------------------|
 | `base_currency`      | 文字列 - [通貨コード][] | このマーケットのベース通貨。 |
-| `base_issuer`        | 文字列 - [アドレス][]       | （`base_currency`がSGYの場合は省略）ベース通貨を発行するSGY Ledgerアドレス。 |
+| `base_issuer`        | 文字列 - [アドレス][]       | （`base_currency`がRCPの場合は省略）ベース通貨を発行するRCP Ledgerアドレス。 |
 | `counter_currency`   | 文字列 - [通貨コード][] | このマーケットのクオート通貨。 |
-| `counter_issuer`     | 文字列 - [アドレス][]       | （`counter_currency`がSGYの場合は省略）クオート通貨を発行するSGY Ledgerアドレス。 |
+| `counter_issuer`     | 文字列 - [アドレス][]       | （`counter_currency`がRCPの場合は省略）クオート通貨を発行するRCP Ledgerアドレス。 |
 | `avg_base_volume`    | 文字列                     | 1日あたりのベース通貨単位での平均取引量。 |
 | `avg_counter_volume` | 文字列                     | 1日あたりのクオート通貨単位での平均取引量。 |
 | `avg_exchange_count` | 文字列                     | 1日あたりの平均[取引](#取引オブジェクト)件数。 |
-| `avg_volume`         | 文字列                     | 1日あたりの平均取引量（SGYに正規化）。 |
+| `avg_volume`         | 文字列                     | 1日あたりの平均取引量（RCPに正規化）。 |
 
 #### 例
 
@@ -2085,7 +2085,7 @@ GET /v2/network/top_markets/2015-12-31
      "avg_volume": "1.6657039295476614E7",
      "base_currency": "USD",
      "base_issuer": "rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B",
-     "counter_currency": "SGY"
+     "counter_currency": "RCP"
    },
    {
      "avg_base_volume": "410510.0286920887",
@@ -2094,7 +2094,7 @@ GET /v2/network/top_markets/2015-12-31
      "avg_volume": "9117398.719214212",
      "base_currency": "CNY",
      "base_issuer": "rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y",
-     "counter_currency": "SGY"
+     "counter_currency": "RCP"
    },
    ...
  ]
@@ -2152,7 +2152,7 @@ GET /v2/network/fees
 | `avg`          | 数値                     | この間隔内に支払われたトランザクションコストの平均。 |
 | `min`          | 数値                     | この間隔内に支払われたトランザクションコストの最小額。 |
 | `max`          | 数値                     | この間隔内に支払われたトランザクションコストの最大額。 |
-| `total`        | 数値                     | トランザクションコストにより消却されたSGYの合計。 |
+| `total`        | 数値                     | トランザクションコストにより消却されたRCPの合計。 |
 | `tx_count`     | 数値                     | この間隔のトランザクションの数。 |
 | `date`         | 文字列 - [タイムスタンプ][]     | この間隔の開始時刻（時間間隔）とこのレジャーの閉鎖時刻（`ledger`間隔）。 |
 | `ledger_index` | 整数 - [レジャーインデックス][] | （`ledger`間隔の場合にのみ含まれます）このオブジェクトが表すレジャー。 |
@@ -2679,7 +2679,7 @@ GET /v2/network/validators/{pubkey}
 | `result`                | 文字列                          | 値が`success`の場合、本文は成功した場合の応答を表しています。 |
 | `validation_public_key` | 文字列 - Base-58 [公開鍵][] | このバリデータのバリデータ公開鍵。 |
 | `domain`                | 文字列                          | （省略される場合があります）このバリデータに関連付けられているDNSドメイン。 |
-| `chain`                 | 文字列                          | このバリデータが現在フォローしているレジャーハッシュチェーン。値が`main`の場合はメインネットワークを示し、`altnet`の場合はSGY Test Networkを示します。その他のフォークの名前は`chain.{NUMBER}`で、`{NUMBER}`は各フォークの一意の番号です。 |
+| `chain`                 | 文字列                          | このバリデータが現在フォローしているレジャーハッシュチェーン。値が`main`の場合はメインネットワークを示し、`altnet`の場合はRCP Test Networkを示します。その他のフォークの名前は`chain.{NUMBER}`で、`{NUMBER}`は各フォークの一意の番号です。 |
 | `unl`                   | ブール値                            | Trueの場合、バリデータはレジャーチェーンの推奨UNLの一部です。 |
 | `current_index`         | 数値                          | 最新の検証済みレジャーのレジャーインデックス。 |
 | `partial`               | ブール値                            | Trueの場合、最新の検証は部分的な検証です。 |
@@ -2775,7 +2775,7 @@ GET /v2/network/validators
 |:------------------------|:--------------------------------|:-----------------|
 | `validation_public_key` | 文字列 - Base-58 [公開鍵][] | このバリデータのバリデータ公開鍵。 |
 | `domain`                | 文字列                          | （省略される場合があります）このバリデータに関連付けられているDNSドメイン。 |
-| `chain`                 | 文字列                          | このバリデータが現在フォローしているレジャーハッシュチェーン。値が`main`の場合はメインネットワークを示し、`altnet`の場合はSGY Test Networkを示します。その他のフォークの名前は`chain.{NUMBER}`で、`{NUMBER}`は各フォークの一意の番号です。 |
+| `chain`                 | 文字列                          | このバリデータが現在フォローしているレジャーハッシュチェーン。値が`main`の場合はメインネットワークを示し、`altnet`の場合はRCP Test Networkを示します。その他のフォークの名前は`chain.{NUMBER}`で、`{NUMBER}`は各フォークの一意の番号です。 |
 | `unl`                   | ブール値                            | Trueの場合、バリデータはレジャーチェーンの推奨UNLの一部です。 |
 | `current_index`         | 数値                          | 最新の検証済みレジャーのレジャーインデックス。 |
 | `partial`               | ブール値                            | Trueの場合、最新の検証は部分的な検証です。 |
@@ -3015,7 +3015,7 @@ GET /v2/network/validators/{pubkey}/reports
 |:---------------------|:--------------------------------|:-----------------------------|
 | `validation_public_key` | 文字列 - Base-58 [公開鍵][] | バリデータの公開鍵。 |
 | `date`               | 文字列 - [タイムスタンプ][]          | このオブジェクトが表す日付の開始時刻。 |
-| `chain`              | 文字列                          | このバリデータが現在フォローしているレジャーハッシュチェーン。値が`main`の場合はメインネットワークを示し、`altnet`の場合はSGY Test Networkを示します。その他のフォークの名前は`chain.{NUMBER}`で、`{NUMBER}`は各フォークの一意の番号です。 |
+| `chain`              | 文字列                          | このバリデータが現在フォローしているレジャーハッシュチェーン。値が`main`の場合はメインネットワークを示し、`altnet`の場合はRCP Test Networkを示します。その他のフォークの名前は`chain.{NUMBER}`で、`{NUMBER}`は各フォークの一意の番号です。 |
 | `score`              | 文字列                          | フォロー対象のレジャーチェーンとの合意のスコア。 |
 | `missed`             | 整数                         | 当該期間内に検証されなかったレジャーの数。 |
 | `total`              | 整数                         | 当該期間内に検証されたレジャーの数。 |
@@ -3107,7 +3107,7 @@ GET /v2/network/validator_reports
 |:---------------------|:--------------------------------|:-----------------------------|
 | `validation_public_key` | 文字列 - Base-58 [公開鍵][] | バリデータの公開鍵。 |
 | `date`               | 文字列 - [タイムスタンプ][]          | このオブジェクトが表す日付の開始時刻。 |
-| `chain`              | 文字列                          | このバリデータが現在フォローしているレジャーハッシュチェーン。値が`main`の場合はメインネットワークを示し、`altnet`の場合はSGY Test Networkを示します。その他のフォークの名前は`chain.{NUMBER}`で、`{NUMBER}`は各フォークの一意の番号です。 |
+| `chain`              | 文字列                          | このバリデータが現在フォローしているレジャーハッシュチェーン。値が`main`の場合はメインネットワークを示し、`altnet`の場合はRCP Test Networkを示します。その他のフォークの名前は`chain.{NUMBER}`で、`{NUMBER}`は各フォークの一意の番号です。 |
 | `score`              | 文字列                          | フォロー対象のレジャーチェーンとの合意のスコア。 |
 | `missed`             | 整数                         | 当該期間内に検証されなかったレジャーの数。 |
 | `total`              | 整数                         | 当該期間内に検証されたレジャーの数。 |
@@ -3250,7 +3250,7 @@ GET /v2/gateways/
 | `account`  | 文字列 - [アドレス][] | この通貨の[発行アドレス](issuing-and-operational-addresses.html)。 |
 | `featured` | ブール値              | このゲートウェイが通貨の「主要」イシュアーとして見なされるかどうか。Rippleは、責任あるビジネスプラクティスや取引量などの評価基準に基づいて主要とするゲートウェイを決定します。 |
 | `label`    | 文字列               | （省略される場合があります）[通貨コード][]が40文字の16進値である場合にのみ出力されます。これは、このゲートウェイが発行した通貨の人間が読める形式の別名です。 |
-| `assets`   | 文字列の配列     | このゲートウェイに対して利用可能なグラフィックスファイル名（存在する場合）。（ほとんどの場合、SGY Chartsで使用されるロゴのグラフィックスファイル名となります。） |
+| `assets`   | 文字列の配列     | このゲートウェイに対して利用可能なグラフィックスファイル名（存在する場合）。（ほとんどの場合、RCP Chartsで使用されるロゴのグラフィックスファイル名となります。） |
 
 #### 例
 
@@ -3296,7 +3296,7 @@ GET /v2/gateways/
    ],
    "KRW": [
        {
-           "name": "ESGY",
+           "name": "ERCP",
            "account": "rPxU6acYni7FcXzPCMeaPSwKcuS2GTtNVN",
            "featured": true,
            "assets": []
@@ -3353,7 +3353,7 @@ GET /v2/gateways/{gateway}
 | `hotwallets` | [アドレス][]の配列 | このゲートウェイの[運用アドレス](issuing-and-operational-addresses.html)。 |
 | `domain`     | 文字列                 | このゲートウェイのビジネス用ドメイン名。 |
 | `normalized` | 文字列                 | URLに組み込むことができる`name`フィールドの正規化バージョン。 |
-| `assets`     | 文字列の配列       | このゲートウェイに対して利用可能なグラフィックスファイル名（存在する場合）。（ほとんどの場合、SGY Chartsで使用されるロゴのグラフィックスファイル名となります。） |
+| `assets`     | 文字列の配列       | このゲートウェイに対して利用可能なグラフィックスファイル名（存在する場合）。（ほとんどの場合、RCP Chartsで使用されるロゴのグラフィックスファイル名となります。） |
 
 `accounts`フィールド配列の各オブジェクトには以下のフィールドが含まれています。
 
@@ -3470,7 +3470,7 @@ Content-Type: image/svg+xml
 ## Get Accounts
 [[ソース]<br>](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/accounts.js "Source")
 
-SGY Ledgerでの新しいアカウントの作成に関する情報を取得します。
+RCP Ledgerでの新しいアカウントの作成に関する情報を取得します。
 
 #### 要求フォーマット
 
@@ -3579,7 +3579,7 @@ GET /v2/accounts/{address}
 
 | フィールド     | 値  | 説明                  |
 |:----------|:-------|:-----------------------------|
-| `address` | 文字列 | 照会するSGY Ledgerアドレス。 |
+| `address` | 文字列 | 照会するRCP Ledgerアドレス。 |
 
 #### 応答フォーマット
 
@@ -3620,7 +3620,7 @@ GET /v2/accounts/rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn
 ## Get Account Balances
 [[ソース]<br>](https://github.com/ripple/rippled-historical-database/blob/master/api/routes/accountBalances.js "Source")
 
-特定のSGY Ledgerアカウントが保有または支払い義務のあるすべての残高を取得します。
+特定のRCP Ledgerアカウントが保有または支払い義務のあるすべての残高を取得します。
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -3638,7 +3638,7 @@ GET /v2/accounts/{address}/balances
 
 | フィールド     | 値  | 説明                  |
 |:----------|:-------|:-----------------------------|
-| `address` | 文字列 | 照会するSGY Ledgerアドレス。 |
+| `address` | 文字列 | 照会するRCP Ledgerアドレス。 |
 
 オプションで、以下のクエリーパラメーターを指定できます。
 
@@ -3725,7 +3725,7 @@ GET /v2/account/{address}/orders
 
 | フィールド     | 値                | 説明                  |
 |:----------|:---------------------|:-----------------------------|
-| `address` | 文字列 - [アドレス][] | 照会するSGY Ledgerアドレス。 |
+| `address` | 文字列 - [アドレス][] | 照会するRCP Ledgerアドレス。 |
 
 オプションで、以下のクエリーパラメーターを指定できます。
 
@@ -3759,7 +3759,7 @@ GET /v2/account/{address}/orders
 | `specification.quantity`       | [残高オブジェクト][]   | このオーダーで（方向に応じて）売却または購入するベース通貨の最大額。オーダーが部分的に約定するとこの値が減少します。 |
 | `specification.totalPrice`     | [残高オブジェクト][]   | ベース通貨の購入または売却のためにオーダーで支出または獲得できるクオート通貨の最大額。オーダーが部分的に約定するとこの値が減少します。 |
 | `properties`                   | オブジェクト               | オーダーの発注方法の詳細。 |
-| `properties.maker`             | 文字列 - [アドレス][] | オーダーを発注したSGY Ledgerアカウント。 |
+| `properties.maker`             | 文字列 - [アドレス][] | オーダーを発注したRCP Ledgerアカウント。 |
 | `properties.sequence`          | 数値               | このオーダーを発注したトランザクションのシーケンス番号。 |
 | `properties.makerExchangeRate` | [文字列 - 数値][]  | オーダーを送信したアカウントの側から見た為替レート。 |
 
@@ -3851,7 +3851,7 @@ GET /v2/accounts/{address}/transactions
 
 | フィールド     | 値                | 説明                  |
 |:----------|:---------------------|:-----------------------------|
-| `address` | 文字列 - [アドレス][] | 照会するSGY Ledgerアドレス。 |
+| `address` | 文字列 - [アドレス][] | 照会するRCP Ledgerアドレス。 |
 
 
 オプションで、以下のクエリーパラメーターを指定できます。
@@ -3869,7 +3869,7 @@ GET /v2/accounts/{address}/transactions
 | `limit`        | 整数                | ページあたりの最大結果件数。デフォルトは20です。1,000を超える値は指定できません。 |
 | `marker`       | 文字列                 | 前に返された応答の[ページネーション](#ページネーション)キー。 |
 
-**注記:** このメソッドはCSVフォーマットを返すことができません。生SGY LdgerトランザクションではJSONの結果だけがサポートされています。
+**注記:** このメソッドはCSVフォーマットを返すことができません。生RCP LdgerトランザクションではJSONの結果だけがサポートされています。
 
 
 #### 応答フォーマット
@@ -3983,7 +3983,7 @@ GET /v2/accounts/{address}/transactions/{sequence}
 
 | フィールド      | 値   | 説明                  |
 |:-----------|:--------|:-----------------------------|
-| `address`  | 文字列  | 照会するSGY Ledgerアドレス。 |
+| `address`  | 文字列  | 照会するRCP Ledgerアドレス。 |
 | `sequence` | 整数 | トランザクションのシーケンス番号。 |
 
 
@@ -4052,7 +4052,7 @@ GET /v2/accounts/{address}/payments
 
 | フィールド     | 値  | 説明                  |
 |:----------|:-------|:-----------------------------|
-| `address` | 文字列 | 照会するSGY Ledgerアドレス。 |
+| `address` | 文字列 | 照会するRCP Ledgerアドレス。 |
 
 
 オプションで、以下のクエリーパラメーターを指定できます。
@@ -4165,9 +4165,9 @@ GET /v2/accounts/{address}/exchanges/{base}/{counter}
 
 | フィールド     | 値  | 説明                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `address` | 文字列 | 照会するSGY Ledgerアドレス。                            |
-| `base`    | 文字列 | ペアのベース通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ベース通貨がSGYの場合を除く）。 |
-| `counter` | 文字列 | ペアのクオート通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ベース通貨がSGYの場合を除く）。 |
+| `address` | 文字列 | 照会するRCP Ledgerアドレス。                            |
+| `base`    | 文字列 | ペアのベース通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ベース通貨がRCPの場合を除く）。 |
+| `counter` | 文字列 | ペアのクオート通貨。[通貨コード][]、`+`、イシュアーの[アドレス][]の順で指定します（ベース通貨がRCPの場合を除く）。 |
 
 
 オプションで、以下のクエリーパラメーターを指定できます。
@@ -4197,7 +4197,7 @@ GET /v2/accounts/{address}/exchanges/{base}/{counter}
 要求:
 
 ```
-GET /v2/accounts/rsyDrDi9Emy6vPU78qdxovmNpmj5Qh4NKw/exchanges/KRW+rUkMKjQitpgAM5WTGk79xpjT38DEJY283d/SGY?start=2015-08-08T00:00:00Z&end=2015-08-31T00:00:00Z&limit=2
+GET /v2/accounts/rsyDrDi9Emy6vPU78qdxovmNpmj5Qh4NKw/exchanges/KRW+rUkMKjQitpgAM5WTGk79xpjT38DEJY283d/RCP?start=2015-08-08T00:00:00Z&end=2015-08-31T00:00:00Z&limit=2
 
 ```
 
@@ -4219,7 +4219,7 @@ GET /v2/accounts/rsyDrDi9Emy6vPU78qdxovmNpmj5Qh4NKw/exchanges/KRW+rUkMKjQitpgAM5
            "base_currency": "KRW",
            "base_issuer": "rUkMKjQitpgAM5WTGk79xpjT38DEJY283d",
            "buyer": "rnAqwsu2BEbCjacoZmsXrpViqd3miZhHbT",
-           "counter_currency": "SGY",
+           "counter_currency": "RCP",
            "executed_time": "2015-08-08T02:57:40",
            "ledger_index": 15122851,
            "offer_sequence": "1738",
@@ -4237,7 +4237,7 @@ GET /v2/accounts/rsyDrDi9Emy6vPU78qdxovmNpmj5Qh4NKw/exchanges/KRW+rUkMKjQitpgAM5
            "base_issuer": "rUkMKjQitpgAM5WTGk79xpjT38DEJY283d",
            "buyer": "r9xQi5YT8jqVM3wZhbiV94ZKKvGHaVeSDj",
            "client": "rt1.1-26-gbeb68ab",
-           "counter_currency": "SGY",
+           "counter_currency": "RCP",
            "executed_time": "2015-08-08T07:15:00",
            "ledger_index": 15126536,
            "offer_sequence": "1738",
@@ -4277,7 +4277,7 @@ GET /v2/accounts/{address}/balance_changes/
 
 | フィールド     | 値  | 説明                  |
 |:----------|:-------|:-----------------------------|
-| `address` | 文字列 | 照会するSGY Ledgerアドレス。 |
+| `address` | 文字列 | 照会するRCP Ledgerアドレス。 |
 
 
 オプションで、以下のクエリーパラメーターを指定できます。
@@ -4326,7 +4326,7 @@ GET /v2/accounts/rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn/balance_changes?descending=t
      "final_balance": "75.169663",
      "tx_index": 7,
      "change_type": "transaction_cost",
-     "currency": "SGY",
+     "currency": "RCP",
      "executed_time": "2016-01-29T22:57:20Z",
      "ledger_index": 18555460,
      "tx_hash": "2B44EBE00728D04658E597A85EC4F71D20503B31ABBF556764AD8F7A80BA72F6"
@@ -4337,7 +4337,7 @@ GET /v2/accounts/rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn/balance_changes?descending=t
      "node_index": 1,
      "tx_index": 4,
      "change_type": "payment_source",
-     "currency": "SGY",
+     "currency": "RCP",
      "executed_time": "2016-01-26T08:32:20Z",
      "ledger_index": 18489336,
      "tx_hash": "E5C6DD25B2DCF534056D98A2EFE3B7CFAE4EBC624854DE3FA436F733A56D8BD9"
@@ -4347,7 +4347,7 @@ GET /v2/accounts/rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn/balance_changes?descending=t
      "final_balance": "100.181663",
      "tx_index": 4,
      "change_type": "transaction_cost",
-     "currency": "SGY",
+     "currency": "RCP",
      "executed_time": "2016-01-26T08:32:20Z",
      "ledger_index": 18489336,
      "tx_hash": "E5C6DD25B2DCF534056D98A2EFE3B7CFAE4EBC624854DE3FA436F733A56D8BD9"
@@ -4386,7 +4386,7 @@ GET /v2/accounts/{address}/reports/{date}
 
 | フィールド     | 値  | 説明                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `address` | 文字列 | 照会するSGY Ledgerアドレス。                            |
+| `address` | 文字列 | 照会するRCP Ledgerアドレス。                            |
 | `date`    | 文字列 | _（省略可）_ 1つのレポートの日付（UTC）。省略すると、`start`および`end`クエリーパラメーターが使用されます。 |
 
 
@@ -4493,7 +4493,7 @@ GET /v2/accounts/{address}/stats/transactions
 
 | フィールド     | 値  | 説明                  |
 |:----------|:-------|:-----------------------------|
-| `address` | 文字列 | 照会するSGY Ledgerアドレス。 |
+| `address` | 文字列 | 照会するRCP Ledgerアドレス。 |
 
 
 オプションで、以下のクエリーパラメーターを指定できます。
@@ -4592,7 +4592,7 @@ GET /v2/accounts/{address}/stats/value
 
 | フィールド     | 値  | 説明                  |
 |:----------|:-------|:-----------------------------|
-| `address` | 文字列 | 照会するSGY Ledgerアドレス。 |
+| `address` | 文字列 | 照会するRCP Ledgerアドレス。 |
 
 
 オプションで、以下のクエリーパラメーターを指定できます。
@@ -4621,7 +4621,7 @@ GET /v2/accounts/{address}/stats/value
 | フィールド                  | 値                  | 説明                |
 |:-----------------------|:-----------------------|:---------------------------|
 | `date`                 | 文字列 - [タイムスタンプ][] | このオブジェクトは、当該日付のアクティビティを表します。 |
-| `value`                | [文字列 - 数値][]    | このアカウントが保有しているすべての通貨の合計額（SGYに正規化）。 |
+| `value`                | [文字列 - 数値][]    | このアカウントが保有しているすべての通貨の合計額（RCPに正規化）。 |
 | `balance_change_count` | 数値                 | 当該日付でアカウントの残高が変更された回数。 |
 
 #### 例
@@ -4936,20 +4936,20 @@ REST APIであるData API v2では[JSON](http://json.org/)のネイティブデ�
 
 {% include '_snippets/string-number-formatting.md' %}
 
-SGY Ledgerでの**SGY以外の通貨**の額の精度は次のようになります。
+RCP Ledgerでの**RCP以外の通貨**の額の精度は次のようになります。
 
 * 非ゼロの最小絶対値: `1000000000000000e-96`
 * 最大値: `9999999999999999e80`
 * 最小値: `-9999999999999999e80`
 * 10進15桁の精度
 
-**SGY**の内部表現は異なり、その精度も異なります。
+**RCP**の内部表現は異なり、その精度も異なります。
 
 * 最小値: `0`
 * 最大値: `100000000000`（`1e11`）
 * `0.000001`（`1e-6`）に近い精度。
 
-つまりSGYの精度は、64ビット符号なし整数と同等であり、各単位は0.000001 SGYに相当します。
+つまりRCPの精度は、64ビット符号なし整数と同等であり、各単位は0.000001 RCPに相当します。
 
 ### アドレス
 [アドレス]: #アドレス
@@ -5044,7 +5044,7 @@ SGY Ledgerでの**SGY以外の通貨**の額の精度は次のようになりま
 | `ledger_hash`       | 文字列 - [ハッシュ][]         | このレジャーに固有の識別用ハッシュ値（16進文字列）。 |
 | `ledger_index`      | 数値 - [レジャーインデックス][] | このレジャーのシーケンス番号。新しいレジャーのレジャーインデックスは、その直前のレジャーに1を加算した値になります。 |
 | `parent_hash`       | 文字列 - [ハッシュ][]         | 前のレジャーの識別用ハッシュ。 |
-| `total_coins`       | [文字列 - 数値][]       | このレジャーの時点で存在していたSGYのdrops数の合計。（1 SGYは1,000,000 dropに相当します。） |
+| `total_coins`       | [文字列 - 数値][]       | このレジャーの時点で存在していたRCPのdrops数の合計。（1 RCPは1,000,000 dropに相当します。） |
 | `close_time_res`    | 数値                    | レジャー閉鎖時刻はこの秒数で丸められます。 |
 | `accounts_hash`     | 文字列 - [ハッシュ][]         | このレジャーに含まれているアカウント情報のハッシュ（16進数）。 |
 | `transactions_hash` | 文字列 - [ハッシュ][]         | このレジャーに含まれているトランザクション情報のハッシュ（16進数）。 |
@@ -5055,28 +5055,28 @@ SGY Ledgerでの**SGY以外の通貨**の額の精度は次のようになりま
 
 ### ジェネシスレジャー
 
-SGY Ledgerの運用開始当初に起きた事故により、1～32569番目までのレジャーが失われました。このため、現存する一番最初のレジャーは番号32570のレジャーです。Data API v2の目的上、番号32570のレジャーは _ジェネシスレジャー_ と見なされます。
+RCP Ledgerの運用開始当初に起きた事故により、1～32569番目までのレジャーが失われました。このため、現存する一番最初のレジャーは番号32570のレジャーです。Data API v2の目的上、番号32570のレジャーは _ジェネシスレジャー_ と見なされます。
 
 ## アカウント作成オブジェクト
 
-アカウント作成オブジェクトは、SGY Ledgerでのアカウント作成アクションを表します。アカウントがレジャー32570（最も古いレジャー）にすでに含まれていたかどうかに応じて、2種類のバリエーションがあります。レジャー32570にすでに含まれていたアカウントは _ジェネシスアカウント_ と呼ばれます。
+アカウント作成オブジェクトは、RCP Ledgerでのアカウント作成アクションを表します。アカウントがレジャー32570（最も古いレジャー）にすでに含まれていたかどうかに応じて、2種類のバリエーションがあります。レジャー32570にすでに含まれていたアカウントは _ジェネシスアカウント_ と呼ばれます。
 
 | フィールド             | 値                        | 説明               |
 |:------------------|:-----------------------------|:--------------------------|
 | `address`         | 文字列 - [アドレス][]         | このアカウントの識別用アドレス（base-58）。 |
 | `inception`       | 文字列 - [タイムスタンプ][]       | このアドレスに資金が供給された時点のUTCタイムスタンプ。ジェネシスアカウントの場合、これはレジャー32570のタイムスタンプです。 |
 | `ledger_index`    | 数値 - [レジャーインデックス][]    | アカウントが作成された時点でのレジャーのシーケンス番号。ジェネシスアカウントの場合は32570です。 |
-| `parent`          | 文字列 - [アドレス][]         | （ジェネシスアカウントの場合は省略）このアドレスに資金供給するためにSGYを提供したアドレス。 |
+| `parent`          | 文字列 - [アドレス][]         | （ジェネシスアカウントの場合は省略）このアドレスに資金供給するためにRCPを提供したアドレス。 |
 | `tx_hash`         | 文字列 - [ハッシュ][]            | （ジェネシスアカウントの場合は省略）このアカウントに資金供給したトランザクションの識別用ハッシュ。 |
-| `initial_balance` | [文字列 - 数値][]          | （ジェネシスアカウントの場合は省略）このアカウントに供給されたSGYの額。 |
-| `genesis_balance` | [文字列 - 数値][]          | （ジェネシスアカウントのみ）レジャー番号32570の時点でこのアカウントが保有していたSGYの額。 |
+| `initial_balance` | [文字列 - 数値][]          | （ジェネシスアカウントの場合は省略）このアカウントに供給されたRCPの額。 |
+| `genesis_balance` | [文字列 - 数値][]          | （ジェネシスアカウントのみ）レジャー番号32570の時点でこのアカウントが保有していたRCPの額。 |
 | `genesis_index`   | 数値 - [シーケンス番号][] | （ジェネシスアカウントのみ）レジャー番号32570の時点でのこのアカウントのトランザクションシーケンス番号。 |
 
 
 ## 取引オブジェクト
 [取引オブジェクト]: #取引オブジェクト
 
-取引オブジェクトは、実際の通貨取引を表します。この取引は、OfferCreateトランザクションまたはPaymentトランザクションを実行した結果として、SGY Ledgerで発生します。通貨が実際に取引されるには、OfferCreateトランザクションを使用してレジャーで以前に発注され、約定しなかったオファーが存在している必要があります。
+取引オブジェクトは、実際の通貨取引を表します。この取引は、OfferCreateトランザクションまたはPaymentトランザクションを実行した結果として、RCP Ledgerで発生します。通貨が実際に取引されるには、OfferCreateトランザクションを使用してレジャーで以前に発注され、約定しなかったオファーが存在している必要があります。
 
 1つのトランザクションで複数の取引を実行できます。この場合、どの取引においてもトランザクションの送信者がTakerとなりますが、プロバイダーと通貨ペアのいずれかまたはその両方は取引ごとに異なります。
 
@@ -5085,14 +5085,14 @@ SGY Ledgerの運用開始当初に起きた事故により、1～32569番目ま�
 | `base_amount`          | 数値                       | 取引されたベース通貨の額。 |
 | `counter_amount`       | 数値                       | 取引されたクオート通貨の額。 |
 | `rate`                 | 数値                       | ベース通貨1単位で獲得できるクオート通貨の額。 |
-| `autobridged_currency` | 文字列 - [通貨コード][]   | （省略される場合があります）オファーがオートブリッジングされていた場合（SGYオーダーブックを使用して2つのSGY以外の通貨がブリッジングされていた場合）、この取引を実行したオファーのもう一方の通貨です。 |
-| `autobridged_issuer`   | 文字列 - [アドレス][]         | （省略される場合があります）オファーがオートブリッジングされていた場合（SGYオーダーブックを使用して2つのSGY以外の通貨がブリッジングされていた場合）、この取引を実行したオファーのもう一方のイシュアーです。 |
+| `autobridged_currency` | 文字列 - [通貨コード][]   | （省略される場合があります）オファーがオートブリッジングされていた場合（RCPオーダーブックを使用して2つのRCP以外の通貨がブリッジングされていた場合）、この取引を実行したオファーのもう一方の通貨です。 |
+| `autobridged_issuer`   | 文字列 - [アドレス][]         | （省略される場合があります）オファーがオートブリッジングされていた場合（RCPオーダーブックを使用して2つのRCP以外の通貨がブリッジングされていた場合）、この取引を実行したオファーのもう一方のイシュアーです。 |
 | `base_currency`        | 文字列 - [通貨コード][]   | ベース通貨。   |
-| `base_issuer`          | 文字列 - [アドレス][]         | （SGYの場合は省略）ベース通貨を発行したアカウント。 |
+| `base_issuer`          | 文字列 - [アドレス][]         | （RCPの場合は省略）ベース通貨を発行したアカウント。 |
 | `buyer`                | 文字列 - [アドレス][]         | ベース通貨を獲得したアカウント。 |
 | `client`               | 文字列                       | （省略される場合があります）トランザクションに、クライアントアプリケーションが送信したメモが含まれている場合、これはメモの内容です。 |
 | `counter_currency`     | 文字列 - [通貨コード][]   | クオート通貨。 |
-| `counter_issuer`       | 文字列 - [アドレス][]         | （SGYの場合は省略）クオート通貨を発行したアカウント。 |
+| `counter_issuer`       | 文字列 - [アドレス][]         | （RCPの場合は省略）クオート通貨を発行したアカウント。 |
 | `executed_time`        | 文字列 - [タイムスタンプ][]       | 取引が発生した時刻。 |
 | `ledger_index`         | 数値 - [レジャーインデックス][]    | このトランザクションが含まれているレジャーのシーケンス番号。 |
 | `offer_sequence`       | 数値 - [シーケンス番号][] | このレジャーに含まれている`provider`の既存のオファーのシーケンス番号。 |
@@ -5112,16 +5112,16 @@ SGY Ledgerの運用開始当初に起きた事故により、1～32569番目ま�
 |:---------------------------|:-------------------------------------|:---------|
 | `account`                  | 文字列 - [アドレス][]                 | このレポートに関連するアカウントのアドレス。 |
 | `date`                     | 文字列 - [タイムスタンプ][]               | このレポートに関連する間隔の開始時刻。 |
-| `high_value_received`      | [文字列 - 数値][]                  | 1回のトランザクションで受領した最大額（SGYに正規化、可能な限り近い値）これにはペイメントと取引が含まれます。 |
-| `high_value_sent`          | [文字列 - 数値][]                  | 1回のトランザクションで送金した最大額（SGYに正規化、可能な限り近い値）。 |
+| `high_value_received`      | [文字列 - 数値][]                  | 1回のトランザクションで受領した最大額（RCPに正規化、可能な限り近い値）これにはペイメントと取引が含まれます。 |
+| `high_value_sent`          | [文字列 - 数値][]                  | 1回のトランザクションで送金した最大額（RCPに正規化、可能な限り近い値）。 |
 | `payments`                 | [ペイメントサマリーオブジェクト][]の配列 | （省略される場合があります）この間隔でアカウントが送金または受領した各ペイメントに関する情報の配列。 |
 | `payments_received`        | 数値                               | このアカウントに送金されたペイメントの件数。（これには、このアカウントが送金先であるペイメントのみが含まれます。アカウントを通じてRipplingされたペイメントや、アカウントのオファーで消費されたペイメントは含まれません。） |
 | `payments_sent`            | 数値                               | このアカウントが送金したペイメントの件数。 |
 | `receiving_counterparties` | 配列または数値                      | アカウントリストが要求された場合は、このアカウントからのペイメントを受取ったアドレスの配列。それ以外の場合は、このアカウントからペイメントを受取ったさまざまなアカウントの数。 |
 | `sending_counterparties`   | 配列または数値                      | アカウントリストが要求された場合は、このアカウントにペイメントを送信したアドレスの配列。それ以外の場合は、このアカウントにペイメントを送信したさまざまなアカウントの数。 |
-| `total_value`              | [文字列 - 数値][]                  | ペイメントで受領および送金された合計額（SGYに正規化、可能な限り近い値）。 |
-| `total_value_received`     | [文字列 - 数値][]                  | このアカウントへのすべてのペイメントの合計額（SGYに正規化、可能な限り近い値）。 |
-| `total_value_sent`         | [文字列 - 数値][]                  | このアカウントからのすべてのペイメントの合計額（SGYに正規化、可能な限り近い値）。 |
+| `total_value`              | [文字列 - 数値][]                  | ペイメントで受領および送金された合計額（RCPに正規化、可能な限り近い値）。 |
+| `total_value_received`     | [文字列 - 数値][]                  | このアカウントへのすべてのペイメントの合計額（RCPに正規化、可能な限り近い値）。 |
+| `total_value_sent`         | [文字列 - 数値][]                  | このアカウントからのすべてのペイメントの合計額（RCPに正規化、可能な限り近い値）。 |
 
 ## ペイメントサマリーオブジェクト
 [ペイメントサマリーオブジェクト]: #ペイメントサマリーオブジェクト
@@ -5133,14 +5133,14 @@ SGY Ledgerの運用開始当初に起きた事故により、1～32569番目ま�
 | `tx_hash`          | 文字列 - [ハッシュ][]          | このペイメントを発生させたトランザクションの識別用ハッシュ。 |
 | `delivered_amount` | [文字列 - 数値][]        | 実際に送金先アカウントが受領した送金先`currency`の額。 |
 | `currency`         | 文字列 - [通貨コード][] | トランザクションの受取人に送金された通貨。 |
-| `issuer`           | 文字列 - [アドレス][]       | 通貨を発行するゲートウェイ。SGYの場合は空のストリング。 |
+| `issuer`           | 文字列 - [アドレス][]       | 通貨を発行するゲートウェイ。RCPの場合は空のストリング。 |
 | `type`             | 文字列                     | `sent`または`received`のいずれか。これは、パースペクティブアカウントがトランザクションの送金元または受取人のいずれであるかを示します。 |
 
 
 ## ペイメントオブジェクト
 [ペイメントオブジェクト]: #ペイメントオブジェクト
 
-Data APIでは、ペイメントオブジェクトはアカウント間で価値が移動したイベントを表します。これはほとんどの場合、`Payment` [トランザクションタイプ](transaction-types.html)のSGY Ledgerトランザクションに対応します。ただし Data APIでは、送金元`Account` と`Destination`アカウントが同一である場合、またはトランザクションが失敗した場合には、トランザクションはペイメントとして見なされません。
+Data APIでは、ペイメントオブジェクトはアカウント間で価値が移動したイベントを表します。これはほとんどの場合、`Payment` [トランザクションタイプ](transaction-types.html)のRCP Ledgerトランザクションに対応します。ただし Data APIでは、送金元`Account` と`Destination`アカウントが同一である場合、またはトランザクションが失敗した場合には、トランザクションはペイメントとして見なされません。
 
 ペイメントオブジェクトのフィールドを次に示します。
 
@@ -5149,8 +5149,8 @@ Data APIでは、ペイメントオブジェクトはアカウント間で価値
 | `amount`                      | [文字列 - 数値][]        | トランザクションに対し送金指示があった送金先`currency`の額。Partial Paymentsでは、この額は「最大」額です。 |
 | `delivered_amount`            | [文字列 - 数値][]        | 実際に送金先アカウントが受領した送金先`currency`の額。 |
 | `destination_balance_changes` | 配列                      | [残高変更オブジェクト][]の配列。このオブジェクトは、`destination`アカウントの残高に対して行われたすべての変更を示します。 |
-| `source_balance_changes`      | 配列                      | [残高変更オブジェクト][]の配列。このオブジェクトは、`source`アカウントの残高に対して行われたすべての変更を示します（SGYトランザクションコストを除く）。 |
-| `transaction_cost`            | [文字列 - 数値][]        | トランザクションコストに対して`source`アカウントが支払ったSGYの額。（[v2.0.4][]より前のバージョンでは、このパラメーターは`fee`でした。） |
+| `source_balance_changes`      | 配列                      | [残高変更オブジェクト][]の配列。このオブジェクトは、`source`アカウントの残高に対して行われたすべての変更を示します（RCPトランザクションコストを除く）。 |
+| `transaction_cost`            | [文字列 - 数値][]        | トランザクションコストに対して`source`アカウントが支払ったRCPの額。（[v2.0.4][]より前のバージョンでは、このパラメーターは`fee`でした。） |
 | `destination_tag`             | 整数                    | （省略される場合があります）このペイメントに指定された[送金先タグ](become-an-xrp-ledger-gateway.html#source-and-destination-tags)。 |
 | `source_tag`                  | 整数                    | （省略される場合があります）このペイメントに指定された[送金元タグ](become-an-xrp-ledger-gateway.html#source-and-destination-tags)。 |
 | `currency`                    | 文字列 - [通貨コード][] | `destination`アカウントが受領した通貨。 |
@@ -5166,15 +5166,15 @@ Data APIでは、ペイメントオブジェクトはアカウント間で価値
 [残高変更オブジェクト]: #残高オブジェクトと残高変更オブジェクト
 [残高オブジェクト]: #残高オブジェクトと残高変更オブジェクト
 
-残高オブジェクトは、特定時点での特定の相手側に対する特定通貨でのSGY Ledgerアカウントの残高です。残高変更オブジェクトは、トランザクションの実行時に発生するこのような残高に対する変更を表します。
+残高オブジェクトは、特定時点での特定の相手側に対する特定通貨でのRCP Ledgerアカウントの残高です。残高変更オブジェクトは、トランザクションの実行時に発生するこのような残高に対する変更を表します。
 
-1つのSGY Ledgerトランザクションで、複数の相手側に対する残高の変更と、SGYの変更が行われることがあります。
+1つのRCP Ledgerトランザクションで、複数の相手側に対する残高の変更と、RCPの変更が行われることがあります。
 
 残高オブジェクトと残高変更オブジェクトのフォーマットは同一であり、これらのオブジェクトには次のフィールドが含まれています。
 
 | フィールド          | 値                      | 説明                    |
 |:---------------|:---------------------------|:-------------------------------|
-| `counterparty` | 文字列 - [アドレス][]       | `currency`の取引相手またはイシュアー。SGYの場合これは空の文字列です。 |
+| `counterparty` | 文字列 - [アドレス][]       | `currency`の取引相手またはイシュアー。RCPの場合これは空の文字列です。 |
 | `currency`     | 文字列 - [通貨コード][] | この残高が変更された通貨。 |
 | `value`        | [文字列 - 数値][]        | 関連付けられているアカウントが獲得または喪失した`currency`の額。残高変更オブジェクトでは、この値がプラスの場合（獲得した額）とマイナスの場合（喪失した額）があります。残高オブジェクトでは、この値がプラスの場合（このアカウントに対して相手側が支払う義務のある額）とマイナスの場合（相手側に対して支払う義務のある額）があります。 |
 
@@ -5190,12 +5190,12 @@ Data APIでは、ペイメントオブジェクトはアカウント間で価値
 |:----------------|:---------------------------|:------------------------------|
 | `amount_change` | [文字列 - 数値][]        | この変更前後での保有通貨額の差。_（[v2.0.6][]より前のバージョンでは、このフィールドは`change`でした。）_ |
 | `final_balance` | [文字列 - 数値][]        | 変更後の残高。 |
-| `node_index`    | 数値（または`null`）         | この残高変更は、残高変更を実行したトランザクションのメタデータセクション内にて、ModifiedNodes配列のこのインデックスの位置にあるエントリーで表されます。**注記:** トランザクションコストがSGY残高に対する他の変更と結合されている場合、トランザクションコストの`node_index`は**null**になります。 |
+| `node_index`    | 数値（または`null`）         | この残高変更は、残高変更を実行したトランザクションのメタデータセクション内にて、ModifiedNodes配列のこのインデックスの位置にあるエントリーで表されます。**注記:** トランザクションコストがRCP残高に対する他の変更と結合されている場合、トランザクションコストの`node_index`は**null**になります。 |
 | `tx_index`      | 数値                     | この残高変更を実行したトランザクションは、トランザクションが記録されているレジャーのトランザクション配列のこのインデックスにあります。 |
 | `change_type`   | 文字列                     | この残高変更が発生した原因を示すさまざまな[](#変更タイプ)のうちの1つ。 |
 | `currency`      | 文字列 - [通貨コード][] | この通貨に影響する変更。 |
 | `executed_time` | 文字列 - [タイムスタンプ][]     | 変更が発生した時刻。（変更を実行したトランザクションが記録されているレジャーの閉鎖時間に基づいています。） |
-| `counterparty`  | 文字列 - [アドレス][]       | （SGYの場合は省略）`currency`はこのアカウントとの間のトラストラインに保有されています。_（[v2.0.6][]より前のバージョンでは、このフィールドは`issuer`でした。）_ |
+| `counterparty`  | 文字列 - [アドレス][]       | （RCPの場合は省略）`currency`はこのアカウントとの間のトラストラインに保有されています。_（[v2.0.6][]より前のバージョンでは、このフィールドは`issuer`でした。）_ |
 | `ledger_index`  | 数値 - [レジャーインデックス][]  | この残高変更を実行したトランザクションを含むレジャーのシーケンス番号。 |
 | `tx_hash`       | 文字列 - [ハッシュ][]          | この残高変更を実行したトランザクションの識別用ハッシュ。 |
 
@@ -5205,7 +5205,7 @@ Data APIでは、ペイメントオブジェクトはアカウント間で価値
 
 | 値                 | 意味                                              |
 |:----------------------|:-----------------------------------------------------|
-| `transaction_cost`    | これは、トランザクションの中継時にSGYが消却されたことによる残高変更を表します。_（[v2.0.4][]より前では、これは`network fee`でした。）_ |
+| `transaction_cost`    | これは、トランザクションの中継時にRCPが消却されたことによる残高変更を表します。_（[v2.0.4][]より前では、これは`network fee`でした。）_ |
 | `payment_destination` | これは、ペイメントとして通貨を受領したことによる残高変更を表します。 |
 | `payment_source`      | これは、ペイメントとして通貨を支払ったことによる残高変更を表します。 |
 | `exchange`            | これは、他の通貨への取引や、別のイシュア―との同一通貨での取引による残高変更を表します。これは、オファーにより発生するだけでなく、ペイメント実行中にも発生する可能性があります。 |
@@ -5220,8 +5220,8 @@ Data APIでは、ペイメントオブジェクトはアカウント間で価値
 | `components`    | オブジェクトの配列       | この合計の計算に使用されたデータ。ペイメント取引量の場合、各オブジェクトは特定の通貨およびイシュアーでのペイメントを表します。取引量の場合、各オブジェクトは2通貨間のマーケットを表します。 |
 | `count`         | 数値                 | この期間における取引の合計件数。 |
 | `end_time`      | 文字列 - [タイムスタンプ][] | この間隔の終了時刻。    |
-| `exchange`      | オブジェクト                 | `currency`および（SGYの場合を除く） `issuer`フィールドと同様、使用される表示通貨を示します。すべての額は、最初にSGYに交換され、その後要求で指定されている表示通貨に変換されることで正規化されます。 |
-| `exchange_rate` | 数値                 | SGYから表示通貨への為替レート。 |
+| `exchange`      | オブジェクト                 | `currency`および（RCPの場合を除く） `issuer`フィールドと同様、使用される表示通貨を示します。すべての額は、最初にRCPに交換され、その後要求で指定されている表示通貨に変換されることで正規化されます。 |
+| `exchange_rate` | 数値                 | RCPから表示通貨への為替レート。 |
 | `start_time`    | 文字列 - [タイムスタンプ][] | この期間の開始時刻。         |
 | `total`         | 数値                 | 当該期間に記録されたすべての取引の合計取引量。 |
 
@@ -5230,7 +5230,7 @@ Data APIでは、ペイメントオブジェクトはアカウント間で価値
 [サーバーオブジェクト]: #サーバーオブジェクト
 [サーバーオブジェクト]: #サーバーオブジェクト
 
-「サーバーオブジェクト」は、SGY Ledgerピアツーピアネットワークの1つの`rippled`サーバーを表します。サーバーオブジェクトは[Get Topology](#get-topology)、[Get Toplogy Nodes](#get-topology-nodes)、および[Get Topology Node](#get-topology-node)メソッドで返されます。Data APIは、[ピアクローラー](peer-crawler.html)を使用して、報告されるネットワークトポロジーを約30秒間隔で収集します。
+「サーバーオブジェクト」は、RCP Ledgerピアツーピアネットワークの1つの`rippled`サーバーを表します。サーバーオブジェクトは[Get Topology](#get-topology)、[Get Toplogy Nodes](#get-topology-nodes)、および[Get Topology Node](#get-topology-node)メソッドで返されます。Data APIは、[ピアクローラー](peer-crawler.html)を使用して、報告されるネットワークトポロジーを約30秒間隔で収集します。
 
 サーバーオブジェクトのフィールドを次に示します。一部のフィールドは、要求で応答がverboseであることが指定されている場合にのみ表示されます。
 

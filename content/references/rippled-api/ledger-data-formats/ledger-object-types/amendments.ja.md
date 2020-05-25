@@ -34,7 +34,7 @@
 | `Amendments`      | 配列     | STI_VECTOR256     | _（省略可）_ 現在有効なすべてのAmendmentの256ビット[Amendment ID](amendments.html#amendmentについて)からなる配列。省略されている場合は、有効なAmendmentがありません。 |
 | `Majorities`      | 配列     | STI_ARRAY | _（省略可）_ 過半数の支持を得ているがまだ有効になっていないAmendmentのステータスを記述するオブジェクトの配列。省略されている場合は、過半数の支持を得ている保留中のAmendmentがありません。 |
 | `Flags`           | 数値    | UInt32    | ブール値フラグのビットマップ。Amendmentオブジェクトタイプにはフラグが定義されていないため、この値は常に`0`です。 |
-| `LedgerEntryType` | 文字列    | UInt16    |  値が `0x0066`（文字列`Amendments`にマッピング）の場合は、このオブジェクトがSGY Ledgerに対するAmendmentのステータスを記述していることを示します。 |
+| `LedgerEntryType` | 文字列    | UInt16    |  値が `0x0066`（文字列`Amendments`にマッピング）の場合は、このオブジェクトがRCP Ledgerに対するAmendmentのステータスを記述していることを示します。 |
 
 `Majorities`フィールドにメンバーが含まれている場合、各メンバーは`Majority`フィールドのみが含まれているオブジェクトです。このフィールドの内容は、以下のフィールドからなるネストオブジェクトです。
 

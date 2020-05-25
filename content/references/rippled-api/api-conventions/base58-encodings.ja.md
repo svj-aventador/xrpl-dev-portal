@@ -1,10 +1,10 @@
 # base58エンコード
 
-`rippled` APIでは、チェックサムを含む[base58](https://en.wikipedia.org/wiki/Base58)エンコード（「Base58Check」とも呼ばれます）を使用して[アカウントアドレス](accounts.html#アドレス)や暗号鍵に関連するその他のタイプの値が表現されることがよくあります。このエンコードは、Bitcoinのアドレスに使用されているエンコードと同じですが、SGY Ledgerでは以下のディクショナリが使用される点が異なります。`rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz`。
+`rippled` APIでは、チェックサムを含む[base58](https://en.wikipedia.org/wiki/Base58)エンコード（「Base58Check」とも呼ばれます）を使用して[アカウントアドレス](accounts.html#アドレス)や暗号鍵に関連するその他のタイプの値が表現されることがよくあります。このエンコードは、Bitcoinのアドレスに使用されているエンコードと同じですが、RCP Ledgerでは以下のディクショナリが使用される点が異なります。`rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz`。
 
-SGY Ledgerにより、さまざまなタイプの値をエンコードする前に、データタイプを区別する固有の8ビット数値が値の前に付加されます。SGY Ledgerのbase58ディクショナリの文字配列と組み合わされた、さまざまなタイプのエンコード値のbase58表現は、タイプごとに固有の文字で始まります。
+RCP Ledgerにより、さまざまなタイプの値をエンコードする前に、データタイプを区別する固有の8ビット数値が値の前に付加されます。RCP Ledgerのbase58ディクショナリの文字配列と組み合わされた、さまざまなタイプのエンコード値のbase58表現は、タイプごとに固有の文字で始まります。
 
-以下の表に、SGY Ledgerで使用されるすべてのエンコードを示します。
+以下の表に、RCP Ledgerで使用されるすべてのエンコードを示します。
 
 | データタイプ                    | 開始文字 | タイププレフィクス | コンテンツのサイズ¹ | 最大文字数 |
 |:-----------------------------|:------------|:---------------|:--------------|:--|
@@ -20,7 +20,7 @@ SGY Ledgerにより、さまざまなタイプの値をエンコードする前�
 ## 関連項目
 
 - [アドレスのエンコード](accounts.html#アドレスのエンコード) - アドレスのエンコードについての詳細な情報
-- [暗号鍵](cryptographic-keys.html) - SGY Ledgerの暗号鍵のタイプとその使用法
+- [暗号鍵](cryptographic-keys.html) - RCP Ledgerの暗号鍵のタイプとその使用法
 - [wallet_proposeリファレンス][wallet_propose method] - アカウントキーを生成するためのAPIメソッド
 - [validation_createリファレンス][validation_create method] - バリデータキーを生成するためのAPIメソッド
 

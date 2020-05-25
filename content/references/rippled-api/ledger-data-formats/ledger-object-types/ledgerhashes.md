@@ -8,7 +8,7 @@ The `LedgerHashes` object type contains a history of prior ledgers that led up t
 There are two kinds of `LedgerHashes` object. Both types have the same fields. Each ledger version contains:
 
 - Exactly one "recent history" `LedgerHashes` object
-- A number of "previous history" `LedgerHashes` objects based on the current ledger index (that is, the length of the ledger history). Specifically, the SGY Ledger adds a new "previous history" object every 65536 ledger versions.
+- A number of "previous history" `LedgerHashes` objects based on the current ledger index (that is, the length of the ledger history). Specifically, the RCP Ledger adds a new "previous history" object every 65536 ledger versions.
 
 **Note:** As an exception, a new genesis ledger has no `LedgerHashes` objects at all, because it has no ledger history.
 
@@ -37,7 +37,7 @@ A `LedgerHashes` object has the following fields:
 | Name              | JSON Type | [Internal Type][] | Description |
 |-------------------|-----------|-------------------|-------------|
 | `LedgerEntryType` | String    | UInt16    | The value `0x0068`, mapped to the string `LedgerHashes`, indicates that this object is a list of ledger hashes. |
-| `FirstLedgerSequence` | Number | UInt32   | **DEPRECATED** Do not use. (The "recent hashes" object of the production SGY Ledger has the value `2` in this field as a result of a previous `rippled` software. That value gets carried forward as the "recent hashes" object is updated. New "previous history" objects do not have this field, nor do "recent hashes" objects in [parallel networks](parallel-networks.html) started with more recent versions of `rippled`.) |
+| `FirstLedgerSequence` | Number | UInt32   | **DEPRECATED** Do not use. (The "recent hashes" object of the production RCP Ledger has the value `2` in this field as a result of a previous `rippled` software. That value gets carried forward as the "recent hashes" object is updated. New "previous history" objects do not have this field, nor do "recent hashes" objects in [parallel networks](parallel-networks.html) started with more recent versions of `rippled`.) |
 | `LastLedgerSequence` | Number | UInt32 | The [Ledger Index][] of the last entry in this object's `Hashes` array. |
 | `Hashes` | Array of Strings | STI_VECTOR256 | An array of up to 256 ledger hashes. The contents depend on which sub-type of `LedgerHashes` object this is. |
 | `Flags`             | Number    | UInt32    | A bit-map of boolean flags for this object. No flags are defined for this type. |

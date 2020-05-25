@@ -43,7 +43,7 @@ With online deletion enabled and running automatically (that is, with advisory d
 
 When online deletion runs, it does not reduce the size of SQLite database files on disk; it only makes space within those files available to be reused for new data. Online deletion _does_ reduce the size of RocksDB or NuDB database files containing the ledger store.
 
-The server only counts validated ledger versions when deciding how far back it can delete. In exceptional circumstances where the server is unable to validate new ledger versions (either because of an outage in its local network connection or because the global SGY Ledger network is unable to reach a consensus) `rippled` continues to close ledgers so that it can recover quickly when the network is restored. In this case, the server may accumulate many closed but not validated ledger versions. These unvalidated ledgers do not affect how many _validated_ ledger versions the server keeps before running online deletion.
+The server only counts validated ledger versions when deciding how far back it can delete. In exceptional circumstances where the server is unable to validate new ledger versions (either because of an outage in its local network connection or because the global RCP Ledger network is unable to reach a consensus) `rippled` continues to close ledgers so that it can recover quickly when the network is restored. In this case, the server may accumulate many closed but not validated ledger versions. These unvalidated ledgers do not affect how many _validated_ ledger versions the server keeps before running online deletion.
 
 ### Interrupting Online Deletion
 

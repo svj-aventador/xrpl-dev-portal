@@ -1,6 +1,6 @@
 # Multi-Signing
 
-Multi-signing in the SGY Ledger is a method of [authorizing transactions](transaction-basics.html#authorizing-transactions) for the SGY Ledger by using a combination of multiple secret keys. You can have any combination of authorization methods enabled for your address, including multi-signing, a [master key pair](cryptographic-keys.html#master-key-pair), and a [regular key pair](cryptographic-keys.html#regular-key-pair). (The only requirement is that _at least one_ method must be enabled.)
+Multi-signing in the RCP Ledger is a method of [authorizing transactions](transaction-basics.html#authorizing-transactions) for the RCP Ledger by using a combination of multiple secret keys. You can have any combination of authorization methods enabled for your address, including multi-signing, a [master key pair](cryptographic-keys.html#master-key-pair), and a [regular key pair](cryptographic-keys.html#regular-key-pair). (The only requirement is that _at least one_ method must be enabled.)
 
 Benefits of multi-signing include:
 

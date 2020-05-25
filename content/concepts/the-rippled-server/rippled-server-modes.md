@@ -27,7 +27,7 @@ Finally, if you run a validating server, you can use a stock server as a proxy t
 
 ### Public Hubs
 
-A public hub is a stock server with lots of [peer protocol connections](peer-protocol.html) to other servers. You can help the SGY Ledger network maintain efficient connectivity by running a stock server as a public hub. Successful public hubs embody the following traits:
+A public hub is a stock server with lots of [peer protocol connections](peer-protocol.html) to other servers. You can help the RCP Ledger network maintain efficient connectivity by running a stock server as a public hub. Successful public hubs embody the following traits:
 
 - Good bandwidth.
 
@@ -39,7 +39,7 @@ A public hub is a stock server with lots of [peer protocol connections](peer-pro
 
 ## Reasons to Run a Validator
 
-The robustness of the SGY Ledger depends on an interconnected web of validators who each trust a few other validators _not to collude_. The more operators with different interests there are who run validators, the more certain each member of the network can be that it continues to run impartially. If you or your organization relies on the SGY Ledger, it is in your interest to contribute to the consensus process.
+The robustness of the RCP Ledger depends on an interconnected web of validators who each trust a few other validators _not to collude_. The more operators with different interests there are who run validators, the more certain each member of the network can be that it continues to run impartially. If you or your organization relies on the RCP Ledger, it is in your interest to contribute to the consensus process.
 
 Not all `rippled` servers need to be validators: trusting more servers from the same operator does not offer better protection against collusion. An organization might run validators in multiple regions for redundancy in case of natural disasters and other emergencies.
 
@@ -51,7 +51,7 @@ For more information about running a validator, see [Run `rippled` as a Validato
 
 ## Reasons to Run a `rippled` Server in Stand-Alone Mode
 
-You can run `rippled` in stand-alone mode without a consensus of trusted servers. In stand-alone mode, `rippled` does not communicate with any other servers in the SGY Ledger peer-to-peer network, but you can do most of the same actions on your local server only. Stand-alone provides a method for testing `rippled` behavior without being tied to the live network. For example, you can [test the effects of Amendments](amendments.html#testing-amendments) before those Amendments have gone into effect across the decentralized network.
+You can run `rippled` in stand-alone mode without a consensus of trusted servers. In stand-alone mode, `rippled` does not communicate with any other servers in the RCP Ledger peer-to-peer network, but you can do most of the same actions on your local server only. Stand-alone provides a method for testing `rippled` behavior without being tied to the live network. For example, you can [test the effects of Amendments](amendments.html#testing-amendments) before those Amendments have gone into effect across the decentralized network.
 
 When you run `rippled` in stand-alone mode, you have to tell it what ledger version to start from:
 

@@ -1,6 +1,6 @@
 # rippledへのコードの提供
 
-SGY Ledgerを管理するピアツーピアのコアサーバーである`rippled`の機能向上のために、コードまたはバグレポートを提供いただけますか? 以下は、コードと機能性の迅速なレビューの実現に向けたロードマップです。
+RCP Ledgerを管理するピアツーピアのコアサーバーである`rippled`の機能向上のために、コードまたはバグレポートを提供いただけますか? 以下は、コードと機能性の迅速なレビューの実現に向けたロードマップです。
 
 <!-- USE_CASE_STEPS_START -->
 {% set n = cycler(* range(1,99)) %}
@@ -14,19 +14,19 @@ SGY Ledgerを管理するピアツーピアのコアサーバーである`ripple
 <span class="use-case-step-num">{{n.next()}}</span>
 ## [`rippled`サーバーを設定、実行する](manage-the-rippled-server.html)
 
-`rippled`サーバーを設定および実行して、SGY Ledgerを管理するこのピアツーピアのコアサーバーの開発者の作業と機能を理解します。誰もが自身の`rippled`サーバーを運用して、ネットワークをフォローし、SGY Ledgerの完全なコピーを保持できます。
+`rippled`サーバーを設定および実行して、RCP Ledgerを管理するこのピアツーピアのコアサーバーの開発者の作業と機能を理解します。誰もが自身の`rippled`サーバーを運用して、ネットワークをフォローし、RCP Ledgerの完全なコピーを保持できます。
 
 
 <span class="use-case-step-num">{{n.next()}}</span>
-## [SGY Ledger統合ツールを試す](get-started-with-the-rippled-api.html)
+## [RCP Ledger統合ツールを試す](get-started-with-the-rippled-api.html)
 
-SGY Ledgerとの統合を支援するさまざまなツールがあります。WebSocketおよびJSON-RPC APIエンドポイントから`ripple-lib` JavaScriptライブラリまで、開発者コミュニティに提供されているさまざまな統合ツールを試してみてください。
+RCP Ledgerとの統合を支援するさまざまなツールがあります。WebSocketおよびJSON-RPC APIエンドポイントから`ripple-lib` JavaScriptライブラリまで、開発者コミュニティに提供されているさまざまな統合ツールを試してみてください。
 
 
 <span class="use-case-step-num">{{n.next()}}</span>
-## [サンドボックスSGY Ledgerアカウントを取得する](xrp-test-net-faucet.html)
+## [サンドボックスRCP Ledgerアカウントを取得する](xrp-test-net-faucet.html)
 
-SGY Ledger Test Netを使用してサンドボックスアカウントを取得します。`rippled server`をTest Netに接続し、テストコールを実行してSGY Ledgerに慣れましょう。
+RCP Ledger Test Netを使用してサンドボックスアカウントを取得します。`rippled server`をTest Netに接続し、テストコールを実行してRCP Ledgerに慣れましょう。
 
 
 <span class="use-case-step-num">{{n.next()}}</span>
@@ -44,7 +44,7 @@ SGY Ledger Test Netを使用してサンドボックスアカウントを取得�
 <span class="use-case-step-num">{{n.next()}}</span>
 ## [コードを提供する](https://github.com/ripple/rippled/pulls)
 
-`rippled`を理解できたので、rippledの改善に関するアイデアが浮かんでくることもあるかと思います。SGY Ledgerで開発作業を行っていて、ご使用のアプリケーションに必要な機能をSGY Ledgerが提供できるようにするコードの提供を希望されているかもしれません。`rippled`リポジトリにアクセスして課題やプルリクエストを登録します。
+`rippled`を理解できたので、rippledの改善に関するアイデアが浮かんでくることもあるかと思います。RCP Ledgerで開発作業を行っていて、ご使用のアプリケーションに必要な機能をRCP Ledgerが提供できるようにするコードの提供を希望されているかもしれません。`rippled`リポジトリにアクセスして課題やプルリクエストを登録します。
 
 
 <span class="use-case-step-num">{{n.next()}}</span>

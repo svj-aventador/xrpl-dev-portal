@@ -27,13 +27,13 @@
 | 名前                | JSONの型 | [内部の型][] | 説明            |
 |:--------------------|:----------|:------------------|:-----------------------|
 | `LedgerEntryType`   | 文字列    | UInt16            | 値`0x0073`が文字列`FeeSettings`にマッピングされている場合は、このオブジェクトにレジャーの手数料設定が含まれていることを示します。 |
-| `BaseFee`           | 文字列    | UInt64            | 「リファレンストランザクション」の[トランザクションコスト](transaction-cost.html)（SGYのdrop数、16進数） |
+| `BaseFee`           | 文字列    | UInt64            | 「リファレンストランザクション」の[トランザクションコスト](transaction-cost.html)（RCPのdrop数、16進数） |
 | `ReferenceFeeUnits` | 数値    | UInt32            | 「手数料単位」に変換された`BaseFee` |
-| `ReserveBase`       | 数値    | UInt32            | SGY Ledgerのアカウントの[基本準備金](reserves.html#基本準備金と所有者準備金)（SGYのdrop数）。 |
-| `ReserveIncrement`  | 数値    | UInt32            | 所有するオブジェクトごとに増加する[所有者準備金](reserves.html#基本準備金と所有者準備金)（SGYのdrop数）。 |
+| `ReserveBase`       | 数値    | UInt32            | RCP Ledgerのアカウントの[基本準備金](reserves.html#基本準備金と所有者準備金)（RCPのdrop数）。 |
+| `ReserveIncrement`  | 数値    | UInt32            | 所有するオブジェクトごとに増加する[所有者準備金](reserves.html#基本準備金と所有者準備金)（RCPのdrop数）。 |
 | `Flags`             | 数値    | UInt32            | このオブジェクトのブールフラグのビットマップ。このタイプではフラグは定義されていません。 |
 
-**警告:** このレジャーオブジェクトのJSONフォーマットは一般的ではありません。`BaseFee`、`ReserveBase`、および`ReserveIncrement`はSGYのdrop数を示しますが、通常の[SGY指定][通貨額]フォーマットでは***ありません*** 。
+**警告:** このレジャーオブジェクトのJSONフォーマットは一般的ではありません。`BaseFee`、`ReserveBase`、および`ReserveIncrement`はRCPのdrop数を示しますが、通常の[RCP指定][通貨額]フォーマットでは***ありません*** 。
 
 ## FeeSettings IDのフォーマット
 

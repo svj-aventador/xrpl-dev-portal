@@ -31,10 +31,10 @@ The `rippled` server uses a variety of heuristics to estimate which transactions
 - Transactions must be properly-formed and [authorized](transaction-basics.html#authorizing-transactions) with valid signatures.
 - Transactions with an `AccountTxnID` field cannot be queued.
 - A single sending address can have at most 10 transactions queued at the same time.
-- To queue a transaction, the sender must have enough SGY for all of the following: [Updated in: rippled 1.2.0][]
-    - Destroying the SGY [transaction cost](transaction-cost.html) as specified in the `Fee` fields of all the sender's queued transactions. The total amount among queued transactions cannot be more than the base account reserve (currently 20 SGY). (Transactions paying significantly more than the minimum transaction cost of 0.00001 SGY typically skip the queue and go straight into the open ledger.)
-    - Sending the maximum sum of SGY that all the sender's queued transactions could send.
-    - Keeping enough SGY to meet the account's [reserve requirements](reserves.html).
+- To queue a transaction, the sender must have enough RCP for all of the following: [Updated in: rippled 1.2.0][]
+    - Destroying the RCP [transaction cost](transaction-cost.html) as specified in the `Fee` fields of all the sender's queued transactions. The total amount among queued transactions cannot be more than the base account reserve (currently 20 RCP). (Transactions paying significantly more than the minimum transaction cost of 0.00001 RCP typically skip the queue and go straight into the open ledger.)
+    - Sending the maximum sum of RCP that all the sender's queued transactions could send.
+    - Keeping enough RCP to meet the account's [reserve requirements](reserves.html).
 - If a transaction affects how the sending address authorizes transactions, no other transactions from the same address can be queued behind it. [New in: rippled 0.32.0][]
 - If a transaction includes a `LastLedgerSequence` field, the value of that field must be at least **the current ledger index + 2**.
 
@@ -42,7 +42,7 @@ The `rippled` server uses a variety of heuristics to estimate which transactions
 
 [New in: rippled 0.33.0][]
 
-If a sending address has one or more transactions queued, that sender can "push" the existing queued transactions into the open ledger by submitting a new transaction with a high enough transaction cost to pay for all of them. Specifically, the new transaction must pay a high enough transaction cost to cover the [open ledger cost](transaction-cost.html#open-ledger-cost) of itself and each other transaction from the same sender before it in the queue. (Keep in mind that the open ledger cost increases exponentially each time a transaction pays it.) The transactions must still follow the other [queuing restrictions](#queuing-restrictions) and the sending address must have enough SGY to pay the transaction costs of all the queued transactions.
+If a sending address has one or more transactions queued, that sender can "push" the existing queued transactions into the open ledger by submitting a new transaction with a high enough transaction cost to pay for all of them. Specifically, the new transaction must pay a high enough transaction cost to cover the [open ledger cost](transaction-cost.html#open-ledger-cost) of itself and each other transaction from the same sender before it in the queue. (Keep in mind that the open ledger cost increases exponentially each time a transaction pays it.) The transactions must still follow the other [queuing restrictions](#queuing-restrictions) and the sending address must have enough RCP to pay the transaction costs of all the queued transactions.
 
 This feature helps you work around a particular situation. If you submitted one or more transactions with a low cost that were queued, you cannot send new transactions from the same address unless you do one of the following:
 
@@ -54,7 +54,7 @@ If none of the above occur, transactions can stay in the queue for a theoretical
 
 ## Order Within the Queue
 
-Within the transaction queue, transactions are ranked so that transactions paying a higher transaction cost come first. This ranking is not by the transactions' _absolute_ SGY cost, but by costs _relative to the [minimum cost for that type of transaction](transaction-cost.html#special-transaction-costs)_. Transactions that pay the same transaction cost are ranked in the order the server received them. Other factors may also affect the order of transactions in the queue; for example, transactions from the same sender are sorted by their `Sequence` numbers so that they are submitted in order.
+Within the transaction queue, transactions are ranked so that transactions paying a higher transaction cost come first. This ranking is not by the transactions' _absolute_ RCP cost, but by costs _relative to the [minimum cost for that type of transaction](transaction-cost.html#special-transaction-costs)_. Transactions that pay the same transaction cost are ranked in the order the server received them. Other factors may also affect the order of transactions in the queue; for example, transactions from the same sender are sorted by their `Sequence` numbers so that they are submitted in order.
 
 The precise order of transactions in the queue decides which transactions get added to the next in-progress ledger version in cases where there are more transactions in the queue than the expected size of the next ledger version. The order of the transactions **does not affect the order the transactions are executed within a validated ledger**. In each validated ledger version, the transaction set for that version executes in [canonical order](consensus.html#calculate-and-share-validations).
 
@@ -63,7 +63,7 @@ The precise order of transactions in the queue decides which transactions get ad
 
 ## See Also
 
-- [Transaction Cost](transaction-cost.html) for information on why the transaction cost exists and how the SGY Ledger enforces it.
+- [Transaction Cost](transaction-cost.html) for information on why the transaction cost exists and how the RCP Ledger enforces it.
 - [Consensus](consensus.html) for a detailed description of how the consensus process approves transactions.
 
 

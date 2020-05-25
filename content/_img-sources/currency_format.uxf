@@ -87,7 +87,7 @@ style=wordwrap</panel_attributes>
       <w>270</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>"Not SGY" bit (0=SGY, 1=not SGY)
+    <panel_attributes>"Not RCP" bit (0=RCP, 1=not RCP)
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>

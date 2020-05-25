@@ -14,7 +14,7 @@ To set up automatic updates, complete the following steps:
 
     This cron configuration runs a script to update the installed `rippled` package within an hour of each new release. To reduce the chance of outages from all servers updating simultaneously, the script delays the update for a random number of minutes, up to 59.
 
-**Caution:** In the future, it is possible that changes to Ripple's repositories may require manual intervention to update the URLs where your script searches for updates. Stay tuned to the [SGY Ledger Blog](/blog/) or the [ripple-server mailing list](https://groups.google.com/forum/#!forum/ripple-server) for announcements on any required changes.
+**Caution:** In the future, it is possible that changes to Ripple's repositories may require manual intervention to update the URLs where your script searches for updates. Stay tuned to the [RCP Ledger Blog](/blog/) or the [ripple-server mailing list](https://groups.google.com/forum/#!forum/ripple-server) for announcements on any required changes.
 
 
 ## See Also
@@ -26,7 +26,7 @@ To set up automatic updates, complete the following steps:
     - [Capacity Planning](capacity-planning.html)
     - [Troubleshoot rippled](troubleshoot-the-rippled-server.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 

@@ -38,15 +38,15 @@ To enable gRPC on your server, complete the following steps:
 <!-- TODO: add gRPC quickstart, overview docs here when available -->
 
 - **Concepts:**
-    - [SGY Ledger Overview](xrp-ledger-overview.html)
+    - [RCP Ledger Overview](xrp-ledger-overview.html)
     - [Software Ecosystem](software-ecosystem.html)
     - [Parallel Networks](parallel-networks.html)
 - **Tutorials:**
     - [Get Started with API for JavaScript](get-started-with-rippleapi-for-javascript.html)
     - [Reliable Transaction Submission](reliable-transaction-submission.html)
-    - [Manage the SGY Server](manage-the-rippled-server.html)
+    - [Manage the RCP Server](manage-the-rippled-server.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}			

@@ -1,10 +1,10 @@
 # base58 Encodings
 
-The `rippled` APIs often use a [base58](https://en.wikipedia.org/wiki/Base58) encoding with a checksum (sometimes called "Base58Check") to represent [account addresses](accounts.html#addresses) and other types of values related to cryptographic keys. This encoding is the same as the one used for Bitcoin addresses, except that the SGY Ledger uses the following dictionary: `rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz`.
+The `rippled` APIs often use a [base58](https://en.wikipedia.org/wiki/Base58) encoding with a checksum (sometimes called "Base58Check") to represent [account addresses](accounts.html#addresses) and other types of values related to cryptographic keys. This encoding is the same as the one used for Bitcoin addresses, except that the RCP Ledger uses the following dictionary: `rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz`.
 
-The SGY Ledger prefixes different types of values with a specific 8-bit number before encoding them to distinguish between different data types. Combined with the arrangement of characters in the SGY Ledger's base58 dictionary, the result is that the base58 representations for different types of encoded values start with specific letters by type.
+The RCP Ledger prefixes different types of values with a specific 8-bit number before encoding them to distinguish between different data types. Combined with the arrangement of characters in the RCP Ledger's base58 dictionary, the result is that the base58 representations for different types of encoded values start with specific letters by type.
 
-The following table lists all the encodings the SGY Ledger uses:
+The following table lists all the encodings the RCP Ledger uses:
 
 | Data Type                                | Starts With | Type Prefix | Content size¹ | Maximum characters |
 |:-----------------------------------------|:------------|:------------|:--------------|:--|
@@ -20,7 +20,7 @@ The following table lists all the encodings the SGY Ledger uses:
 ## See Also
 
 - [Address Encoding](accounts.html#address-encoding) - detailed information on address encoding
-- [Cryptographic Keys](cryptographic-keys.html) - types of cryptographic keys in the SGY Ledger and how they're used
+- [Cryptographic Keys](cryptographic-keys.html) - types of cryptographic keys in the RCP Ledger and how they're used
 - [wallet_propose Reference][wallet_propose method] - API method for generating account keys
 - [validation_create Reference][validation_create method] - API method for generating validator keys
 

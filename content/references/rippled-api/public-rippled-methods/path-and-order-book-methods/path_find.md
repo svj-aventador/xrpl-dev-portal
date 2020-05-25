@@ -1,7 +1,7 @@
 # path_find
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/PathFind.cpp "Source")
 
-*WebSocket API only!* The `path_find` method searches for a [path](paths.html) along which a transaction can possibly be made, and periodically sends updates when the path changes over time. For a simpler version that is supported by JSON-RPC, see the [ripple_path_find method][]. For payments occurring strictly in SGY, it is not necessary to find a path, because SGY can be sent directly to any account.
+*WebSocket API only!* The `path_find` method searches for a [path](paths.html) along which a transaction can possibly be made, and periodically sends updates when the path changes over time. For a simpler version that is supported by JSON-RPC, see the [ripple_path_find method][]. For payments occurring strictly in RCP, it is not necessary to find a path, because RCP can be sent directly to any account.
 
 There are three different modes, or sub-commands, of the path_find command. Specify which one you want with the `subcommand` parameter:
 
@@ -51,7 +51,7 @@ The request includes the following parameters:
 | `subcommand`          | String           | Use `"create"` to send the create subcommand |
 | `source_account`      | String           | Unique address of the account to find a path from. (In other words, the account that would be sending a payment.) |
 | `destination_account` | String           | Unique address of the account to find a path to. (In other words, the account that would receive a payment.) |
-| `destination_amount`  | String or Object | [Currency Amount][] that the destination account would receive in a transaction. **Special case:** [New in: rippled 0.30.0][] You can specify `"-1"` (for SGY) or provide -1 as the contents of the `value` field (for non-SGY currencies). This requests a path to deliver as much as possible, while spending no more than the amount specified in `send_max` (if provided). |
+| `destination_amount`  | String or Object | [Currency Amount][] that the destination account would receive in a transaction. **Special case:** [New in: rippled 0.30.0][] You can specify `"-1"` (for RCP) or provide -1 as the contents of the `value` field (for non-RCP currencies). This requests a path to deliver as much as possible, while spending no more than the amount specified in `send_max` (if provided). |
 | `send_max`            | String or Object | _(Optional)_ [Currency Amount][] that would be spent in the transaction. Not compatible with `source_currencies`. [New in: rippled 0.30.0][] |
 | `paths`               | Array            | _(Optional)_ Array of arrays of objects, representing [payment paths](paths.html) to check. You can use this to keep updated on changes to particular paths you already know about, or to check the overall cost to make a payment along a certain path. |
 

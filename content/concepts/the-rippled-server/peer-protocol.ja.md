@@ -1,8 +1,8 @@
 # ピアプロトコル
 
-SGY Ledgerのサーバーは、SGY Ledgerピアプロトコル（RTXP）を使用して相互に通信します。
+RCP Ledgerのサーバーは、RCP Ledgerピアプロトコル（RTXP）を使用して相互に通信します。
 
-ピアプロトコルは、SGY Ledgerのサーバー間のメイン通信モードです。SGY Ledgerの動作、進捗状況、接続に関するすべての情報がピアプロトコルを通じて伝達されます。ピアツーピア通信の例を以下に示します。
+ピアプロトコルは、RCP Ledgerのサーバー間のメイン通信モードです。RCP Ledgerの動作、進捗状況、接続に関するすべての情報がピアプロトコルを通じて伝達されます。ピアツーピア通信の例を以下に示します。
 
 - ピアツーピアネットワーク内の他のサーバーへの接続の要求、または接続スロットの使用可能性についてのアドバタイズ。
 - ネットワークのその他の部分との候補トランザクションの共有。
@@ -15,7 +15,7 @@ SGY Ledgerのサーバーは、SGY Ledgerピアプロトコル（RTXP）を使�
 
 **Note:** この部分は日本語ではまだ利用できません。助けたいと思うなら、[提供して下さい！](https://github.com/ripple/xrpl-dev-portal#contributing)
 
-The SGY Ledger uses a "gossip" protocol to help find servers find others to connect to in the SGY Ledger network. Whenever a server starts up, it reconnects to any other peers it previously connected to. As a fallback, it uses the [hardcoded public hubs](https://github.com/ripple/rippled/blob/fa57859477441b60914e6239382c6fba286a0c26/src/ripple/overlay/impl/OverlayImpl.cpp#L518-L525). After a server successfully connects to a peer, it asks that peer for the contact information (generally, IP address and port) of other SGY Ledger servers that may also be seeking peers. The server can then connect to those servers, and ask them for the contact information of yet more SGY Ledger servers to peer with. Through this process, the server establishes enough peer connections that it can remain reliably connected to the rest of the network even if it loses a connection to any single peer.
+The RCP Ledger uses a "gossip" protocol to help find servers find others to connect to in the RCP Ledger network. Whenever a server starts up, it reconnects to any other peers it previously connected to. As a fallback, it uses the [hardcoded public hubs](https://github.com/ripple/rippled/blob/fa57859477441b60914e6239382c6fba286a0c26/src/ripple/overlay/impl/OverlayImpl.cpp#L518-L525). After a server successfully connects to a peer, it asks that peer for the contact information (generally, IP address and port) of other RCP Ledger servers that may also be seeking peers. The server can then connect to those servers, and ask them for the contact information of yet more RCP Ledger servers to peer with. Through this process, the server establishes enough peer connections that it can remain reliably connected to the rest of the network even if it loses a connection to any single peer.
 
 Typically, a server needs to connect to a public hub only once, for a short amount of time, to find other peers. After doing so, the server may or may not remain connected to the hub, depending on how stable its network connection is, how busy the hub is, and how many other high-quality peers the server finds. The server saves the addresses of these other peers so it can try reconnecting directly to those peers later, after a network outage or a restart.
 
@@ -25,7 +25,7 @@ For certain high-value servers (such as important [validators](rippled-server-mo
 
 ## ピアプロトコルポート
 
-SGY Ledgerに参加するため、`rippled`サーバーはピアプロトコルを使用して任意のピアに接続します。（すべてのピアは、現行サーバーで[クラスター化されている](clustering.html)場合を除き、信頼できないものとして扱われます。）
+RCP Ledgerに参加するため、`rippled`サーバーはピアプロトコルを使用して任意のピアに接続します。（すべてのピアは、現行サーバーで[クラスター化されている](clustering.html)場合を除き、信頼できないものとして扱われます。）
 
 サーバーがピアポートで接続を送信 _かつ_ 受信できることが理想的です。ピアプロトコルに使用するポートを、ファイアウォール経由で`rippled`サーバーに転送する必要があります。[デフォルトの`rippled`構成ファイル](https://github.com/ripple/rippled/blob/master/cfg/rippled-example.cfg)は、すべてのネットワークインターフェイスでポート51235で着信ピアプロトコル接続を待機します。使用するポートを変更するには、`rippled.cfg`ファイル内の該当するスタンザを編集します。
 

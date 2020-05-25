@@ -4,7 +4,7 @@
 
 _Requires the [DeletableAccounts amendment](known-amendments.html#deletableaccounts) :not_enabled:_
 
-An AccountDelete transaction deletes an [account](accountroot.html) and any objects it owns in the SGY Ledger, if possible, sending the account's remaining SGY to a specified destination account. See [Deletion of Accounts](accounts.html#deletion-of-accounts) for the requirements to delete an account.
+An AccountDelete transaction deletes an [account](accountroot.html) and any objects it owns in the RCP Ledger, if possible, sending the account's remaining RCP to a specified destination account. See [Deletion of Accounts](accounts.html#deletion-of-accounts) for the requirements to delete an account.
 
 ## Example {{currentpage.name}} JSON
 
@@ -25,8 +25,8 @@ An AccountDelete transaction deletes an [account](accountroot.html) and any obje
 
 | Field            | JSON Type        | [Internal Type][] | Description        |
 |:-----------------|:-----------------|:------------------|:-------------------|
-| `Destination`    |  String - [Address][] | Account      | The address of an account to receive any leftover SGY after deleting the sending account. Must be a funded account in the ledger, and must not be the sending account. |
-| `DestinationTag` | Number           | UInt32            | _(Optional)_ Arbitrary [destination tag](source-and-destination-tags.html) that identifies a hosted recipient or other information for the recipient of the deleted account's leftover SGY. |
+| `Destination`    |  String - [Address][] | Account      | The address of an account to receive any leftover RCP after deleting the sending account. Must be a funded account in the ledger, and must not be the sending account. |
+| `DestinationTag` | Number           | UInt32            | _(Optional)_ Arbitrary [destination tag](source-and-destination-tags.html) that identifies a hosted recipient or other information for the recipient of the deleted account's leftover RCP. |
 
 
 ## Error Cases

@@ -1,10 +1,10 @@
 # rippled Commandline Usage Reference
 
-The `rippled` executable usually runs as a daemon that powers the SGY Ledger, although it can also run in other modes. This page describes all the options you can pass to `rippled` when running it from the command line.
+The `rippled` executable usually runs as a daemon that powers the RCP Ledger, although it can also run in other modes. This page describes all the options you can pass to `rippled` when running it from the command line.
 
 ## Available Modes
 
-- **Daemon Mode** - The default. Connect to the SGY Ledger to process transactions and build a ledger database.
+- **Daemon Mode** - The default. Connect to the RCP Ledger to process transactions and build a ledger database.
 - **Stand-Alone Mode** - Use the `-a` or `--standalone` option. Like daemon mode, except it does not connect to other servers. You can use this mode to test transaction processing or other features.
 - **Client Mode** - Specify an API method name to connect to another `rippled` server as a JSON-RPC client, then exit. You can use this to look up server status and ledger data if the executable is already running in another process.
 - **Other Usage** - Each of the following commands causes the `rippled` executable to print some information, then exit:

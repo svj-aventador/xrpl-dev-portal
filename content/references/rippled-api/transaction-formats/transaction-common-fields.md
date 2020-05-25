@@ -6,7 +6,7 @@ Every transaction has the same set of common fields, plus additional fields base
 |:-------------------|:-----------------|:------------------|:-----------------|
 | Account            | String           | Account           | _(Required)_ The unique address of the [account](accounts.html) that initiated the transaction. |
 | TransactionType    | String           | UInt16            | _(Required)_ The type of transaction. Valid types include: `Payment`, `OfferCreate`, `OfferCancel`, `TrustSet`, `AccountSet`, `SetRegularKey`, `SignerListSet`, `EscrowCreate`, `EscrowFinish`, `EscrowCancel`, `PaymentChannelCreate`, `PaymentChannelFund`, `PaymentChannelClaim`, and `DepositPreauth`. |
-| Fee                | String           | Amount            | _(Required; [auto-fillable][])_ Integer amount of SGY, in drops, to be destroyed as a cost for distributing this transaction to the network. Some transaction types have different minimum requirements. See [Transaction Cost][] for details. |
+| Fee                | String           | Amount            | _(Required; [auto-fillable][])_ Integer amount of RCP, in drops, to be destroyed as a cost for distributing this transaction to the network. Some transaction types have different minimum requirements. See [Transaction Cost][] for details. |
 | Sequence           | Unsigned Integer | UInt32            | _(Required; [auto-fillable][])_ The [sequence number](basic-data-types.html#account-sequence) of the account sending the transaction. A transaction is only valid if the `Sequence` number is exactly 1 greater than the previous transaction from the same account. |
 | [AccountTxnID][]   | String           | Hash256           | _(Optional)_ Hash value identifying another transaction. If provided, this transaction is only valid if the sending account's previously-sent transaction matches the provided hash. |
 | [Flags][]          | Unsigned Integer | UInt32            | _(Optional)_ Set of bit-flags for this transaction. |
@@ -39,7 +39,7 @@ One situation in which this is useful is if you have a primary system for submit
 
 ## Auto-fillable Fields
 
-Some fields can be automatically filled in before a transaction is signed, either by a `rippled` server or by a library used for signing such as [ripple-lib][]. Auto-filling values requires an active connection to the SGY Ledger to get the latest state, so it cannot be done offline. Both [ripple-lib][] and `rippled` can automatically provide the following values:
+Some fields can be automatically filled in before a transaction is signed, either by a `rippled` server or by a library used for signing such as [ripple-lib][]. Auto-filling values requires an active connection to the RCP Ledger to get the latest state, so it cannot be done offline. Both [ripple-lib][] and `rippled` can automatically provide the following values:
 
 * `Fee` - Automatically fill in the [Transaction Cost][] based on the network.
 
@@ -133,7 +133,7 @@ The `Signers` field contains a [multi-signature](multi-signing.html), which has 
 
 The `SigningPubKey` must be a key that is associated with the `Account` address. If the referenced `Account` is a funded account in the ledger, then the SigningPubKey can be that account's current Regular Key if one is set. It could also be that account's Master Key, unless the [lsfDisableMaster](accountroot.html#accountroot-flags) flag is enabled. If the referenced `Account` address is not a funded account in the ledger, then the `SigningPubKey` must be the master key associated with that address.
 
-Because signature verification is a compute-intensive task, multi-signed transactions cost additional SGY to relay to the network. Each signature included in the multi-signature increases the [transaction cost][] required for the transaction. For example, if the current minimum transaction cost to relay a transaction to the network is `10000` drops, then a multi-signed transaction with 3 entries in the `Signers` array would need a `Fee` value of at least `40000` drops to relay.
+Because signature verification is a compute-intensive task, multi-signed transactions cost additional RCP to relay to the network. Each signature included in the multi-signature increases the [transaction cost][] required for the transaction. For example, if the current minimum transaction cost to relay a transaction to the network is `10000` drops, then a multi-signed transaction with 3 entries in the `Signers` array would need a `Fee` value of at least `40000` drops to relay.
 
 
 

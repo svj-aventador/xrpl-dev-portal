@@ -64,7 +64,7 @@ Each member of the `SignerEntries` field is an object that describes that signer
 
 | Name           | JSON Type | Internal Type | Description                     |
 |:---------------|:----------|:--------------|:--------------------------------|
-| `Account`      | String    | AccountID     | An SGY Ledger address whose signature contributes to the multi-signature. It does not need to be a funded address in the ledger. |
+| `Account`      | String    | AccountID     | An RCP Ledger address whose signature contributes to the multi-signature. It does not need to be a funded address in the ledger. |
 | `SignerWeight` | Number    | UInt16        | The weight of a signature from this signer. A multi-signature is only valid if the sum weight of the signatures provided meets or exceeds the SignerList's `SignerQuorum` value. |
 
 When processing a multi-signed transaction, the server dereferences the `Account` values with respect to the ledger at the time of transaction execution. If the address _does not_ correspond to a funded [AccountRoot object](accountroot.html), then only the master secret associated with that address can be used to produce a valid signature. If the account _does_ exist in the ledger, then it depends on the state of that account. If the account has a Regular Key configured, the Regular Key can be used. The account's master key can only be used if it is not disabled. A multi-signature cannot be used as part of another multi-signature.
@@ -85,7 +85,7 @@ A SignerList contributes to its owner's [reserve requirement](reserves.html).
 
 Without the [MultiSignReserve amendment][], the SignerList itself counts as two objects, and each member of the list counts as one. As a result, the total owner reserve associated with a SignerList is anywhere from 3 times to 10 times the reserve required by a single trust line ([RippleState](ripplestate.html)) or [Offer](offer.html) object in the ledger.
 
-With the [MultiSignReserve amendment][] enabled, the SignerList counts as one object, regardless of how many members it has. As a result, the owner reserve associated with a SignerList is 5 SGY, regardless of how many members it has.
+With the [MultiSignReserve amendment][] enabled, the SignerList counts as one object, regardless of how many members it has. As a result, the owner reserve associated with a SignerList is 5 RCP, regardless of how many members it has.
 
 The reserve requirement does not change for SignerLists created before the MultiSignReserve amendment. To take advantage of the new reserve, update the SignerList by sending a [SignerListSet transaction][].
 

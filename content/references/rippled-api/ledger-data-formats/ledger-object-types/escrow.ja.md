@@ -3,12 +3,12 @@
 
 _（[Escrow Amendment][]が必要です。）_
 
-`Escrow`オブジェクトタイプは、実行または取り消しを待機している保留中のSGY支払を表します。[EscrowCreateトランザクション][]はレジャーに`Escrow`オブジェクトを作成します。[EscrowFinish][]トランザクションまたは[EscrowCancel][]トランザクションが正常に完了すると、オブジェクトが削除されます。``Escrow``オブジェクトに [_Crypto-condition_](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02)が指定されている場合、支払が成功するのは、EscrowFinishトランザクションに指定された対応する _フルフィルメント_ がその条件を満たす場合だけです。（サポートされている唯一のCrypto-conditionタイプは[PREIMAGE-SHA-256](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02#section-8.1)です。）`Escrow`オブジェクトに`FinishAfter`時刻が指定されている場合、保留中の支払はその時刻の経過後にのみ実行されます。
+`Escrow`オブジェクトタイプは、実行または取り消しを待機している保留中のRCP支払を表します。[EscrowCreateトランザクション][]はレジャーに`Escrow`オブジェクトを作成します。[EscrowFinish][]トランザクションまたは[EscrowCancel][]トランザクションが正常に完了すると、オブジェクトが削除されます。``Escrow``オブジェクトに [_Crypto-condition_](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02)が指定されている場合、支払が成功するのは、EscrowFinishトランザクションに指定された対応する _フルフィルメント_ がその条件を満たす場合だけです。（サポートされている唯一のCrypto-conditionタイプは[PREIMAGE-SHA-256](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02#section-8.1)です。）`Escrow`オブジェクトに`FinishAfter`時刻が指定されている場合、保留中の支払はその時刻の経過後にのみ実行されます。
 
 `Escrow`オブジェクトには次の2つのアドレスが関連付けられています。
 
-- `Escrow`オブジェクトの作成時にSGYを供給する所有者。保留中の支払が取り消されると、SGYは所有者に返金されます。
-- 保留中の支払が成功するとSGYが支払われる宛先。宛先は所有者と同じにできます。
+- `Escrow`オブジェクトの作成時にRCPを供給する所有者。保留中の支払が取り消されると、RCPは所有者に返金されます。
+- 保留中の支払が成功するとRCPが支払われる宛先。宛先は所有者と同じにできます。
 
 ## {{currentpage.name}} JSONの例
 
@@ -39,9 +39,9 @@ _（[Escrow Amendment][]が必要です。）_
 | 名前              | JSONの型 | [内部の型][] | 説明 |
 |-------------------|-----------|---------------|-------------|
 | `LedgerEntryType`   | 文字列    | UInt16    | 値`0x0075`が文字列`Escrow`にマッピングされている場合は、このオブジェクトが`Escrow`オブジェクトであることを示します。 |
-| `Account`           | 文字列 | AccountID | この保留中の支払の所有者（送金元）のアドレス。これはSGYを供給し、保留中の支払が取り消された場合にSGYが返金されるアカウントです。 |
-| `Destination`       | 文字列 | AccountID | 保留中の支払が成功するとSGYが支払われる宛先アドレス。 |
-| `Amount`            | 文字列 | Amount    | 保留中の支払から送金されるSGYの額（drop単位）。 |
+| `Account`           | 文字列 | AccountID | この保留中の支払の所有者（送金元）のアドレス。これはRCPを供給し、保留中の支払が取り消された場合にRCPが返金されるアカウントです。 |
+| `Destination`       | 文字列 | AccountID | 保留中の支払が成功するとRCPが支払われる宛先アドレス。 |
+| `Amount`            | 文字列 | Amount    | 保留中の支払から送金されるRCPの額（drop単位）。 |
 | `Condition`         | 文字列 | VariableLength | _（省略可）_ [PREIMAGE-SHA-256 Crypto-condition](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02#section-8.1)（16進数）。指定されている場合、[EscrowFinishトランザクション][]にこの条件を満たすフルフィルメントが含まれている必要があります。 |
 | `CancelAfter`       | 数値 | UInt32 | _（省略可）_ このフィールドがあり、 _かつ_ 指定されている時刻を経過している場合にのみ、保留中の支払を取り消すことができます。具体的には、これは[Rippleエポック以降の経過秒数][]として指定され、前の検証済みレジャーの閉鎖時刻よりも早い場合に「経過した」ことになります。 |
 | `FinishAfter`       | 数値 | UInt32 | _（省略可）_ [Rippleエポック以降の経過秒数][]で示される時刻が経過した後、保留中の支払を完了できます。この時刻より前の[EscrowFinishトランザクション][]はすべて失敗します。（特にこれは、前の検証済みレジャーの閉鎖時刻と比較されます。） |

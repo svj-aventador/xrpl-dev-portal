@@ -73,7 +73,7 @@ Checksum (4 bytes)</panel_attributes>
     <panel_attributes>Type Prefix
 --
 0x00
-("r" in SGYL base58)</panel_attributes>
+("r" in RCPL base58)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

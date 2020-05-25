@@ -1,10 +1,10 @@
-function CountSGYDifference(affected_nodes, address) {
+function CountRCPDifference(affected_nodes, address) {
   // Helper to find an account in an AffectedNodes array and see how much
   // its balance changed, if at all. Fortunately, each account appears at most
   // once in the AffectedNodes array, so we can return as soon as we find it.
 
   // Note: this reports the net balance change. If the address is the sender,
-  // the transaction cost is deducted and combined with SGY sent/received
+  // the transaction cost is deducted and combined with RCP sent/received
 
   for (let i=0; i<affected_nodes.length; i++) {
     if ((affected_nodes[i].hasOwnProperty("ModifiedNode"))) {
@@ -13,7 +13,7 @@ function CountSGYDifference(affected_nodes, address) {
       if (ledger_entry.LedgerEntryType === "AccountRoot" &&
           ledger_entry.FinalFields.Account === address) {
         if (!ledger_entry.PreviousFields.hasOwnProperty("Balance")) {
-          console.log("SGY balance did not change.")
+          console.log("RCP balance did not change.")
         }
         // Balance is in PreviousFields, so it changed. Time for
         // high-precision math!
@@ -22,10 +22,10 @@ function CountSGYDifference(affected_nodes, address) {
         const diff_in_drops = new_balance.minus(old_balance)
         const xrp_amount = diff_in_drops.div(1e6)
         if (xrp_amount.gte(0)) {
-          console.log("Received " + xrp_amount.toString() + " SGY.")
+          console.log("Received " + xrp_amount.toString() + " RCP.")
           return
         } else {
-          console.log("Spent " + xrp_amount.abs().toString() + " SGY.")
+          console.log("Spent " + xrp_amount.abs().toString() + " RCP.")
           return
         }
       }
@@ -36,7 +36,7 @@ function CountSGYDifference(affected_nodes, address) {
           ledger_entry.NewFields.Account === address) {
         const balance_drops = new Big(ledger_entry.NewFields.Balance)
         const xrp_amount = balance_drops.div(1e6)
-        console.log("Received " + xrp_amount.toString() + " SGY (account funded).")
+        console.log("Received " + xrp_amount.toString() + " RCP (account funded).")
         return
       }
     } // accounts cannot be deleted at this time, so we ignore DeletedNode
@@ -46,7 +46,7 @@ function CountSGYDifference(affected_nodes, address) {
   return
 }
 
-function CountSGYReceived(tx, address) {
+function CountRCPReceived(tx, address) {
   if (tx.meta.TransactionResult !== "tesSUCCESS") {
     console.log("Transaction failed.")
     return
@@ -59,16 +59,16 @@ function CountSGYReceived(tx, address) {
     if (typeof tx.meta.delivered_amount === "string") {
       const amount_in_drops = new Big(tx.meta.delivered_amount)
       const xrp_amount = amount_in_drops.div(1e6)
-      console.log("Received " + xrp_amount.toString() + " SGY.")
+      console.log("Received " + xrp_amount.toString() + " RCP.")
       return
     } else {
-      console.log("Received non-SGY currency.")
+      console.log("Received non-RCP currency.")
       return
     }
   } else if (["PaymentChannelClaim", "PaymentChannelFund", "OfferCreate",
           "CheckCash", "EscrowFinish"].includes(
           tx.transaction.TransactionType)) {
-    CountSGYDifference(tx.meta.AffectedNodes, address)
+    CountRCPDifference(tx.meta.AffectedNodes, address)
   } else {
     console.log("Not a currency-delivering transaction type (" +
                 tx.transaction.TransactionType + ").")

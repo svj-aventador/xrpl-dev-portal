@@ -41,7 +41,7 @@ You must provide either `ledger_index` or `ledger_hash` but not both.
 
 The response follows the [standard format][]. However, the request returns a failure response if it does not have the specified ledger _even if it successfully instructed the `rippled` server to start retrieving the ledger_.
 
-**Note:** To retrieve a ledger, the rippled server must have a direct peer with that ledger in its history. If none of the peers have the requested ledger, you can use the [connect method][] or the `fixed_ips` section of the config file to add Ripple's full-history server at `s-us.sgy.plus` and then make the `ledger_request` request again.
+**Note:** To retrieve a ledger, the rippled server must have a direct peer with that ledger in its history. If none of the peers have the requested ledger, you can use the [connect method][] or the `fixed_ips` section of the config file to add Ripple's full-history server at `s-us.RCP.plus` and then make the `ledger_request` request again.
 
 A failure response indicates the status of fetching the ledger. A successful response contains the information for the ledger in a similar format to the [ledger method][].
 

@@ -1,8 +1,8 @@
 # Reliable Transaction Submission
 
-Financial institutions and other services using the SGY Ledger should use the best practices described here to make sure that transactions are validated or rejected in a verifiable and prompt way.  You should submit transactions to trusted (locally operated) `rippled` servers.
+Financial institutions and other services using the RCP Ledger should use the best practices described here to make sure that transactions are validated or rejected in a verifiable and prompt way.  You should submit transactions to trusted (locally operated) `rippled` servers.
 
-The best practices detailed in this document allow applications to submit transactions to the SGY Ledger while achieving:
+The best practices detailed in this document allow applications to submit transactions to the RCP Ledger while achieving:
 
 1. [Idempotency](https://en.wikipedia.org/wiki/Idempotence) - Transactions should be processed once and only once, or not at all.
 2. Verifiability - Applications can determine the final result of a transaction.
@@ -17,9 +17,9 @@ These types of errors can potentially lead to serious problems.  For example, an
 
 ## Background
 
-The SGY Ledger protocol provides a ledger shared across all servers in the network.  Through a [process of consensus and validation](consensus.html), the network agrees on the order in which transactions are applied to (or omitted from) the ledger.
+The RCP Ledger protocol provides a ledger shared across all servers in the network.  Through a [process of consensus and validation](consensus.html), the network agrees on the order in which transactions are applied to (or omitted from) the ledger.
 
-Well-formed transactions submitted to trusted SGY Ledger servers are usually validated or rejected in a matter of seconds.  There are cases, however, in which a well-formed transaction is neither validated nor rejected this quickly. One specific case can occur if the global [transaction cost](transaction-cost.html) increases after an application sends a transaction.  If the transaction cost increases above what has been specified in the transaction, the transaction is not included in the next validated ledger. If at some later date the global transaction cost decreases, the transaction could be included in a later ledger. If the transaction does not specify an expiration, there is no limit to how much later this can occur.
+Well-formed transactions submitted to trusted RCP Ledger servers are usually validated or rejected in a matter of seconds.  There are cases, however, in which a well-formed transaction is neither validated nor rejected this quickly. One specific case can occur if the global [transaction cost](transaction-cost.html) increases after an application sends a transaction.  If the transaction cost increases above what has been specified in the transaction, the transaction is not included in the next validated ledger. If at some later date the global transaction cost decreases, the transaction could be included in a later ledger. If the transaction does not specify an expiration, there is no limit to how much later this can occur.
 
 If a power or network outage occurs, applications face more challenges finding the status of submitted transactions. Applications must take care both to properly submit a transaction and later to properly get authoritative results.
 
@@ -28,7 +28,7 @@ If a power or network outage occurs, applications face more challenges finding t
 
 ### Transaction Timeline
 
-The SGY Ledger provides several APIs for submitting transactions, including [`rippled` API](rippled-api.html), and [RippleAPI](rippleapi-reference.html).  Regardless of the API used, the transaction is applied to the ledger as follows.
+The RCP Ledger provides several APIs for submitting transactions, including [`rippled` API](rippled-api.html), and [RippleAPI](rippleapi-reference.html).  Regardless of the API used, the transaction is applied to the ledger as follows.
 
 1. An account owner creates and signs a transaction.
 2. The owner submits the transaction to the network as a candidate transaction.
@@ -54,7 +54,7 @@ Each validated ledger has a canonical order in which transactions apply. This or
 
 ### LastLedgerSequence
 
-`LastLedgerSequence` is an optional [parameter of all transactions](transaction-common-fields.html).  This instructs the SGY Ledger that a transaction must be validated on or before a specific ledger version.  The SGY Ledger never includes a transaction in a ledger version whose ledger index is higher than the transaction's `LastLedgerSequence` parameter.
+`LastLedgerSequence` is an optional [parameter of all transactions](transaction-common-fields.html).  This instructs the RCP Ledger that a transaction must be validated on or before a specific ledger version.  The RCP Ledger never includes a transaction in a ledger version whose ledger index is higher than the transaction's `LastLedgerSequence` parameter.
 
 Use the `LastLedgerSequence` parameter to prevent undesirable cases where a transaction is not confirmed promptly but could be included in a future ledger.  You should specify the `LastLedgerSequence` parameter on every transaction.  Automated processes should use a value of 4 greater than the last validated ledger index to make sure that a transaction is validated or rejected in a predictable and prompt way.
 
@@ -143,9 +143,9 @@ For each persisted transaction without validated result:
 
 The difference between the two transaction failure cases (labeled (1) and (2) in the pseudo-code) is whether the transaction was included in a validated ledger. In both cases, you should decide carefully how to process the failure.
 
-- In failure case (1), the transaction was included in a ledger and destroyed the [SGY transaction cost](transaction-cost.html), but did nothing else. This could be caused by a lack of liquidity, improperly specified [paths](paths.html), or other circumstances. For many such failures, immediately retrying with a similar transaction is likely to have the same result. You may get different results if you wait for circumstances to change.
+- In failure case (1), the transaction was included in a ledger and destroyed the [RCP transaction cost](transaction-cost.html), but did nothing else. This could be caused by a lack of liquidity, improperly specified [paths](paths.html), or other circumstances. For many such failures, immediately retrying with a similar transaction is likely to have the same result. You may get different results if you wait for circumstances to change.
 
-- In failure case (2), the transaction was not included in a validated ledger, so it did nothing at all, not even destroy the transaction cost. This could be the result of the transaction cost being too low for the current load on the SGY Ledger, the `LastLedgerSequence` being too soon, or it could be due to other conditions such as an unstable network connection.
+- In failure case (2), the transaction was not included in a validated ledger, so it did nothing at all, not even destroy the transaction cost. This could be the result of the transaction cost being too low for the current load on the RCP Ledger, the `LastLedgerSequence` being too soon, or it could be due to other conditions such as an unstable network connection.
 
     - In contrast to failure case (1), it is more likely that a new transaction is likely to succeed if you change only the `LastLedgerSequence` and possibly the `Fee` and submit again. Use the same `Sequence` number as the original transaction.
 
@@ -170,7 +170,7 @@ If your server does not have continuous ledger history from when the transaction
 
 Your `rippled` server should automatically acquire the missing ledger versions when it has spare resources (CPU/RAM/disk IO) to do so, unless the ledgers are older than its [configured amount of history to store](ledger-history.html). Depending on the size of the gap and the resource usage of your server, acquiring missing ledgers should take a few minutes. You can request your server to acquire historical ledger versions using the [ledger_request method][], but even so you may not be able to look up transaction outcomes from ledger versions that are outside of your server's configured history range.
 
-Alternatively, you can look up the status of the transaction using a different `rippled` server that already has the needed ledger history, such as Ripple's full-history servers at `s-us.sgy.plus`. Only use a server you trust for this purpose. A malicious server could be programmed to provide false information about the status and outcome of a transaction.
+Alternatively, you can look up the status of the transaction using a different `rippled` server that already has the needed ledger history, such as Ripple's full-history servers at `s-us.RCP.plus`. Only use a server you trust for this purpose. A malicious server could be programmed to provide false information about the status and outcome of a transaction.
 
 
 ## Technical Application
@@ -296,7 +296,7 @@ In this example the last validated ledger index is 10268596 (found under `result
 
 #### Construct the Transaction
 
-`rippled` provides the [sign method][] to prepare a transaction for submission.  This method requires an account secret, which should only be passed to trusted `rippled` instances.  This example issues 10 FOO (a made-up currency) to another SGY Ledger address.
+`rippled` provides the [sign method][] to prepare a transaction for submission.  This method requires an account secret, which should only be passed to trusted `rippled` instances.  This example issues 10 FOO (a made-up currency) to another RCP Ledger address.
 
 Request:
 
@@ -536,7 +536,7 @@ Finally the server may show one or more gaps in the transaction history. The `co
 - [Transaction Formats](transaction-formats.html)
 - [Transaction Cost](transaction-cost.html)
 - [Transaction Malleability](transaction-malleability.html)
-- [Overview of SGY Ledger Consensus Process](consensus.html)
+- [Overview of RCP Ledger Consensus Process](consensus.html)
 - [Consensus Principles and Rules](consensus-principles-and-rules.html)
 
 <!--{# common link defs #}-->

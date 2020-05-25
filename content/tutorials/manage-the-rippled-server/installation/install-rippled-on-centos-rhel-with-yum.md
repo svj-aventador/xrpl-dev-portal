@@ -16,7 +16,7 @@ Before you install `rippled`, you must meet the [System Requirements](system-req
 
         $ cat << REPOFILE | sudo tee /etc/yum.repos.d/ripple.repo
         [ripple-stable]
-        name=SGY Ledger Packages
+        name=RCP Ledger Packages
         baseurl=https://repos.ripple.com/repos/rippled-rpm/stable/
         enabled=1
         gpgcheck=0
@@ -62,7 +62,7 @@ Before you install `rippled`, you must meet the [System Requirements](system-req
     - [Troubleshoot rippled](troubleshoot-the-rippled-server.html)
     - [Get Started with the rippled API](get-started-with-the-rippled-api.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 

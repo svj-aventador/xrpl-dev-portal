@@ -23,7 +23,7 @@ A change in [transaction cost](transaction-cost.html) or [account reserve](reser
 
 | Field             | JSON Type        | [Internal Type][] | Description       |
 |:------------------|:-----------------|:------------------|:------------------|
-| BaseFee           | String           | UInt64            | The charge, in drops of SGY, for the reference transaction, as hex. (This is the [transaction cost](transaction-cost.html) before scaling for load.) |
+| BaseFee           | String           | UInt64            | The charge, in drops of RCP, for the reference transaction, as hex. (This is the [transaction cost](transaction-cost.html) before scaling for load.) |
 | ReferenceFeeUnits | Unsigned Integer | UInt32            | The cost, in fee units, of the reference transaction |
 | ReserveBase       | Unsigned Integer | UInt32            | The base reserve, in drops |
 | ReserveIncrement  | Unsigned Integer | UInt32            | The incremental reserve, in drops |

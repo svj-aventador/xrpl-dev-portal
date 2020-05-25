@@ -24,7 +24,7 @@ Request('account_currencies', {
 })
 
 Request('account_info', {
-  description: "Retrieves information about an account, its activity, and its SGY balance.",
+  description: "Retrieves information about an account, its activity, and its RCP balance.",
   link: "account_info.html",
   body: {
     "id": 2,
@@ -37,7 +37,7 @@ Request('account_info', {
 })
 
 Request('account_lines', {
-  description: "Retrieves information about an account's trust lines, including balances for all non-SGY currencies and assets.",
+  description: "Retrieves information about an account's trust lines, including balances for all non-RCP currencies and assets.",
   link: "account_lines.html",
   body: {
     "id": 2,
@@ -264,7 +264,7 @@ Request('book_offers', {
     "command": "book_offers",
     "taker": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
     "taker_gets": {
-      "currency": "SGY"
+      "currency": "RCP"
     },
     "taker_pays": {
       "currency": "USD",
@@ -313,7 +313,7 @@ Request('ripple_path_find', {
     "source_account": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
     "source_currencies": [
         {
-            "currency": "SGY"
+            "currency": "RCP"
         },
         {
             "currency": "USD"
@@ -331,7 +331,7 @@ Request('ripple_path_find', {
 Request("Payment Channel Methods")
 
 Request('channel_authorize', {
-  description: "Creates a signature that can be used to redeem a specific amount of SGY from a payment channel.",
+  description: "Creates a signature that can be used to redeem a specific amount of RCP from a payment channel.",
   link: "channel_authorize.html",
   body: {
     "id": "channel_authorize_example_id1",
@@ -343,7 +343,7 @@ Request('channel_authorize', {
 })
 
 Request('channel_verify', {
-  description: "Checks the validity of a signature that can be used to redeem a specific amount of SGY from a payment channel.",
+  description: "Checks the validity of a signature that can be used to redeem a specific amount of RCP from a payment channel.",
   link: "channel_verify.html",
   body: {
     "id": 1,

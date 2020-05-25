@@ -1,16 +1,16 @@
 # Configure Full History
 
-In its default configuration, the `rippled` server automatically deletes outdated history of SGY Ledger state and transactions as new ledger versions become available. This is sufficient for most servers, which do not need older history to know the current state and process transactions. However, it can be useful for the network if some servers provide as much history of the SGY Ledger as possible.
+In its default configuration, the `rippled` server automatically deletes outdated history of RCP Ledger state and transactions as new ledger versions become available. This is sufficient for most servers, which do not need older history to know the current state and process transactions. However, it can be useful for the network if some servers provide as much history of the RCP Ledger as possible.
 
 ## Warnings
 
-Storing full history is expensive. As of 2018-12-11, the full history of the SGY Ledger occupies approximately **9 terabytes** of disk space, which must be entirely stored on fast solid state disk drives for proper server performance. Such a large amount of solid state storage is not cheap, and the total amount of history you must store increases by approximately 12 GB per day.
+Storing full history is expensive. As of 2018-12-11, the full history of the RCP Ledger occupies approximately **9 terabytes** of disk space, which must be entirely stored on fast solid state disk drives for proper server performance. Such a large amount of solid state storage is not cheap, and the total amount of history you must store increases by approximately 12 GB per day.
 
 Acquiring full history from the peer-to-peer network takes a long time (several months) and requires that your server has sufficient system and network resources to acquire older history while keeping up with new ledger progress. To get a faster start on acquiring ledger history, you may want to find another server operator who has a large amount of history already downloaded, who can give you a database dump or at least allow your server to explicitly peer with theirs for a long time to acquire history. The server can load ledger history from a file and verify the integrity of the historical ledgers it imports.
 
 You do not need a full history server to participate in the network, validate transactions, or know the current state of the network. Full history is only useful for knowing the outcome of transactions that occurred in the past, or the state of the ledger at a given time in the past. To get such information, you must rely on other servers having the history you need.
 
-If you want to contribute to storing the history of the SGY Ledger network without storing the full history, you can [configure history sharding](configure-history-sharding.html) to store randomly-selected chunks of ledger history instead.
+If you want to contribute to storing the history of the RCP Ledger network without storing the full history, you can [configure history sharding](configure-history-sharding.html) to store randomly-selected chunks of ledger history instead.
 
 ## Configuration Steps
 
@@ -47,7 +47,7 @@ To configure your server to acquire and store full history, complete the followi
 
     Your server can only download historical data from the peer-to-peer network if one its direct peers has the data available. The easiest way to ensure you can download full history is to peer with a server that already has full history.
 
-    **Tip:** Ripple makes a pool of full history servers publicly available. You can resolve the domain `s-us.sgy.plus` a few times to get the IP addresses of these servers. Ripple offers these servers as a public service, so be aware that their availability to peer with other servers is limited and you may be blocked if you abuse them.
+    **Tip:** Ripple makes a pool of full history servers publicly available. You can resolve the domain `s-us.RCP.plus` a few times to get the IP addresses of these servers. Ripple offers these servers as a public service, so be aware that their availability to peer with other servers is limited and you may be blocked if you abuse them.
 
 0. If you have a database dump from another full-history server to use as a basis, set the `[import_db]` stanza of your server's config file to point to the data to be imported. (Otherwise, skip this step.)
 
@@ -83,7 +83,7 @@ To configure your server to acquire and store full history, complete the followi
 
     The range of available ledgers reported in the `complete_ledgers` field should increase over time.
 
-    The earliest available ledger version in the production SGY Ledger's history is ledger index **32570**. The first two weeks or so of ledger history was lost due to a bug in the server at the time. [Test nets and other chains](parallel-networks.html) generally have history going back to ledger index **1**.
+    The earliest available ledger version in the production RCP Ledger's history is ledger index **32570**. The first two weeks or so of ledger history was lost due to a bug in the server at the time. [Test nets and other chains](parallel-networks.html) generally have history going back to ledger index **1**.
 
 ## See Also
 

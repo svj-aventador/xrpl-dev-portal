@@ -221,7 +221,7 @@ rvYAfWj...
 USD
 rvYAfWj...
 --
-SGY</panel_attributes>
+RCP</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -299,7 +299,7 @@ lt=.</panel_attributes>
     </coordinates>
     <panel_attributes>Order Book:
 --
-SGY
+RCP
 --
 USD
 rMwjYe...</panel_attributes>
@@ -413,7 +413,7 @@ bg=yellow</panel_attributes>
       <w>140</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>SGY can bridge two order books
+    <panel_attributes>RCP can bridge two order books
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>

@@ -84,7 +84,7 @@ This is not strictly a problem, but if you want to acquire ledger history faster
 
 ```
 [ips_fixed]
-s-us.sgy.plus 51235
+s-us.RCP.plus 51235
 ```
 
 
@@ -160,7 +160,7 @@ During startup, these messages are normal and can be safely ignored. At other ti
 
 ## Potential Censorship
 
-Log messages such as the following are issued when the SGY Ledger detects potential transaction censorship. For more information about these log messages and the transaction censorship detector, see [Transaction Censorship Detection](transaction-censorship-detection.html).
+Log messages such as the following are issued when the RCP Ledger detects potential transaction censorship. For more information about these log messages and the transaction censorship detector, see [Transaction Censorship Detection](transaction-censorship-detection.html).
 
 **Warning Message**
 
@@ -274,7 +274,7 @@ NetworkOPs:WRN We are not running on the consensus ledger
     - [Diagnosing Problems](diagnosing-problems.html)
     - [Capacity Planning](capacity-planning.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 

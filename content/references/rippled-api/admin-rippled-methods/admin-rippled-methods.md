@@ -34,7 +34,7 @@ Use these methods to manage the `rippled` server.
 
 ## [Peer Management Methods](peer-management-methods.html)
 
-Use these methods to manage the server's connections in the peer-to-peer SGY Ledger network.
+Use these methods to manage the server's connections in the peer-to-peer RCP Ledger network.
 
 * **[`connect`](connect.html)** - Force the `rippled` server to connect to a specific peer.
 * **[`peer_reservations_add`](peer_reservations_add.html)** - Add or update a reserved slot for a specific peer.

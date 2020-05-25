@@ -1,14 +1,14 @@
 # Set Up Secure Signing
 
-To submit [transactions](transaction-basics.html) to the SGY Ledger, you need a way to digitally sign them without compromising the security of your [secret keys](cryptographic-keys.html). (If others gain access to your secret keys, they have as much control over your accounts as you do, and can steal or destroy all your money.) This page summarizes how to set up such an environment so you can sign transactions securely.
+To submit [transactions](transaction-basics.html) to the RCP Ledger, you need a way to digitally sign them without compromising the security of your [secret keys](cryptographic-keys.html). (If others gain access to your secret keys, they have as much control over your accounts as you do, and can steal or destroy all your money.) This page summarizes how to set up such an environment so you can sign transactions securely.
 
-**Tip:** If you are not submitting transactions to the network, you can safely use a trustworthy public server, such as the ones run by Ripple, to monitor for incoming transactions or just to read other network activity. All transactions, balances, and data in the SGY Ledger are public.
+**Tip:** If you are not submitting transactions to the network, you can safely use a trustworthy public server, such as the ones run by Ripple, to monitor for incoming transactions or just to read other network activity. All transactions, balances, and data in the RCP Ledger are public.
 
 There are several configurations with varying levels of security that may be acceptable for your situation. Choose one of the following that best fits your needs:
 
 - [Run `rippled` locally](#run-rippled-locally), or [in the same LAN](#run-rippled-on-the-same-lan).
 - [Use a client library](#use-a-client-library-with-local-signing) that can do local signing.
-- [Use a dedicated signing device](#use-a-dedicated-signing-device) that supports SGY Ledger signatures.
+- [Use a dedicated signing device](#use-a-dedicated-signing-device) that supports RCP Ledger signatures.
 - [Use a secure VPN to connect to a remote `rippled` machine](#use-a-secure-vpn-with-a-remote-rippled-server) you trust.
 
 <!-- Source for all diagrams in this article: https://docs.google.com/presentation/d/1BfGyWgC0njoPiKUZz3gXHMVSUINE3Q-_lHqY_D0TGwg/ -->
@@ -17,7 +17,7 @@ There are several configurations with varying levels of security that may be acc
 
 [![Diagram of insecure configurations](img/insecure-signing-options.png)](img/insecure-signing-options.png)
 
-Any configuration in which outside sources may gain access to your secret key is dangerous, and is likely to result in a malicious user stealing all your SGY (and anything else your SGY Ledger address has). Examples of such configurations include ones where you use the [sign method][] of someone else's `rippled` server over the internet, or you transmit your secret key in plain text over the internet to your own server.
+Any configuration in which outside sources may gain access to your secret key is dangerous, and is likely to result in a malicious user stealing all your RCP (and anything else your RCP Ledger address has). Examples of such configurations include ones where you use the [sign method][] of someone else's `rippled` server over the internet, or you transmit your secret key in plain text over the internet to your own server.
 
 You should maintain the secrecy of your secret keys at all times, which includes things like not emailing them to yourself, not typing them visibly in public, and saving them encrypted—never in plain text—when you are not using them. The balance between security and convenience depends in part on the value of your addresses' holdings, so you may want to use multiple addresses with different security configurations for different purposes.
 
@@ -62,7 +62,7 @@ As always, follow industry-standard practices for securing your machines, such a
 
 [![Diagram of using a client library with local signing](img/secure-signing-client-library.png)](img/secure-signing-client-library.png)
 
-This configuration uses a client library in the programming language you are using to sign transactions locally. You need a client library for the programming language you use. Ripple publishes the following client libraries that can sign transactions for the SGY Ledger locally:
+This configuration uses a client library in the programming language you are using to sign transactions locally. You need a client library for the programming language you use. Ripple publishes the following client libraries that can sign transactions for the RCP Ledger locally:
 
 - **RippleAPI (ripple-lib) for JavaScript**
     - [Setup](get-started-with-rippleapi-for-javascript.html)
@@ -89,7 +89,7 @@ For greater security, you can load your secret keys from a management tool such 
 
 [![Diagram of using dedicated signing hardware](img/secure-signing-dedicated-hardware.png)](img/secure-signing-dedicated-hardware.png)
 
-Some companies sell dedicated signing devices, such as the [Ledger Nano S](https://www.ledger.com/products/ledger-nano-s), which are capable of signing SGY Ledger transactions using a secret key that never leaves the device. Some devices may not support all types of transactions.
+Some companies sell dedicated signing devices, such as the [Ledger Nano S](https://www.ledger.com/products/ledger-nano-s), which are capable of signing RCP Ledger transactions using a secret key that never leaves the device. Some devices may not support all types of transactions.
 
 Setting up this configuration depends on the specific device. You may need to run a "manager" application on your machine to interact with the signing device. See the manufacturer's instructions for how to set up and use such a device.
 

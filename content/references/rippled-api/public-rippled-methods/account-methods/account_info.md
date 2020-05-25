@@ -1,7 +1,7 @@
 # account_info
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/AccountInfo.cpp "Source")
 
-The `account_info` command retrieves information about an account, its activity, and its SGY balance. All information retrieved is relative to a particular version of the ledger.
+The `account_info` command retrieves information about an account, its activity, and its RCP balance. All information retrieved is relative to a particular version of the ledger.
 
 ## Request Format
 
@@ -58,7 +58,7 @@ The request contains the following parameters:
 | `ledger_index` | String or Unsigned Integer | _(Optional)_ The [ledger index][] of the ledger to use, or a shortcut string to choose a ledger automatically. (See [Specifying Ledgers][]) |
 | `queue`        | Boolean                    | _(Optional)_ If `true`, and the [FeeEscalation amendment][] is enabled, also returns stats about queued transactions associated with this account. Can only be used when querying for the data from the current open ledger. [New in: rippled 0.33.0][] |
 | `signer_lists` | Boolean                    | _(Optional)_ If `true`, and the [MultiSign amendment][] is enabled, also returns any [SignerList objects](signerlist.html) associated with this account. [New in: rippled 0.31.0][] |
-| `strict`       | Boolean                    | _(Optional)_ If `true`, then the `account` field only accepts a public key or SGY Ledger address. Otherwise, `account` can be a secret or passphrase (not recommended). The default is `false`. |
+| `strict`       | Boolean                    | _(Optional)_ If `true`, then the `account` field only accepts a public key or RCP Ledger address. Otherwise, `account` can be a secret or passphrase (not recommended). The default is `false`. |
 
 The following fields are deprecated and should not be provided: `ident`, `ledger`.
 
@@ -176,7 +176,7 @@ The response follows the [standard format][], with the result containing the req
 | `signer_lists`         | Array   | _(Omitted unless the request specified `signer_lists` and at least one SignerList is associated with the account.)_ Array of [SignerList ledger objects](signerlist.html) associated with this account for [Multi-Signing](multi-signing.html). Since an account can own at most one SignerList, this array must have exactly one member if it is present. [New in: rippled 0.31.0][] |
 | `ledger_current_index` | Integer | _(Omitted if `ledger_index` is provided instead)_ The [ledger index][] of the current in-progress ledger, which was used when retrieving this information. |
 | `ledger_index`         | Integer | _(Omitted if `ledger_current_index` is provided instead)_ The [ledger index][] of the ledger version used when retrieving this information. The information does not contain any changes from ledger versions newer than this one. |
-| `queue_data`           | Object  | _(Omitted unless `queue` specified as `true` and querying the current open ledger.)_ Information about [queued transactions](transaction-cost.html#queued-transactions) sent by this account. This information describes the state of the local `rippled` server, which may be different from other servers in the [peer-to-peer SGY Ledger network](consensus-network.html). Some fields may be omitted because the values are calculated "lazily" by the queuing mechanism. |
+| `queue_data`           | Object  | _(Omitted unless `queue` specified as `true` and querying the current open ledger.)_ Information about [queued transactions](transaction-cost.html#queued-transactions) sent by this account. This information describes the state of the local `rippled` server, which may be different from other servers in the [peer-to-peer RCP Ledger network](consensus-network.html). Some fields may be omitted because the values are calculated "lazily" by the queuing mechanism. |
 | `validated`            | Boolean | True if this data is from a validated ledger version; if omitted or set to false, this data is not final. [New in: rippled 0.26.0][] |
 
 The `queue_data` parameter, if present, contains the following fields:
@@ -187,7 +187,7 @@ The `queue_data` parameter, if present, contains the following fields:
 | `auth_change_queued`    | Boolean | (May be omitted) Whether a transaction in the queue changes this address's [ways of authorizing transactions](transaction-basics.html#authorizing-transactions). If `true`, this address can queue no further transactions until that transaction has been executed or dropped from the queue. |
 | `lowest_sequence`       | Integer | (May be omitted) The lowest [Sequence Number][] among transactions queued by this address. |
 | `highest_sequence`      | Integer | (May be omitted) The highest [Sequence Number][] among transactions queued by this address. |
-| `max_spend_drops_total` | String  | (May be omitted) Integer amount of [drops of SGY][] that could be debited from this address if every transaction in the queue consumes the maximum amount of SGY possible. |
+| `max_spend_drops_total` | String  | (May be omitted) Integer amount of [drops of RCP][] that could be debited from this address if every transaction in the queue consumes the maximum amount of RCP possible. |
 | `transactions`          | Array   | (May be omitted) Information about each queued transaction from this address. |
 
 Each object in the `transactions` array, if present, may contain any or all of the following fields:
@@ -195,9 +195,9 @@ Each object in the `transactions` array, if present, may contain any or all of t
 | `Field`           | Type    | Description                                    |
 |:------------------|:--------|:-----------------------------------------------|
 | `auth_change`     | Boolean | Whether this transaction changes this address's [ways of authorizing transactions](transaction-basics.html#authorizing-transactions). |
-| `fee`             | String  | The [Transaction Cost](transaction-cost.html) of this transaction, in [drops of SGY][]. |
+| `fee`             | String  | The [Transaction Cost](transaction-cost.html) of this transaction, in [drops of RCP][]. |
 | `fee_level`       | String  | The transaction cost of this transaction, relative to the minimum cost for this type of transaction, in [fee levels][]. |
-| `max_spend_drops` | String  | The maximum amount of [SGY, in drops][], this transaction could send or destroy. |
+| `max_spend_drops` | String  | The maximum amount of [RCP, in drops][], this transaction could send or destroy. |
 | `seq`             | Integer | The [Sequence Number][] of this transaction.   |
 
 ## Possible Errors

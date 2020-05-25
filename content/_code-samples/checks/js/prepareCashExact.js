@@ -15,8 +15,8 @@ api.connect().then(() => {
   return api.prepareCheckCash(sender, {
     "checkID": "84C61BE9B39B2C4A2267F67504404F1EC76678806C1B901EA781D1E3B4CE0CD9",
     "amount": {
-      "currency": "SGY",
-      "value": "95" // Cash for exactly 95 SGY
+      "currency": "RCP",
+      "value": "95" // Cash for exactly 95 RCP
     }
   }, options)
 

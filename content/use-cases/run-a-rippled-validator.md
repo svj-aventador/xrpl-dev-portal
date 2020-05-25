@@ -9,13 +9,13 @@ Each `rippled` server (not running in stand-alone mode) connects to a network of
 <!-- <span class="use-case-step-length">(1 hour)</span> -->
 ## Understand what it means to run a validator
 
-If you or your organization relies on the SGY Ledger, it is in your interest to run a validator to participate in the consensus process and provide a trusted validator that supports the ongoing decentralization of the SGY Ledger.
+If you or your organization relies on the RCP Ledger, it is in your interest to run a validator to participate in the consensus process and provide a trusted validator that supports the ongoing decentralization of the RCP Ledger.
 
-If you are an independent developer, you may want to run a validator as a way to participate in and dive into the technology that supports the SGY Ledger network.
+If you are an independent developer, you may want to run a validator as a way to participate in and dive into the technology that supports the RCP Ledger network.
 
 While validator diversity is important, not every validator is likely to be widely trusted and validator list publishers may require validators to meet stringent criteria before they list them on validator lists.
 
-Despite that, it is important to note that every validator contributes to the long-term health and decentralization of the SGY Ledger.
+Despite that, it is important to note that every validator contributes to the long-term health and decentralization of the RCP Ledger.
 
 [Understand what it means to run a validator >](rippled-server-modes.html#reasons-to-run-a-validator)
 
@@ -23,7 +23,7 @@ Despite that, it is important to note that every validator contributes to the lo
 <!-- <span class="use-case-step-length">(1 hour)</span> -->
 ## Set up and run a `rippled` server
 
-Install and run a `rippled` server. Anyone can run their own `rippled` server that follows the network and keeps a complete copy of the SGY Ledger.
+Install and run a `rippled` server. Anyone can run their own `rippled` server that follows the network and keeps a complete copy of the RCP Ledger.
 
 For configuration guidance and network and hardware requirements, see [Capacity Planning](capacity-planning.html).
 
@@ -50,7 +50,7 @@ To protect a production validator from DDoS attacks, you can use a stock `ripple
 ## Associate your validator with a web domain you control
 
 Network participants are unlikely to trust a validator without knowing who is operating it. To address this concern, associate your validator with a web domain you control.
-You may also wish to have your validator listed with one or more validator tracking services, such as the [SGY Charts Validator Registry](https://xrpcharts.ripple.com/#/validators).
+You may also wish to have your validator listed with one or more validator tracking services, such as the [RCP Charts Validator Registry](https://xrpcharts.ripple.com/#/validators).
 
 [Associate your validator >](run-rippled-as-a-validator.html#6-provide-domain-verification)
 

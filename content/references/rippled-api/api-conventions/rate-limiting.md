@@ -50,10 +50,10 @@ The usage rate drops off exponentially over time, so a client that does not make
     - [The `rippled` Server](the-rippled-server.html)
     - [Software Ecosystem](software-ecosystem.html)
 - **Tutorials:**
-    - [Getting Started with SGY Ledger APIs](get-started-with-the-rippled-api.html)
+    - [Getting Started with RCP Ledger APIs](get-started-with-the-rippled-api.html)
     - [Troubleshooting rippled](troubleshoot-the-rippled-server.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [Error Formatting](error-formatting.html)
 
 <!--{# common link defs #}-->

@@ -1,25 +1,25 @@
-# List Your Exchange on SGY Charts
+# List Your Exchange on RCP Charts
 
-In addition to providing data about the SGY Ledger network and its accounts and transactions, SGY Charts also provides [SGY market data](https://xrpcharts.ripple.com/#/xrp-markets) from external exchanges. This tutorial describes how to have your exchange and its SGY trade and order book data listed on SGY Charts.
+In addition to providing data about the RCP Ledger network and its accounts and transactions, RCP Charts also provides [RCP market data](https://xrpcharts.ripple.com/#/xrp-markets) from external exchanges. This tutorial describes how to have your exchange and its RCP trade and order book data listed on RCP Charts.
 
-To enable SGY Charts to list your exchange, you'll need to make the following data available. Your exchange may have existing RESTful API endpoints that can deliver this data. If so, there may be little to no development effort required on your part to complete tasks 1 and 2.
+To enable RCP Charts to list your exchange, you'll need to make the following data available. Your exchange may have existing RESTful API endpoints that can deliver this data. If so, there may be little to no development effort required on your part to complete tasks 1 and 2.
 
 1. [Provide a Recently Executed Trades RESTful API endpoint](#provide-a-recently-executed-trades-endpoint).
 
 2. [Provide a Current Order Book RESTful API endpoint](#provide-a-current-order-book-endpoint).
 
-Then, you'll need to [send an exchange listing request to SGY Charts](#send-an-exchange-listing-request-to-xrp-charts).
+Then, you'll need to [send an exchange listing request to RCP Charts](#send-an-exchange-listing-request-to-xrp-charts).
 
 If you have any questions about endpoint specifications, contact <xrpcharts_support@ripple.com>.
 
 
 ## Provide a Recently Executed Trades Endpoint
 
-Provide a RESTful API endpoint that returns the most recent 500-1,000 individual trades executed in a particular SGY market.
+Provide a RESTful API endpoint that returns the most recent 500-1,000 individual trades executed in a particular RCP market.
 
-To ensure that it doesn't miss a trade, SGY Charts queries the endpoint frequently, between every 5 and 30 seconds, aiming to get responses that have overlapping trade data. Ensure that any rate limit enforced by your endpoint can accommodate this query frequency. SGY Charts records unique trade data only, even if it gets overlapping trades.
+To ensure that it doesn't miss a trade, RCP Charts queries the endpoint frequently, between every 5 and 30 seconds, aiming to get responses that have overlapping trade data. Ensure that any rate limit enforced by your endpoint can accommodate this query frequency. RCP Charts records unique trade data only, even if it gets overlapping trades.
 
-If SGY Charts needs to query your endpoint at a frequency that exceeds your rate limit, SGY Charts may request that you adjust the rate limit or provide the `last_tid` parameter.
+If RCP Charts needs to query your endpoint at a frequency that exceeds your rate limit, RCP Charts may request that you adjust the rate limit or provide the `last_tid` parameter.
 
 
 ### Request Format
@@ -32,16 +32,16 @@ GET {api_base_url}/v1/trades
 
 #### Authentication
 
-SGY Charts prefers to work with a publicly accessible endpoint.
+RCP Charts prefers to work with a publicly accessible endpoint.
 
 #### Parameters
 
-Provide parameters that help SGY Charts filter trades returned in the response. The parameter field names are examples. You can use other names. Your endpoint doesn't have to provide the optional parameters, but they are useful.
+Provide parameters that help RCP Charts filter trades returned in the response. The parameter field names are examples. You can use other names. Your endpoint doesn't have to provide the optional parameters, but they are useful.
 
 | Field      | Type    | Description                                           |
 |:-----------|:--------|:------------------------------------------------------|
-| `market`   | String  | Returns trades executed in a particular market in which SGY is either the base or counter currency. Use a suggested format of `<basecurrency>_<countercurrency>` to provide valid values like `xrp_btc`, `btc_xrp`, `xrp_usd`, or `usd_xrp`, for example. |
-| `last_tid` | Integer | _(Optional)_ Returns trades executed after a specific trade ID. For example, SGY Charts can use this parameter to get all trades after the last set of trades recorded in site data, ensuring that it has recorded all trades. |
+| `market`   | String  | Returns trades executed in a particular market in which RCP is either the base or counter currency. Use a suggested format of `<basecurrency>_<countercurrency>` to provide valid values like `xrp_btc`, `btc_xrp`, `xrp_usd`, or `usd_xrp`, for example. |
+| `last_tid` | Integer | _(Optional)_ Returns trades executed after a specific trade ID. For example, RCP Charts can use this parameter to get all trades after the last set of trades recorded in site data, ensuring that it has recorded all trades. |
 | `limit`    | Integer | _(Optional)_ Returns no more than a specific number of trades in a response. |
 
 
@@ -52,7 +52,7 @@ A successful response must be a JSON array of objects, one for each trade. The p
 | Field       | Type             | Description                                 |
 |:------------|:-----------------|:--------------------------------------------|
 | `price`     | String or Number | Exchange rate of the trade.                 |
-| `amount`    | String or Number | Amount of SGY bought or sold.               |
+| `amount`    | String or Number | Amount of RCP bought or sold.               |
 | `timestamp` | String           | Time at which the trade was executed in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) date-time format or [Unix time](https://en.wikipedia.org/wiki/Unix_time) format. |
 | `tid`       | Integer          | _(Optional)_ Unique identifier of the trade. Ideally, make this a sequential integer. |
 | `type`      | String           | _(Optional)_ Type of trade. For example, valid values can include `buy` and `sell`. |
@@ -101,7 +101,7 @@ GET https://api.example.com/v1/trades?market=xrp_btc&last_tid=75208825&limit=500
 
 Provide a RESTful API endpoint that returns data about the current order book in a particular market.
 
-SGY Charts will query this endpoint about every 30 seconds.
+RCP Charts will query this endpoint about every 30 seconds.
 
 
 ### Request Format
@@ -114,7 +114,7 @@ GET {api_base_url}/v1/orderbook
 
 #### Authentication
 
-SGY Charts prefers to work with a publicly accessible endpoint.
+RCP Charts prefers to work with a publicly accessible endpoint.
 
 #### Parameter
 
@@ -122,12 +122,12 @@ Provide the following parameter. The parameter field name is an example. You can
 
 | `Field`  | Type   | Description                                              |
 |:---------|:-------|:---------------------------------------------------------|
-| `market` | String | Returns the current order book in which SGY is either the base or counter currency. Use a suggested format of `<basecurrency>_<countercurrency>` to provide valid values like `xrp_btc`, `btc_xrp`, `xrp_usd`, or `usd_xrp`, for example. |
+| `market` | String | Returns the current order book in which RCP is either the base or counter currency. Use a suggested format of `<basecurrency>_<countercurrency>` to provide valid values like `xrp_btc`, `btc_xrp`, `xrp_usd`, or `usd_xrp`, for example. |
 
 
 ### Response Format
 
-A successful response must be a JSON object that includes a timestamp and arrays of current bids and asks. The response does not need to provide the entire order book, but rather just enough data to provide a good idea of the current SGY liquidity available in the market. The parameter field names are examples. You can use other names.
+A successful response must be a JSON object that includes a timestamp and arrays of current bids and asks. The response does not need to provide the entire order book, but rather just enough data to provide a good idea of the current RCP liquidity available in the market. The parameter field names are examples. You can use other names.
 
 | Field       | Type             | Description                                 |
 |:------------|:-----------------|:--------------------------------------------|
@@ -182,9 +182,9 @@ GET https://api.example.com/v1/orderbook?market=xrp_btc
 
 
 
-## Send an Exchange Listing Request to SGY Charts
+## Send an Exchange Listing Request to RCP Charts
 
-Contact <xrpcharts_support@ripple.com> to request that your exchange be listed on SGY Charts. Be sure to include a link to your API documentation.
+Contact <xrpcharts_support@ripple.com> to request that your exchange be listed on RCP Charts. Be sure to include a link to your API documentation.
 
 
 ## See Also
@@ -192,6 +192,6 @@ Contact <xrpcharts_support@ripple.com> to request that your exchange be listed o
 - **Concepts:**
     - [Software Ecosystem](software-ecosystem.html)
 - **Tutorials:**
-    - [List SGY on Your Exchange](list-xrp-as-an-exchange.html)
+    - [List RCP on Your Exchange](list-xrp-as-an-exchange.html)
 - **References:**
     - [Ripple Data API Reference](data-api.html)

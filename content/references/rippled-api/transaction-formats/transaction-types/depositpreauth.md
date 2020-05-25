@@ -26,8 +26,8 @@ A DepositPreauth transaction gives another account pre-approval to deliver payme
 
 | Field         | JSON Type | [Internal Type][] | Description |
 |:--------------|:----------|:------------------|:-----|
-| `Authorize`   | String    | AccountID         | _(Optional)_ The SGY Ledger address of the sender to preauthorize. |
-| `Unauthorize` | String    | AccountID         | _(Optional)_ The SGY Ledger address of a sender whose preauthorization should be revoked. |
+| `Authorize`   | String    | AccountID         | _(Optional)_ The RCP Ledger address of the sender to preauthorize. |
+| `Unauthorize` | String    | AccountID         | _(Optional)_ The RCP Ledger address of a sender whose preauthorization should be revoked. |
 
 You must provide _either_ `Authorize` or `Unauthorize`, but not both.
 
@@ -37,7 +37,7 @@ This transaction has the following limitations:
 - Attempting to preauthorize an account which is already preauthorized fails with the result [`tecDUPLICATE`](tec-codes.html).
 - Attempting to unauthorize an account which is not preauthorized fails with the result [`tecNO_ENTRY`](tec-codes.html).
 - Attempting to preauthorize an address that is not funded in the ledger fails with the result [`tecNO_TARGET`](tec-codes.html).
-- Adding authorization adds a [DepositPreauth object](depositpreauth-object.html) to the ledger, which counts toward the [owner reserve requirement](reserves.html#owner-reserves). If the sender of the transaction does not have enough SGY to pay for the increased reserve, the transaction fails with the result [`tecINSUFFICIENT_RESERVE`](tec-codes.html). If the sender of the account is already at the maximum number of owned objects, the transaction fails with the result [`tecDIR_FULL`](tec-codes.html).
+- Adding authorization adds a [DepositPreauth object](depositpreauth-object.html) to the ledger, which counts toward the [owner reserve requirement](reserves.html#owner-reserves). If the sender of the transaction does not have enough RCP to pay for the increased reserve, the transaction fails with the result [`tecINSUFFICIENT_RESERVE`](tec-codes.html). If the sender of the account is already at the maximum number of owned objects, the transaction fails with the result [`tecDIR_FULL`](tec-codes.html).
 
 
 <!--{# common link defs #}-->

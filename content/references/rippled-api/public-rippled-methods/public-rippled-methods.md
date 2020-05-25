@@ -5,7 +5,7 @@ Communicate directly with a `rippled` server using the following public API meth
 
 ## [Account Methods](account-methods.html)
 
-An account in the SGY Ledger represents a holder of SGY and a sender of transactions. Use these methods to work with account info.
+An account in the RCP Ledger represents a holder of RCP and a sender of transactions. Use these methods to work with account info.
 
 * **[`account_channels`](account_channels.html)** - Get a list of payment channels where the account is the source of the channel.
 * **[`account_currencies`](account_currencies.html)** - Get a list of currencies an account can send or receive.
@@ -31,7 +31,7 @@ A ledger version contains a header, a transaction tree, and a state tree, which 
 
 ## [Transaction Methods](transaction-methods.html)
 
-Transactions are the only thing that can modify the shared state of the SGY Ledger. All business on the SGY Ledger takes the form of transactions. Use these methods to work with transactions.
+Transactions are the only thing that can modify the shared state of the RCP Ledger. All business on the RCP Ledger takes the form of transactions. Use these methods to work with transactions.
 
 * **[`sign`](sign.html)** - Cryptographically sign a transaction.
 * **[`sign_for`](sign_for.html)** - Contribute to a multi-signature.

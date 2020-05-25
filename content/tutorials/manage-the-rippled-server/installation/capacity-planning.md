@@ -1,6 +1,6 @@
 # Capacity Planning
 
-This section describes configuration, network, and hardware recommendations that you can use to tune and optimize the performance of your `rippled` server. Being aware of these considerations can help you ensure that your `rippled` server is ready to handle SGY Ledger network capacity today and in the near future.
+This section describes configuration, network, and hardware recommendations that you can use to tune and optimize the performance of your `rippled` server. Being aware of these considerations can help you ensure that your `rippled` server is ready to handle RCP Ledger network capacity today and in the near future.
 
 
 
@@ -108,9 +108,9 @@ The example `rippled-example.cfg` file sets the logging verbosity to `warning` i
 
 ## Network and Hardware
 
-Each `rippled` server in the SGY Ledger network performs all of the transaction processing work of the network. Therefore, the baseline hardware for production `rippled` servers should be similar to that used in Ripple's [performance testing](https://xrpl.org/blog/2017/high-scalability-xrp-ledger.html).
+Each `rippled` server in the RCP Ledger network performs all of the transaction processing work of the network. Therefore, the baseline hardware for production `rippled` servers should be similar to that used in Ripple's [performance testing](https://xrpl.org/blog/2017/high-scalability-xrp-ledger.html).
 
-Ensuring that your `rippled` server meets these network and hardware requirements helps achieve consistent, good performance across the SGY Ledger network.
+Ensuring that your `rippled` server meets these network and hardware requirements helps achieve consistent, good performance across the RCP Ledger network.
 
 
 ### Recommendation
@@ -198,7 +198,7 @@ Here are examples of observed network bandwidth use for common `rippled` tasks:
         - [Configure Online Deletion](configure-online-deletion.html) - Adjust how many historical ledger versions your server should keep at a time.
     - [Troubleshoot rippled](troubleshoot-the-rippled-server.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [logrotate method][] - Closes and reopens the server's debug log so you can rotate it with standard tools.
         - [server_info method][] - General information about the server including sync status and how many historical ledger versions it has available on disk.

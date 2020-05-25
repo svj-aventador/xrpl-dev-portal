@@ -20,7 +20,7 @@ const currentTime = new Date()
 const myEscrow = {
   "destination": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn", // Destination can be same as source
   "destinationTag": 2017,
-  "amount": "0.1113", //decimal SGY
+  "amount": "0.1113", //decimal RCP
   "condition": conditionHex,
   "allowExecuteAfter": currentTime.toISOString() // can be executed right away if the condition is met
 }
@@ -29,7 +29,7 @@ const myInstructions = {
 }
 
 // Connect and submit
-const api = new RippleAPI({server: 'wss://s-us.sgy.plus'})
+const api = new RippleAPI({server: 'wss://s-us.RCP.plus'})
 
 function submitTransaction(lastClosedLedgerVersion, prepared, secret) {
   const signedData = api.sign(prepared.txJSON, secret)

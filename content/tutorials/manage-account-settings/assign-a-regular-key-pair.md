@@ -1,6 +1,6 @@
 # Assign a Regular Key Pair
 
-The SGY Ledger allows an account to authorize a secondary key pair, called a _[regular key pair](cryptographic-keys.html)_, to sign future transactions. If the private key of a regular key pair is compromised, you can remove or replace it without changing the rest of your [account](accounts.html) and re-establishing its relationships to other accounts. You can also rotate a regular key pair proactively. (Neither of those things is possible for the master key pair of an account, which is intrinsically linked to the account's address.)
+The RCP Ledger allows an account to authorize a secondary key pair, called a _[regular key pair](cryptographic-keys.html)_, to sign future transactions. If the private key of a regular key pair is compromised, you can remove or replace it without changing the rest of your [account](accounts.html) and re-establishing its relationships to other accounts. You can also rotate a regular key pair proactively. (Neither of those things is possible for the master key pair of an account, which is intrinsically linked to the account's address.)
 
 For more information about master and regular key pairs, see [Cryptographic Keys](cryptographic-keys.html).
 
@@ -678,7 +678,7 @@ Now that you're familiar with the benefits of assigning a regular key pair to an
 - **Tutorials:**
     - [Change or Remove a Regular Key Pair](change-or-remove-a-regular-key-pair.html)
     - [Set Up Multi-Signing](set-up-multi-signing.html)
-    - [List SGY as an Exchange](list-xrp-as-an-exchange.html)
+    - [List RCP as an Exchange](list-xrp-as-an-exchange.html)
 - **References:**
     - [wallet_propose method][]
     - [sign method][]

@@ -1,7 +1,7 @@
 const {RippleAPI} = require('ripple-lib');
 
 const api = new RippleAPI({
-  server: 'wss://s-hk.sgy.plus' // Public rippled server
+  server: 'wss://s-hk.RCP.plus' // Public rippled server
 });
 api.on('error', (errorCode, errorMessage) => {
   console.log(errorCode + ': ' + errorMessage);

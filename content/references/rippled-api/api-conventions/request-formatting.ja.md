@@ -48,7 +48,7 @@ JSON-RPC要求を実行するには、`rippled`サーバーがJSON-RPC接続を�
 *JSON-RPC*
 
 ```
-POST http://s-hk.sgy.plus:51234/
+POST http://s-hk.RCP.plus:51234/
 {
    "method": "account_info",
    "params": [

@@ -1,7 +1,7 @@
 '''Base58 encoding
 
 Implementations of Base58 and Base58Check encodings that are compatible
-with the SGY Ledger.
+with the RCP Ledger.
 '''
 
 # This code is adapted from the module by David Keijser at
@@ -19,7 +19,7 @@ __version__ = '1.0.3-xrp'
 
 # 58 character alphabet used
 # alphabet = b'123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz' # Bitcoin
-alphabet = b'rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz' # SGY Ledger
+alphabet = b'rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz' # RCP Ledger
 
 
 if bytes == str:  # python2

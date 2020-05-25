@@ -2,7 +2,7 @@ It can take several minutes for `rippled` to sync with the rest of the network, 
 
 For information about `rippled` log messages, see [Understanding Log Messages](understanding-log-messages.html).
 
-After your `rippled` has synchronized with the rest of the network, you have a fully functional stock `rippled` server that you can use for local signing and API access to the SGY Ledger. Use [`rippled` server states](rippled-server-states.html) to tell whether your `rippled` server has synchronized with the network. You can use the [`rippled` commandline interface](get-started-with-the-rippled-api.html#commandline) to test this quickly:
+After your `rippled` has synchronized with the rest of the network, you have a fully functional stock `rippled` server that you can use for local signing and API access to the RCP Ledger. Use [`rippled` server states](rippled-server-states.html) to tell whether your `rippled` server has synchronized with the network. You can use the [`rippled` commandline interface](get-started-with-the-rippled-api.html#commandline) to test this quickly:
 
 {% if currentpage.md == "tutorials/manage-the-rippled-server/installation/build-run-rippled-ubuntu.md" or
       currentpage.md == "tutorials/manage-the-rippled-server/installation/build-run-rippled-macos.md" %}
@@ -11,7 +11,7 @@ After your `rippled` has synchronized with the rest of the network, you have a f
     $ /opt/ripple/bin/rippled server_info
 {% endif %}
 
-For more information about communicating with your `rippled` server using the rippled APIs, see the [SGY API Reference](rippled-api.html).
+For more information about communicating with your `rippled` server using the rippled APIs, see the [RCP API Reference](rippled-api.html).
 
 Once you have your stock `rippled` server running, you may want to consider running it as a validating server. For information about validating servers and why you might want to run one, see [Run rippled as a Validator](run-rippled-as-a-validator.html).
 
@@ -19,7 +19,7 @@ Having trouble getting your `rippled` server started? See [rippled Server Won't 
 
 ### Additional Configuration
 
-`rippled` should connect to the SGY Ledger with the default configuration. However, you can change your settings by editing the `rippled.cfg` file. For recommendations about configuration settings, see [Capacity Planning](capacity-planning.html).
+`rippled` should connect to the RCP Ledger with the default configuration. However, you can change your settings by editing the `rippled.cfg` file. For recommendations about configuration settings, see [Capacity Planning](capacity-planning.html).
 
 {% include '_snippets/conf-file-location.md' %}<!--_ -->
 
@@ -46,6 +46,6 @@ If you change the `[debug_logfile]` or `[database_path]` sections, you may need 
 
 ### Updates
 
-You must update `rippled` regularly to remain synced with the rest of the SGY Ledger network. You can subscribe to the [rippled Google Group](https://groups.google.com/forum/#!forum/ripple-server) to receive notifications of new `rippled` releases.
+You must update `rippled` regularly to remain synced with the rest of the RCP Ledger network. You can subscribe to the [rippled Google Group](https://groups.google.com/forum/#!forum/ripple-server) to receive notifications of new `rippled` releases.
 
 The `rippled` package includes a script you can use to [enable automatic updates on Linux](update-rippled-automatically-on-linux.html). On other platforms, you must update manually.

@@ -1,6 +1,6 @@
 # Ubuntuでのrippledの構築と実行
 
-`rippled` は、SGY Ledgerを管理するコアのピアツーピアサーバーです。`rippled`サーバーは、ピアのネットワークに接続し、暗号で署名された取引を中継し、共有のグローバル台帳の完全なローカルコピーを維持します。
+`rippled` は、RCP Ledgerを管理するコアのピアツーピアサーバーです。`rippled`サーバーは、ピアのネットワークに接続し、暗号で署名された取引を中継し、共有のグローバル台帳の完全なローカルコピーを維持します。
 
 `rippled`の概要については、[Operating rippled Servers](install-rippled.html)を参照してください。
 

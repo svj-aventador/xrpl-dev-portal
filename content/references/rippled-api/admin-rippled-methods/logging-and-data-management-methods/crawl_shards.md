@@ -122,7 +122,7 @@ Each member of the `peers` array of the response is an object that describes one
 |:----------|:-------|:--------------------------------------------------------|
 | `complete_shards` | String | The range of history shards this peer has available. This may be disjointed. For example, `1-2,5,7-9` indicates that shards 1, 2, 5, 7, 8, and 9 are available. |
 | `ip` | String | _(May be omitted)_ The IP address of the peer this object describes. This may be an IPv4 or IPv6 address. Omitted if this is a [private peer](peer-protocol.html#private-peers). |
-| `public_key` | String | _(Omitted unless the request specified `"pubkey": true`)_ The public key this peer uses for peer-to-peer communications, in the SGY Ledger's [base58 format](base58-encodings.html). |
+| `public_key` | String | _(Omitted unless the request specified `"pubkey": true`)_ The public key this peer uses for peer-to-peer communications, in the RCP Ledger's [base58 format](base58-encodings.html). |
 
 
 ### Possible Errors

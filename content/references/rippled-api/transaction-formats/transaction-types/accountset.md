@@ -2,7 +2,7 @@
 
 [[Source]](https://github.com/ripple/rippled/blob/f65cea66ef99b1de149c02c15f06de6c61abf360/src/ripple/app/transactors/SetAccount.cpp "Source")
 
-An AccountSet transaction modifies the properties of an [account in the SGY Ledger](accountroot.html).
+An AccountSet transaction modifies the properties of an [account in the RCP Ledger](accountroot.html).
 
 ## Example {{currentpage.name}} JSON
 
@@ -51,7 +51,7 @@ To remove the `Domain` field from an account, send an AccountSet with the Domain
 You can put any domain in your account's `Domain` field. To prove that an account and domain belong to the same person or business, Ripple recommends establishing a "two-way link":
 
 - Accounts you own should have a domain you own in the `Domain` field.
-- On a website at that domain, host an [xrp-ledger.toml file](xrp-ledger-toml.html) listing accounts you own, and optionally other information about how you use the SGY Ledger.
+- On a website at that domain, host an [xrp-ledger.toml file](xrp-ledger-toml.html) listing accounts you own, and optionally other information about how you use the RCP Ledger.
 
 ## AccountSet Flags
 
@@ -73,7 +73,7 @@ The available AccountSet flags are:
 | asfDefaultRipple | 8             | lsfDefaultRipple          | Enable [rippling](rippling.html) on this account's trust lines by default. [New in: rippled 0.27.3][] |
 | asfDepositAuth   | 9             | lsfDepositAuth            | Enable [Deposit Authorization](depositauth.html) on this account. _(Requires the [DepositAuth amendment][].)_ |
 | asfDisableMaster | 4             | lsfDisableMaster          | Disallow use of the master key pair. Can only be enabled if the account has configured another way to sign transactions, such as a [Regular Key](cryptographic-keys.html) or a [Signer List](multi-signing.html). |
-| asfDisallowSGY   | 3             | lsfDisallowSGY            | SGY should not be sent to this account. (Enforced by client applications, not by `rippled`) |
+| asfDisallowRCP   | 3             | lsfDisallowRCP            | RCP should not be sent to this account. (Enforced by client applications, not by `rippled`) |
 | asfGlobalFreeze  | 7             | lsfGlobalFreeze           | [Freeze](freezes.html) all assets issued by this account. |
 | asfNoFreeze      | 6             | lsfNoFreeze               | Permanently give up the ability to [freeze individual trust lines or disable Global Freeze](freezes.html). This flag can never be disabled after being enabled. |
 | asfRequireAuth   | 2             | lsfRequireAuth            | Require authorization for users to hold balances issued by this address. Can only be enabled if the address has no trust lines connected to it. |
@@ -89,19 +89,19 @@ The following [Transaction flags](transaction-common-fields.html#flags-field), s
 | tfOptionalDestTag | 0x00020000 | 131072        | asfRequireDest (ClearFlag)  |
 | tfRequireAuth     | 0x00040000 | 262144        | asfRequireAuth (SetFlag)    |
 | tfOptionalAuth    | 0x00080000 | 524288        | asfRequireAuth (ClearFlag)  |
-| tfDisallowSGY     | 0x00100000 | 1048576       | asfDisallowSGY (SetFlag)    |
-| tfAllowSGY        | 0x00200000 | 2097152       | asfDisallowSGY (ClearFlag)  |
+| tfDisallowRCP     | 0x00100000 | 1048576       | asfDisallowRCP (SetFlag)    |
+| tfAllowRCP        | 0x00200000 | 2097152       | asfDisallowRCP (ClearFlag)  |
 
 **Caution:** The numeric values of `tf` and `asf` flags in transactions do not match up with the values they set in the accounts "at rest" in the ledger. To read the flags of an account in the ledger, see [`AccountRoot` flags](accountroot.html#accountroot-flags).
 
 
 ### Blocking Incoming Transactions
 
-Incoming transactions with unclear purposes may be an inconvenience for financial institutions, who would have to recognize when a customer made a mistake, and then potentially refund accounts or adjust balances depending on the mistake. The `asfRequireDest` and `asfDisallowSGY` flags are intended to protect users from accidentally sending funds in a way that is unclear about the reason the funds were sent.
+Incoming transactions with unclear purposes may be an inconvenience for financial institutions, who would have to recognize when a customer made a mistake, and then potentially refund accounts or adjust balances depending on the mistake. The `asfRequireDest` and `asfDisallowRCP` flags are intended to protect users from accidentally sending funds in a way that is unclear about the reason the funds were sent.
 
 For example, a destination tag is typically used to identify which hosted balance should be credited when a financial institution receives a payment. If the destination tag is omitted, it may be unclear which account should be credited, creating a need for refunds, among other problems. By using the `asfRequireDest` tag, you can ensure that every incoming payment has a destination tag, which makes it harder for others to send you an ambiguous payment by accident.
 
-You can protect against unwanted incoming payments for non-SGY currencies by not creating trust lines in those currencies. Since SGY does not require trust, the `asfDisallowSGY` flag is used to discourage users from sending SGY to an account. However, this flag is not enforced in `rippled` because it could potentially cause accounts to become unusable. (If an account did not have enough SGY to send a transaction that disabled the flag, the account would be completely unusable.) Instead, client applications should disallow or discourage SGY payments to accounts with the `asfDisallowSGY` flag enabled.
+You can protect against unwanted incoming payments for non-RCP currencies by not creating trust lines in those currencies. Since RCP does not require trust, the `asfDisallowRCP` flag is used to discourage users from sending RCP to an account. However, this flag is not enforced in `rippled` because it could potentially cause accounts to become unusable. (If an account did not have enough RCP to send a transaction that disabled the flag, the account would be completely unusable.) Instead, client applications should disallow or discourage RCP payments to accounts with the `asfDisallowRCP` flag enabled.
 
 ## TransferRate
 

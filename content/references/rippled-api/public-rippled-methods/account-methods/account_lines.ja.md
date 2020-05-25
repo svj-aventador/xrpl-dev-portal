@@ -1,7 +1,7 @@
 # account_lines
 [[ソース]<br>](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/AccountLines.cpp "Source")
 
-`account_lines`メソッドは、アカウントのトラストラインに関する情報（SGY以外のあらゆる通貨の残高と資産など）を返します。取得された情報はすべて、特定バージョンのレジャーに関連付けられています。
+`account_lines`メソッドは、アカウントのトラストラインに関する情報（RCP以外のあらゆる通貨の残高と資産など）を返します。取得された情報はすべて、特定バージョンのレジャーに関連付けられています。
 
 ## 要求フォーマット
 

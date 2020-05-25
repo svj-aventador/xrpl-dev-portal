@@ -16,8 +16,8 @@ api.connect().then(() => {
   return api.prepareCheckCreate(sender, {
     "destination": receiver,
     "sendMax": {
-      "currency": "SGY",
-      "value": "100" // RippleAPI uses decimal SGY, not integer drops
+      "currency": "RCP",
+      "value": "100" // RippleAPI uses decimal RCP, not integer drops
     },
     "invoiceID": "46060241FABCF692D4D934BA2A6C4427CD4279083E38C77CBE642243E43BE291"
   }, options)

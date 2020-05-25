@@ -131,7 +131,7 @@ Or, if you are sure you don't need the databases:
 rm -r /var/lib/rippled/db
 ```
 
-**Tip:** It is generally safe to delete the `rippled` databases, because any individual server can re-download ledger history from other servers in the SGY Ledger network.
+**Tip:** It is generally safe to delete the `rippled` databases, because any individual server can re-download ledger history from other servers in the RCP Ledger network.
 
 Alternatively, you can change the paths to the databases in the config file. For example:
 
@@ -205,7 +205,7 @@ To fix this problem, do one of the following, then restart the server:
     - [Understanding Log Messages](understanding-log-messages.html)
     - [Capacity Planning](capacity-planning.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 

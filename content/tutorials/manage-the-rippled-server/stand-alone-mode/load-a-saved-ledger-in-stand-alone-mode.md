@@ -1,8 +1,8 @@
 # Load a Saved Ledger in Stand-Alone Mode
 
-You can start a `rippled` server in [Stand-Alone Mode](rippled-server-modes.html) using a [historical ledger version](ledgers.html) that was previously saved to disk. For example, if your `rippled` server was previously synced with any SGY Ledger peer-to-peer network including [the production Mainnet, the Testnet, or the Devnet](parallel-networks.html), you can load any ledger version your server had available.
+You can start a `rippled` server in [Stand-Alone Mode](rippled-server-modes.html) using a [historical ledger version](ledgers.html) that was previously saved to disk. For example, if your `rippled` server was previously synced with any RCP Ledger peer-to-peer network including [the production Mainnet, the Testnet, or the Devnet](parallel-networks.html), you can load any ledger version your server had available.
 
-Loading a historical ledger version so may be useful for "replaying" a ledger to verify that transactions were processed according to the rules of the network, or to compare the results of processing transaction sets with different [amendments](amendments.html) enabled. In the unlikely event that [an attack against the SGY Ledger's consensus mechanism](consensus-protections.html) caused unwanted effects to the shared ledger state, a consensus of validators could "roll back" to a previous, known-good network state starting with this process.
+Loading a historical ledger version so may be useful for "replaying" a ledger to verify that transactions were processed according to the rules of the network, or to compare the results of processing transaction sets with different [amendments](amendments.html) enabled. In the unlikely event that [an attack against the RCP Ledger's consensus mechanism](consensus-protections.html) caused unwanted effects to the shared ledger state, a consensus of validators could "roll back" to a previous, known-good network state starting with this process.
 
 ## 1. Start `rippled` normally.
 

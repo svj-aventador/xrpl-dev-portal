@@ -1,14 +1,14 @@
-# 取引所としてのSGYの上場
+# 取引所としてのRCPの上場
 
-本書では、取引所がSGYを上場するために必要なステップを説明します。
+本書では、取引所がRCPを上場するために必要なステップを説明します。
 
 ## Alpha Exchange
 
-本書での説明目的で、架空の企業である _Alpha Exchange_ を使用して、SGYを上場するために必要な手順の概要を説明します。本書では、Alpha Exchangeは以下のような取引所です。
+本書での説明目的で、架空の企業である _Alpha Exchange_ を使用して、RCPを上場するために必要な手順の概要を説明します。本書では、Alpha Exchangeは以下のような取引所です。
 
 * 現在BTC/USDの上場を専門としています
 
-* BTC/SGYとSGY/USDの取引ペアの追加を希望しています
+* BTC/RCPとRCP/USDの取引ペアの追加を希望しています
 
 * すべての顧客の残高を保持しています
 
@@ -16,17 +16,17 @@
 
 ### ユーザーの利益
 
-Alpha Exchangeは、BTC/SGYおよびSGY/USDの取引ペアを上場することを希望しています。理由の1つとして、これらのペアがユーザーにとって有用なものであることが挙げられます。特に、このサポートによりユーザーは以下ができるようになります。
+Alpha Exchangeは、BTC/RCPおよびRCP/USDの取引ペアを上場することを希望しています。理由の1つとして、これらのペアがユーザーにとって有用なものであることが挙げられます。特に、このサポートによりユーザーは以下ができるようになります。
 
-* SGY Ledger _から_ Alpha Exchange _に_ SGYを入金できます
+* RCP Ledger _から_ Alpha Exchange _に_ RCPを入金できます
 
-* Alpha Exchange _から_ SGY Ledger _に_ SGYを送金できます
+* Alpha Exchange _から_ RCP Ledger _に_ RCPを送金できます
 
-* SGYをBTCやUSDなどの他の通貨と交換できます
+* RCPをBTCやUSDなどの他の通貨と交換できます
 
-## SGYをサポートするための前提条件
+## RCPをサポートするための前提条件
 
-SGYをサポートするために、Alpha Exchangeでは以下を行う必要があります。
+RCPをサポートするために、Alpha Exchangeでは以下を行う必要があります。
 
 * 新しい[アカウント](#アカウント)を作成して維持します
 
@@ -36,15 +36,15 @@ SGYをサポートするために、Alpha Exchangeでは以下を行う必要が
 
 * [ゲートウェイコンプライアンス](become-an-xrp-ledger-gateway.html#gateway-compliance) — ゲートウェイと取引所は異なりますが、取引所は地域の規制に準拠し、適切な当局の監督下になければなりません。
 
-* [Requirements for Sending to SGY Ledger](become-an-xrp-ledger-gateway.html#requirements-for-sending-to-xrp-ledger)
+* [Requirements for Sending to RCP Ledger](become-an-xrp-ledger-gateway.html#requirements-for-sending-to-xrp-ledger)
 
-* [Requirements for Receiving from SGY Ledger](become-an-xrp-ledger-gateway.html#requirements-for-receiving-from-xrp-ledger)
+* [Requirements for Receiving from RCP Ledger](become-an-xrp-ledger-gateway.html#requirements-for-receiving-from-xrp-ledger)
 
 * [ゲートウェイの注意事項](become-an-xrp-ledger-gateway.html#precautions)
 
 ### Partial Payments
 
-追加の前に、取引所は[Partial Payments](partial-payments.html)機能について知っておく必要があります。この機能を使用すると、SGY Ledgerのユーザーは、`SendMax`を増やさずに、受取金額を減額して、支払いを正常に送信できます。この機能は、送信者側に追加費用が発生せず、[支払いの返金](become-an-xrp-ledger-gateway.html#bouncing-payments)に便利です。
+追加の前に、取引所は[Partial Payments](partial-payments.html)機能について知っておく必要があります。この機能を使用すると、RCP Ledgerのユーザーは、`SendMax`を増やさずに、受取金額を減額して、支払いを正常に送信できます。この機能は、送信者側に追加費用が発生せず、[支払いの返金](become-an-xrp-ledger-gateway.html#bouncing-payments)に便利です。
 
 #### Partial Paymentsに関する警告
 
@@ -54,29 +54,29 @@ SGYをサポートするために、Alpha Exchangeでは以下を行う必要が
 
 ### アカウント
 
-SGYは、SGY Ledgerの _アカウント_ （ _ウォレット_ や _アドレス_ とも呼ばれる）で保持されます。SGY Ledgerのアカウントは、例えばBitcoinのような、アカウントに経費がほとんどまたは一切かからない他のブロックチェーンの台帳とは異なります。SGY Ledgerでは、アカウントは[決して削除できず](accounts.html#アカウントの永続性)、各アカウントは個別の、他の人に送信することのできない、[SGYの準備金](reserves.html)を保持する必要があります。このような理由から、Rippleでは利用機関に対し、必要のない過剰なアカウントを作成しないように勧めています。
+RCPは、RCP Ledgerの _アカウント_ （ _ウォレット_ や _アドレス_ とも呼ばれる）で保持されます。RCP Ledgerのアカウントは、例えばBitcoinのような、アカウントに経費がほとんどまたは一切かからない他のブロックチェーンの台帳とは異なります。RCP Ledgerでは、アカウントは[決して削除できず](accounts.html#アカウントの永続性)、各アカウントは個別の、他の人に送信することのできない、[RCPの準備金](reserves.html)を保持する必要があります。このような理由から、Rippleでは利用機関に対し、必要のない過剰なアカウントを作成しないように勧めています。
 
 <!-- STYLE_OVERRIDE: hot wallet, warm wallet, cold wallet, wallet -->
 
-Rippleが推奨するベストプラクティスに従い、Alpha Exchangeは、SGY Ledgerに最低2つのアカウントを作成する必要があります。シークレットキーが悪用された場合の危険を最小限にとどめるため、Rippleでは、[ _コールドアカウント_ 、 _ホットアカウント_ 、 _ウォームアカウント_ ](https://ripple.com/build/issuing-operational-addresses/)（それぞれコールドウォレット、ホットウォレット、ウォームウォレットとも呼ばれる）の作成をお勧めしています。コールド/ホット/ウォームのモデルは、セキュリティと利便性のバランスをとるためのものです。SGYを上場する取引所は、以下のアカウントを作成する必要があります。
+Rippleが推奨するベストプラクティスに従い、Alpha Exchangeは、RCP Ledgerに最低2つのアカウントを作成する必要があります。シークレットキーが悪用された場合の危険を最小限にとどめるため、Rippleでは、[ _コールドアカウント_ 、 _ホットアカウント_ 、 _ウォームアカウント_ ](https://ripple.com/build/issuing-operational-addresses/)（それぞれコールドウォレット、ホットウォレット、ウォームウォレットとも呼ばれる）の作成をお勧めしています。コールド/ホット/ウォームのモデルは、セキュリティと利便性のバランスをとるためのものです。RCPを上場する取引所は、以下のアカウントを作成する必要があります。
 
-* 大部分のSGYと顧客の資金を維持する[ _コールドウォレット_ ](issuing-and-operational-addresses.html#発行アドレス)。取引所にとって、これはユーザーが[預入れ](#取引所へのxrpの入金)をするアドレスです。   セキュリティを最適化するため、このアカウントのシークレットキーはオフラインにする必要があります。
+* 大部分のRCPと顧客の資金を維持する[ _コールドウォレット_ ](issuing-and-operational-addresses.html#発行アドレス)。取引所にとって、これはユーザーが[預入れ](#取引所へのxrpの入金)をするアドレスです。   セキュリティを最適化するため、このアカウントのシークレットキーはオフラインにする必要があります。
 
     取引所のコールドウォレットが悪用されると、以下のような結果が生じるおそれがあります。
 
-    * 不正使用者が、コールドウォレットの全SGYにアクセスできます。
+    * 不正使用者が、コールドウォレットの全RCPにアクセスできます。
 
-    * マスターキーが悪用されると、不正使用者は（マスターキーを無効にし、新しいレギュラーキーや署名者リストを設定することにより）そのコールドウォレットを恒久的に制御できます。これにより、その不正使用者は今後そのコールドウォレットで受信するすべてのSGYも制御できるようになります。
+    * マスターキーが悪用されると、不正使用者は（マスターキーを無効にし、新しいレギュラーキーや署名者リストを設定することにより）そのコールドウォレットを恒久的に制御できます。これにより、その不正使用者は今後そのコールドウォレットで受信するすべてのRCPも制御できるようになります。
 
         * このような事態が発生した場合には、取引所は新しいコールドウォレットアドレスを作成し、顧客にその新しいアドレスを伝える必要があります。
 
     * レギュラーキーや署名者リストが悪用された場合には、取引所はコールドウォレットの制御を取り戻すことができます。ただし、不正使用者の行為の中には、以下のように簡単に元に戻せないものもあります。 <!-- STYLE_OVERRIDE: easily -->
 
-        * 不正使用者が、コールドウォレットを使用してSGY Ledgerで通貨を発行しても、その通貨の価値はだれにも認められません。（取引所が明示的にゲートウェイでもあると示した場合を除きます）。
+        * 不正使用者が、コールドウォレットを使用してRCP Ledgerで通貨を発行しても、その通貨の価値はだれにも認められません。（取引所が明示的にゲートウェイでもあると示した場合を除きます）。
 
         * 不正使用者が、アカウントにasfRequireAuthフラグを設定した場合。この設定は解除できません。ただし、これは通貨の発行のみに関係し、ゲートウェイではない取引所には影響しません。不正使用者がマスターキーで設定または設定解除したその他の設定は、元に戻すことができます。
 
-* 顧客のSGY出金や入金を管理する、日常業務を遂行するための1つ以上の[ _ホットウォレット_ ](issuing-and-operational-addresses.html#運用アドレス)。例えば、ホットウォレットがあれば、取引所はこの種のSGYの自動送金を安全にサポートできます。出金要求にただちに応じるため、ホットウォレットはオンラインである必要があります。
+* 顧客のRCP出金や入金を管理する、日常業務を遂行するための1つ以上の[ _ホットウォレット_ ](issuing-and-operational-addresses.html#運用アドレス)。例えば、ホットウォレットがあれば、取引所はこの種のRCPの自動送金を安全にサポートできます。出金要求にただちに応じるため、ホットウォレットはオンラインである必要があります。
 
     不正使用されたホットウォレットによって発生するおそれのある結果についての詳細は、[Operational Account Compromise](issuing-and-operational-addresses.html#運用アドレスの漏えい)を参照してください。
 
@@ -97,21 +97,21 @@ Rippleが推奨するベストプラクティスに従い、Alpha Exchangeは、
 
 ### バランスシート
 
-顧客のSGYを管理するため、Alpha Exchangeは各顧客のSGY残高と自身の保有残高を追跡する必要があります。このためには、Alpha Exchangeは別のバランスシートまたは会計システムを作成し、維持する必要があります。以下の表は、このバランスシートを説明するものです。
+顧客のRCPを管理するため、Alpha Exchangeは各顧客のRCP残高と自身の保有残高を追跡する必要があります。このためには、Alpha Exchangeは別のバランスシートまたは会計システムを作成し、維持する必要があります。以下の表は、このバランスシートを説明するものです。
 
-新しいSGY Ledgerアカウント（ _Alpha Hot_ 、 _Alpha Warm_ 、 _Alpha Cold_ ）が、「*SGY LedgerのSGY残高*」表の*ユーザー*列に示されています。
+新しいRCP Ledgerアカウント（ _Alpha Hot_ 、 _Alpha Warm_ 、 _Alpha Cold_ ）が、「*RCP LedgerのRCP残高*」表の*ユーザー*列に示されています。
 
-「*Alpha ExchangeのSGY残高*」表は、新しい追加のバランスシートを表します。Alpha Exchangeのソフトウェアは、この会計システムでユーザーのSGY残高を管理します。
+「*Alpha ExchangeのRCP残高*」表は、新しい追加のバランスシートを表します。Alpha Exchangeのソフトウェアは、この会計システムでユーザーのRCP残高を管理します。
 
 
 <table>
   <tr>
-    <td><b><i>SGY Ledgerの
-SGY残高</i></b></td>
+    <td><b><i>RCP Ledgerの
+RCP残高</i></b></td>
     <td></td>
     <td></td>
     <td><b><i>Alpha Exchange
-のSGY残高</i></b></td>
+のRCP残高</i></b></td>
     <td></td>
     <td></td>
   </tr>
@@ -181,53 +181,53 @@ SGY残高</i></b></td>
   </tr>
 </table>
 
-#### SGYの額
+#### RCPの額
 
-SGYの額は、SGY Ledgerで、符号なし整数の _drop_ として示されます。1SGYは1,000,000 dropです。Rippleでは、ソフトウェアでSGY残高をdropの整数値として格納し、これらの数値に整数演算を実行することをお勧めしています。ただし、ユーザーインターフェイスでは残高をSGYの単位で表示すべきです。
+RCPの額は、RCP Ledgerで、符号なし整数の _drop_ として示されます。1RCPは1,000,000 dropです。Rippleでは、ソフトウェアでRCP残高をdropの整数値として格納し、これらの数値に整数演算を実行することをお勧めしています。ただし、ユーザーインターフェイスでは残高をRCPの単位で表示すべきです。
 
-1drop（.000001SGY）はこれ以上分割できません。SGYと他の資産の間でFXレートを計算して表示するときには、この点にご注意ください。
+1drop（.000001RCP）はこれ以上分割できません。RCPと他の資産の間でFXレートを計算して表示するときには、この点にご注意ください。
 
 詳細は、[通貨額の指定][]を参照してください。
 
 #### 台帳上と台帳外
 
- _Alpha Exchange_ のような取引所では、SGYは「台帳上」または「台帳外」に存在します。
+ _Alpha Exchange_ のような取引所では、RCPは「台帳上」または「台帳外」に存在します。
 
-* **台帳上のSGY**: SGY保有者のパブリック[アドレス](accounts.html#アドレス)を指定し、パブリックのSGY Ledgerを通じて照会できるSGY。これらの残高の取引相手はSGY Ledgerです。詳細については、[SGY](xrp.html)を参照してください。
+* **台帳上のRCP**: RCP保有者のパブリック[アドレス](accounts.html#アドレス)を指定し、パブリックのRCP Ledgerを通じて照会できるRCP。これらの残高の取引相手はRCP Ledgerです。詳細については、[RCP](xrp.html)を参照してください。
 
-* **台帳外のSGY**: 取引所の会計システムに保持されている、取引所のインターフェイスで照会できるSGY。台帳外のSGY残高はクレジットペースです。取引相手は、SGYを保有している取引所です。
+* **台帳外のRCP**: 取引所の会計システムに保持されている、取引所のインターフェイスで照会できるRCP。台帳外のRCP残高はクレジットペースです。取引相手は、RCPを保有している取引所です。
 
-    台帳外のSGY残高は、取引所の参加者の間で取引されます。このような取引をサポートするため、取引所は取引で使用可能な、 _台帳外_ のSGY合計金額に等しい _台帳上_ のSGY残高を保持する必要があります。
+    台帳外のRCP残高は、取引所の参加者の間で取引されます。このような取引をサポートするため、取引所は取引で使用可能な、 _台帳外_ のRCP合計金額に等しい _台帳上_ のRCP残高を保持する必要があります。
 
 
 ## 資金の流れ
 
-残りのセクションでは、ユーザーによる入金、取引、SGY残高の換金の過程で、Alpha Exchangeが管理するアカウントを通じて資金がどのように流れるのかを説明します。資金の流れを解説するため、本書では、[「バランスシート」セクション](#バランスシート)で使用した表を使用します。
+残りのセクションでは、ユーザーによる入金、取引、RCP残高の換金の過程で、Alpha Exchangeが管理するアカウントを通じて資金がどのように流れるのかを説明します。資金の流れを解説するため、本書では、[「バランスシート」セクション](#バランスシート)で使用した表を使用します。
 
 取引所の一般的な資金の流れには、主要な4つステップが伴います。
 
-1. [取引所へのSGYの入金](#取引所へのxrpの入金)
+1. [取引所へのRCPの入金](#取引所へのxrpの入金)
 
-2. [SGYの保有高のリバランス](#xrpの保有高のリバランス)
+2. [RCPの保有高のリバランス](#xrpの保有高のリバランス)
 
-3. [取引所からのSGYの出金](#取引所からのxrpの出金)
+3. [取引所からのRCPの出金](#取引所からのxrpの出金)
 
-4. [取引所でのSGYの取引](#取引所でのxrpの取引)
+4. [取引所でのRCPの取引](#取引所でのxrpの取引)
 
 
 このリストには、取引所の[前提条件](#xrpをサポートするための前提条件)が含まれていません。
 
-この時点で、 _Alpha Exchange_ はSGY Ledgerの[ホットウォレット、ウォームウォレット、コールドウォレット](#アカウント)を作成し、それらをバランスシートに追加しましたが、ユーザーからの入金はまだ受け付けていません。
+この時点で、 _Alpha Exchange_ はRCP Ledgerの[ホットウォレット、ウォームウォレット、コールドウォレット](#アカウント)を作成し、それらをバランスシートに追加しましたが、ユーザーからの入金はまだ受け付けていません。
 
 
 <table>
   <tr>
-    <td><b><i>SGY Ledgerの
-SGY残高</i></b></td>
+    <td><b><i>RCP Ledgerの
+RCP残高</i></b></td>
     <td></td>
     <td></td>
     <td><b><i>Alpha Exchange
-のSGY残高</i></b></td>
+のRCP残高</i></b></td>
     <td></td>
     <td></td>
   </tr>
@@ -298,30 +298,30 @@ SGY残高</i></b></td>
 </table>
 
 
-### 取引所へのSGYの入金
+### 取引所へのRCPの入金
 
-[台帳外のSGY残高](#台帳上と台帳外)を追跡するには、取引所は新しい[バランスシート](#バランスシート)（または類似の会計システム）を作成する必要があります。以下の表は、ユーザーがSGYを入金するにつれ、Alpha Exchangeの新しいバランスシートで発生する残高の変化を示すものです。
+[台帳外のRCP残高](#台帳上と台帳外)を追跡するには、取引所は新しい[バランスシート](#バランスシート)（または類似の会計システム）を作成する必要があります。以下の表は、ユーザーがRCPを入金するにつれ、Alpha Exchangeの新しいバランスシートで発生する残高の変化を示すものです。
 
-CharlieというユーザーがAlpha Exchangeに50,000SGYを入金したいと希望しています。これには、以下のステップが伴います。
+CharlieというユーザーがAlpha Exchangeに50,000RCPを入金したいと希望しています。これには、以下のステップが伴います。
 
-1. Charlieは50,000SGYの支払いを（[RippleAPI](rippleapi-reference.html)または類似のソフトウェアを使用して）、Alpha Exchangeの[コールドウォレット](#アカウント)に送信します。
+1. Charlieは50,000RCPの支払いを（[RippleAPI](rippleapi-reference.html)または類似のソフトウェアを使用して）、Alpha Exchangeの[コールドウォレット](#アカウント)に送信します。
 
     a. Charlieは識別子（このケースでは`789`）を支払いに追加し、Alpha Exchangeにある自身のアカウントに関連付けます。これは、[ _宛先タグ_ ](become-an-xrp-ledger-gateway.html#source-and-destination-tags)と呼ばれます。（これを使用するには、Alpha Exchangeは、すべての入金でCharlieのような宛先タグを必要とするように、すべてのアカウントでasfRequireDestフラグをオンに設定している必要があります。詳細については、[AccountSet Flags](accountset.html#accountsetのフラグ)を参照してください。）
 
 2. Alpha Exchangeのソフトウェアは、受信される支払を検出し、`789`をチャーリーのアカウントの宛先タグとして認識します。
 
-3. 受信される支払を検出すると、Alpha Exchangeのソフトウェアは、入金された50,000SGYがCharlieによって管理されるものであることを示すようにバランスシートを更新します。
+3. 受信される支払を検出すると、Alpha Exchangeのソフトウェアは、入金された50,000RCPがCharlieによって管理されるものであることを示すようにバランスシートを更新します。
 
-    Charlieは、これで、取引所で最大50,000SGYまで使用できます。例えば、SGYをBTCやその他のAlpha Exchangeでサポートされている通貨と取引するオファー（注文）を作成できます。
+    Charlieは、これで、取引所で最大50,000RCPまで使用できます。例えば、RCPをBTCやその他のAlpha Exchangeでサポートされている通貨と取引するオファー（注文）を作成できます。
 
 <table>
   <tr>
-    <td><b><i>SGY Ledgerの
-SGY残高</i></b></td>
+    <td><b><i>RCP Ledgerの
+RCP残高</i></b></td>
     <td></td>
     <td></td>
     <td><b><i>Alpha Exchange
-のSGY残高</i></b></td>
+のRCP残高</i></b></td>
     <td></td>
     <td></td>
   </tr>
@@ -403,28 +403,28 @@ SGY残高</i></b></td>
 </table>
 
 
-### 取引所でのSGYの取引
+### 取引所でのRCPの取引
 
-Alpha Exchangeユーザー（Charlieなど）は、Alpha Exchangeでクレジットベースの残高を取引できます。Alpha Exchangeは、これらの取引の作成時に、新しいバランスシートでユーザーの残高を追跡する必要があります。これらの取引は、 _台帳外_ であり、SGY Ledgerから独立しています。このため、この残高の変化はSGY Ledgerには記録されません。
+Alpha Exchangeユーザー（Charlieなど）は、Alpha Exchangeでクレジットベースの残高を取引できます。Alpha Exchangeは、これらの取引の作成時に、新しいバランスシートでユーザーの残高を追跡する必要があります。これらの取引は、 _台帳外_ であり、RCP Ledgerから独立しています。このため、この残高の変化はRCP Ledgerには記録されません。
 
-SGYを自身のSGY Ledgerアカウントに保有している顧客は、SGY Ledgerに組み込まれた分散型取引所 を使用して、ゲートウェイによって発行された通貨を取引することもできます。SGY Ledger _上_ での取引の詳細は、[オファーのライフサイクル](offers.html#オファーのライフサイクル)を参照してください。
+RCPを自身のRCP Ledgerアカウントに保有している顧客は、RCP Ledgerに組み込まれた分散型取引所 を使用して、ゲートウェイによって発行された通貨を取引することもできます。RCP Ledger _上_ での取引の詳細は、[オファーのライフサイクル](offers.html#オファーのライフサイクル)を参照してください。
 
 
-### SGYの保有高のリバランス
+### RCPの保有高のリバランス
 
-取引所は、いつでもホットウォレットとコールドウォレットの間で残高を調整できます。各残高調整には、[トランザクションコスト](transaction-cost.html)がかかりますが、それ以外にはすべてのアカウントの合計残高に影響はありません。台帳上の合計残高は、取引所で取引に使用できる合計残高を常に上回る必要があります。（SGY Ledgerのトランザクションコストをカバーできるだけの十分な余剰が必要です。）
+取引所は、いつでもホットウォレットとコールドウォレットの間で残高を調整できます。各残高調整には、[トランザクションコスト](transaction-cost.html)がかかりますが、それ以外にはすべてのアカウントの合計残高に影響はありません。台帳上の合計残高は、取引所で取引に使用できる合計残高を常に上回る必要があります。（RCP Ledgerのトランザクションコストをカバーできるだけの十分な余剰が必要です。）
 
-以下の表は、（SGY Ledgerで[Paymentトランザクション][]を介した）Alpha Exchangeのコールドウォレットとホットウォレットの間での80,000SGYの残高調整を示すものです。コールドウォレットから引き落としが行われ、ホットウォレットに入金が行われました。この支払いを逆にすると（ホットウォレットから引き落としが行われ、コールドウォレットに入金が行われる）、ホットウォレットの残高は減少します。このような残高調整は、取引所がオンラインホットウォレットにSGYを保持することに関連するリスクを抑えるために役立ちます。
+以下の表は、（RCP Ledgerで[Paymentトランザクション][]を介した）Alpha Exchangeのコールドウォレットとホットウォレットの間での80,000RCPの残高調整を示すものです。コールドウォレットから引き落としが行われ、ホットウォレットに入金が行われました。この支払いを逆にすると（ホットウォレットから引き落としが行われ、コールドウォレットに入金が行われる）、ホットウォレットの残高は減少します。このような残高調整は、取引所がオンラインホットウォレットにRCPを保持することに関連するリスクを抑えるために役立ちます。
 
 
 <table>
   <tr>
     <td><b><i>Alpha Exchangeの
-台帳外のSGY残高</i></b></td>
+台帳外のRCP残高</i></b></td>
     <td></td>
     <td></td>
     <td></td>
-    <td><b><i>Alpha Exchangeの台帳上のSGY残高</i></b></td>
+    <td><b><i>Alpha Exchangeの台帳上のRCP残高</i></b></td>
     <td></td>
   </tr>
   <tr>
@@ -432,7 +432,7 @@ SGYを自身のSGY Ledgerアカウントに保有している顧客は、SGY Led
     <td><b>ユーザー</b></td>
     <td><b>残高</b></td>
     <td></td>
-    <td><b>SGY Ledgerアカウント</b></td>
+    <td><b>RCP Ledgerアカウント</b></td>
     <td><b>残高</b></td>
   </tr>
   <tr>
@@ -488,32 +488,32 @@ SGYを自身のSGY Ledgerアカウントに保有している顧客は、SGY Led
 </table>
 
 
-### 取引所からのSGYの出金
+### 取引所からのRCPの出金
 
-出金により、取引所のユーザーは、取引所の台帳外バランスシートから、SGY LedgerのアカウントにSGYを移動できます。
+出金により、取引所のユーザーは、取引所の台帳外バランスシートから、RCP LedgerのアカウントにRCPを移動できます。
 
-この例では、Charlieは、Alpha Exchangeから25,000SGYを出金します。これには、以下のステップが伴います。
+この例では、Charlieは、Alpha Exchangeから25,000RCPを出金します。これには、以下のステップが伴います。
 
-1. Charlieは、Alpha ExchangeのWebサイトでプロセスを開始します。彼は、25,000SGYをSGY Ledgerの特定のアカウント（以下の表では、「Charlie SGY Ledger」という名前）に送金する指示を出します。
+1. Charlieは、Alpha ExchangeのWebサイトでプロセスを開始します。彼は、25,000RCPをRCP Ledgerの特定のアカウント（以下の表では、「Charlie RCP Ledger」という名前）に送金する指示を出します。
 
 2. Charlieの指示に対応し、Alpha Exchangeは以下の作業を実行します。
 
-    A. その金額（25,000SGY）を台帳外バランスシートのCharlieのアカウントから引き出します。
+    A. その金額（25,000RCP）を台帳外バランスシートのCharlieのアカウントから引き出します。
 
-    B. SGY Ledgerで、Alpha ExchangeのホットウォレットからCharlieのSGY Ledgerアカウントに同じ金額（25,000SGY）の支払いを送信します。
+    B. RCP Ledgerで、Alpha ExchangeのホットウォレットからCharlieのRCP Ledgerアカウントに同じ金額（25,000RCP）の支払いを送信します。
 
 
 <table>
   <tr>
-    <td><b><i>SGY Ledger台帳上のSGY残高</td>
+    <td><b><i>RCP Ledger台帳上のRCP残高</td>
     <td></td>
     <td></td>
     <td><b><i>Alpha Exchangeの
-台帳外のSGY残高</td>
+台帳外のRCP残高</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><b><i>Alpha Exchangeの台帳上のSGY残高</td>
+    <td><b><i>Alpha Exchangeの台帳上のRCP残高</td>
     <td></td>
   </tr>
   <tr>
@@ -524,7 +524,7 @@ SGYを自身のSGY Ledgerアカウントに保有している顧客は、SGY Led
     <td><b>ユーザー</td>
     <td><b>残高</td>
     <td></td>
-    <td><b>SGY Ledgerアカウント</td>
+    <td><b>RCP Ledgerアカウント</td>
     <td><b>残高</td>
   </tr>
   <tr>
@@ -562,7 +562,7 @@ SGYを自身のSGY Ledgerアカウントに保有している顧客は、SGY Led
     <td></td>
   </tr>
   <tr>
-    <td>CharlieのSGY Ledger</td>
+    <td>CharlieのRCP Ledger</td>
     <td><s>50,000</s>
 <br>75,000</td>
     <td></td>

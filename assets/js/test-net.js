@@ -28,7 +28,7 @@ function rippleTestNetCredentials(url, altnet_name) {
       secret.hide().html('<h3>Secret</h3> ' +
         data.account.secret).fadeIn('fast')
       balance.hide().html('<h3>Balance</h3> ' +
-        Number(data.balance).toLocaleString('en') + ' SGY').fadeIn('fast')
+        Number(data.balance).toLocaleString('en') + ' RCP').fadeIn('fast')
     },
     error: function() {
       loader.hide();

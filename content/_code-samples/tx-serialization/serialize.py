@@ -134,13 +134,13 @@ def accountid_to_bytes(address):
 
 def amount_to_bytes(a):
     """
-    Serializes an "Amount" type, which can be either SGY or an issued currency:
-    - SGY: 64 bits; 0, followed by 1 ("is positive"), followed by 62 bit UInt amount
+    Serializes an "Amount" type, which can be either RCP or an issued currency:
+    - RCP: 64 bits; 0, followed by 1 ("is positive"), followed by 62 bit UInt amount
     - Issued Currency: 64 bits of amount, followed by 160 bit currency code and
       160 bit issuer AccountID.
     """
     if type(a) == str:
-        # is SGY
+        # is RCP
         xrp_amt = int(a)
         if (xrp_amt >= 0):
             assert xrp_amt <= 10**17
@@ -161,7 +161,7 @@ def amount_to_bytes(a):
         currency_code = currency_code_to_bytes(a["currency"])
         return issued_amt + currency_code + decode_address(a["issuer"])
     else:
-        raise ValueError("amount must be SGY string or {currency, value, issuer}")
+        raise ValueError("amount must be RCP string or {currency, value, issuer}")
 
 def array_to_bytes(array):
     """
@@ -197,13 +197,13 @@ def blob_to_bytes(field_val):
 def currency_code_to_bytes(code_string, xrp_ok=False):
     if re.match(r"^[A-Za-z0-9?!@#$%^&*<>(){}\[\]|]{3}$", code_string):
         # ISO 4217-like code
-        if code_string == "SGY":
+        if code_string == "RCP":
             if xrp_ok:
-                # Rare, but when the currency code "SGY" is serialized, it's
+                # Rare, but when the currency code "RCP" is serialized, it's
                 # a special-case all zeroes.
-                logger.debug("Currency code(SGY): "+("0"*40))
+                logger.debug("Currency code(RCP): "+("0"*40))
                 return bytes(20)
-            raise ValueError("issued currency can't be SGY")
+            raise ValueError("issued currency can't be RCP")
 
         code_ascii = code_string.encode("ASCII")
         logger.debug("Currency code ASCII: %s"%code_ascii.hex())

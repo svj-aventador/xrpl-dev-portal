@@ -76,8 +76,8 @@ style=wordwrap</panel_attributes>
       <w>160</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>"Not SGY" bit
-(0=SGY, 1=not SGY)
+    <panel_attributes>"Not RCP" bit
+(0=RCP, 1=not RCP)
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -278,8 +278,8 @@ style=wordwrap</panel_attributes>
       <w>160</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>"Not SGY" bit
-(0=SGY, 1=not SGY)
+    <panel_attributes>"Not RCP" bit
+(0=RCP, 1=not RCP)
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -324,7 +324,7 @@ style=wordwrap</panel_attributes>
       <w>160</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>SGY Amount Format</panel_attributes>
+    <panel_attributes>RCP Amount Format</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

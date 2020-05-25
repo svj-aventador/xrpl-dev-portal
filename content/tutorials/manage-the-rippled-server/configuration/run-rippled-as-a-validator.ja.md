@@ -8,7 +8,7 @@
 
 - 共有グローバル台帳全体のローカルコピーの維持
 
-バリデータが _特異である_ のは、検証メッセージも発行するという点です。これらのメッセージは、[コンセンサスプロセス](consensus-principles-and-rules.html#コンセンサスの仕組み)の進行中、SGY Ledgerネットワークによる評価の対象となる候補のトランザクションです。
+バリデータが _特異である_ のは、検証メッセージも発行するという点です。これらのメッセージは、[コンセンサスプロセス](consensus-principles-and-rules.html#コンセンサスの仕組み)の進行中、RCP Ledgerネットワークによる評価の対象となる候補のトランザクションです。
 
 ただし、単に検証メッセージを発行するだけで、バリデータにコンセンサスプロセスでの発言権が自動的に付与されるわけではありません。他のサーバーがバリデータ（モードのサーバー）を彼らのユニークノードリスト（UNL）に追加しない限り、彼らは（バリデータモードのサーバーからの）検証メッセージを無視します。バリデータがUNLに含まれている場合、 _信頼できる_ バリデータであり、その提案は、信頼する側のサーバーによってコンセンサスプロセスで検討されます。
 
@@ -34,7 +34,7 @@
 
 - **身元の確さ**
 
-    優れたバリデータには、身元が明確な所有者が存在します。[ドメイン検証](#6-ドメイン検証の提供)を提供することは、その第一歩になります。SGY LedgerネットワークのUNLに、多くの法的な管轄域および地域のさまざまな所有者によって運営されているバリデータが含まれていると理想的です。結果として、信頼できるバリデータの公正な運用が地域特有の事象によって損なわれるおそれが低減されます。
+    優れたバリデータには、身元が明確な所有者が存在します。[ドメイン検証](#6-ドメイン検証の提供)を提供することは、その第一歩になります。RCP LedgerネットワークのUNLに、多くの法的な管轄域および地域のさまざまな所有者によって運営されているバリデータが含まれていると理想的です。結果として、信頼できるバリデータの公正な運用が地域特有の事象によって損なわれるおそれが低減されます。
 
 Ripple社は、推奨される一連のバリデータを記載した[バリデータリスト](https://github.com/ripple/rippled/blob/develop/cfg/validators-example.txt)を公開しています。本番環境のサーバーでは、このリストを使用することを強くお勧めします。
 
@@ -118,7 +118,7 @@ Ripple社は、推奨される一連のバリデータを記載した[バリデ�
 
 ## 4. ネットワークへの接続
 
-バリデータのオペレーターが果たすべき重要な責任の1つは、信頼できる安全な接続によってバリデータがSGY Ledgerネットワークに接続されるようにすることです。ネットワーク上の潜在的に悪意のあるピアに無作為に接続するのではなく、以下のいずれかの方法でネットワークに接続するようにバリデータに指示できます。
+バリデータのオペレーターが果たすべき重要な責任の1つは、信頼できる安全な接続によってバリデータがRCP Ledgerネットワークに接続されるようにすることです。ネットワーク上の潜在的に悪意のあるピアに無作為に接続するのではなく、以下のいずれかの方法でネットワークに接続するようにバリデータに指示できます。
 
  - [公開ハブ](#公開ハブを使用した接続)
  - [プロキシ](#プロキシを使用した接続)
@@ -197,7 +197,7 @@ Ripple社は、推奨される一連のバリデータを記載した[バリデ�
 
 ## 5. ネットワーク接続の確認
 
-ここでは、バリデータがSGY Ledgerネットワークへの健全な接続を保持していることを検証する方法をいくつか紹介します。
+ここでは、バリデータがRCP Ledgerネットワークへの健全な接続を保持していることを検証する方法をいくつか紹介します。
 
 - [`peers`](peers.html)コマンドを使用して、バリデータに接続しているすべての`rippled`サーバーのリストを取得します。`peers`の配列が`null`である場合、ネットワークへの健全な接続が存在していません。このドキュメントの手順に従ってバリデータを設置した場合、`peers`の配列には、`[ips_fixed]`スタンザで定義されているピアの数と同数のオブジェクトが含まれています。
 
@@ -207,7 +207,7 @@ Ripple社は、推奨される一連のバリデータを記載した[バリデ�
 
 - [`server_info`](server_info.html)コマンドを使用して、バリデータに関するいくつかの基本情報を取得します。`server_state`は、`proposing`に設定されているはずです。`full`または`validating`に設定されている場合もありますが、`proposing`に移行するまでの数分間に限られます。
 
-    `server_state`が`proposing`に設定されている時間が大部分を占めていない場合、SGY Ledgerネットワークにバリデータが完全に参加できていないことを示している可能性があります。サーバーの状態および`server_info`エンドポイントを使用してバリデータの問題を診断する方法の詳細は、[`rippled`サーバーの状態](rippled-server-states.html)および[`server_info`の取得](diagnosing-problems.html#server_infoの取得)を参照してください。
+    `server_state`が`proposing`に設定されている時間が大部分を占めていない場合、RCP Ledgerネットワークにバリデータが完全に参加できていないことを示している可能性があります。サーバーの状態および`server_info`エンドポイントを使用してバリデータの問題を診断する方法の詳細は、[`rippled`サーバーの状態](rippled-server-states.html)および[`server_info`の取得](diagnosing-problems.html#server_infoの取得)を参照してください。
 
 - [`validators`](validators.html)コマンドを使用して、バリデータによって使用される、公開済みかつ信頼できるバリデータの最新リストを取得します。`validator_list_expires`の値が、`never`（無期限）、期限が切れていない、または期限切れ間近のいずれかであることを確認してください。
 
@@ -215,7 +215,7 @@ Ripple社は、推奨される一連のバリデータを記載した[バリデ�
 
 ## 6. ドメイン検証の提供
 
-検証リスト発行者およびSGY Ledgerネットワーク内のその他の参加者がバリデータの運用元を把握しやすいようにするには、バリデータのドメイン検証を提供します。ドメイン検証とは、ハイレベルでは双方向リンクを指します。
+検証リスト発行者およびRCP Ledgerネットワーク内のその他の参加者がバリデータの運用元を把握しやすいようにするには、バリデータのドメイン検証を提供します。ドメイン検証とは、ハイレベルでは双方向リンクを指します。
 
 - ドメインを使用して、バリデータキーの所有権を主張します。
 
@@ -227,9 +227,9 @@ Ripple社は、推奨される一連のバリデータを記載した[バリデ�
 
 1. バリデータと公に関連付ける、所有しているドメインの名前を選択します。そのドメインのポート443で外部に公開されるHTTPSサーバーを実行中であり、そのサーバーのTLS証明書に関連付けられている秘密鍵ファイルへのアクセス権を持っている必要があります。（注記: [TLSの旧称はSSLです](https://en.wikipedia.org/wiki/Transport_Layer_Security)）。
 
-2. バリデータの公開鍵を公開し、特に他の`rippled`オペレーターに知らせます。例えば、Webサイト、ソーシャルメディア、[SGYChatコミュニティーフォーラム](https://www.xrpchat.com/)、またはプレスリリースでバリデータの公開鍵を公表できます。
+2. バリデータの公開鍵を公開し、特に他の`rippled`オペレーターに知らせます。例えば、Webサイト、ソーシャルメディア、[RCPChatコミュニティーフォーラム](https://www.xrpchat.com/)、またはプレスリリースでバリデータの公開鍵を公表できます。
 
-3. この[Googleフォーム](https://docs.google.com/forms/d/e/1FAIpQLScszfq7rRLAfArSZtvitCyl-VFA9cNcdnXLFjURsdCQ3gHW7w/viewform)を使用して、自身のバリデータをSGY Chartsの[バリデータレジストリー](https://xrpcharts.ripple.com/#/validators)に登録するための要求を送信します。バリデータをこのレジストリーに登録することは、そのバリデータとドメインを所有していることを示す、別の形での公的な証拠になります。フォームに漏れなく記入するには、以下の情報が必要です。
+3. この[Googleフォーム](https://docs.google.com/forms/d/e/1FAIpQLScszfq7rRLAfArSZtvitCyl-VFA9cNcdnXLFjURsdCQ3gHW7w/viewform)を使用して、自身のバリデータをRCP Chartsの[バリデータレジストリー](https://xrpcharts.ripple.com/#/validators)に登録するための要求を送信します。バリデータをこのレジストリーに登録することは、そのバリデータとドメインを所有していることを示す、別の形での公的な証拠になります。フォームに漏れなく記入するには、以下の情報が必要です。
 
       1. バリデータのサーバーで以下のコマンドを実行して、バリデータの公開鍵を検出します。
 
@@ -257,7 +257,7 @@ Ripple社は、推奨される一連のバリデータを記載した[バリデ�
 
         返された値を、Googleフォームの**Domain Signature**フィールドに入力します。
 
-4. 記入したGoogleフォームを送信すると、ドメイン検証の成否を通知するメールがSGY Chartsから送信されます。ドメイン検証が成功した場合は、SGY Chartsの[バリデータレジストリー](https://xrpcharts.ripple.com/#/validators)にバリデータとドメインが表示されます。
+4. 記入したGoogleフォームを送信すると、ドメイン検証の成否を通知するメールがRCP Chartsから送信されます。ドメイン検証が成功した場合は、RCP Chartsの[バリデータレジストリー](https://xrpcharts.ripple.com/#/validators)にバリデータとドメインが表示されます。
 
 <!--{ ***TODO: For the future - add a new section or separate document: "Operating a Trusted Validator" -- things that you need to be aware of once your validator has been added to a UNL and is participating in consensus. We should tell the user what to expect once they are listed in a UNL. How to tell if your validator is participating in the consensus process? How to tell if something isn't right with your validator - warning signs that they should look out for? How to tell if your validator has fallen out of agreement - what is the acceptable vs unacceptable threshold? Maybe provide a script that will alert them when something is going wrong.*** }-->
 

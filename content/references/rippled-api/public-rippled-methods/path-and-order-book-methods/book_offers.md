@@ -16,7 +16,7 @@ An example of the request format:
   "command": "book_offers",
   "taker": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
   "taker_gets": {
-    "currency": "SGY"
+    "currency": "RCP"
   },
   "taker_pays": {
     "currency": "USD",
@@ -35,7 +35,7 @@ An example of the request format:
         {
             "taker": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
             "taker_gets": {
-                "currency": "SGY"
+                "currency": "RCP"
             },
             "taker_pays": {
                 "currency": "USD",
@@ -67,8 +67,8 @@ The request includes the following parameters:
 | `limit`        | Unsigned Integer                           | _(Optional)_ If provided, the server does not provide more than this many offers in the results. The total number of results returned may be fewer than the limit, because the server omits unfunded offers. |
 | `marker`       | [Marker][] | _(Optional)_ Value from a previous paginated response. Resume retrieving data where that response left off. |
 | `taker`        | String                                     | _(Optional)_ The [Address][] of an account to use as a perspective. [Unfunded offers](offers.html#lifecycle-of-an-offer) placed by this account are always included in the response. (You can use this to look up your own orders to cancel them.) |
-| `taker_gets`   | Object                                     | Specification of which currency the account taking the offer would receive, as an object with `currency` and `issuer` fields (omit issuer for SGY), like [currency amounts][Currency Amount]. |
-| `taker_pays`   | Object                                     | Specification of which currency the account taking the offer would pay, as an object with `currency` and `issuer` fields (omit issuer for SGY), like [currency amounts][Currency Amount]. |
+| `taker_gets`   | Object                                     | Specification of which currency the account taking the offer would receive, as an object with `currency` and `issuer` fields (omit issuer for RCP), like [currency amounts][Currency Amount]. |
+| `taker_pays`   | Object                                     | Specification of which currency the account taking the offer would pay, as an object with `currency` and `issuer` fields (omit issuer for RCP), like [currency amounts][Currency Amount]. |
 
 ## Response Format
 
@@ -167,9 +167,9 @@ In addition to the standard Offer fields, the following fields may be included i
 
 | `Field`             | Type                             | Description         |
 |:--------------------|:---------------------------------|:--------------------|
-| `owner_funds`       | String                           | Amount of the TakerGets currency the side placing the offer has available to be traded. (SGY is represented as drops; any other currency is represented as a decimal value.) If a trader has multiple offers in the same book, only the highest-ranked offer includes this field. |
-| `taker_gets_funded` | String (SGY) or Object (non-SGY) | (Only included in partially-funded offers) The maximum amount of currency that the taker can get, given the funding status of the offer. |
-| `taker_pays_funded` | String (SGY) or Object (non-SGY) | (Only included in partially-funded offers) The maximum amount of currency that the taker would pay, given the funding status of the offer. |
+| `owner_funds`       | String                           | Amount of the TakerGets currency the side placing the offer has available to be traded. (RCP is represented as drops; any other currency is represented as a decimal value.) If a trader has multiple offers in the same book, only the highest-ranked offer includes this field. |
+| `taker_gets_funded` | String (RCP) or Object (non-RCP) | (Only included in partially-funded offers) The maximum amount of currency that the taker can get, given the funding status of the offer. |
+| `taker_pays_funded` | String (RCP) or Object (non-RCP) | (Only included in partially-funded offers) The maximum amount of currency that the taker would pay, given the funding status of the offer. |
 | `quality`           | String                           | The exchange rate, as the ratio `taker_pays` divided by `taker_gets`. For fairness, offers that have the same quality are automatically taken first-in, first-out. (In other words, if multiple people offer to exchange currency at the same rate, the oldest offer is taken first.) |
 
 ## Possible Errors

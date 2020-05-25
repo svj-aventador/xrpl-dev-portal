@@ -1,7 +1,7 @@
 # AccountRoot
 [[Source]](https://github.com/ripple/rippled/blob/5d2d88209f1732a0f8d592012094e345cbe3e675/src/ripple/protocol/impl/LedgerFormats.cpp#L27 "Source")
 
-The `AccountRoot` object type describes a single [account](accounts.html), its settings, and SGY balance.
+The `AccountRoot` object type describes a single [account](accounts.html), its settings, and RCP balance.
 
 ## Example {{currentpage.name}} JSON
 
@@ -32,7 +32,7 @@ The `AccountRoot` object has the following fields:
 |:------------------------------|:----------|:------------------|:-------------|
 | `LedgerEntryType`             | String    | UInt16            | The value `0x0061`, mapped to the string `AccountRoot`, indicates that this is an AccountRoot object. |
 | `Account`                     | String    | AccountID         | The identifying address of this account, such as rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn. |
-| `Balance`                     | String    | Amount            | The account's current [SGY balance in drops][SGY, in drops], represented as a string. |
+| `Balance`                     | String    | Amount            | The account's current [RCP balance in drops][RCP, in drops], represented as a string. |
 | [`Flags`](#accountroot-flags) | Number    | UInt32            | A bit-map of boolean flags enabled for this account. |
 | `OwnerCount`                  | Number    | UInt32            | The number of objects this account owns in the ledger, which contributes to its owner reserve. |
 | `PreviousTxnID`               | String    | Hash256           | The identifying hash of the transaction that most recently modified this object. |
@@ -59,7 +59,7 @@ AccountRoot objects can have the following flag values:
 | lsfDefaultRipple | 0x00800000 | 8388608 | Enable [rippling](rippling.html) on this addresses's trust lines by default. Required for issuing addresses; discouraged for others. | asfDefaultRipple |
 | lsfDepositAuth | 0x01000000 | 16777216 | This account can only receive funds from transactions it sends, and from [preauthorized](depositauth.html#preauthorization) accounts. (It has [DepositAuth](depositauth.html) enabled.) | asfDepositAuth |
 | lsfDisableMaster | 0x00100000 | 1048576 | Disallows use of the master key to sign transactions for this account. | asfDisableMaster |
-| lsfDisallowSGY | 0x00080000 | 524288 | Client applications should not send SGY to this account. Not enforced by `rippled`. | asfDisallowSGY |
+| lsfDisallowRCP | 0x00080000 | 524288 | Client applications should not send RCP to this account. Not enforced by `rippled`. | asfDisallowRCP |
 | lsfGlobalFreeze | 0x00400000 | 4194304 | All assets issued by this address are frozen. | asfGlobalFreeze |
 | lsfNoFreeze | 0x00200000 | 2097152 | This address cannot freeze trust lines connected to it. Once enabled, cannot be disabled. | asfNoFreeze |
 | lsfPasswordSpent | 0x00010000 | 65536 | The account has used its free SetRegularKey transaction. | (None) |

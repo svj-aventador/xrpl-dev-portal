@@ -20,7 +20,7 @@ An example of the request format:
     "books": [
         {
             "taker_pays": {
-                "currency": "SGY"
+                "currency": "RCP"
             },
             "taker_gets": {
                 "currency": "USD",
@@ -41,7 +41,7 @@ The parameters in the request are specified almost exactly like the parameters t
 | `Field`             | Type  | Description                                    |
 |:--------------------|:------|:-----------------------------------------------|
 | `streams`           | Array | _(Optional)_ Array of string names of generic streams to unsubscribe from, including `ledger`, `server`, `transactions`, and `transactions_proposed`. |
-| `accounts`          | Array | _(Optional)_ Array of unique account addresses to stop receiving updates for, in the SGY Ledger's [base58][] format. (This only stops those messages if you previously subscribed to those accounts specifically. You cannot use this to filter accounts out of the general transactions stream.) |
+| `accounts`          | Array | _(Optional)_ Array of unique account addresses to stop receiving updates for, in the RCP Ledger's [base58][] format. (This only stops those messages if you previously subscribed to those accounts specifically. You cannot use this to filter accounts out of the general transactions stream.) |
 | `accounts_proposed` | Array | _(Optional)_ Like `accounts`, but for `accounts_proposed` subscriptions that included not-yet-validated transactions. |
 | `books`             | Array | _(Optional)_ Array of objects defining order books to unsubscribe from, as explained below. |
 
@@ -51,8 +51,8 @@ The objects in the `books` array are defined almost like the ones from subscribe
 
 | `Field`      | Type    | Description                                         |
 |:-------------|:--------|:----------------------------------------------------|
-| `taker_gets` | Object  | Specification of which currency the account taking the offer would receive, as an object with `currency` and `issuer` fields (omit issuer for SGY), like [currency amounts][Currency Amount]. |
-| `taker_pays` | Object  | Specification of which currency the account taking the offer would pay, as an object with `currency` and `issuer` fields (omit issuer for SGY), like [currency amounts][Currency Amount]. |
+| `taker_gets` | Object  | Specification of which currency the account taking the offer would receive, as an object with `currency` and `issuer` fields (omit issuer for RCP), like [currency amounts][Currency Amount]. |
+| `taker_pays` | Object  | Specification of which currency the account taking the offer would pay, as an object with `currency` and `issuer` fields (omit issuer for RCP), like [currency amounts][Currency Amount]. |
 | `both`       | Boolean | (Optional, defaults to false) If true, remove a subscription for both sides of the order book. |
 
 ## Response Format
@@ -82,7 +82,7 @@ The response follows the [standard format][], with a successful result containin
 * `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
 * `noPermission` - The request included the `url` field, but you are not connected as an admin.
 * `malformedStream` - The `streams` field of the request is not formatted properly.
-* `malformedAccount` - One of the addresses in the `accounts` or `accounts_proposed` fields of the request is not a properly-formatted SGY Ledger address.
+* `malformedAccount` - One of the addresses in the `accounts` or `accounts_proposed` fields of the request is not a properly-formatted RCP Ledger address.
     * **Note:** You _can_ subscribe to the stream of an address that does not yet have an entry in the global ledger to get a message when that address becomes funded.
 * `srcCurMalformed` - One or more `taker_pays` sub-fields of the `books` field in the request is not formatted properly.
 * `dstAmtMalformed` - One or more `taker_gets` sub-fields of the `books` field in the request is not formatted properly.

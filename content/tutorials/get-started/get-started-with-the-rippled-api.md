@@ -1,22 +1,22 @@
-# Get Started with SGY Ledger APIs
+# Get Started with RCP Ledger APIs
 
-The SGY Ledger's core server software is [`singularityd`](the-rippled-server.html). You can jump straight into developing on the SGY Ledger by accessing the API of a `singularityd` server.
+The RCP Ledger's core server software is [`singularityd`](the-rippled-server.html). You can jump straight into developing on the RCP Ledger by accessing the API of a `singularityd` server.
 
-The quickest way to dive into the API is with the [**WebSocket API Tool**](websocket-api-tool.html), or use the [SGY Ledger Explorer](https://explorer.sgy.plus/) to watch the progress of the ledger live.
+The quickest way to dive into the API is with the [**WebSocket API Tool**](websocket-api-tool.html), or use the [RCP Ledger Explorer](https://explorer.RCP.plus/) to watch the progress of the ledger live.
 
 You can also [run your own instance of `singularityd`](install-rippled.html) or use a [public server](#public-servers).
 
 ## Public Servers
 
-Ripple provides several public servers for the benefit of the SGY Ledger community:
+Ripple provides several public servers for the benefit of the RCP Ledger community:
 
 | Operator | Area | JSON-RPC URL | WebSocket URL | Notes                |
 |:---------|:------------|:-------------|:--------------|:---------------------|
-| Singularity   | **Global** | `https://s-global.sgy.plus:1234/` | `wss://s-global.sgy.plus/` | General purpose server cluster |
-| Singularity   | **HongKong** | `https://s-hk.sgy.plus:1234/` | `wss://s-hk.sgy.plus/` | General purpose server cluster |
-| Singularity   | **India** | `https://s-in.sgy.plus:1234/` | `wss://s-in.sgy.plus/` | General purpose server cluster |
-| Singularity   | **Japan** | `https://s-jp.sgy.plus:1234/` | `wss://s-jp.sgy.plus/` | General purpose server cluster |
-| Singularity   | **USA** | `https://s-us.sgy.plus:1234/` | `wss://s-us.sgy.plus/` | General purpose server cluster |
+| Singularity   | **Global** | `https://s-global.RCP.plus:1234/` | `wss://s-global.RCP.plus/` | General purpose server cluster |
+| Singularity   | **HongKong** | `https://s-hk.RCP.plus:1234/` | `wss://s-hk.RCP.plus/` | General purpose server cluster |
+| Singularity   | **India** | `https://s-in.RCP.plus:1234/` | `wss://s-in.RCP.plus/` | General purpose server cluster |
+| Singularity   | **Japan** | `https://s-jp.RCP.plus:1234/` | `wss://s-jp.RCP.plus/` | General purpose server cluster |
+| Singularity   | **USA** | `https://s-us.RCP.plus:1234/` | `wss://s-us.RCP.plus/` | General purpose server cluster |
 
 [Network]: parallel-networks.html
 
@@ -32,7 +32,7 @@ The [example config file](https://github.com/ripple/rippled/blob/f00f263852c4729
 
 ## WebSocket API
 
-If you are looking to try out some methods on the SGY Ledger, you can skip writing your own WebSocket code and go straight to using the API at the [Ripple WebSocket API Tool](websocket-api-tool.html). Later on, when you want to connect to your own `singularityd` server, you can [build your own client in the browser](monitor-incoming-payments-with-websocket.html) or [in Node.js](https://www.npmjs.com/package/ws).
+If you are looking to try out some methods on the RCP Ledger, you can skip writing your own WebSocket code and go straight to using the API at the [Ripple WebSocket API Tool](websocket-api-tool.html). Later on, when you want to connect to your own `singularityd` server, you can [build your own client in the browser](monitor-incoming-payments-with-websocket.html) or [in Node.js](https://www.npmjs.com/package/ws).
 
 Example WebSocket API request:
 
@@ -53,7 +53,7 @@ You can use any HTTP client (like [RESTED for Firefox](https://addons.mozilla.or
 Example JSON-RPC request:
 
 ```json
-POST https://s-global.sgy.plus:1234/
+POST https://s-global.RCP.plus:1234/
 Content-Type: application/json
 
 {
@@ -78,7 +78,7 @@ Example commandline request:
 singularityd --conf=/etc/opt/singularity/singularityd.cfg server_info
 ```
 
-For more information on `singularityd`'s commandline usage, see [Commandline Usage Reference](https://dev.sgy.plus/commandline-usage.html).
+For more information on `singularityd`'s commandline usage, see [Commandline Usage Reference](https://dev.RCP.plus/commandline-usage.html).
 
 **Caution:** The commandline interface is intended for administrative purposes only and is _not a supported API_.  New versions of `singularityd` may introduce breaking changes to the commandline API without warning!
 
@@ -93,15 +93,15 @@ For a full list of API methods, see:
 ## See Also
 
 - **Concepts:**
-    - [SGY Ledger Overview](xrp-ledger-overview.html)
+    - [RCP Ledger Overview](xrp-ledger-overview.html)
     - [Software Ecosystem](software-ecosystem.html)
     - [Parallel Networks](parallel-networks.html)
 - **Tutorials:**
     - [Get Started with API for JavaScript](get-started-with-rippleapi-for-javascript.html)
     - [Reliable Transaction Submission](reliable-transaction-submission.html)
-    - [Manage the SGY Server](manage-the-rippled-server.html)
+    - [Manage the RCP Server](manage-the-rippled-server.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}			

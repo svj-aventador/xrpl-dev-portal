@@ -6,7 +6,7 @@ The following procedure demonstrates how to create, sign, and submit a multi-sig
 
 - You must have already [set up multi-signing](set-up-multi-signing.html) for your address.
 
-- Multi-signing must be available. Multi-signing has been enabled by an [**Amendment**](amendments.html) to the SGY Ledger Consensus Protocol since 2016-06-27.
+- Multi-signing must be available. Multi-signing has been enabled by an [**Amendment**](amendments.html) to the RCP Ledger Consensus Protocol since 2016-06-27.
 
 
 ## 1. Create the transaction

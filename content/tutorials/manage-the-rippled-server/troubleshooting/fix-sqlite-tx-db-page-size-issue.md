@@ -6,7 +6,7 @@ This document describes steps to detect and correct this problem if it occurs.
 
 ## Background
 
-`rippled` servers store a copy of their transaction history in a SQLite database. Before version 0.40.0, `rippled` configured this database to have a capacity of roughly 2TB. For most uses, this is plenty. However, full transaction history back to ledger 32570 (the oldest ledger version available in the production SGY Ledger history) is likely to exceed this exceed the SQLite database capacity. `rippled` servers version 0.40.0 and later create their SQLite database files with a larger capacity, so they are unlikely to encounter this problem.
+`rippled` servers store a copy of their transaction history in a SQLite database. Before version 0.40.0, `rippled` configured this database to have a capacity of roughly 2TB. For most uses, this is plenty. However, full transaction history back to ledger 32570 (the oldest ledger version available in the production RCP Ledger history) is likely to exceed this exceed the SQLite database capacity. `rippled` servers version 0.40.0 and later create their SQLite database files with a larger capacity, so they are unlikely to encounter this problem.
 
 The capacity of the SQLite database is a result of the database's _page size_ parameter, which cannot be easily changed after the database is created. (For more information on SQLite's internals, see [the official SQLite documentation](https://www.sqlite.org/fileformat.html).) The database can reach its capacity even if there is still free space on the disk and filesystem where it is stored. As described in the [Fix](#fix) below, reconfiguring the page size to avoid this problem requires a somewhat time-consuming migration process.
 
@@ -176,7 +176,7 @@ To migrate your transaction database to a larger page size, perform the followin
     - [Understanding Log Messages](understanding-log-messages.html)
     - [Configure Full History](configure-full-history.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 

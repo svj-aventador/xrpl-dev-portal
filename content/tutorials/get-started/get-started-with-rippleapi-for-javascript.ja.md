@@ -1,6 +1,6 @@
 # RippleAPI入門ガイド
 
-このチュートリアルでは、[Node.js](http://nodejs.org/)と[RippleAPI](rippleapi-reference.html)（SGY LedgerにアクセスするためのJavaScript API）を使用して、SGY Ledgerに接続されるアプリケーションを開発するための基本事項を説明します。
+このチュートリアルでは、[Node.js](http://nodejs.org/)と[RippleAPI](rippleapi-reference.html)（RCP LedgerにアクセスするためのJavaScript API）を使用して、RCP Ledgerに接続されるアプリケーションを開発するための基本事項を説明します。
 
 このガイドで使用しているスクリプトと構成ファイルは、[Ripple開発者ポータルのGitHubリポジトリで入手できます](https://github.com/ripple/ripple-dev-portal/tree/master/content/_code-samples/rippleapi_quickstart)。
 
@@ -157,7 +157,7 @@ const RippleAPI = require('ripple-lib').RippleAPI;
 
 ```
 const api = new RippleAPI({
-  server: 'wss://s-hk.sgy.plus' // Public rippled server
+  server: 'wss://s-hk.RCP.plus' // Public rippled server
 });
 ```
 
@@ -167,7 +167,7 @@ const api = new RippleAPI({
 
 - この`server`設定例では、セキュアなWebSocket接続を使用して、Ripple社が運営している公開サーバーの1つに接続しています。
 - `server`オプションを記述しない場合、RippleAPIは、ネットワーク接続の不要なメソッドのみが提供される[オフラインモード](rippleapi-reference.html#offline-functionality)で実行されます。
-- 代わりに[SGY Ledgerテストネット](xrp-testnet-faucet.html)サーバーを指定すると、本番環境のSGY Ledgerではなく、別空間のテストネットワークに接続できます。
+- 代わりに[RCP Ledgerテストネット](xrp-testnet-faucet.html)サーバーを指定すると、本番環境のRCP Ledgerではなく、別空間のテストネットワークに接続できます。
 - [独自の`rippled`を運用している](install-rippled.html)場合は、ローカルサーバーに接続するよう指示できます。例えば、代わりに`server: 'ws://localhost:5005'`と記述します。
 
 
@@ -177,7 +177,7 @@ const api = new RippleAPI({
 api.connect().then(() => {
 ```
 
-[connect()メソッド](rippleapi-reference.html#connect)は、特殊なJavaScriptオブジェクトである[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)を返す多くのRippleAPIメソッドの1つです。Promiseは、SGY Ledgerを照会するなど、値を後ほど返す非同期操作の実行を目的としています。
+[connect()メソッド](rippleapi-reference.html#connect)は、特殊なJavaScriptオブジェクトである[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)を返す多くのRippleAPIメソッドの1つです。Promiseは、RCP Ledgerを照会するなど、値を後ほど返す非同期操作の実行を目的としています。
 
 何らかの式（`api.connect()`など）からPromiseが返された場合、Promiseの`then`メソッドを呼び出して、コールバック関数を渡します。関数を引数として渡すことはJavaScriptでは常套的な手法であり、JavaScriptの関数が[第一級オブジェクト](https://en.wikipedia.org/wiki/First-class_function)であることを利用しています。
 
@@ -204,7 +204,7 @@ Promiseは、自身の非同期動作を完了すると、渡されたコール�
 
 ここが、スクリプトで実行する処理を記述するために変更を加える部分です。
 
-このサンプルコードでは、SGY Ledgerアカウントのアドレスを使用してSGY Ledgerアカウントを参照しています。さまざまなアドレスを指定してコードを実行し、結果が変化することを確認してみてください。
+このサンプルコードでは、RCP Ledgerアカウントのアドレスを使用してRCP Ledgerアカウントを参照しています。さまざまなアドレスを指定してコードを実行し、結果が変化することを確認してみてください。
 
 `console.log()`関数はNode.jsとWebブラウザーの両方に組み込まれているもので、結果をコンソールに出力します。この例では大量のコンソール出力を得られるので、コードによって実行される処理の内容を簡単に理解できます。
 
@@ -223,7 +223,7 @@ Promiseは、自身の非同期動作を完了すると、渡されたコール�
 }).catch(console.error);
 ```
 
-サンプルコードの残りの部分は、概ね[ボイラープレートコード](rippleapi-reference.html#boilerplate)としての性質を持ちます。1行目は前のコールバック関数を終了するもので、次に、終了時に実行される別のコールバックへのチェーンを作成しています。そのメソッドはSGY Ledgerからの明示的な切断を実行し、終了時にコンソールへの書き込みを実行する別のコールバックが記述されています。スクリプトで[RippleAPIイベント](rippleapi-reference.html#api-events)を待機する場合は、イベントの待機を終了するまで切断を実行しないでください。
+サンプルコードの残りの部分は、概ね[ボイラープレートコード](rippleapi-reference.html#boilerplate)としての性質を持ちます。1行目は前のコールバック関数を終了するもので、次に、終了時に実行される別のコールバックへのチェーンを作成しています。そのメソッドはRCP Ledgerからの明示的な切断を実行し、終了時にコンソールへの書き込みを実行する別のコールバックが記述されています。スクリプトで[RippleAPIイベント](rippleapi-reference.html#api-events)を待機する場合は、イベントの待機を終了するまで切断を実行しないでください。
 
 `catch`メソッドで、このPromiseチェーンを終了します。ここに記述しているコールバックは、いずれかのPromiseまたはそのコールバック関数でエラーが発生した場合に実行されます。ここでは、カスタムのコールバックを定義するのではなく、コンソールへの書き込みを実行する標準の`console.error`関数を渡しています。より高機能のコールバック関数をここに定義して、特定のタイプのエラーをインテリジェントにキャッチすることもできます。
 
@@ -231,7 +231,7 @@ Promiseは、自身の非同期動作を完了すると、渡されたコール�
 
 # 検証の待機
 
-SGY Ledger（または任意の分散されたシステム）を使用する上で最大の課題の1つとなるのが、最終的かつ不変のトランザクション結果を把握することです。[ベストプラクティスに従っている](reliable-transaction-submission.html)場合も、トランザクションが最終的に受け入れられるか拒否されるまで、[コンセンサスプロセス](consensus.html)を待機しなければならないことに変わりはありません。以下のサンプルコードは、トランザクションの最終的な結果を待機する方法を示しています。
+RCP Ledger（または任意の分散されたシステム）を使用する上で最大の課題の1つとなるのが、最終的かつ不変のトランザクション結果を把握することです。[ベストプラクティスに従っている](reliable-transaction-submission.html)場合も、トランザクションが最終的に受け入れられるか拒否されるまで、[コンセンサスプロセス](consensus.html)を待機しなければならないことに変わりはありません。以下のサンプルコードは、トランザクションの最終的な結果を待機する方法を示しています。
 
 ```
 {% include '_code-samples/rippleapi_quickstart/submit-and-verify.js' %}
@@ -241,7 +241,7 @@ SGY Ledger（または任意の分散されたシステム）を使用する上�
 
 まれなケースとして（特に、大きな遅延や電源喪失が発生した場合）、トランザクションを送信してから、`maxLedgerVersion`がネットワークから渡されたと判断するまでの間に、レジャーのいずれかのバージョンが`rippled`サーバーで欠落することがあります。この場合、トランザクションが失敗したのか、欠落したバージョンのレジャーに含まれているのかを最終的に確定することはできません。RippleAPIは、この場合、`MissingLedgerHistoryError`を返します。
 
-`rippled`サーバーの管理者である場合は、[欠落しているレジャーを手動で要求できます](ledger_request.html)。管理者でない場合は、別のサーバーを使用してレジャー履歴を確認してみるという方法が考えられます（Rippleは、この目的で、すべての履歴が記録される公開サーバーを`s-us.sgy.plus`で運用しています）。
+`rippled`サーバーの管理者である場合は、[欠落しているレジャーを手動で要求できます](ledger_request.html)。管理者でない場合は、別のサーバーを使用してレジャー履歴を確認してみるという方法が考えられます（Rippleは、この目的で、すべての履歴が記録される公開サーバーを`s-us.RCP.plus`で運用しています）。
 
 詳細は、[信頼できるトランザクションの送信](reliable-transaction-submission.html)を参照してください。
 

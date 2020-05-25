@@ -2,7 +2,7 @@
 
 [Introduced in: rippled 0.31.0][]
 
-The Amendments system provides a means of introducing new features to the decentralized SGY Ledger network without causing disruptions. The amendments system works by utilizing the core consensus process of the network to approve any changes by showing continuous support before those changes go into effect. An amendment normally requires **80% support for two weeks** before it can apply.
+The Amendments system provides a means of introducing new features to the decentralized RCP Ledger network without causing disruptions. The amendments system works by utilizing the core consensus process of the network to approve any changes by showing continuous support before those changes go into effect. An amendment normally requires **80% support for two weeks** before it can apply.
 
 When an Amendment has been enabled, it applies permanently to all ledger versions after the one that included it. You cannot disable an Amendment, unless you introduce a new Amendment to do so.
 
@@ -14,7 +14,7 @@ Any changes to transaction processing could cause servers to build a different l
 
 Amendments solve this problem, so that new features can be enabled only when enough validators support those features.
 
-Users and businesses who rely on the SGY Ledger can also use Amendments to provide advance notice of changes in transaction processing that might affect their business. However, API changes that do not impact transaction processing or [the consensus process][] do not need Amendments.
+Users and businesses who rely on the RCP Ledger can also use Amendments to provide advance notice of changes in transaction processing that might affect their business. However, API changes that do not impact transaction processing or [the consensus process][] do not need Amendments.
 
 [the consensus process]: consensus.html
 
@@ -86,7 +86,7 @@ When an amendment gets enabled for the network after the voting process, servers
 * Do not participate in the consensus process
 * Do not vote on future amendments
 
-Becoming amendment blocked is a security feature to protect applications that depend on SGY Ledger data. Rather than guessing and maybe misinterpreting a ledger after new rules have been applied, `rippled` reports that it does not know the state of the ledger because it does not know how the amendment works.
+Becoming amendment blocked is a security feature to protect applications that depend on RCP Ledger data. Rather than guessing and maybe misinterpreting a ledger after new rules have been applied, `rippled` reports that it does not know the state of the ledger because it does not know how the amendment works.
 
 The amendments that a `rippled` server is configured to vote for or against have no impact on whether the server becomes amendment blocked. A `rippled` server always follows the set of amendments enabled by the rest of the network, to the extent possible. A server only becomes amendment blocked if an enabled amendment is not included in the amendment definitions compiled into the server's source code -- in other words, if the amendment is newer than the server.
 

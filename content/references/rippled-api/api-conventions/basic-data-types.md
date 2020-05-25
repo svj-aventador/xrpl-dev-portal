@@ -24,9 +24,9 @@ Each closed [Ledger](ledger-data-formats.html) has a [Ledger Index][] and a [Has
 ### Hash Prefixes
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/protocol/HashPrefix.h "Source")
 
-In many cases, the SGY Ledger prefixes an object's binary data with a 4-byte code before calculating its hash, so that objects of different types have different hashes even if their binary formats are the same. The existing 4-byte codes are structured as three alphabetic characters, encoded as ASCII, followed by a zero byte.
+In many cases, the RCP Ledger prefixes an object's binary data with a 4-byte code before calculating its hash, so that objects of different types have different hashes even if their binary formats are the same. The existing 4-byte codes are structured as three alphabetic characters, encoded as ASCII, followed by a zero byte.
 
-Some types of hash appear in API requests and responses. Others are only calculated as the first step of signing a certain type of data, or calculating a higher-level hash. The following table shows all 4-byte hash prefixes the SGY Ledger uses:
+Some types of hash appear in API requests and responses. Others are only calculated as the first step of signing a certain type of data, or calculating a higher-level hash. The following table shows all 4-byte hash prefixes the RCP Ledger uses:
 
 | Object Type                           | API Fields                           | Hash Prefix (Hex) | Hash Prefix (Text) |
 |:--------------------------------------|:-------------------------------------|:------------------|:--|
@@ -83,13 +83,13 @@ If you do not specify a ledger, the `current` (in-progress) ledger is chosen by 
 
 ## Specifying Currency Amounts
 
-There are two kinds of currencies in the SGY Ledger: SGY, and issued currencies. These two types of currencies are specified in different formats, with different precision and rounding behavior.
+There are two kinds of currencies in the RCP Ledger: RCP, and issued currencies. These two types of currencies are specified in different formats, with different precision and rounding behavior.
 
-Some fields, such as the destination `Amount` of a [Payment transaction][], can be either type. Some fields only accept SGY specifically, such as the `Fee` field ([transaction cost](transaction-cost.html)).
+Some fields, such as the destination `Amount` of a [Payment transaction][], can be either type. Some fields only accept RCP specifically, such as the `Fee` field ([transaction cost](transaction-cost.html)).
 
-SGY is specified as a string containing an integer number of "drops" of SGY, where 1 million drops equals 1 SGY. Issued currencies are instead specified as an object with fields for the decimal amount, currency code, and issuer. For example:
+RCP is specified as a string containing an integer number of "drops" of RCP, where 1 million drops equals 1 RCP. Issued currencies are instead specified as an object with fields for the decimal amount, currency code, and issuer. For example:
 
-- **SGY** - To specify an `Amount` field with a value of 13.1 SGY:
+- **RCP** - To specify an `Amount` field with a value of 13.1 RCP:
 
         "Amount": "13100000"
 

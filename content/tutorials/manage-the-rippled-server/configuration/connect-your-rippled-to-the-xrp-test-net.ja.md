@@ -1,10 +1,10 @@
-# SGY Test Netへのrippledの接続
+# RCP Test Netへのrippledの接続
 
-Rippleは、SGY Ledgerのテストプラットフォームを提供するため[SGY Test Network](https://ripple.com/build/xrp-test-net/)を開発しました。SGY Test Netの資金は実際の資金ではなく、テスト専用の資金です。本番環境のSGY Ledger Networkに接続する前に、`rippled`サーバーをSGY Test Netに接続して、`rippled`の機能をテストして理解できます。また、SGY Test Netを使用して、作成したコードが`rippled`と正しくやり取りすることを検証できます。
+Rippleは、RCP Ledgerのテストプラットフォームを提供するため[RCP Test Network](https://ripple.com/build/xrp-test-net/)を開発しました。RCP Test Netの資金は実際の資金ではなく、テスト専用の資金です。本番環境のRCP Ledger Networkに接続する前に、`rippled`サーバーをRCP Test Netに接続して、`rippled`の機能をテストして理解できます。また、RCP Test Netを使用して、作成したコードが`rippled`と正しくやり取りすることを検証できます。
 
-**注記:** SGY Test Netのレジャーと残高は定期的にリセットされます。
+**注記:** RCP Test Netのレジャーと残高は定期的にリセットされます。
 
-`rippled`サーバーをSGY Test Netに接続するには、以下の構成を設定します。
+`rippled`サーバーをRCP Test Netに接続するには、以下の構成を設定します。
 
 1. `rippled.cfg`ファイルで以下の手順に従います。
 
@@ -38,7 +38,7 @@ Rippleは、SGY Ledgerのテストプラットフォームを提供するため[
 
 3. `rippled`を再起動します。
 
-4. `rippled`がSGY Test Netに接続していることを確認するため、サーバーで[server_infoメソッド][]を使用して、その結果をTest Net のパブリックサーバーの結果と比較します。両方のサーバーで`validated_ledger`オブジェクトの`seq`フィールドが同一である必要があります（確認中にこの数が変化した場合は、1～2の差が生じる可能性があります）。
+4. `rippled`がRCP Test Netに接続していることを確認するため、サーバーで[server_infoメソッド][]を使用して、その結果をTest Net のパブリックサーバーの結果と比較します。両方のサーバーで`validated_ledger`オブジェクトの`seq`フィールドが同一である必要があります（確認中にこの数が変化した場合は、1～2の差が生じる可能性があります）。
 
     以下のコマンドは、`s.altnet.rippletest.net` にあるTest Net サーバーの最新の検証済みレジャーをチェックします。
 

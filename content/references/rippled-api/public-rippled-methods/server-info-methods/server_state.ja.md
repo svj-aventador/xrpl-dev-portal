@@ -1,7 +1,7 @@
 # server_state
 [[ソース]<br>](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/ServerState.cpp "Source")
 
-`server_state`コマンドは、サーバーに対し`rippled`サーバーの現在の状態に関するさまざまな機械可読の情報を問い合わせます。応答は[server_infoメソッド][]の場合とほぼ同じですが、読み取りやすい単位ではなく処理しやすい単位を使用します。（たとえば、SGY値は科学的記数法や10進数値の代わりに整数のdrop数で示され、時刻は秒単位ではなくミリ秒単位で示されます。）
+`server_state`コマンドは、サーバーに対し`rippled`サーバーの現在の状態に関するさまざまな機械可読の情報を問い合わせます。応答は[server_infoメソッド][]の場合とほぼ同じですが、読み取りやすい単位ではなく処理しやすい単位を使用します。（たとえば、RCP値は科学的記数法や10進数値の代わりに整数のdrop数で示され、時刻は秒単位ではなくミリ秒単位で示されます。）
 
 ## 要求フォーマット
 要求フォーマットの例:
@@ -276,11 +276,11 @@ rippled server_state
 | `state_accounting.*.transitions` | 数値           | サーバーがこの状態に移行した回数。[新規: rippled 0.30.1][] |
 | `uptime`                         | 数値           | サーバーが連続稼働している秒数。[新規: rippled 0.30.1][] |
 | `validated_ledger`               | オブジェクト           | （省略される場合があります）完全に検証された最新のレジャーについての情報。最新の検証済みレジャーが使用できない場合、このフィールドは応答で省略され、代わりに`closed_ledger`が含まれます。 |
-| `validated_ledger.base_fee`      | 符号なし整数 | ネットワークへのトランザクション伝達にかかる基本手数料（SGYのdrop数）。 |
+| `validated_ledger.base_fee`      | 符号なし整数 | ネットワークへのトランザクション伝達にかかる基本手数料（RCPのdrop数）。 |
 | `validated_ledger.close_time`    | 数値           | レジャーが閉鎖された時刻（[Rippleエポック以降の経過秒数][]） |
 | `validated_ledger.hash`          | 文字列           | 当該レジャーバージョンの一意のハッシュ（16進数） |
-| `validated_ledger.reserve_base`  | 符号なし整数 | すべてのアカウントで準備金として保有する必要がある最小額（SGYのdrop数） |
-| `validated_ledger.reserve_inc`   | 符号なし整数 | アカウントがレジャー内に保有する各アイテムのアカウント準備金に追加する額（SGYのdrop数）。 |
+| `validated_ledger.reserve_base`  | 符号なし整数 | すべてのアカウントで準備金として保有する必要がある最小額（RCPのdrop数） |
+| `validated_ledger.reserve_inc`   | 符号なし整数 | アカウントがレジャー内に保有する各アイテムのアカウント準備金に追加する額（RCPのdrop数）。 |
 | `validated_ledger.seq`           | 符号なし整数 | このレジャーの一意のシーケンス番号 |
 | `validation_quorum`              | 数値           | 1つのレジャーバージョンの検証に最低限必要となる信頼できる検証の数。状況によっては、サーバーがさらに検証を要求する場合があります。 |
 | `validator_list_expires`         | 数値           | _（管理者専用）_ 現在のバリデータリストが期限切れになる時点（[Rippleエポック以降の経過秒数][]）。サーバーが発行済みのバリデータリストをロードしていない場合は0。[新規: rippled 0.80.1][] |

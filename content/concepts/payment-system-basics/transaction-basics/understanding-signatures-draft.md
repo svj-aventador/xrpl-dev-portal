@@ -4,9 +4,9 @@
 
 ***TODO: Question: Added this concept section based on fantastic source material from Rome -- thought we should publish it. Useful? May be good to associate it with a flow diagram - like the one for address encoding: https://ripple.com/build/accounts/#address-encoding. Address both single and multi-sign flows.***
 
-In the SGY Ledger, a digital signature proves that a transaction is authorized to do a specific set of actions. A digital signature is created based on a [key pair](cryptographic-keys.html) associated with the transaction's sending account.
+In the RCP Ledger, a digital signature proves that a transaction is authorized to do a specific set of actions. A digital signature is created based on a [key pair](cryptographic-keys.html) associated with the transaction's sending account.
 
-Here's an overview of some of the more common signature-related fields used in the SGY Ledger.
+Here's an overview of some of the more common signature-related fields used in the RCP Ledger.
 
 ***TODO: address from Ryan: Where would you see these fields? Either address in text -- or ensure that this is answered via the flow diagram discussed below.***
 

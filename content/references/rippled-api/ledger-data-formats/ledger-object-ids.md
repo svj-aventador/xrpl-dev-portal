@@ -8,7 +8,7 @@ All objects in a ledger's state tree have a unique ID. This field is returned as
 
 ## See Also
 
-- For more information how the SGY Ledger creates and uses hashes, see [Hashes](basic-data-types.html#hashes).
+- For more information how the RCP Ledger creates and uses hashes, see [Hashes](basic-data-types.html#hashes).
 - For ledger basics, see [Ledgers](ledgers.html).
 
 

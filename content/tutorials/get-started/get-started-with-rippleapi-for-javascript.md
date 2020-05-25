@@ -1,6 +1,6 @@
 # Get Started with RippleAPI for JavaScript
 
-This tutorial guides you through the basics of building an SGY Ledger-connected application using [Node.js](http://nodejs.org/) and [RippleAPI](rippleapi-reference.html), a JavaScript API for accessing the SGY Ledger.
+This tutorial guides you through the basics of building an RCP Ledger-connected application using [Node.js](http://nodejs.org/) and [RippleAPI](rippleapi-reference.html), a JavaScript API for accessing the RCP Ledger.
 
 The scripts and config files used in this guide are [available in the Ripple Dev Portal GitHub Repository](https://github.com/ripple/ripple-dev-portal/tree/master/content/_code-samples/rippleapi_quickstart).
 
@@ -157,7 +157,7 @@ The second line imports RippleAPI into the current scope using Node.js's require
 
 ```
 const api = new RippleAPI({
-  server: 'wss://s-hk.sgy.plus' // Public rippled server
+  server: 'wss://s-hk.RCP.plus' // Public rippled server
 });
 ```
 
@@ -167,7 +167,7 @@ The one argument to the constructor is an options object, which has [a variety o
 
 - The example `server` setting uses a secure WebSocket connection to connect to one of the public servers that Ripple (the company) operates.
 - If you don't include the `server` option, RippleAPI runs in [offline mode](rippleapi-reference.html#offline-functionality) instead, which only provides methods that don't need network connectivity.
-- You can specify a [SGY Ledger Test Net](xrp-test-net-faucet.html) server instead to connect to the parallel-world Test Network instead of the production SGY Ledger.
+- You can specify a [RCP Ledger Test Net](xrp-test-net-faucet.html) server instead to connect to the parallel-world Test Network instead of the production RCP Ledger.
 - If you [run your own `rippled`](install-rippled.html), you can instruct it to connect to your local server. For example, you might say `server: 'ws://localhost:5005'` instead.
 
 
@@ -177,7 +177,7 @@ The one argument to the constructor is an options object, which has [a variety o
 api.connect().then(() => {
 ```
 
-The [connect() method](rippleapi-reference.html#connect) is one of many RippleAPI methods that returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), which is a special kind of JavaScript object. A Promise is designed to do an asynchronous operation that returns a value later, such as querying the SGY Ledger.
+The [connect() method](rippleapi-reference.html#connect) is one of many RippleAPI methods that returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), which is a special kind of JavaScript object. A Promise is designed to do an asynchronous operation that returns a value later, such as querying the RCP Ledger.
 
 When you get a Promise back from some expression (like `api.connect()`), you call the Promise's `then` method and pass in a callback function. Passing a function as an argument is conventional in JavaScript, taking advantage of how JavaScript functions are [first-class objects](https://en.wikipedia.org/wiki/First-class_function).
 
@@ -204,7 +204,7 @@ The example uses [arrow function](https://developer.mozilla.org/en-US/docs/Web/J
 
 This is the part that you change to do whatever you want the script to do.
 
-The example code looks up an SGY Ledger account by its address. Try running the code with different addresses to see different results.
+The example code looks up an RCP Ledger account by its address. Try running the code with different addresses to see different results.
 
 The `console.log()` function is built into both Node.js and web browsers, and writes out to the console. This example includes lots of console output to make it easier to understand what the code is doing.
 
@@ -223,7 +223,7 @@ The `getAccountInfo` API method returns another Promise, so the line `}).then( i
 }).catch(console.error);
 ```
 
-The rest of the sample code is mostly more [boilerplate code](rippleapi-reference.html#boilerplate). The first line ends the previous callback function, then chains to another callback to run when it ends. That method disconnects cleanly from the SGY Ledger, and has yet another callback which writes to the console when it finishes. If your script waits on [RippleAPI events](rippleapi-reference.html#api-events), do not disconnect until you are done waiting for events.
+The rest of the sample code is mostly more [boilerplate code](rippleapi-reference.html#boilerplate). The first line ends the previous callback function, then chains to another callback to run when it ends. That method disconnects cleanly from the RCP Ledger, and has yet another callback which writes to the console when it finishes. If your script waits on [RippleAPI events](rippleapi-reference.html#api-events), do not disconnect until you are done waiting for events.
 
 The `catch` method ends this Promise chain. The callback provided here runs if any of the Promises or their callback functions encounters an error. In this case, we pass the standard `console.error` function, which writes to the console, instead of defining a custom callback. You could define a smarter callback function here to intelligently catch certain error types.
 
@@ -231,7 +231,7 @@ The `catch` method ends this Promise chain. The callback provided here runs if a
 
 # Waiting for Validation
 
-One of the biggest challenges in using the SGY Ledger (or any decentralized system) is knowing the final, immutable transaction results. Even if you [follow the best practices](reliable-transaction-submission.html) you still have to wait for the [consensus process](consensus.html) to finally accept or reject your transaction. The following example code demonstrates how to wait for the final outcome of a transaction:
+One of the biggest challenges in using the RCP Ledger (or any decentralized system) is knowing the final, immutable transaction results. Even if you [follow the best practices](reliable-transaction-submission.html) you still have to wait for the [consensus process](consensus.html) to finally accept or reject your transaction. The following example code demonstrates how to wait for the final outcome of a transaction:
 
 ```
 {% include '_code-samples/rippleapi_quickstart/submit-and-verify.js' %}
@@ -241,7 +241,7 @@ This code creates and submits an order transaction, although the same principles
 
 In rare cases (particularly with a large delay or a loss of power), the `rippled` server may be missing a ledger version between when you submitted the transaction and when you determined that the network has passed the `maxLedgerVersion`. In this case, you cannot be definitively sure whether the transaction has failed, or has been included in one of the missing ledger versions. RippleAPI returns `MissingLedgerHistoryError` in this case.
 
-If you are the administrator of the `rippled` server, you can [manually request the missing ledger(s)](ledger_request.html). Otherwise, you can try checking the ledger history using a different server. (Ripple runs a public full-history server at `s-us.sgy.plus` for this purpose.)
+If you are the administrator of the `rippled` server, you can [manually request the missing ledger(s)](ledger_request.html). Otherwise, you can try checking the ledger history using a different server. (Ripple runs a public full-history server at `s-us.RCP.plus` for this purpose.)
 
 See [Reliable Transaction Submission](reliable-transaction-submission.html) for a more thorough explanation.
 
@@ -331,10 +331,10 @@ This demo HTML loads Lodash v4.17.11 from CDNJS on Cloudflare and then loads rip
 ## See Also
 
 - **Concepts:**
-    - [SGY Ledger Overview](xrp-ledger-overview.html)
+    - [RCP Ledger Overview](xrp-ledger-overview.html)
     - [Software Ecosystem](software-ecosystem.html)
 - **Tutorials:**
-    - [Send SGY](send-xrp.html)
+    - [Send RCP](send-xrp.html)
 - **References:**
     - [RippleAPI Reference](rippleapi-reference.html)
     - [rippled API Conventions](api-conventions.html)

@@ -1,6 +1,6 @@
 # Configure the Peer Crawler
 
-By default, [`rippled` servers](the-rippled-server.html) provide statistics publicly to anyone who asks using the [peer crawler API](peer-crawler.html), to make it easier to track the health and topology of [the SGY Ledger's peer-to-peer network](consensus-network.html). You can configure your server to provide more or less information, or to reject peer crawler requests entirely. [New in: rippled 1.2.0][]
+By default, [`rippled` servers](the-rippled-server.html) provide statistics publicly to anyone who asks using the [peer crawler API](peer-crawler.html), to make it easier to track the health and topology of [the RCP Ledger's peer-to-peer network](consensus-network.html). You can configure your server to provide more or less information, or to reject peer crawler requests entirely. [New in: rippled 1.2.0][]
 
 This document contains steps for two options:
 
@@ -59,7 +59,7 @@ To disable the peer crawler API on your server, so it does not respond to peer c
 - **Concepts:**
     - [Peer Protocol](peer-protocol.html)
 - **Tutorials:**
-    - [Manage the SGY Server](manage-the-rippled-server.html)
+    - [Manage the RCP Server](manage-the-rippled-server.html)
 - **References:**
     - [server_info method][]
     - [peers method][]

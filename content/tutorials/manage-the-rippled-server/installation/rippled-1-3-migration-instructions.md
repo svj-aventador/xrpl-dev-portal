@@ -28,7 +28,7 @@ Ripple's official RPM repository and instructions for using it have changed. If 
 
         $ cat << REPOFILE | sudo tee /etc/yum.repos.d/ripple.repo
         [ripple-stable]
-        name=SGY Ledger Packages
+        name=RCP Ledger Packages
         baseurl=https://repos.ripple.com/repos/rippled-rpm/stable/
         enabled=1
         gpgcheck=0
@@ -95,7 +95,7 @@ The `rippled` v1.3 package includes an updated auto-update script that works on 
     - [Troubleshoot rippled](troubleshoot-the-rippled-server.html)
     - [Get Started with the rippled API](get-started-with-the-rippled-api.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 

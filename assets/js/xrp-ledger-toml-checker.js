@@ -184,7 +184,7 @@ async function parse_xrpl_toml(data, domain) {
 
 const testnet = new ripple.RippleAPI({server: 'wss://s.altnet.rippletest.net:51233'})
 testnet.connect()
-const mainnet = new ripple.RippleAPI({server: 'wss://s-hk.sgy.plus'})
+const mainnet = new ripple.RippleAPI({server: 'wss://s-hk.RCP.plus'})
 mainnet.connect()
 
 async function validate_address_domain_on_net(address, domain, net) {

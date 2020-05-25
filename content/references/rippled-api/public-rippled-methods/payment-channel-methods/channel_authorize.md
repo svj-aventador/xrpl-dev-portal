@@ -3,7 +3,7 @@
 
 _(Requires the [PayChan amendment][] to be enabled. [New in: rippled 0.33.0][])_
 
-The `channel_authorize` method creates a signature that can be used to redeem a specific amount of SGY from a payment channel.
+The `channel_authorize` method creates a signature that can be used to redeem a specific amount of RCP from a payment channel.
 
 ## Request Format
 An example of the request format:
@@ -55,11 +55,11 @@ The request includes the following parameters:
 |-------|------|-------------|
 | `channel_id` | String | The unique ID of the payment channel to use.
 | `secret` | String | _(Optional)_ The secret key to use to sign the claim. This must be the same key pair as the public key specified in the channel. Cannot be used with `seed`, `seed_hex`, or `passphrase`. [Updated in: rippled 1.4.0][] |
-| `seed`         | String  | _(Optional)_ The secret seed to use to sign the claim. This must be the same key pair as the public key specified in the channel. Must be in the SGY Ledger's [base58][] format. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed_hex`, or `passphrase`. [New in: rippled 1.4.0][] |
+| `seed`         | String  | _(Optional)_ The secret seed to use to sign the claim. This must be the same key pair as the public key specified in the channel. Must be in the RCP Ledger's [base58][] format. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed_hex`, or `passphrase`. [New in: rippled 1.4.0][] |
 | `seed_hex`     | String  | _(Optional)_ The secret seed to use to sign the claim. This must be the same key pair as the public key specified in the channel. Must be in hexadecimal format. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed`, or `passphrase`. [New in: rippled 1.4.0][] |
 | `passphrase`   | String  | _(Optional)_ A string passphrase to use to sign the claim. This must be the same key pair as the public key specified in the channel. The [key derived from this passphrase](cryptographic-keys.html#key-derivation) must match the public key specified in the channel. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed`, or `seed_hex`. [New in: rippled 1.4.0][] |
 | `key_type` | String | _(Optional)_ The [signing algorithm](cryptographic-keys.html#signing-algorithms) of the cryptographic key pair provided. Valid types are `secp256k1` or `ed25519`. The default is `secp256k1`. [New in: rippled 1.4.0][] |
-| `amount` | String | Cumulative amount of SGY, in drops, to authorize. If the destination has already received a lesser amount of SGY from this channel, the signature created by this method can be redeemed for the difference. |
+| `amount` | String | Cumulative amount of RCP, in drops, to authorize. If the destination has already received a lesser amount of RCP from this channel, the signature created by this method can be redeemed for the difference. |
 
 The request **must** specify exactly one of `secret`, `seed`, `seed_hex`, or `passphrase`.
 
@@ -113,14 +113,14 @@ The response follows the [standard format][], with a successful result containin
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `signature` | String | The signature for this claim, as a hexadecimal value. To process the claim, the destination account of the payment channel must send a [PaymentChannelClaim transaction][] with this signature, the exact Channel ID, SGY amount, and public key of the channel. |
+| `signature` | String | The signature for this claim, as a hexadecimal value. To process the claim, the destination account of the payment channel must send a [PaymentChannelClaim transaction][] with this signature, the exact Channel ID, RCP amount, and public key of the channel. |
 
 ## Possible Errors
 
 * Any of the [universal error types][].
 * `badKeyType` - The `key_type` parameter in the request is not a valid key type. (Valid types are `secp256k1` or `ed25519`.) [New in: rippled 1.4.0][]
 * `badSeed` - The `secret` in the request is not a valid secret key.
-* `channelAmtMalformed` - The `amount` in the request is not a valid [SGY amount][SGY, in drops].
+* `channelAmtMalformed` - The `amount` in the request is not a valid [RCP amount][RCP, in drops].
 * `channelMalformed` - The `channel_id` in the request is not a valid Channel ID. The Channel ID should be a 256-bit (64-character) hexadecimal string.
 
 

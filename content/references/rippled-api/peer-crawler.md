@@ -2,7 +2,7 @@
 
 The Peer Crawler is a special API endpoint for reporting on the health and topology of the peer-to-peer network. This API method is available by default on a non-privileged basis through the [Peer Protocol](peer-protocol.html) port, which is also used for `rippled` servers' peer-to-peer communications about consensus, ledger history, and other necessary information.
 
-The information reported by the peer crawler is effectively public, and can be used to report on the overall SGY Ledger network, its health, and topology.
+The information reported by the peer crawler is effectively public, and can be used to report on the overall RCP Ledger network, its health, and topology.
 
 ## Request Format
 
@@ -15,7 +15,7 @@ To request the Peer Crawler information, make the following HTTP request:
 - **Path:** `/crawl`
 - **Security:** Most `rippled` servers use a self-signed certificate to respond to the request. By default, most tools (including web browsers) flag or block such responses for being untrusted. You must ignore the certificate checking (for example, if using cURL, add the `--insecure` flag) to display a response from those servers.
 
-**Tip:** Since this request uses the GET method, you can test this request using just the URL bar of your web browser. For example, <https://s-hk.sgy.plus:51235/crawl> requests peer crawler information from one of Ripple's public servers.
+**Tip:** Since this request uses the GET method, you can test this request using just the URL bar of your web browser. For example, <https://s-hk.RCP.plus:51235/crawl> requests peer crawler information from one of Ripple's public servers.
 
 ## Response Format
 
@@ -77,7 +77,7 @@ Response:
 
 - [Peer Protocol](peer-protocol.html)
 - [Configure the Peer Crawler](configure-the-peer-crawler.html)
-- The [SGYL Network Crawler](https://github.com/ripple/rippled-network-crawler) is an example of a tool that uses the peer crawler data to collect and store information about the SGY Ledger network.
+- The [RCPL Network Crawler](https://github.com/ripple/rippled-network-crawler) is an example of a tool that uses the peer crawler data to collect and store information about the RCP Ledger network.
 
 
 <!--{# common link defs #}-->

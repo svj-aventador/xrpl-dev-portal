@@ -1,6 +1,6 @@
 # Build and Run rippled on Ubuntu
 
-`rippled` is the core peer-to-peer server that manages the SGY Ledger. A `rippled` server can connect to a network of peers, relay cryptographically signed transactions, and maintain a local copy of the complete shared global ledger.
+`rippled` is the core peer-to-peer server that manages the RCP Ledger. A `rippled` server can connect to a network of peers, relay cryptographically signed transactions, and maintain a local copy of the complete shared global ledger.
 
 For an overview of `rippled`, see [Operating rippled Servers](install-rippled.html).
 
@@ -228,7 +228,7 @@ Watchdog: Launching child 1
     - [Troubleshoot rippled](troubleshoot-the-rippled-server.html)
     - [Get Started with the rippled API](get-started-with-the-rippled-api.html)
 - **References:**
-    - [SGY API Reference](rippled-api.html)
+    - [RCP API Reference](rippled-api.html)
         - [`rippled` Commandline Usage](commandline-usage.html)
         - [server_info method][]
 
