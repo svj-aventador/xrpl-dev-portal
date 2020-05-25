@@ -157,7 +157,7 @@ The second line imports RippleAPI into the current scope using Node.js's require
 
 ```
 const api = new RippleAPI({
-  server: 'wss://s-hk.RCP.plus' // Public rippled server
+  server: 'wss://wss2.rcproto.org' // Public rippled server
 });
 ```
 
@@ -241,7 +241,7 @@ This code creates and submits an order transaction, although the same principles
 
 In rare cases (particularly with a large delay or a loss of power), the `rippled` server may be missing a ledger version between when you submitted the transaction and when you determined that the network has passed the `maxLedgerVersion`. In this case, you cannot be definitively sure whether the transaction has failed, or has been included in one of the missing ledger versions. RippleAPI returns `MissingLedgerHistoryError` in this case.
 
-If you are the administrator of the `rippled` server, you can [manually request the missing ledger(s)](ledger_request.html). Otherwise, you can try checking the ledger history using a different server. (Ripple runs a public full-history server at `s-us.RCP.plus` for this purpose.)
+If you are the administrator of the `rippled` server, you can [manually request the missing ledger(s)](ledger_request.html). Otherwise, you can try checking the ledger history using a different server. (Ripple runs a public full-history server at `wss1.rcproto.org` for this purpose.)
 
 See [Reliable Transaction Submission](reliable-transaction-submission.html) for a more thorough explanation.
 

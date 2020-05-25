@@ -157,7 +157,7 @@ const RippleAPI = require('ripple-lib').RippleAPI;
 
 ```
 const api = new RippleAPI({
-  server: 'wss://s-hk.RCP.plus' // Public rippled server
+  server: 'wss://wss2.rcproto.org' // Public rippled server
 });
 ```
 
@@ -241,7 +241,7 @@ RCP Ledger（または任意の分散されたシステム）を使用する上�
 
 まれなケースとして（特に、大きな遅延や電源喪失が発生した場合）、トランザクションを送信してから、`maxLedgerVersion`がネットワークから渡されたと判断するまでの間に、レジャーのいずれかのバージョンが`rippled`サーバーで欠落することがあります。この場合、トランザクションが失敗したのか、欠落したバージョンのレジャーに含まれているのかを最終的に確定することはできません。RippleAPIは、この場合、`MissingLedgerHistoryError`を返します。
 
-`rippled`サーバーの管理者である場合は、[欠落しているレジャーを手動で要求できます](ledger_request.html)。管理者でない場合は、別のサーバーを使用してレジャー履歴を確認してみるという方法が考えられます（Rippleは、この目的で、すべての履歴が記録される公開サーバーを`s-us.RCP.plus`で運用しています）。
+`rippled`サーバーの管理者である場合は、[欠落しているレジャーを手動で要求できます](ledger_request.html)。管理者でない場合は、別のサーバーを使用してレジャー履歴を確認してみるという方法が考えられます（Rippleは、この目的で、すべての履歴が記録される公開サーバーを`wss1.rcproto.org`で運用しています）。
 
 詳細は、[信頼できるトランザクションの送信](reliable-transaction-submission.html)を参照してください。
 

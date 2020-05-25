@@ -2,7 +2,7 @@
 const RippleAPI = require('ripple-lib').RippleAPI;
 
 const api = new RippleAPI({
-  server: 'wss://s-hk.RCP.plus' // Public rippled server
+  server: 'wss://wss2.rcproto.org' // Public rippled server
 });
 api.connect().then(() => {
   /* begin custom code ------------------------------------ */

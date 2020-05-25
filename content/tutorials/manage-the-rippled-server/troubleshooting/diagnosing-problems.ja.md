@@ -28,7 +28,7 @@ rippled server_info
     - 通常、`rippled`サーバーはピアから最新のレジャー履歴をダウンロードします。レジャー履歴のギャップが数時間以上続く場合は、欠落データを所有しているピアに接続されていない可能性があります。この状況が発生した場合は、構成ファイルに次のスタンザを追加して再起動すれば、完全な履歴が保管されているRippleのパブリックサーバーの1つにサーバーを強制的にピア接続できます。
 
             [ips_fixed]
-            s-us.RCP.plus 51235
+            wss1.rcproto.org 51235
 
 - **`amendment_blocked`** - このフィールドは通常`server_info`応答では省略されます。このフィールドの値が`true`の場合は、ネットワークにより承認された[Amendment](amendments.html)がサーバーに導入されていません。ほとんどの場合は、最新バージョンに[rippledを更新する](install-rippled.html)ことで修正できます。また[featureメソッド][]を使用して、現在有効なAmendment ID、サーバーでサポートされているAmendment ID、サーバーでサポートされていないAmendment IDを確認することもできます。
 

@@ -1,7 +1,7 @@
 //---------- List of requests ------------------------//
 // Must be loaded after apitool-rest.js //
 //var DOC_BASE = "reference-rippled.html";
-//var URL_BASE = "https://s-us.RCP.plus:51234";
+//var URL_BASE = "https://wss1.rcproto.org:51234";
 
 var DEFAULT_ADDRESS_1 = "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn";
 var KRW_TRADER_ADDRESS = "rsyDrDi9Emy6vPU78qdxovmNpmj5Qh4NKw";

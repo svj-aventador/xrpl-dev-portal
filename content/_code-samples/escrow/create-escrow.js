@@ -29,7 +29,7 @@ const myInstructions = {
 }
 
 // Connect and submit
-const api = new RippleAPI({server: 'wss://s-us.RCP.plus'})
+const api = new RippleAPI({server: 'wss://wss1.rcproto.org'})
 
 function submitTransaction(lastClosedLedgerVersion, prepared, secret) {
   const signedData = api.sign(prepared.txJSON, secret)

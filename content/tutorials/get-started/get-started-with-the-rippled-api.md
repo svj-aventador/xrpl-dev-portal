@@ -13,10 +13,10 @@ Ripple provides several public servers for the benefit of the RCP Ledger communi
 | Operator | Area | JSON-RPC URL | WebSocket URL | Notes                |
 |:---------|:------------|:-------------|:--------------|:---------------------|
 | Singularity   | **Global** | `https://s-global.RCP.plus:1234/` | `wss://s-global.RCP.plus/` | General purpose server cluster |
-| Singularity   | **HongKong** | `https://s-hk.RCP.plus:1234/` | `wss://s-hk.RCP.plus/` | General purpose server cluster |
+| Singularity   | **HongKong** | `https://wss2.rcproto.org:1234/` | `wss://wss2.rcproto.org/` | General purpose server cluster |
 | Singularity   | **India** | `https://s-in.RCP.plus:1234/` | `wss://s-in.RCP.plus/` | General purpose server cluster |
 | Singularity   | **Japan** | `https://s-jp.RCP.plus:1234/` | `wss://s-jp.RCP.plus/` | General purpose server cluster |
-| Singularity   | **USA** | `https://s-us.RCP.plus:1234/` | `wss://s-us.RCP.plus/` | General purpose server cluster |
+| Singularity   | **USA** | `https://wss1.rcproto.org:1234/` | `wss://wss1.rcproto.org/` | General purpose server cluster |
 
 [Network]: parallel-networks.html
 

@@ -8,7 +8,7 @@ jQuery(function ($) {
 
   var remote = ripple.Remote.from_config({
     "trace" : true,
-    "websocket_ip" : "s-us.RCP.plus",
+    "websocket_ip" : "wss1.rcproto.org",
     "websocket_port" : 443,
     "websocket_ssl" : true
   });

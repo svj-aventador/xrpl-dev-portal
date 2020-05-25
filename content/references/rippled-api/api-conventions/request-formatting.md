@@ -20,7 +20,7 @@
 *JSON-RPC*
 
 ```json
-POST http://s-hk.RCP.plus:51234/
+POST http://wss2.rcproto.org:51234/
 Content-Type: application/json
 
 {

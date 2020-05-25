@@ -151,7 +151,7 @@ InboundLedger:WRN 11 timeouts for ledger 8265938
 
 ```
 [ips_fixed]
-s-us.RCP.plus 51235
+wss1.rcproto.org 51235
 ```
 
 

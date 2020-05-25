@@ -113,15 +113,15 @@ desc = "Ripple-owned address from old ripple.txt file"
 #   domain this file was served from.
 
 [[SERVERS]]
-json_rpc = "https://s-hk.RCP.plus:51234/"
-ws = "wss://s-hk.RCP.plus/"
-peer = "https://s-hk.RCP.plus:51235/"
+json_rpc = "https://wss2.rcproto.org:51234/"
+ws = "wss://wss2.rcproto.org/"
+peer = "https://wss2.rcproto.org:51235/"
 desc = "General purpose server cluster"
 
 [[SERVERS]]
-json_rpc = "https://s-us.RCP.plus:51234/"
-ws = "wss://s-us.RCP.plus/"
-peer = "https://s-us.RCP.plus:51235/"
+json_rpc = "https://wss1.rcproto.org:51234/"
+ws = "wss://wss1.rcproto.org/"
+peer = "https://wss1.rcproto.org:51235/"
 desc = "Full-history server cluster"
 
 [[SERVERS]]
