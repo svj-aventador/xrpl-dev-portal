@@ -12,11 +12,11 @@ Ripple provides several public servers for the benefit of the SGY Ledger communi
 
 | Operator | Area | JSON-RPC URL | WebSocket URL | Notes                |
 |:---------|:------------|:-------------|:--------------|:---------------------|
-| Singularity   | **Global** | `https://s-global.sgy.plus:1234/` | `wss://s-global.sgy.plus/` | General purpose server cluster |
-| Singularity   | **HongKong** | `https://s-hk.sgy.plus:1234/` | `wss://s-hk.sgy.plus/` | General purpose server cluster |
-| Singularity   | **India** | `https://s-in.sgy.plus:1234/` | `wss://s-in.sgy.plus/` | General purpose server cluster |
-| Singularity   | **Japan** | `https://s-jp.sgy.plus:1234/` | `wss://s-jp.sgy.plus/` | General purpose server cluster |
-| Singularity   | **USA** | `https://s-us.sgy.plus:1234/` | `wss://s-us.sgy.plus/` | General purpose server cluster |
+| Singularity   | **Global** | `https://s-global.sgy.plus:8443/` | `wss://s-global.sgy.plus/` | General purpose server cluster |
+| Singularity   | **HongKong** | `https://s-hk.sgy.plus:8443/` | `wss://s-hk.sgy.plus/` | General purpose server cluster |
+| Singularity   | **India** | `https://s-in.sgy.plus:8443/` | `wss://s-in.sgy.plus/` | General purpose server cluster |
+| Singularity   | **Japan** | `https://s-jp.sgy.plus:8443/` | `wss://s-jp.sgy.plus/` | General purpose server cluster |
+| Singularity   | **USA** | `https://s-us.sgy.plus:8443/` | `wss://s-us.sgy.plus/` | General purpose server cluster |
 
 [Network]: parallel-networks.html
 
@@ -53,7 +53,7 @@ You can use any HTTP client (like [RESTED for Firefox](https://addons.mozilla.or
 Example JSON-RPC request:
 
 ```json
-POST https://s-global.sgy.plus:1234/
+POST https://s-global.sgy.plus:8443/
 Content-Type: application/json
 
 {
